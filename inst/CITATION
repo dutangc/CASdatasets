@@ -1,0 +1,14 @@
+citHeader("To cite insurdatasets in publications use:")
+
+
+citEntry(entry="Manual",
+         title = "Insurance datasets",
+         author = "Christophe Dutang",
+	 year = 2016,
+         note = "R package version 1.0-5",
+         textVersion =
+	 paste(	"C. Dutang",
+		"(2016)",
+	       	"Insurance, reinsurance, other insurance-related datasets.")
+)
+

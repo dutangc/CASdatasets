@@ -1,0 +1,5 @@
+# This package exports nothing (it uses lazydata)
+# exportPattern(".")
+
+# Import all packages listed as Imports or Depends
+import(xts, sp)
