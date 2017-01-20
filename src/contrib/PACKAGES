@@ -2,5 +2,6 @@ Package: CASdatasets
 Version: 1.0-7
 Depends: R (>= 3.0.0), xts, sp
 License: GPL (>= 2)
-MD5sum: 04b2a29f110f7ea0045ca2ba09173ea3
+MD5sum: 1f39da5960be943b6a32e97d0f0de6ea
+NeedsCompilation: no
 
