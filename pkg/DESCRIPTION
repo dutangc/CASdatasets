@@ -9,3 +9,4 @@ Depends: R (>= 3.0.0), xts, sp
 License: GPL (>= 2)
 NeedsCompilation: no
 URL: http://cas.uqam.ca/
+BuildResaveData: best
