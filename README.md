@@ -5,10 +5,12 @@ CASdatasets
 Install
 -------
 
- the current released version from CRAN:
+To get the current released version from `cas.uqam.ca or my website:
 
 ``` r
-install.packages("rtweet")
+install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/", type="source")
+#or 
+install.packages("CASdatasets", repos = "http://cas.uqam.ca/pub/R/", type="source")
 library(CASdatasets)
 ```
 
