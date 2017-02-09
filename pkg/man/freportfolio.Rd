@@ -2,6 +2,8 @@
 \alias{freportfolio}
 \alias{freprojqxINSEE}
 \alias{frefictivetable}
+\alias{frefictivetable2}
+\alias{frefictivetable3}
 \alias{freptfpermdis}
 \alias{freptftempdis}
 \docType{data}
@@ -18,6 +20,10 @@ The \code{frefictivetable} represents a fictive portfolio of
 between 1996-01-01 and 2007-12-31.
 The exit (that may occur before December 2007) is either \code{"deceased"} or \code{"other"}.
 
+The \code{frefictivetable2,frefictivetable3} represents a fictive portfolio of
+100,000 individuals that enter in a healthy condition and have been observed
+between 1988-12-29 and 1993-12-31.
+The exit (that may occur before December 1993) is either \code{"deceased"} or \code{"other"}.
 
 The \code{freptfpermdis} and \code{freptftempdis} datasets comes from two portfolio
 of two French private companies (insurer or institute), respectively for permanent
@@ -28,6 +34,8 @@ disability insurance and temporary disability insurance.
 \usage{
 data(freprojqxINSEE)
 data(frefictivetable)
+data(frefictivetable2)
+data(frefictivetable3)
 data(freptfpermdis)
 data(freptftempdis)
 
@@ -42,7 +50,7 @@ data(freptftempdis)
     \item{\code{M2007},..., \code{M2060}}{The 1-year male death probabilities}
 	}
 	
-\code{frefictivetable} is a data frame of 6 columns and 87090 rows:
+\code{frefictivetable} is a data frame of 6 columns and 87,090 rows:
 \describe{
 	\item{\code{Id}}{the identification number.}
     \item{\code{Gender}}{the gender as \code{"factor"}.}
@@ -53,6 +61,16 @@ data(freptftempdis)
         or \code{"other"} (i.e. censored observation) as \code{"factor"}.}
 	}
 	
+\code{frefictivetable2,frefictivetable3} are data frames of 5 columns and 100,000 rows:
+\describe{
+	\item{\code{DateIn}}{the entry date as \code{"Date"}.}
+	\item{\code{DateOut}}{the exit date as \code{"Date"}.}
+	\item{\code{Status}}{the status at exit : \code{"deceased"} (i.e. non-censored observation)         or \code{"other"} (i.e. censored observation) as \code{"factor"}.}
+	\item{\code{DateOfBirth}}{the date of birth as \code{"Date"}.}
+	\item{\code{Gender}}{the gender as \code{"factor"}.}
+  }
+
+
 \code{freptfpermdis} is a data frame of 6 columns and 1,048,575 rows:
 \describe{
 	\item{\code{PolicyID}}{the policy identification number.}
