@@ -22,9 +22,10 @@ on its own merits.
 
 
 \code{usreGL8700} comes from the 2001 edition of the Historical Loss.
-This dataset has been used  by Braun (2004).
-These data are from reinsurance business in
-general liability coverages  for years 1987-2000.
+This dataset has been used by Braun (2004).
+These data are from reinsurance business for
+general liability coverages for years 1987-2000 and
+contain cumulative incurred amounts in thousands of US dollars.
 
 \code{ustri1fire} is a list of two triangles for fire insurance (one
 for incurred amounts and the other for paid amounts) from Quard and Mack (2008).

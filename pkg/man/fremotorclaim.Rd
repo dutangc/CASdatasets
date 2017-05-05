@@ -109,17 +109,17 @@ data(fremotor4freq9907b)
 \item{\code{Marketing}}{The marketing code
 (as \code{"factor"}): unknown category.}
 
-\item{\code{PremWindscreen}}{The premium for windscreen guarantee.}
-\item{\code{PremDamAll}}{The premium for damage all-accident guarantee.}
-\item{\code{PremFire}}{The premium for fire guarantee.}
-\item{\code{PremAcc1}}{The premium for type-1 accident guarantee.}
-\item{\code{PremAcc2}}{The premium for type-2 accident guarantee.}
-\item{\code{PremLegal}}{The premium for legal protection guarantee.}
-\item{\code{PremTPLM}}{The premium for mandatory third-part liability guarantee.}
-\item{\code{PremTPLV}}{The premium for voluntary third-part liability guarantee.}
-\item{\code{PremServ}}{The premium for service guarantee.}
-\item{\code{PremTheft}}{The premium for theft guarantee.}
-\item{\code{PremTot}}{The total premium.}
+\item{\code{PremWindscreen}}{The premium for windscreen guarantee (annual basis).}
+\item{\code{PremDamAll}}{The premium for damage all-accident guarantee (annual basis).}
+\item{\code{PremFire}}{The premium for fire guarantee (annual basis).}
+\item{\code{PremAcc1}}{The premium for type-1 accident guarantee (annual basis).}
+\item{\code{PremAcc2}}{The premium for type-2 accident guarantee (annual basis).}
+\item{\code{PremLegal}}{The premium for legal protection guarantee (annual basis).}
+\item{\code{PremTPLM}}{The premium for mandatory third-part liability guarantee (annual basis).}
+\item{\code{PremTPLV}}{The premium for voluntary third-part liability guarantee (annual basis).}
+\item{\code{PremServ}}{The premium for service guarantee (annual basis).}
+\item{\code{PremTheft}}{The premium for theft guarantee (annual basis).}
+\item{\code{PremTot}}{The total premium (annual basis).}
 
 \item{\code{Year}}{Numeric for the year.}
 

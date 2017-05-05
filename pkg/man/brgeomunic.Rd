@@ -93,7 +93,7 @@ data(brgeomunicins)
 \item{State, StateAb}{Character string (\code{"factor"}) for the full state name
 and the two-letter abbreviated state name.}
 \item{City}{A character string (\code{"factor"}) for the cityname.}
-\item{PopExpo, LuxExpo}{Exposure for the \code{Pop} and the \code{Lux} groups, respectively.}
+\item{PopExpo, LuxExpo}{The sum of exposure periods for policies in the \code{Pop} and the \code{Lux} groups, in years.}
 \item{PopPrem, LuxPrem}{Gross written premium for the \code{Pop} and the \code{Lux} groups, respectively.}
 \item{PopClaimRob, LuxClaimRob}{Aggregate robbery claim number for the
 \code{Pop} and the \code{Lux} groups, respectively.}
