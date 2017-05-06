@@ -1,12 +1,13 @@
 \name{usworkcomp}
 \alias{usworkcomp}
-\title{US workers compensation dataset}
+\alias{usworkcomptri8807}
+\title{US workers compensation datasets}
 \docType{data}
 
 
 \description{
 
-This dataset is originally from the National Council on 
+The dataset \code{usworkcomp} is originally from the National Council on 
 Compensation Insurance
 and was examined by Klugman (1992), Frees et al. (2001) and 
 Frees (2011). 
@@ -17,6 +18,8 @@ a measure of exposure units.
 A total of 847 data points is available coming from the observation of
 121 risk classes over 7 years.
 
+The dataset \code{usworkcomptri8807} comes from an unknown US insurer
+and was used in Lacoume (2007).
 	
 
 }
@@ -51,6 +54,10 @@ Kluwer, Boston.
 Frees, E.W. and Young, V.R. and Luo, Y. (2001),
 \emph{Case studies using panel data models},
 North American Actuarial Journal, 5, 24-42.
+
+Lacoume, A. (2007),
+\emph{Mesure du risque de reserve sur un horizon de un an},
+Actuary memoir, ISFA.
 
 Frees, E.W. (2011). 
 \emph{Regression Modeling with Actuarial and Financial
