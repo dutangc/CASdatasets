@@ -24,11 +24,13 @@ or my [website](http://dutangc.free.fr/pub/RRepos/web/CASdatasets-index.html):
 ``` r
 install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/", type="source")
 #or 
+install.packages("CASdatasets", repos = "http://dutangc.perso.math.cnrs.fr/RRepository/", type="source")
+#or
 install.packages("CASdatasets", repos = "http://cas.uqam.ca/pub/R/", type="source")
 library(CASdatasets)
 ```
 
-To get the current development version from github:
+To get the current development version from github, you may try but much longer than downloading the source file from a repository.
 
 ``` r
 install.packages("devtools")
