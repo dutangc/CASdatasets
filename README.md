@@ -13,7 +13,13 @@ edited by Arthur Charpentier. Now, the package contains a large variety of actua
 Install
 -------
 
-To get the current released version from <http://cas.uqam.ca/> or my [website](http://dutangc.free.fr/pub/RRepos/web/CASdatasets-index.html):
+Please make sure that [xts](https://CRAN.R-project.org/package=xts), 
+[sp](https://CRAN.R-project.org/package=sp), 
+[zoo](https://CRAN.R-project.org/package=zoo) packages are installed
+
+To get the current released version from <http://cas.uqam.ca/>,
+[CNRS](http://dutangc.perso.math.cnrs.fr/RRepository/)
+or my [website](http://dutangc.free.fr/pub/RRepos/web/CASdatasets-index.html):
 
 ``` r
 install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/", type="source")
