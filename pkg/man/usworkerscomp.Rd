@@ -18,8 +18,8 @@ a measure of exposure units.
 A total of 847 data points is available coming from the observation of
 121 risk classes over 7 years.
 
-The dataset \code{usworkcomptri8807} comes from an unknown US insurer
-and was used in Lacoume (2007).
+The dataset \code{usworkcomptri8807} comes from an unknown US insurer:
+ this reserve triangle was used in Lacoume (2007).
 	
 
 }
@@ -38,6 +38,9 @@ data(usworkcomp)
 	\item{\code{LOSS}}{Losses related to permanent partial 
 		disability, in dollars.}
 }
+
+\code{usworkcomptri8807} is a reserve triangle with 21 development years  
+and 20 accident years.
 
 }
 

@@ -39,7 +39,7 @@ data(hurricanehist)
 
 
 \source{
-See \url{http://myweb.fsu.edu/jelsner/Data.html}.
+See \url{http://myweb.fsu.edu/jelsner/_site/}.
 }
 
 

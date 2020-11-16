@@ -1,14 +1,14 @@
-citHeader("To cite insurdatasets in publications use:")
+citHeader("To cite CASdatasets in publications use:")
 
 
 citEntry(entry="Manual",
-         title = "Insurance datasets",
-         author = "Christophe Dutang",
-	 year = 2016,
-         note = "R package version 1.0-5",
+         title = "CASdatasets: Insurance datasets",
+         author = "Christophe Dutang, Arthur Charpentier",
+	        year = 2020,
+         note = "R package version 1.0-11",
          textVersion =
-	 paste(	"C. Dutang",
-		"(2016)",
-	       	"Insurance, reinsurance, other insurance-related datasets.")
+	 paste(	"C. Dutang and A. Charpentier",
+		"(2020)",
+	       	"CASdatasets: Insurance datasets.")
 )
 

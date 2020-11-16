@@ -40,8 +40,42 @@ data(freMPL10)
 
 For this collection of dataset, possible variables are given below. 
 \code{freMPL1-10} contains claim severity and frequency information.
+The following tabular gives the list of variables by file. 
+\tabular{rcccccccccc}{
+  \tab freMPL1 \tab freMPL2 \tab freMPL3 \tab freMPL4 \tab freMPL5 \tab freMPL6 \tab freMPL7 \tab freMPL8 \tab freMPL9 \tab freMPL10 \cr
+  Exposure \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  LicAge \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  RecordBeg \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  RecordEnd \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  VehAge \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \cr 
+  Gender \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  MariStat \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  SocioCateg \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  VehUsage \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  DrivAge \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  HasKmLimit \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  BonusMalus \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  VehBody \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  VehPrice \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  VehEngine \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  VehEnergy \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  VehMaxSpeed \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  VehClass \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  ClaimAmount \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  RiskVar \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  Garage \tab 1 \tab 1 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  ClaimInd \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  DeducType \tab 0 \tab 0 \tab 1 \tab 1 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \tab 0 \cr 
+  ClaimNbResp \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  ClaimNbNonResp \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  ClaimNbParking \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  ClaimNbFireTheft \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  ClaimNbWindscreen \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  OutUseNb \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+  RiskArea \tab 0 \tab 0 \tab 0 \tab 0 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
+}
 The comprehensive list of the variables (of all datasets) is given below, 
-but no dataset contains all these variables.
+yet no dataset contains all these variables.
 \describe{
     \item{\code{VehAge}}{The vehicle age, in years.}
 	  \item{\code{DrivAge}}{The driver age, in years 
@@ -49,15 +83,15 @@ but no dataset contains all these variables.
     \item{\code{LicAge}}{The driving licence age, in months.}
     \item{\code{Gender}}{The gender, either \code{"Male"} or \code{"Female"}.}
     \item{\code{MariStat}}{The marital status, either \code{"Alone"} or \code{"Other"}.}
-    \item{\code{SocioCateg}}{The social category known as CSP in France, between 
-    \code{"CSP1"} and \code{"CSP99"}.}
+    \item{\code{SocioCateg}}{The social category known as CSP in France, 
+    between \code{"CSP1"} and \code{"CSP99"}.}
     \item{\code{VehUsage}}{The vehicle usage among 
     \code{"Private"}, \code{"Private+trip to office"}
     \code{"Professional"}, \code{"Professional run"}.}
     \item{\code{Garage}}{The garage, if any, among 
     \code{"Collective garage"}, \code{"None"}, \code{"Private garage"}.}
-    \item{\code{HasKmLimit}}{A numeric, 1 if there is a km limit for the policy, 
-    0 otherwise.}
+    \item{\code{HasKmLimit}}{A numeric, 1 if there is a km limit 
+    for the policy, 0 otherwise.}
     \item{\code{BonusMalus}}{A numeric for the bonus/malus, between 50 and 350: 
         <100 means bonus, >100 means malus in France.}
     \item{\code{RecordBeg}}{Beginning date of record.}

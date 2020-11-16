@@ -1,13 +1,17 @@
 === CASdatasets: Datasets for the book 'Computational Actuarial Science with R' ===
 
 
-Version 0.9-8
-=============
+Version 1.0-11: release for university year 2020/2021
+Version 1.0-10: release for university year 2019/2020
+Version 1.0-9: release for university year 2018/2019
+Version 1.0-8: release for university year 2017/2018
+Versions 1.0-6/1.0-7: release for university year 2016/2017
+Version 1.0-5: release for university year 2015/2016
+Version 1.0-4: release for university year 2014/2015
+Version from 0.9-8 to 1.0-3: release for university year 2013/2014
 
-- initial release. 
 
-
-Dataset list with entry date
+Dataset list with entry date or latest update
 =============
 
 - lossalae 30/08/2012
@@ -19,8 +23,6 @@ Dataset list with entry date
 - canlifins 20/06/2013
 - freclaimset 20/06/2013
 - freaggnumber 20/06/2013
-- freMTPLfreq 21/06/2013
-- freMTPLsev 21/06/2013
 - freTD8890 24/06/2013
 - freTV8890 24/06/2013
 - freTF0002 24/06/2013
@@ -119,8 +121,6 @@ Dataset list with entry date
 - fretri3auto9605.rda 25/09/2014
 - austri1autoBI7895.rda 01/10/2014
 - usmassBI2.rda 12/10/2014
-- freMTPL2sev.rda 14/10/2014
-- freMTPL2freq.rda 14/10/2014
 - nzcathist.rda 05/12/2014
 - swbusscase.rda 11/12/2014
 - swmotorcycle.rda 11/12/2014
@@ -151,9 +151,6 @@ Dataset list with entry date
 - brgeomunic.rda 27/03/2016
 - brgeomunicins.rda 27/03/2016
 - brautocoll.rda 27/03/2016
-- fremotor1prem.rda 04/04/2016
-- fremotor1freq.rda 04/04/2016
-- fremotor1sev.rda 04/04/2016
 - frePF6064.rda 28/05/2016
 - frePM6064.rda 28/05/2016
 - freTD7377.rda 28/05/2016
@@ -168,5 +165,26 @@ Dataset list with entry date
 - fremotor2freq9907u.rda 28/05/2016
 - fremotor3freq9907u.rda 28/05/2016
 - fremarine.rda 19/09/2016
-- frefictivetable2.rda 09/02/2017
-- frefictivetable3.rda 09/02/2017
+- usworkcomptri8807.rda 06/05/2017
+- usreauto8700.rda 06/05/2017
+- pg15pricing.rda 17/12/2017
+- pg15training.rda 17/12/2017
+- pg16trainpol.rda 17/12/2017
+- pg16trainclaim.rda 17/12/2017 
+- pg16test.rda 17/12/2017
+- fremotor1prem0304a/b/c.rda 19/03/2018
+- fremotor1freq0304a/b/c.rda 19/03/2018
+- fremotor1sev0304a/b/c.rda 19/03/2018
+- freclaimset3fire9207.rda 28/02/2018
+- pg17trainpol.rda 04/11/2018
+- pg17trainclaim.rda 04/11/2018
+- pg17testyear1/2/3/4.rda 04/11/2018
+- fredpt17.rda 04/11/2018
+- eudirectlapse.rda 13/03/2019
+- uslapseagent.rda 14/03/2019
+- freclaimset3dam9207.rda 24/03/2019
+- freMTPL2sev.rda 13/04/2019
+- freMTPL2freq.rda 13/04/2019
+- freMTPLfreq 13/04/2019
+- freMTPLsev 13/04/2019
+- frefictivetable2/3.rda 18/04/2020

@@ -31,7 +31,7 @@ data(nzcathist)
 
 
 \source{ 
-\url{http://www.icnz.org.nz/statistics-data/cost-of-disaster-events-in-new-zealand/}
+\url{https://www.icnz.org.nz/media-and-resources/natural-disasters/}
  }
  
 \examples{

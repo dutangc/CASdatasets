@@ -17,7 +17,7 @@ insurance policies. All payments have been deflated using a
 Singaporean consumer price index, so they are in constant dollars. 
 
 
-\code{sgautoBI9301} contains payments from a portfolio of automobile 
+\code{sgautoBI9301} contains incremental payments from a portfolio of automobile 
 policies for a Singapore property and casualty (general) insurer
 for years 1993-2001.
 Payments, deflated for inflation, are for third party injury from 
@@ -37,7 +37,7 @@ containing insurance triangles.
 }
 
 \source{ 
-\href{http://instruction.bus.wisc.edu/jfrees/jfreesbooks/}{Freesbook-RMAFA}
+\href{https://instruction.bus.wisc.edu/jfrees/jfreesbooks/}{Freesbook-RMAFA}
 
  }
 

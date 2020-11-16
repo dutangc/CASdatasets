@@ -43,10 +43,7 @@ data(eqlist)
 
 \source{ 
 Earthquake worldwide archive : 
-\url{http://earthquake.usgs.gov/earthquakes/search/}
-and
-\url{http://earthquake.usgs.gov/earthquakes/map/doc_aboutdata.php}
-
+\url{https://earthquake.usgs.gov/earthquakes/search/}.
 
 }
 

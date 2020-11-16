@@ -68,6 +68,7 @@ data(freTD8890)
 data(freTV8890)
 
 data(freTPRV93)
+data(freTPG93full)
 
 data(freTF0002)
 data(freTH0002)
@@ -83,8 +84,8 @@ data(freTGF05)
 \code{freTD8890}, \code{freTV8890}, \code{freTPRV93}, \code{freTF0002} and
 \code{freTH0002}  contain 2 columns:
 \describe{
-    \item{\code{Age}}{The age \code{x}.}
-    \item{\code{Lx}}{The number of people still alive at \code{x}
+    \item{\code{x}}{The age \code{x}.}
+    \item{\code{lx}}{The number of people still alive at \code{x}
 	among the initial 100,000 referenced people.}
 	}
 	
@@ -97,15 +98,15 @@ data(freTGF05)
 	
 \code{freTGH05} and \code{freTGF05} contain 107 columns:
 \describe{
-    \item{\code{Age}}{The age \code{x}.}
-    \item{\code{Lx1900}, ..., \code{Lx2005}}{The number of people still alive at \code{x}
+    \item{\code{x}}{The age \code{x}.}
+    \item{\code{lx1900}, ..., \code{lx2005}}{The number of people still alive at \code{x}
 	among the referenced people in year 1900 (etc.. 2005).}
 	}	
 	
 \code{freTPG93full}	contains 95 columns:
 \describe{
-    \item{\code{Age}}{The age.}
-    \item{\code{Lx1900}, ..., \code{Lx1993}}{The number of people still alive at \code{x}
+    \item{\code{x}}{The age.}
+    \item{\code{lx1900}, ..., \code{lx1993}}{The number of people still alive at \code{x}
 	among the referenced people in year 1900 (etc.. 1993).}
 	}	
 	
@@ -193,6 +194,9 @@ head(freTGH05)
 
 data(freTGF05)
 head(freTGF05)
+
+data(freTPG93full)
+head(freTPG93full)
 
 }
 

@@ -58,7 +58,7 @@ data(freMTPL2sev)
 	\code{G}- other.}
 	\item{\code{Gas}}{The car gas, Diesel or regular.}
     \item{\code{Region}}{The policy region in France
-	(based on an unknown classification).}
+    (based on the 1970-2015 classification).}
 	\item{\code{Density}}{The density of inhabitants
 	(number of inhabitants per km2) in the city
 	the driver of the car lives in.}
@@ -76,8 +76,7 @@ data(freMTPL2sev)
 \item{\code{IDpol}}{The policy ID (used to link with the claims dataset).}
 \item{\code{ClaimNb}}{Number of claims during the exposure period.}
 \item{\code{Exposure}}{The period of exposure for a policy, in years.}
-\item{\code{Area}}{The area code.}
-\item{\code{VehPower}}{The power of the car (ordered categorical).}
+\item{\code{VehPower}}{The power of the car (ordered values).}
 \item{\code{VehAge}}{The vehicle age, in years.}
 \item{\code{DrivAge}}{The driver age, in years (in France, people can drive a car at 18).}
 \item{\code{BonusMalus}}{Bonus/malus, between 50 and 350:
@@ -85,11 +84,14 @@ data(freMTPL2sev)
 
 \item{\code{VehBrand}}{The car brand (unknown categories).}
 \item{\code{VehGas}}{The car gas, Diesel or regular.}
+\item{\code{Area}}{The density value of the city community
+where the car driver lives in: from \code{"A"} for rural area
+to \code{"F"} for urban centre.}
 \item{\code{Density}}{The density of inhabitants
-(number of inhabitants per km2) in the city
-the driver of the car lives in.}
-\item{\code{Region}}{The policy regions in France
-(based on a standard French classification).}
+(number of inhabitants per square-kilometer) of the city
+where the car driver lives in.}
+\item{\code{Region}}{The policy region in France
+(based on the 1970-2015 classification).}
 }
 \code{freMTPL2sev} contains 2 columns:
 \describe{

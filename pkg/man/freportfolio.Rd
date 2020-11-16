@@ -22,8 +22,8 @@ The exit (that may occur before December 2007) is either \code{"deceased"} or \c
 
 The \code{frefictivetable2,frefictivetable3} represents a fictive portfolio of
 100,000 individuals that enter in a healthy condition and have been observed
-between 1988-12-29 and 1993-12-31.
-The exit (that may occur before December 1993) is either \code{"deceased"} or \code{"other"}.
+between December 1988 and December 1998.
+The exit is either \code{"deceased"} or \code{"other"} for censored observation.
 
 The \code{freptfpermdis} and \code{freptftempdis} datasets comes from two portfolio
 of two French private companies (insurer or institute), respectively for permanent
@@ -147,6 +147,17 @@ data(frefictivetable)
 
 head(freprojqxINSEE)
 head(frefictivetable)
+
+# (2) load of data
+#
+
+data(frefictivetable2)
+range(frefictivetable2$DateIn)
+range(frefictivetable2$DateOut)
+
+
+# (3) other
+#
 
 \dontrun{
 data(freptfpermdis)

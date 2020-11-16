@@ -154,7 +154,7 @@ e.g. \code{200506}.
 \source{ 
 Data is copyrighted by Australian Prudential Regulation Authority (APRA)
 and is under the Creative Commons - By licence. Please refer to
-\url{http://www.apra.gov.au/GI/Publications/Pages/gi-half-yearly-statistics.aspx}
+\url{http://www.apra.gov.au/}
  }
  
 \seealso{

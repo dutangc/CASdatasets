@@ -57,23 +57,29 @@ This package contains the following datasets
 	\itemize{
 		\item{\code{\link{danishuni}}, \code{\link{danishmulti}}: Danish reinsurance claim dataset.}
 	}
+	\item European Union: 
+	\itemize{
+		\item{\code{\link{eudirectlapse}}: lapse dataset.}
+	}
 	\item France:
 	\itemize{
 		\item{\code{\link{freaggnumber}}: a French aggregate claim number dataset.}
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
-		\item{\code{\link{freclaimset}}: French claim settlements.}
+		\item{\code{\link{freclaimset}}, \code{\link{freclaimset2}}: French claim settlements.}
 
 		\item{\code{\link{frecomfire}}: French commercial fire losses.}
 		\item{\code{\link{freDisTables}}: French disability tables.}
-        \item{\code{\link{fremarine}}: French marine claim dataset (by policy).}
+    \item{\code{\link{fremarine}}: French marine claim dataset (by policy).}
 		\item{\code{\link{freMortTables}}: French mortality tables.}
 		\item{\code{\link{fremotorclaim}}: French private motor claim datasets (by policy).}
 		\item{\code{\link{freMTPL}}: two French Motor-TPL claim datasets (by policy).}
 		\item{\code{\link{freMPL}}: a collection of ten French Motor personal line datasets (by policy).}
 		\item{\code{\link{freportfolio}}: fictive mortality tables and French
 		nation-wide corresponding tables; two disability datasets from a French insurer.}
-        \item{\code{\link{fre4LoBtriangles}}}{: A collection of triangles for 4
+    \item{\code{\link{fre4LoBtriangles}}}{: A collection of triangles for 4
         line of business from a private insurer.}
+    \item{\code{\link{pricingame}}: Datesets of Pricing Games of the
+    French institute of Actuaries.}    
 	}
 	\item Germany:
 	\itemize{
@@ -124,14 +130,14 @@ This package contains the following datasets
         \item{\code{\link{usGLtriangles}}: US Property and Casualty triangles.}
 		\item{\code{\link{ushurricane}}, \code{\link{ushustormloss4980}}:
             Historical hurricane statistics in United States of America.}
-
-        \item{\code{\link{usmassBI}}: US Massachusetts Automobile bodily injury claim datasets.}
+    \item{\code{\link{uslapseagent}}: US lapse dataset from tied-agent channel.}
+    \item{\code{\link{usmassBI}}: US Massachusetts Automobile bodily injury claim datasets.}
 		\item{\code{\link{usmedclaim}}: US medical claim triangle.}
 		\item{\code{\link{usprivautoclaim}}: private automobile claims.}
 		\item{\code{\link{usquakeLR}}: California earthquake loss ratios.}
 		\item{\code{\link{ustermlife}}: Term life insurance survey.}
 		\item{\code{\link{uswarrantaggnum}}: US warranty automobile.}
-		\item{\code{\link{usworkcomp}}: US workers compensation dataset.}
+		\item{\code{\link{usworkcomp}}: US workers compensation datasets.}
 	}
 	\item Misc.: 	
 	\itemize{

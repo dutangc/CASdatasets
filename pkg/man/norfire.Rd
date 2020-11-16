@@ -5,8 +5,10 @@
 \title{ Norwegian fire insurance dataset }
 
 \description{
-This dataset comprises 9181 fire losses over the period 1972 to 1992. 
-
+This dataset comprises 9181 fire losses over the period 1972 to 1992
+from an unknown Norwegian company. 
+A priority of 500 thousands of Norwegian Krone (NKR) was applied
+to get this dataset.
 
 }
 
@@ -18,8 +20,9 @@ data(norfire)
 \code{norfire} contains three columns:
 \describe{
     \item{\code{Year}}{The year of claim occurence.}
-    \item{\code{Loss}}{The total loss amount in thousands of Norwegian Krone (NKR).}
-    \item{\code{Loss2012}}{The total loss amount in thousands of 2012 Norwegian Krone.}
+    \item{\code{Loss}}{The total loss amount NKR thousands.}
+    \item{\code{Loss2012}}{The total loss amount in thousands of 2012 Norwegian Krone,
+    inflated using the Norwegian CPI.}
 }
 }
 
@@ -32,9 +35,14 @@ data(norfire)
 Dataset used in Beirlant, Teugels and Vynckier (1996),
 \emph{Practical Analysis of Extreme Values}, Leuven University Press.
 
-and in Beirlant, Matthys and Diercks (2001),
+in Beirlant, Matthys and Diercks (2001),
 \emph{Heavy-tailed distributions and rating}, 
 ASTIN Bulletin, Vol. 31, Issue 1.
+
+in Beirlant, Goegebeur, Segers and Teugels (2006),
+\emph{Statistics of extremes: theory and applications}, 
+John Wiley and Sons.
+
 
 }
 

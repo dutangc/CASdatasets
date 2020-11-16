@@ -1,8 +1,16 @@
 \name{fremotorclaim}
 \alias{fremotorclaim}
-\alias{fremotor1sev}
-\alias{fremotor1freq}
-\alias{fremotor1prem}
+\alias{fremotor1prem0304a}
+\alias{fremotor1prem0304b}
+\alias{fremotor1prem0304c}
+
+\alias{fremotor1freq0304a}
+\alias{fremotor1freq0304b}
+\alias{fremotor1freq0304c}
+
+\alias{fremotor1sev0304a}
+\alias{fremotor1sev0304b}
+\alias{fremotor1sev0304c}
 
 \alias{fremotor2sev9907}
 \alias{fremotor3sev9907}
@@ -21,19 +29,24 @@
 \description{
 
 
-\code{fremotor1freq}, \code{fremotor1sev}, \code{fremotor1prem}
-are three datasets from the same database for a private motor 
-portfolio observed between January 2003 and June 2004, respectively the claim frequency database, 
-the claim severity database and the premium database. 
-The dataset \code{fremotor1prem} consists of 50,710 records
+Datasets \code{fremotor1freq0304a/b/c}, \code{fremotor1sev0304a/b/c}, \code{fremotor1prem0304a/b/c}
+are nine datasets from the same database of an unknown private motor 
+portfolio observed between January 2003 and December 2004, 
+respectively claim frequency databases, 
+ claim severity databases and premium databases. 
+The last letter \code{a}, \code{b} or \code{c} distinguishes the random sampling for a
+given dataset series. Note that some records are common between resampling versions.
+
+Datasets \code{fremotor1freq0304a/b/c} consist of 64,234 records
 with explanatory variables for policies (possibly with mutiple vehicles 
 insured under the same policy number).
-The dataset \code{fremotor1freq} consists of 19,928 records 
-of claim numbers (by policy) between January 2003 and June 2004.
-The dataset \code{fremotor1sev} consists of 18,057 records 
+Datasets \code{fremotor1prem0304a/b/c} consist of 51,949 records 
+of claim numbers (by policy) in 2003 and 2004.
+Datasets \code{fremotor1sev0304a/b/c} consist of 9,246 records 
 of ClaimAmount, their occurence date, the corresponding guarantee,
-between January 2003 and June 2004.
+in 2003 and 2004.
 
+Datasets
 \code{fremotor2sev9907},
 \code{fremotor3sev9907},
 \code{fremotor4sev9907},
@@ -62,9 +75,17 @@ it is impossible to match claim severities and claim frequencies.
 }
 
 \usage{
-data(fremotor1prem)
-data(fremotor1sev)
-data(fremotor1freq)
+data(fremotor1prem0304a)
+data(fremotor1prem0304b)
+data(fremotor1prem0304c)
+
+data(fremotor1freq0304a)
+data(fremotor1freq0304b)
+data(fremotor1freq0304c)
+
+data(fremotor1sev0304a)
+data(fremotor1sev0304b)
+data(fremotor1sev0304c)
 
 
 data(fremotor2sev9907)
@@ -82,7 +103,7 @@ data(fremotor4freq9907b)
 
 \format{
 
-\code{fremotor1prem} contains 30 columns:
+\code{fremotor1prem0304a/b/c} contain 30 columns:
 \describe{
 \item{\code{IDpol}}{The policy ID (used to link with the claims dataset).}
 \item{\code{DrivAge}}{The driver age, in years (in France, people can drive a car at 18).}
@@ -91,12 +112,11 @@ data(fremotor4freq9907b)
 \item{\code{BonusMalus}}{Bonus/malus, between 50 and 350:
 <100 means bonus, >100 means malus in France.}
 \item{\code{LicenceNb}}{The licence nunmber (at least one).}
-\item{\code{VehNb}}{The power of the car (ordered categorical).}
 \item{\code{PayFreq}}{The payment frequency (as \code{"factor"}).}
 \item{\code{JobCode}}{The job code (as \code{"factor"}).}
 \item{\code{VehAge}}{The vehicle age, in years.}
 \item{\code{VehClass}}{The vehicle class (as \code{"factor"}).}
-\item{\code{VehPower}}{The vehicle class (as \code{"factor"}) 
+\item{\code{VehPower}}{The vehicle power (as \code{"factor"}) 
   from least powerful \code{"P2"} to most powerful car \code{"P15"}.}
 \item{\code{VehGas}}{The car gas, Diesel or regular (as \code{"factor"}).}
 \item{\code{VehUsage}}{The vehicle usage (as \code{"factor"}).}
@@ -128,19 +148,25 @@ data(fremotor4freq9907b)
 
 
 
-\code{fremotor1freq} contains 6 columns:
+\code{fremotor1freq0304a/b/c} contain 6 columns:
 \describe{
     \item{\code{IDpol}}{The policy ID.}
-    \item{\code{ClaimNb2003}}{The claim number in 2003.}
-    \item{\code{ClaimNb2004}}{The claim number in 2004 (Warning: only up to June 2004).}
+    \item{\code{Year}}{The underwriting year.}
+    \item{\code{Damage}}{The claim number for the Damage guarantee.}
+    \item{\code{Fire}}{The claim number for the Fire guarantee.}
+    \item{\code{Other}}{The claim number for the Other guarantee.}
+    \item{\code{Theft}}{The claim number for the Theft guarantee.}
+    \item{\code{TPL}}{The claim number for the TPL guarantee.}
+    \item{\code{Windscreen}}{The claim number for the Windscreen guarantee.}
+    
 	}
 	
 	
-\code{fremotor1sev} contains 6 columns:
+\code{fremotor1sev0304a/b/c} contain 6 columns:
 \describe{
-    \item{\code{OccurDate}}{The occurence date (Warning: only up to June 2004).}
-    \item{\code{Payment}}{The amount of money paid.}
     \item{\code{IDpol}}{The policy ID.}
+    \item{\code{OccurDate}}{The occurence date.}
+    \item{\code{Payment}}{The amount of money paid.}
     \item{\code{IDclaim}}{The claim ID.}
     \item{\code{Guarantee}}{The corresponding guarantee of the claim.}
 	}
@@ -196,16 +222,21 @@ Unknown private insurer
 
 # (1) load of data
 #
-data(fremotor1prem)
-data(fremotor1sev)
-data(fremotor1freq)
+data(fremotor1prem0304a)
+data(fremotor1prem0304b)
+data(fremotor1prem0304c)
 
-#claim by guarantee
-tapply(fremotor1sev$Payment, fremotor1sev$Guarantee, summary)
+data(fremotor1freq0304a)
+data(fremotor1freq0304b)
+data(fremotor1freq0304c)
+
+data(fremotor1sev0304a)
+data(fremotor1sev0304b)
+data(fremotor1sev0304c)
 
 #gross written premium
-tapply(fremotor1prem$PremTot, fremotor1prem$Year, sum)
-tapply(fremotor1prem$PremTot, fremotor1prem$Year, summary)
+tapply(fremotor1prem0304a$PremTot, fremotor1prem0304a$Year, sum)
+
 
 
 # (1) load of data

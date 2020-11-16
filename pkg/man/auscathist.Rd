@@ -34,7 +34,7 @@ data(auscathist)
 }
 
 \source{ 
-\url{http://www.insurancecouncil.com.au/issue-submissions/issues/catastrophe-events}
+\url{http://www.insurancecouncil.com.au/}
  }
  
 \examples{
