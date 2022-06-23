@@ -1,6 +1,7 @@
 === CASdatasets: Datasets for the book 'Computational Actuarial Science with R' ===
 
 
+Version 1.0-12: release for university year 2022/2023
 Version 1.0-11: release for university year 2020/2021
 Version 1.0-10: release for university year 2019/2020
 Version 1.0-9: release for university year 2018/2019
@@ -12,171 +13,219 @@ Version from 0.9-8 to 1.0-3: release for university year 2013/2014
 
 
 Dataset list with entry date or latest update
-=============
+=============================================
 
-- lossalae 30/08/2012
-- auscathist 19/12/2012
-- danishuni 12/10/2013
-- danishmulti 12/10/2013
-- itamtplcost 03/01/2013
-- tplclaimnumber 30/04/2013
-- canlifins 20/06/2013
-- freclaimset 20/06/2013
-- freaggnumber 20/06/2013
-- freTD8890 24/06/2013
-- freTV8890 24/06/2013
-- freTF0002 24/06/2013
-- freTH0002 24/06/2013
-- freTPRV93 24/06/2013
-- freAS0002 24/06/2013
-- freTGF05 25/06/2013
-- freTGH05 25/06/2013
-- freTPG93full 25/06/2013
-- hurricanehist 25/06/2013
-- frebiloss 25/06/2013
-- ICB1 13/09/2013
-- ICB2 13/09/2013
-- frecomfire 15/09/2013
-- Davis 17/09/2013
-- Norberg 17/09/2013
-- beaonre 18/09/2013
-- lossalaefull 19/09/2013
-- besecura 19/09/2013
-- SOAGMI 19/09/2013
-- norfire 19/09/2013
-- autoBI 19/09/2013
-- sgautonb 19/09/2013
-- swautoins 19/09/2013
-- ushuannualloss 28/09/2013
-- ushuinflation 28/09/2013
-- ushupopulation 28/09/2013
-- ushustormloss 28/09/2013
-- credit 02/01/2014
-- ukaggclaim 09/01/2014
-- frefictivetable 10/01/2014
-- freprojqxINSEE 10/01/2014
-- spacedata 16/01/2014
-- usworkcomp 16/01/2014
-- usexpense 17/01/2014
-- usquakeLR 20/01/2014
-- ausNLHYFinPerf 13/02/2014
-- ausNLHYFinPos 13/02/2014
-- ausNLHYLloydAsset 13/02/2014
-- ausNLHYLloydGPI 13/02/2014
-- ausNLHYLloydUWAcc 13/02/2014
-- ausNLHYLloydUWRes 13/02/2014
-- ausNLHYOffProf 13/02/2014
-- ausNLHYOpIncExp 13/02/2014
-- ausNLHYRecAASB 13/02/2014
-- ausNLHYReserve 13/02/2014
-- ausNLHYCapAdeq 13/02/2014
-- ausNLHYCapAdeqByComp 13/02/2014
-- ausNLHYClaimByState 13/02/2014
-- ausNLHYFinPerfByComp 13/02/2014
-- ausNLHYFinPerfPublic 13/02/2014
-- ausNLHYFinPosByComp 13/02/2014
-- ausNLHYFinPosPublic 13/02/2014
-- ausNLHYLiability 13/02/2014
-- ausNLHYOpIncExpPublic 13/02/2014
-- ausNLHYPremByState 13/02/2014
-- ausNLHYPremClaim 13/02/2014
-- ausNLHYPremClaimPublic 13/02/2014
-- ausNLHYPrivInsur 13/02/2014
-- ausNLHYPubInsur 13/02/2014
-- norauto 05/03/2014
-- ushustormloss4980 07/03/2014
-- linearmodelfactor 28/03/2014
-- freptfpermdis 24/04/2014
-- freptftempdis 24/04/2014
+freMTPL2sev.rda	-	2021/11/29	-	262.41kB
+freMTPL2freq.rda	-	2021/11/29	-	9092.8kB
+uslapseagent.rda	-	2021/09/27	-	246.21kB
+uslapseagent.rda	-	2021/09/27	-	246.21kB
+fretri1TPL9207.rda	-	2021/09/22	-	1.09kB
+eusavingULnoPS.rda	-	2020/12/10	-	586.48kB
+eusavingULnoPSperMth.rda	-	2020/12/10	-	6086.72kB
+eusavingULnoPSperQtr.rda	-	2020/12/10	-	2941.64kB
+eusavingULnoPSperYr.rda	-	2020/12/10	-	502.79kB
+freMPL10.rda	-	2020/12/04	-	375.75kB
+freMPL9.rda	-	2020/12/04	-	288.92kB
+freMPL8.rda	-	2020/12/04	-	382.23kB
+freMPL7.rda	-	2020/12/04	-	415kB
+freMPL6.rda	-	2020/12/04	-	470.15kB
+freMPL5.rda	-	2020/12/04	-	310.5kB
+freMPL4.rda	-	2020/12/04	-	448.36kB
+freMPL3.rda	-	2020/12/04	-	388.45kB
+freMPL2.rda	-	2020/12/04	-	591.89kB
+freMPL1.rda	-	2020/12/04	-	409.79kB
+frefictivetable3.rda	-	2020/04/18	-	510.42kB
+frefictivetable2.rda	-	2020/04/18	-	510.61kB
+freMTPLfreq.rda	-	2019/04/13	-	5003.24kB
+freMTPLsev.rda	-	2019/04/13	-	117.7kB
+freclaimset3dam9207.rda	-	2019/03/24	-	7129.17kB
+eudirectlapse.rda	-	2019/03/13	-	490.17kB
+ausautoBI8999.rda	-	2018/12/13	-	216.17kB
+fredpt17.rda	-	2018/11/04	-	375.31kB
+pg17testyear3.rda	-	2018/11/04	-	3158.26kB
+pg17testyear4.rda	-	2018/11/04	-	3154.91kB
+pg17testyear2.rda	-	2018/11/04	-	3158.56kB
+pg17testyear1.rda	-	2018/11/04	-	3159.53kB
+pg17trainclaim.rda	-	2018/11/04	-	115.77kB
+pg17trainpol.rda	-	2018/11/04	-	3157.84kB
+pg16test.rda	-	2018/11/04	-	402.37kB
+pg16trainclaim.rda	-	2018/11/04	-	83.6kB
+pg16trainpol.rda	-	2018/11/04	-	997.25kB
+pg15pricing.rda	-	2018/11/04	-	613.56kB
+pg15training.rda	-	2018/11/04	-	1888.83kB
+freclaimset3fire9207.rda	-	2018/09/04	-	4243.07kB
+freP2Pdis13.rda	-	2018/03/29	-	2.38kB
+freP2Pdisprob13.rda	-	2018/03/29	-	6.47kB
+freT2Pdis13.rda	-	2018/03/29	-	4.04kB
+freT2Pdisprob13.rda	-	2018/03/29	-	11.43kB
+freT2Tdis13.rda	-	2018/03/29	-	4.11kB
+freT2Tdisprob13.rda	-	2018/03/29	-	10.65kB
+freP2Pdis10.rda	-	2018/03/29	-	2.01kB
+freP2Pdisprob10.rda	-	2018/03/29	-	4.56kB
+freT2Pdis10.rda	-	2018/03/29	-	1.6kB
+freT2Pdisprob10.rda	-	2018/03/29	-	8.11kB
+freT2Tdis10.rda	-	2018/03/29	-	4.25kB
+freT2Tdisprob10.rda	-	2018/03/29	-	10.57kB
+freTGF05.rda	-	2018/03/29	-	24.93kB
+freTGH05.rda	-	2018/03/29	-	24.22kB
+frePF6064.rda	-	2018/03/29	-	0.76kB
+frePM6064.rda	-	2018/03/29	-	0.76kB
+freTD7377.rda	-	2018/03/29	-	0.71kB
+freTD8890.rda	-	2018/03/29	-	0.73kB
+freTF0002.rda	-	2018/03/29	-	0.74kB
+freTH0002.rda	-	2018/03/29	-	0.73kB
+freTPG93full.rda	-	2018/03/29	-	20.17kB
+freTPRV93.rda	-	2018/03/29	-	0.75kB
+freTV7377.rda	-	2018/03/29	-	0.71kB
+freTV8890.rda	-	2018/03/29	-	0.74kB
+fremotor1freq0304c.rda	-	2018/03/19	-	264.26kB
+fremotor1sev0304c.rda	-	2018/03/19	-	142.44kB
+fremotor1freq0304a.rda	-	2018/03/19	-	264.3kB
+fremotor1freq0304b.rda	-	2018/03/19	-	264.16kB
+fremotor1prem0304b.rda	-	2018/03/19	-	1205.76kB
+fremotor1prem0304c.rda	-	2018/03/19	-	1205.77kB
+fremotor1sev0304a.rda	-	2018/03/19	-	142.93kB
+fremotor1sev0304b.rda	-	2018/03/19	-	142.68kB
+fremotor1prem0304a.rda	-	2018/03/19	-	1205.71kB
+freclaimset2motor.rda	-	2017/12/17	-	9260.54kB
+usreauto8700.rda	-	2017/05/18	-	0.92kB
+usworkcomptri8807.rda	-	2017/05/06	-	1.46kB
+frecomfire.rda	-	2017/05/05	-	119.81kB
+fremarine.rda	-	2017/01/21	-	20.73kB
+usprivautoclaim.rda	-	2017/01/21	-	26.04kB
+usquakeLR.rda	-	2017/01/21	-	0.29kB
+usreGL8190.rda	-	2017/01/21	-	0.38kB
+usreGL8700.rda	-	2017/01/21	-	0.63kB
+ustermlife.rda	-	2017/01/21	-	6.7kB
+ustri1fire.rda	-	2017/01/21	-	0.41kB
+ustri2GL.rda	-	2017/01/21	-	0.87kB
+uswarrantaggnum.rda	-	2017/01/21	-	0.19kB
+usworkcomp.rda	-	2017/01/21	-	7.3kB
+usautoBI.rda	-	2017/01/21	-	7.92kB
+usautotri9504.rda	-	2017/01/21	-	0.39kB
+usexpense.rda	-	2017/01/21	-	32.56kB
+ushuannualloss.rda	-	2017/01/21	-	1.11kB
+ushuinflation.rda	-	2017/01/21	-	6.59kB
+ushupopulation.rda	-	2017/01/21	-	9.74kB
+ushustormloss.rda	-	2017/01/21	-	5.91kB
+ushustormloss4980.rda	-	2017/01/21	-	0.38kB
+usmassBI.rda	-	2017/01/21	-	2.73kB
+usmassBI2.rda	-	2017/01/21	-	4.29kB
+usmedclaim.rda	-	2017/01/21	-	1.72kB
+tplclaimnumber.rda	-	2017/01/21	-	906.04kB
+ukaggclaim.rda	-	2017/01/21	-	0.82kB
+ukautocoll.rda	-	2017/01/21	-	0.59kB
+swmotorcycle.rda	-	2017/01/21	-	145.06kB
+swtri1auto.rda	-	2017/01/21	-	0.66kB
+swbusscase.rda	-	2017/01/21	-	9.08kB
+spacedata.rda	-	2017/01/21	-	18.72kB
+swautoins.rda	-	2017/01/21	-	12.87kB
+SOAGMI.rda	-	2017/01/21	-	209.81kB
+sgautonb.rda	-	2017/01/21	-	28.25kB
+sgautoprop9701.rda	-	2017/01/21	-	0.29kB
+norfire.rda	-	2017/01/21	-	49.18kB
+nortritpl8800.rda	-	2017/01/21	-	1.27kB
+nzcathist.rda	-	2017/01/21	-	5.07kB
+PnCdemand.rda	-	2017/01/21	-	12.26kB
+sgautoBI9301.rda	-	2017/01/21	-	0.51kB
+norauto.rda	-	2017/01/21	-	319.23kB
+Norberg.rda	-	2017/01/21	-	0.24kB
+ICB2.rda	-	2017/01/21	-	74.22kB
+itamtplcost.rda	-	2017/01/21	-	5.06kB
+linearmodelfactor.rda	-	2017/01/21	-	0.91kB
+lossalae.rda	-	2017/01/21	-	7.57kB
+lossalaefull.rda	-	2017/01/21	-	7.31kB
+ICB1.rda	-	2017/01/21	-	108.98kB
+hurricanehist.rda	-	2017/01/21	-	14.09kB
+fretri1auto9605.rda	-	2017/01/21	-	1.97kB
+fretri2auto9605.rda	-	2017/01/21	-	1.95kB
+fretri3auto9605.rda	-	2017/01/21	-	1.78kB
+fretri4auto9403.rda	-	2017/01/21	-	1.71kB
+freptftempdis.rda	-	2017/01/21	-	2911.37kB
+freT2Ddis10.rda	-	2017/01/21	-	2.56kB
+freT2Ddisprob10.rda	-	2017/01/21	-	9.2kB
+freptfpermdis.rda	-	2017/01/21	-	3491.59kB
+freprojqxINSEE.rda	-	2017/01/21	-	45.57kB
+freP2Ddis10.rda	-	2017/01/21	-	2.11kB
+freP2Ddisprob10.rda	-	2017/01/21	-	6.17kB
+fremotor4sev9907.rda	-	2017/01/21	-	154.45kB
+fremotor4freq9907u.rda	-	2017/01/21	-	586.21kB
+fremotor4freq9907b.rda	-	2017/01/21	-	637.17kB
+fremotor3sev9907.rda	-	2017/01/21	-	154.79kB
+fremotor3freq9907u.rda	-	2017/01/21	-	586.3kB
+fremotor3freq9907b.rda	-	2017/01/21	-	637.05kB
+fremotor2sev9907.rda	-	2017/01/21	-	155.02kB
+fremotor2freq9907u.rda	-	2017/01/21	-	584.65kB
+fremotor2freq9907b.rda	-	2017/01/21	-	636.77kB
+frefictivetable.rda	-	2017/01/21	-	321.64kB
+forexUSUK.rda	-	2017/01/21	-	25.05kB
+freaggnumber.rda	-	2017/01/21	-	68.43kB
+freAS0002.rda	-	2017/01/21	-	0.26kB
+frebiloss.rda	-	2017/01/21	-	50kB
+freclaimset.rda	-	2017/01/21	-	10.97kB
+eqlist.rda	-	2017/01/21	-	183.72kB
+FedYieldCurve.rda	-	2017/01/21	-	6.43kB
+canlifins.rda	-	2017/01/21	-	77.68kB
+credit.rda	-	2017/01/21	-	8.81kB
+danishmulti.rda	-	2017/01/21	-	31.57kB
+danishuni.rda	-	2017/01/21	-	12.98kB
+Davis.rda	-	2017/01/21	-	1.06kB
+ECBYieldCurve.rda	-	2017/01/21	-	43.91kB
+brvehins2d.rda	-	2017/01/21	-	9296.02kB
+brvehins2c.rda	-	2017/01/21	-	9300.84kB
+brvehins2b.rda	-	2017/01/21	-	9299.21kB
+brvehins2a.rda	-	2017/01/21	-	9298.38kB
+brvehins1e.rda	-	2017/01/21	-	6232.87kB
+brvehins1d.rda	-	2017/01/21	-	6227.94kB
+brvehins1c.rda	-	2017/01/21	-	6223.93kB
+brvehins1b.rda	-	2017/01/21	-	6218.83kB
+brvehins1a.rda	-	2017/01/21	-	6233.16kB
+brgeomunicins.rda	-	2017/01/21	-	1405.03kB
+brgeomunic.rda	-	2017/01/21	-	5201kB
+ausprivautolong.rda	-	2017/01/21	-	74kB
+austri1autoBI7895.rda	-	2017/01/21	-	1.99kB
+austri2auto.rda	-	2017/01/21	-	0.35kB
+beaonre.rda	-	2017/01/21	-	11.72kB
+besecura.rda	-	2017/01/21	-	1.82kB
+braggclaim.rda	-	2017/01/21	-	3.21kB
+braggprem.rda	-	2017/01/21	-	4.59kB
+brautocoll.rda	-	2017/01/21	-	13.81kB
+ausprivauto0405.rda	-	2017/01/21	-	262.21kB
+auscathist.rda	-	2017/01/21	-	5.55kB
+ausMTPL8486.rda	-	2017/01/21	-	4.9kB
+ausNLHYCapAdeq.rda	-	2017/01/21	-	2.7kB
+ausNLHYCapAdeqByComp.rda	-	2017/01/21	-	11.79kB
+ausNLHYClaimByState.rda	-	2017/01/21	-	2.94kB
+ausNLHYFinPerf.rda	-	2017/01/21	-	2.57kB
+ausNLHYFinPerfByComp.rda	-	2017/01/21	-	27.3kB
+ausNLHYFinPerfPublic.rda	-	2017/01/21	-	0.64kB
+ausNLHYFinPos.rda	-	2017/01/21	-	3.63kB
+ausNLHYFinPosByComp.rda	-	2017/01/21	-	16.86kB
+ausNLHYFinPosPublic.rda	-	2017/01/21	-	0.78kB
+ausNLHYLiability.rda	-	2017/01/21	-	2.43kB
+ausNLHYLloydAsset.rda	-	2017/01/21	-	0.47kB
+ausNLHYLloydGPI.rda	-	2017/01/21	-	1.75kB
+ausNLHYLloydUWAcc.rda	-	2017/01/21	-	1.2kB
+ausNLHYLloydUWRes.rda	-	2017/01/21	-	0.95kB
+ausNLHYOffProf.rda	-	2017/01/21	-	3.89kB
+ausNLHYOpIncExp.rda	-	2017/01/21	-	2.58kB
+ausNLHYOpIncExpPublic.rda	-	2017/01/21	-	0.66kB
+ausNLHYPremByState.rda	-	2017/01/21	-	3.08kB
+ausNLHYPremClaim.rda	-	2017/01/21	-	3.18kB
+ausNLHYPremClaimPublic.rda	-	2017/01/21	-	1.9kB
+ausNLHYPrivInsur.rda	-	2017/01/21	-	5.43kB
+ausNLHYPubInsur.rda	-	2017/01/21	-	0.46kB
+ausNLHYRecAASB.rda	-	2017/01/21	-	3.35kB
+ausNLHYReserve.rda	-	2017/01/21	-	2.58kB
+ausNSWdeath02.rda	-	2017/01/21	-	0.79kB
+ausNSWdriver04.rda	-	2017/01/21	-	1.49kB
+asiacomrisk.rda	-	2017/01/21	-	12.42kB
+
+
+Removed dataset list
+====================
+
 - frepermdis10 24/04/2014 (removed)
 - fretempdis10 24/04/2014 (removed)
 - fredisprob10 24/04/2014 (removed)
-- eqlist 30/04/2014
-- sgautoprop9701.rda 08/09/2014
-- ukautocoll.rda 08/09/2014
-- usautoBI.rda 08/09/2014
-- usmassBI.rda 08/09/2014
-- usprivautoclaim.rda 08/09/2014
-- usreGL8190.rda 08/09/2014
-- usreGL8700.rda 08/09/2014
-- ustermlife.rda 08/09/2014
-- uswarrantaggnum.rda 08/09/2014
-- fremotor2claim.rda 11/09/2014
-- usmedclaim.rda 11/09/2014
-- sgautoBI9301.rda 11/09/2014
-- usautotri9504.rda 11/09/2014
-- fretri4auto9403.rda 25/09/2014
-- fretri1auto9605.rda 25/09/2014
-- fretri2auto9605.rda 25/09/2014
-- fretri3auto9605.rda 25/09/2014
-- austri1autoBI7895.rda 01/10/2014
-- usmassBI2.rda 12/10/2014
-- nzcathist.rda 05/12/2014
-- swbusscase.rda 11/12/2014
-- swmotorcycle.rda 11/12/2014
-- ausprivautolong.rda 12/12/2014
-- austri2auto.rda 12/12/2014
-- ausautoBI8999.rda 12/12/2014
-- ausMTPL8486.rda 12/12/2014
-- ausprivauto0405.rda 12/12/2014
-- ausNSWdriver04.rda 12/12/2014
-- ausNSWdeath02.rda 12/12/2014
-- forexUSUK.rda 13/01/2015
-- freP2Pdis10.rda 16/06/2015
-- freT2Tdis10.rda 16/06/2015
-- freT2Pdis10.rda 16/06/2015
-- freT2Ddis10.rda 16/06/2015
-- freP2Ddis10.rda 16/06/2015
-- freT2Pdisprob10.rda 16/06/2015
-- freT2Tdisprob10.rda 16/06/2015
-- freP2Pdisprob10.rda 16/06/2015
-- freP2Ddisprob10.rda 16/06/2015
-- freT2Ddisprob10.rda 16/06/2015
-- nortritpl8800.rda 28/08/2015
-- asiacomrisk.rda 14/12/2015
-- brvehins2a,b,c,d.rda 27/03/2016
-- braggclaim.rda 27/03/2016
-- braggprem.rda 27/03/2016
-- brvehins1a,b,c,d,e.rda 27/03/2016
-- brgeomunic.rda 27/03/2016
-- brgeomunicins.rda 27/03/2016
-- brautocoll.rda 27/03/2016
-- frePF6064.rda 28/05/2016
-- frePM6064.rda 28/05/2016
-- freTD7377.rda 28/05/2016
-- freTV7377.rda 28/05/2016
-- fremotor2sev9907.rda 28/05/2016
-- fremotor3sev9907.rda 28/05/2016
-- fremotor4sev9907.rda 28/05/2016
-- fremotor4freq9907b.rda 28/05/2016
-- fremotor2freq9907b.rda 28/05/2016
-- fremotor3freq9907b.rda 28/05/2016
-- fremotor4freq9907u.rda 28/05/2016
-- fremotor2freq9907u.rda 28/05/2016
-- fremotor3freq9907u.rda 28/05/2016
-- fremarine.rda 19/09/2016
-- usworkcomptri8807.rda 06/05/2017
-- usreauto8700.rda 06/05/2017
-- pg15pricing.rda 17/12/2017
-- pg15training.rda 17/12/2017
-- pg16trainpol.rda 17/12/2017
-- pg16trainclaim.rda 17/12/2017 
-- pg16test.rda 17/12/2017
-- fremotor1prem0304a/b/c.rda 19/03/2018
-- fremotor1freq0304a/b/c.rda 19/03/2018
-- fremotor1sev0304a/b/c.rda 19/03/2018
-- freclaimset3fire9207.rda 28/02/2018
-- pg17trainpol.rda 04/11/2018
-- pg17trainclaim.rda 04/11/2018
-- pg17testyear1/2/3/4.rda 04/11/2018
-- fredpt17.rda 04/11/2018
-- eudirectlapse.rda 13/03/2019
-- uslapseagent.rda 14/03/2019
-- freclaimset3dam9207.rda 24/03/2019
-- freMTPL2sev.rda 13/04/2019
-- freMTPL2freq.rda 13/04/2019
-- freMTPLfreq 13/04/2019
-- freMTPLsev 13/04/2019
-- frefictivetable2/3.rda 18/04/2020
-- freMPL1/2/3/4/5.rda 04/12/2020
-- freMPL6/7/8/9/10.rda 04/12/2020
+
