@@ -12,7 +12,7 @@ It is an \code{xts} object with 32 interest rate at different matuirties and 655
 }
 
 \source{
-\acronym{ECB}: \url{http://www.ecb.europa.eu/stats/money/yc/html/index.en.html}.\cr
+\acronym{ECB}: \url{https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_area_yield_curves/html/index.en.html}.\cr
 }
 
 \keyword{datasets}

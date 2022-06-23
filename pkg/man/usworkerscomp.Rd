@@ -45,7 +45,7 @@ and 20 accident years.
 }
 
 \source{ 
-\href{http://instruction.bus.wisc.edu/jfrees/jfreesbooks/}{FreesBook-RMAFA}
+\href{https://instruction.bus.wisc.edu/jfrees/jfreesbooks/}{FreesBook-RMAFA}
  }
  
 \references{ 

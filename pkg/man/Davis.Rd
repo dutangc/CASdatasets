@@ -26,7 +26,7 @@ data(Davis)
 }
 
 \source{ 
-\url{http://socserv.socsci.mcmaster.ca/jfox/Books/Applied-Regression-2E/datasets/Davis.txt}
+\url{https://socialsciences.mcmaster.ca/jfox/Books/Applied-Regression-2E/datasets/Davis.txt}
 
  }
 

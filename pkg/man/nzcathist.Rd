@@ -31,7 +31,7 @@ data(nzcathist)
 
 
 \source{ 
-\url{https://www.icnz.org.nz/media-and-resources/natural-disasters/}
+\url{https://www.icnz.org.nz/natural-disasters}
  }
  
 \examples{

@@ -76,7 +76,7 @@ This package contains the following datasets
 		\item{\code{\link{freMPL}}: a collection of ten French Motor personal line datasets (by policy).}
 		\item{\code{\link{freportfolio}}: fictive mortality tables and French
 		nation-wide corresponding tables; two disability datasets from a French insurer.}
-    \item{\code{\link{fre4LoBtriangles}}}{: A collection of triangles for 4
+    \item{\code{\link{fre4LoBtriangles}}}{: A collection of triangles for 5
         line of business from a private insurer.}
     \item{\code{\link{pricingame}}: Datesets of Pricing Games of the
     French institute of Actuaries.}    
@@ -148,7 +148,7 @@ This package contains the following datasets
         \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}}}{Yield curve
             for eurozone and US.}
         \item{\code{\link{forexUSUK}}}{Foreign exchange rate between USD and GBP.}
-        \item{Use the HMD website for mortality database \url{http://www.mortality.org/}.}
+        \item{Use the HMD website for mortality database \url{https://www.mortality.org/}.}
 	}
 	
 }

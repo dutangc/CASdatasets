@@ -42,7 +42,7 @@ data(eqlist)
 
 
 \source{ 
-Earthquake worldwide archive : 
+Earthquake worldwide archive :
 \url{https://earthquake.usgs.gov/earthquakes/search/}.
 
 }
@@ -67,7 +67,7 @@ Flinn, E.A., and Engdahl, E.R. (1965),
  
 \seealso{
 
-Northern California earthquake archive : \url{http://quake.geo.berkeley.edu/ncedc/catalog-search.html}
+Northern California earthquake archive : \url{https://earthquaketrack.com/v/norcal/recent}
 
 }
 

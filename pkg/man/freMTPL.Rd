@@ -16,6 +16,9 @@ claim amounts.
 \code{freMTPLfreq} contains the risk features and the claim number
 while \code{freMTPLsev} contains the claim amount and the 
 corresponding policy ID.
+Some claim amounts of  \code{freMTPLsev} are fixed claim amounts
+based on the French IRSA-IDA claim convention, see e.g.~\url{https://www.index-assurance.fr/pratique/sinistre/convention-irsa}.
+
 
 In the two datasets \code{freMTPL2freq},  \code{freMTPL2sev}, risk features are collected
 for 677,991 motor third-part liability policies (observed mostly on one year).
@@ -24,6 +27,8 @@ claim amounts.
 \code{freMTPL2freq} contains the risk features and the claim number
 while \code{freMTPL2sev} contains the claim amount and the
 corresponding policy ID.
+Some claim amounts of  \code{freMTPL2sev} are fixed claim amounts
+based on the French IRSA-IDA claim convention, see e.g.~\url{https://www.index-assurance.fr/pratique/sinistre/convention-irsa}.
 
 
 }

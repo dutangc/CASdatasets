@@ -35,7 +35,7 @@ data(norauto)
 
 Unknown Norwegian insurer.
 
-Downloaded from University of Oslo: \url{http://www.uio.no/studier/emner/matnat/math/STK4520/h05/undervisningsmateriale/}
+Downloaded from University of Oslo: \url{https://www.uio.no/studier/emner/matnat/math/STK4520/h05/undervisningsmateriale/}
 
 }
 

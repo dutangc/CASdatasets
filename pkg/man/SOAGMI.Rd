@@ -7,7 +7,7 @@
 \description{
 The dataset was collected by SOA for a group medical insurance
 and contains records of all the claim amounts exceeding 25,000 USD over the
-period 1991 and is available at \url{http://www.soa.org}. 
+period 1991 and is available at \url{https://www.soa.org}. 
 There is no truncation due to maximum benefits.
 
 }
@@ -26,7 +26,7 @@ data(SOAGMI)
 }
 
 \source{ 
-\url{http://lstat.kuleuven.be/Wiley/}
+\url{https://lstat.kuleuven.be/Wiley/}
 }
 
 \references{ 

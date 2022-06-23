@@ -27,7 +27,7 @@ data(norfire)
 }
 
 \source{ 
-\url{http://lstat.kuleuven.be/Wiley/} 
+\url{https://lstat.kuleuven.be/Wiley/} 
 }
 
 \references{

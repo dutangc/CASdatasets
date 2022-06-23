@@ -130,11 +130,11 @@ Universitaet Hamburg, FB Wirtschaftswissenschaften, Von-Melle-Park 5, 2000 Hambu
 
 The dataset has been taken from the UCI Repository Of Machine Learning Databases at
 
-\url{http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)}
+\url{https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)}
 
-It is also available at
+Formerly available at
 
-\url{http://www.stat.uni-muenchen.de/service/datenarchiv/kredit/kreditvar_e.html}
+\url{https://www.en.statistik.uni-muenchen.de/index.html}
 
  
  
@@ -158,9 +158,7 @@ Tuff'ery, S. (2011),
  
 \seealso{
 For a good variable description, see also
-\url{http://www.stat.uni-muenchen.de/service/datenarchiv/kredit/kreditvar_e.html}
-and
-\url{http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)}.
+\url{https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)}.
 } 
  
 \examples{

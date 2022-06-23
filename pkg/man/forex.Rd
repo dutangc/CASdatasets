@@ -35,7 +35,7 @@ Applications}, Cambridge University Press.
 \source{
 \acronym{FRED}, Federal Reserve Economic Data,
 Federal Reserve Bank of St. Louis: U.S. - U.K. Foreign Exchange Rate (DEXUSUK):
-\url{http://research.stlouisfed.org/fred2/series/DEXUSUK}.
+\url{https://fred.stlouisfed.org/series/DEXUSUK}.
 
 }
 

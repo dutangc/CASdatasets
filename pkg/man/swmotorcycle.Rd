@@ -49,7 +49,7 @@ data(swmotorcycle)
 }
 
 \source{ 
-\href{http://www.math.su.se/GLMbook}{OhlsonBook}
+\href{https://staff.math.su.se/esbj/GLMbook/}{OhlsonBook}
 
  }
 
