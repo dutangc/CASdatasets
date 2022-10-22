@@ -1,7 +1,7 @@
 Package: CASdatasets
 Type: Package
 Title: Insurance Datasets
-Version: 1.0-12
+Version: 1.0-13
 Author: Christophe Dutang [aut, cre], Arthur Charpentier [ctb]
 Maintainer: Christophe Dutang <dutangc@gmail.com>
 Description: A collection of datasets, originally for the book 'Computational Actuarial Science with R' 

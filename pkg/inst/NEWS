@@ -1,7 +1,7 @@
 === CASdatasets: Datasets for the book 'Computational Actuarial Science with R' ===
 
 
-Version 1.0-12: release for university year 2022/2023
+Version 1.0-12/1.0-13: release for university year 2022/2023
 Version 1.0-11: release for university year 2020/2021
 Version 1.0-10: release for university year 2019/2020
 Version 1.0-9: release for university year 2018/2019
@@ -15,9 +15,9 @@ Version from 0.9-8 to 1.0-3: release for university year 2013/2014
 Dataset list with entry date or latest update
 =============================================
 
-freMTPL2sev.rda	-	2021/11/29	-	262.41kB
-freMTPL2freq.rda	-	2021/11/29	-	9092.8kB
-uslapseagent.rda	-	2021/09/27	-	246.21kB
+usMTVA.rda	-	2022/10/21	-	25785.18kB
+freMTPL2freq.rda	-	2022/06/23	-	9104.81kB
+freMTPL2sev.rda	-	2022/06/23	-	261.37kB
 uslapseagent.rda	-	2021/09/27	-	246.21kB
 fretri1TPL9207.rda	-	2021/09/22	-	1.09kB
 eusavingULnoPS.rda	-	2020/12/10	-	586.48kB
@@ -26,16 +26,16 @@ eusavingULnoPSperQtr.rda	-	2020/12/10	-	2941.64kB
 eusavingULnoPSperYr.rda	-	2020/12/10	-	502.79kB
 freMPL10.rda	-	2020/12/04	-	375.75kB
 freMPL9.rda	-	2020/12/04	-	288.92kB
-freMPL8.rda	-	2020/12/04	-	382.23kB
-freMPL7.rda	-	2020/12/04	-	415kB
-freMPL6.rda	-	2020/12/04	-	470.15kB
-freMPL5.rda	-	2020/12/04	-	310.5kB
-freMPL4.rda	-	2020/12/04	-	448.36kB
-freMPL3.rda	-	2020/12/04	-	388.45kB
 freMPL2.rda	-	2020/12/04	-	591.89kB
+freMPL3.rda	-	2020/12/04	-	388.45kB
+freMPL4.rda	-	2020/12/04	-	448.36kB
+freMPL5.rda	-	2020/12/04	-	310.5kB
+freMPL6.rda	-	2020/12/04	-	470.15kB
+freMPL7.rda	-	2020/12/04	-	415kB
+freMPL8.rda	-	2020/12/04	-	382.23kB
 freMPL1.rda	-	2020/12/04	-	409.79kB
-frefictivetable3.rda	-	2020/04/18	-	510.42kB
 frefictivetable2.rda	-	2020/04/18	-	510.61kB
+frefictivetable3.rda	-	2020/04/18	-	510.42kB
 freMTPLfreq.rda	-	2019/04/13	-	5003.24kB
 freMTPLsev.rda	-	2019/04/13	-	117.7kB
 freclaimset3dam9207.rda	-	2019/03/24	-	7129.17kB
