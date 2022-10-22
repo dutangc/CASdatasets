@@ -2,7 +2,7 @@
 \alias{tplclaimnumber}
 
 \docType{data}
-\title{ TPL claim number dataset }
+\title{ TPL claim number dataset}
 
 \description{
 The univariate dataset was collected in the French motor market and 

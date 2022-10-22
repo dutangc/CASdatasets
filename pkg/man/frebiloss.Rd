@@ -41,7 +41,8 @@ FFSA
 
 Dataset used in Zajdenweber (1996). 
 \emph{Extreme values in business interruption insurance},
-Journal of Risk and Insurance, 1, 95-110.
+Journal of Risk and Insurance, 1, 95-110,
+\doi{10.2307/253518}.
 
 }
 

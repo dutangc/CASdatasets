@@ -1,5 +1,6 @@
 \name{CASdatasets}
 \alias{CASdatasets}
+\alias{casdatasets}
 \title{CASdatasets package}
 \description{
 		Actuarial Datasets (originally for the 'Computational Actuarial Science with R' book)
@@ -133,6 +134,7 @@ This package contains the following datasets
     \item{\code{\link{uslapseagent}}: US lapse dataset from tied-agent channel.}
     \item{\code{\link{usmassBI}}: US Massachusetts Automobile bodily injury claim datasets.}
 		\item{\code{\link{usmedclaim}}: US medical claim triangle.}
+		\item{\code{\link{usMVTA}}: US motor vehicle traffic accident.}
 		\item{\code{\link{usprivautoclaim}}: private automobile claims.}
 		\item{\code{\link{usquakeLR}}: California earthquake loss ratios.}
 		\item{\code{\link{ustermlife}}: Term life insurance survey.}
@@ -148,7 +150,7 @@ This package contains the following datasets
         \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}}}{Yield curve
             for eurozone and US.}
         \item{\code{\link{forexUSUK}}}{Foreign exchange rate between USD and GBP.}
-        \item{Use the HMD website for mortality database \url{https://www.mortality.org/}.}
+        \item{Use the HMD website for mortality tables \url{https://www.mortality.org/}.}
 	}
 	
 }
@@ -169,7 +171,7 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
 }
 
 \author{
- Christophe Dutang
+ Arthur Charpentier, Christophe Dutang.
 }
 \keyword{datasets}
 

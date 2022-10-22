@@ -39,8 +39,10 @@ Unknown private insurer.
 \references{ 
 Dataset used in Frees, Carriere and Valdez (1995), 
 \emph{Annuity valuation with dependent mortality}, 
-Actuarial Research Clearing House 1995, Vol. 2.
- }
+Actuarial Research Clearing House 1995, Vol. 2,
+\doi{10.2307/253744}.
+ 
+}
  
 \examples{
 

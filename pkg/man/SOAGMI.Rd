@@ -32,18 +32,21 @@ data(SOAGMI)
 \references{ 
 
 
-Dataset used in Beirlant, Dierckx, Goegebeur and Matthys (2004),
-\emph{Statistics of Extremes}, Wiley
+Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
+\emph{Statistics of Extremes: Theory and Applications.},
+Chichester, England: John Wiley and Sons,
+\doi{10.1002/0470012382}.
 
-in Grazier and G'Sell (1997),
+Grazier and G'Sell (1997),
 \emph{Group Medical Insurance Large Claims Database and Collection}, 
 SOA Monograph M-HB97-1, Society of Actuaries, Schaumburg.
 
-and in Cebrian, Denuit and Lambert (2003),
-\emph{Analysis of bivariate tail dependence
-using extreme value copulas:
-An application to the SOA medical large claims database},
-Belgian Actuarial Bulletin, Vol.3, Issue 1.
+
+Cebrian, A.C., Denuit, M. and Lambert, P.	(2003).
+\emph{Analysis of bivariate tail dependence using extreme 
+value copulas: An application to the SOA medical large claims 
+database}, Belgian Actuarial Bulletin, Vol. 3, No. 1,
+\url{https://dial.uclouvain.be/pr/boreal/object/boreal:17222}.
 
  }
 

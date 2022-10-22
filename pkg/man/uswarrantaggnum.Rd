@@ -39,12 +39,14 @@ data(uswarrantaggnum)
 
 Cook, R.J. and J.F. Lawless (2002),
 \emph{The statistical analysis of recurrent events},
-Springer.
+Springer,
+\doi{10.1007/978-0-387-69810-6}.
 
 
-Frees (2010), 
+Frees, E.W. (2010), 
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
 
 

@@ -88,10 +88,10 @@ data(ushupopulation)
  }
  
 \references{ 
-Dataset used in Pielke, Gratz, Landsea, Collins, Saunders, and Musulin (2008),
+Pielke, Gratz, Landsea, Collins, Saunders, and Musulin (2008),
 \emph{Normalized Hurricane Damages in the United States: 1900-2005},
 Natural Hazards Review, Volume 9, Issue 1, pp. 29-42. 
-\url{http://sciencepolicy.colorado.edu/admin/publication_files/resource-2476-2008.02.pdf}
+\doi{10.1061/(ASCE)1527-6988(2008)9:1(29)}
 
  }
  

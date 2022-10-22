@@ -58,7 +58,8 @@ data(usexpense)
 
 Frees, E.W. (2011). 
 \emph{Regression Modeling with Actuarial and Financial
-Applications}, Cambridge University Press. 
+Applications}, Cambridge University Press,
+\doi{10.1017/CBO9780511814372}. 
 
 }
  

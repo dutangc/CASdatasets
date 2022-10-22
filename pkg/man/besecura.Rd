@@ -32,12 +32,13 @@ data(besecura)
 }
 
 \references{ 
-Dataset used in Beirlant, Dierckx, Goegebeur and Matthys (2004)
-\emph{Statistics of Extremes}, 
-Wiley.
+  
+Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
+\emph{Statistics of Extremes: Theory and Applications.},
+Chichester, England: John Wiley and Sons,
+\doi{10.1002/0470012382}.
 
-
- }
+}
 
 \examples{
 

@@ -34,7 +34,8 @@ claims incurred and claims paid data}. Bulletin Francais d'Actuariat 9 (18), 5-3
 Merz, M., and M. V. Wuethrich (2010),
 \emph{Paid-Incurred Chain Claims
 Reserving Method}, Insurance: Mathematics and Economics
-46, 2010, pp. 568-579.
+46, 2010, pp. 568-579,
+\doi{10.1016/j.insmatheco.2010.02.004}.
 
 Merz, M., and M. V. Wuethrich (2013), 
 \emph{Estimation of Tail Development Factors in the Paid-Incurred Chain

@@ -28,16 +28,16 @@ data(usquakeLR)
  
 \references{ 
 
-Dataset used 
-in Jaffee and Russell (1996),
+Jaffee, D.M. and Russell, T. (1996),
 \emph{Catastrophe Insurance, Capital Markets and Uninsurable Risks},
-Philadelphia: Financial Institutions Center, The Wharton School, p. 96-112.
+Philadelphia: Financial Institutions Center, The Wharton School, p. 96-112,
+\doi{10.2307/253729}.
 
-and
 
-in Embrechts, Resnick and Samorodnitsky (1999).
+Embrechts, Resnick and Samorodnitsky (1999).
 \emph{Extreme Value Theory as a Risk Management Tool},
-North American Actuarial Journal, Volume 3, Number 2.
+North American Actuarial Journal, Volume 3, Number 2,
+\doi{10.1080/10920277.1999.10595797}.
 
 }
  

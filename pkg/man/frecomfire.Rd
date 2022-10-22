@@ -29,7 +29,7 @@ data(frecomfire)
 }
 
 \source{ 
-FFSA
+F'ed'eration Francaise des Soci'et'e d'Assurance
 }
 
 \examples{

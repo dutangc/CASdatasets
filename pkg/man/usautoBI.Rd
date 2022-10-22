@@ -42,9 +42,10 @@ data(usautoBI)
 
 \references{ 
 
-Frees (2010), 
+Frees, E.W. (2010), 
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
  }
  

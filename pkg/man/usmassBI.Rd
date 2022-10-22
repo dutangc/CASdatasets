@@ -62,19 +62,23 @@ data(usmassBI2)
 
 Frees, E.W. (2003),
 \emph{Multivariate Credibility for Aggregate Loss Models},
-North American Actuarial Journal 7(1), 13-37.
+North American Actuarial Journal 7(1), 13-37,
+\doi{10.1080/10920277.2003.10596074}.
 
 Frees, E.W. (2010),
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
 Frees, E.W. and Wang, P. (2005),
 \emph{Credibility using copulas},
-North American Actuarial Journal, 9(2), 31-48.
+North American Actuarial Journal, 9(2), 31-48,
+\doi{10.1080/10920277.2005.10596196}.
 
 Rempala, G.A., and R.A. Derrig (2005),
 \emph{Modeling hidden exposures in claim severity via the EM algorithm}, 
-North American Actuarial Journal 9(2), 108-128.
+North American Actuarial Journal 9(2), 108-128,
+\doi{10.1080/10920277.2005.10596206}.
 
  }
  

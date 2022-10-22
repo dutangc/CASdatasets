@@ -62,9 +62,11 @@ preprint at \url{https://hal.archives-ouvertes.fr/hal-01985256}.
 
 }
 \references{ 
-Dataset used in Milhaud and Dutang (2018), 
-\emph{Lapse tables for lapse risk management in insurance: a competing risk approach}, 
-European Actuarial Journal, 2018, Volume 8, Issue 1.
+
+Milhaud, X., Dutang, C. (2018), 
+\emph{Lapse tables for lapse risk management in insurance: 
+a competing risk approach}. European Actuarial Journal, 8 (1), 97-126,
+\doi{10.1007/s13385-018-0165-7}.
  }
 
 

@@ -32,17 +32,19 @@ data(norfire)
 
 \references{
 
-Dataset used in Beirlant, Teugels and Vynckier (1996),
-\emph{Practical Analysis of Extreme Values}, Leuven University Press.
+Beirlant, Teugels and Vynckier (1996),
+\emph{Practical Analysis of Extreme Values}, Leuven University Press,
+\url{https://www.jstor.org/stable/2236602}.
 
-in Beirlant, Matthys and Diercks (2001),
+Beirlant, Matthys and Diercks (2001),
 \emph{Heavy-tailed distributions and rating}, 
-ASTIN Bulletin, Vol. 31, Issue 1.
+ASTIN Bulletin, Vol. 31, Issue 1,
+\doi{10.2143/AST.31.1.993}.
 
-in Beirlant, Goegebeur, Segers and Teugels (2006),
-\emph{Statistics of extremes: theory and applications}, 
-John Wiley and Sons.
-
+Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
+\emph{Statistics of Extremes: Theory and Applications.},
+Chichester, England: John Wiley and Sons,
+\doi{10.1002/0470012382}.
 
 }
 

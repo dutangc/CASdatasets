@@ -40,7 +40,8 @@ data(usmedclaim)
 
 Frees (2010), 
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
 Gamage, J., Linfield, J., Ostaszewski, K. and S. Siegel (2007).
 \emph{Statistical methods for health actuaries - IBNR estimates: An introduction},

@@ -144,14 +144,17 @@ Formerly available at
 
 Fahrmeir, L. and Tutz, G. (1994), 
 \emph{Multivariate Statistical Modelling Based on 
-Generalized Linear Models}, Springer.
+Generalized Linear Models}, Springer,
+\doi{10.1007/978-1-4899-0010-4}.
 
 Nisbet, R., Elder, J. and Miner, G. (2011), 
 \emph{Handbook of Statistical Analysis and 
-Data Mining Applications}, Academic Press.
+Data Mining Applications}, Academic Press,
+\doi{10.1016/B978-0-12-374765-5.X0001-0}.
 
 Tuff'ery, S. (2011), 
-\emph{Data Mining and Statistics for Decision Making}, Wiley.
+\emph{Data Mining and Statistics for Decision Making}, Wiley,
+\doi{10.1002/9780470979174}.
 
 
  }

@@ -59,12 +59,9 @@ data(eusavingULnoPS)
 }
 
 \source{
-
 Unknown life insurers from European Union.
 }
 
-
- 
 \examples{
 
 # (1) load of data

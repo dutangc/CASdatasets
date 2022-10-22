@@ -48,29 +48,30 @@ and claims investigation expenses.
 }
 \source{
 
-  Frees, E. W. and Valdez, E. A. (1998)
-  Understanding relationships using copulas.
-  \emph{North American Actuarial Journal}, \bold{2}, 1--15.
+Frees, E. W. and Valdez, E. A. (1998)
+Understanding relationships using copulas.
+\emph{North American Actuarial Journal}, \bold{2}, 1--15,
+\doi{10.1080/10920277.1998.10595749}.
   
-  \url{https://lstat.kuleuven.be/Wiley/}
+\url{https://lstat.kuleuven.be/Wiley/}
   
 }
 \references{
-  Klugman, S. A. and Parsa, R. (1999)
-  Fitting bivariate loss distributions with copulas.
-  \emph{Insurance: Mathematics and Economics}, \bold{24}, 139--148.
+Klugman, S. A. and Parsa, R. (1999)
+Fitting bivariate loss distributions with copulas.
+\emph{Insurance: Mathematics and Economics}, \bold{24}, 139--148,
+\doi{10.1016/S0167-6687(98)00039-0}.
   
-  Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
-  \emph{Statistics of Extremes: Theory and Applications.},
-  Chichester, England: John Wiley and Sons.
-  
+Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
+\emph{Statistics of Extremes: Theory and Applications.},
+Chichester, England: John Wiley and Sons,
+\doi{10.1002/0470012382}.
 
-  Cebrian, A.C., Denuit, M. and Lambert, P.	(2003).
-  \emph{Analysis of bivariate tail dependence using extreme 
-  value copulas: An application to the SOA medical large claims 
-  database}, Belgian Actuarial Bulletin, Vol. 3, No. 1.
-
-
+Cebrian, A.C., Denuit, M. and Lambert, P.	(2003).
+\emph{Analysis of bivariate tail dependence using extreme 
+value copulas: An application to the SOA medical large claims 
+database}, Belgian Actuarial Bulletin, Vol. 3, No. 1,
+\url{https://dial.uclouvain.be/pr/boreal/object/boreal:17222}.
 
 }
 

@@ -37,15 +37,17 @@ data(ausautoBI8999)
 }
 
 \source{
+Formerly on a website dedicated to P. De Jong and G.Z. Heller (2008).
 
-\href{http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/research/books/GLMsforInsuranceData}{DeJongHellerBook}
+%\href{http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/research/books/GLMsforInsuranceData}{DeJongHellerBook}
 }
 
 \references{ 
 
 P. De Jong and G.Z. Heller (2008),
 \emph{Generalized linear models for insurance data},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511755408}.
 
 
  }

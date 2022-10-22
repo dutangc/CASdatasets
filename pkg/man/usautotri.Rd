@@ -45,9 +45,10 @@ containing insurance triangles.
 \references{ 
 
 
-Frees (2010), 
+Frees, E.W. (2010), 
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
 Wacek, M.G. (2007). 
 \emph{The path of the ultimate loss ratio estimate},
@@ -57,7 +58,8 @@ Wacek, M.G. (2007).
 Braun, C. (2004),
 \emph{The prediction error of the chain ladder method 
 applied to correlated run-off triangles},
-ASTIN Bulletin 34, no. 2, 399-423.
+ASTIN Bulletin 34, no. 2, 399-423,
+\doi{10.1017/S0515036100013751}.
 
  }
  

@@ -49,19 +49,20 @@ Earthquake worldwide archive :
 
 \references{ 
 
- 
- 
 Young, J.B., Presgrave, B.W., Aichele, H., Wiens, D.A. and Flinn, E.A. (1996),
-    \emph{The Flinn-Engdahl Regionalisation Scheme: the 1995 revision}, 
-    Physics of the Earth and Planetary Interiors, v. 96, p. 223-297.
+\emph{The Flinn-Engdahl Regionalisation Scheme: the 1995 revision}, 
+Physics of the Earth and Planetary Interiors, v. 96, p. 223-297,
+\doi{10.1016/0031-9201(96)03141-X}.
 
 Flinn, E.A., Engdahl, E.R. and Hill, A.R. (1974),
-    \emph{Seismic and geographical regionalization}, 
-    Bulletin of the Seismological Society of America, vol. 64, p. 771-993.
+\emph{Seismic and geographical regionalization}, 
+Bulletin of the Seismological Society of America, vol. 64, p. 771-993,
+\doi{10.1785/BSSA0643-20771}.
 
 Flinn, E.A., and Engdahl, E.R. (1965),
-    \emph{A proposed basis for geographical and seismic regionalization}, 
-    Reviews of Geophysics, vol. 3, p. 123-149.
+\emph{A proposed basis for geographical and seismic regionalization}, 
+Reviews of Geophysics, vol. 3, p. 123-149,
+\doi{10.1029/RG003i001p00123}.
 
  }
  

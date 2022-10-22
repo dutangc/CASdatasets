@@ -34,7 +34,8 @@ data(Davis)
 
 Davis (1990) \emph{Body image and weight preoccupation: 
 A comparison between exercising and non-exercising women}, 
-Appetite, 15, 13-21.
+Appetite, 15, 13-21,
+\doi{10.1016/0195-6663(90)90096-q}.
 
 
  }

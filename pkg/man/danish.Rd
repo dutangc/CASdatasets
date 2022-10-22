@@ -49,10 +49,14 @@ Embrechts, P., Kluppelberg, C. and Mikosch, T. (1997)
 }
 
 \references{ 
-Dataset used in McNeil, A. (1996), \emph{Estimating the Tails of Loss Severity
-Distributions using Extreme Value Theory}, ASTIN Bull;
-and Davison, A. C. (2003) 
-\emph{Statistical Models}. Cambridge University Press. Page 278.
+
+McNeil, A. (1996), \emph{Estimating the Tails of Loss Severity
+Distributions using Extreme Value Theory}, ASTIN Bull,
+\doi{10.2143/AST.27.1.563210}.
+
+Davison, A. C. (2003) 
+\emph{Statistical Models}. Cambridge University Press,
+\doi{10.1017/CBO9780511815850}.
 
  }
 

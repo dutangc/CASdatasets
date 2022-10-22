@@ -57,7 +57,8 @@ data(swmotorcycle)
 
 E. Ohlsson and B. Johansson (2010),
 \emph{Non-Life Insurance Pricing with Generalized Linear Models},
-Springer.
+Springer,
+\doi{10.1007/978-3-642-10791-7}.
 
 
  }

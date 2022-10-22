@@ -28,7 +28,8 @@ Public.
 \references{ 
 Dataset used in Ragnar Norberg (1979), 
 \emph{The credibility approach to experience rating}, 
-Scandinavian Actuarial Journal, 181-221.
+Scandinavian Actuarial Journal, 181-221,
+\doi{10.1080/03461238.1979.10413721}.
  }
 
 

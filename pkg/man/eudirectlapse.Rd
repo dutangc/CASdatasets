@@ -51,7 +51,6 @@ data(eudirectlapse)
 }
 
 \source{
-
 Unknown non-life insurers from European Union.
 }
 

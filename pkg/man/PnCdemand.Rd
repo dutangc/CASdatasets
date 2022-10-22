@@ -63,11 +63,13 @@ data(PnCdemand)
 \references{
 Browne, M. J., Chung, J. and Frees, E. W. (2000). 
 \emph{International property-liability insurance consumption}. 
-Journal of Risk and Insurance, 73-90.
+Journal of Risk and Insurance, 73-90,
+\doi{10.2307/253677}.
 
 Frees, E. W. (2004). 
 \emph{Longitudinal and panel data: analysis and applications in the social sciences}. 
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511790928}.
 
 
 }

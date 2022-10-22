@@ -50,13 +50,15 @@ and 20 accident years.
  
 \references{ 
 
-Klugman, Stuart A. (1992). 
+Klugman, S.A. (1992). 
 \emph{Bayesian Statistics in Actuarial Science}, 
-Kluwer, Boston.
+Kluwer, Boston,
+\doi{10.1007/978-94-017-0845-6}.
 
 Frees, E.W. and Young, V.R. and Luo, Y. (2001),
 \emph{Case studies using panel data models},
-North American Actuarial Journal, 5, 24-42.
+North American Actuarial Journal, 5, 24-42,
+\doi{10.1080/10920277.2001.10596010}.
 
 Lacoume, A. (2007),
 \emph{Mesure du risque de reserve sur un horizon de un an},
@@ -64,7 +66,8 @@ Actuary memoir, ISFA.
 
 Frees, E.W. (2011). 
 \emph{Regression Modeling with Actuarial and Financial
-Applications}, Cambridge University Press. 
+Applications}, Cambridge University Press,
+\doi{10.1017/CBO9780511814372}. 
 
  }
  

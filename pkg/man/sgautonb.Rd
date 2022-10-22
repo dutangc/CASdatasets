@@ -50,13 +50,15 @@ data(sgautonb)
 
 \references{ 
 
-Frees (2010), 
+Frees, E.W. (2010),
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
-Frees and Valdez (2008),
-\emph{Hierarchical Insurance Claims Modeling}, 
-Journal of the American Statistical Association (103), 1457-1469.
+Frees, E.W., and E. Valdez (2008).
+\emph{Hierarchical insurance claims modeling},
+Journal of the American Statistical Association 103, 1457-1469,
+\doi{10.1198/016214508000000823}.
 
  }
  

@@ -14,15 +14,10 @@
  \code{DEPARTMENTS.qpj}, \code{DEPARTMENTS.shp}, \code{DEPARTMENTS.shx}.
 As it is of class sp, \code{fredpt17} can be easily plotted or summarized.
 
-
-
-
-
 }
 
 \usage{
 data(fredpt17)
-
 
 }
 
@@ -46,16 +41,11 @@ See \url{https://actinfo.hypotheses.org/86} for the third pricing game.
 See the \code{\link{sp}} class.
 }
 
-
-
-
 \examples{
 
 # (1) load of data
 #
 data(fredpt17)
-
-
 
 names(fredpt17)
 class(fredpt17)

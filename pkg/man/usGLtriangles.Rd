@@ -61,21 +61,24 @@ containing insurance triangles.
 Braun, C. (2004),
 \emph{The prediction error of the chain ladder method 
 applied to correlated run-off triangles},
-ASTIN Bulletin 34, no. 2, 399-423.
+ASTIN Bulletin 34, no. 2, 399-423,
+\doi{10.1017/S0515036100013751}.
 
 England, P.D., and R.J. Verrall (2002),
 \emph{Stochastic claims reserving in general insurance}, 
-British Actuarial Journal 8, 443-544.
+British Actuarial Journal 8, 443-544,
+\doi{10.1017/S1357321700003809}.
 
 Frees, E.W. (2010), 
 \emph{Regression modelling with actuarial and financial applications},
-Cambridge University Press.
+Cambridge University Press,
+\doi{10.1017/CBO9780511814372}.
 
 Mack, T. (1994),
 \emph{Measuring the variability of chain-ladder reserve estimates},
 Casualty Actuarial Society, Spring Forum, Arlington, Virginia.
 
-Quard and Mack (2008), 
+Quard, G. and Mack, T. (2008), 
 \emph{Munich Chain Ladder: a reserving method that reduces the gap between
 IBNR projections based on paid losses and IBNR projections based on incurred losses},
 Variance, Volume 2, Issue 2.
