@@ -37,13 +37,3 @@ install.packages("devtools")
 devtools::install_github("dutangc/CASdatasets", subdir="pkg")
 library(CASdatasets)
 ```
-
-
-Todolist
--------
-
-
-* add new datasets 
-* remove the dependency on `sp` in order to move `sf` or `terra` packages, following https://r-spatial.org/r/2023/05/15/evolution4.html
-* make a nice vignette to present each dataset visually
-* make a NEWS file in markdown format
