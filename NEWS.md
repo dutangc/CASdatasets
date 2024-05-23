@@ -1,19 +1,19 @@
-=== CASdatasets: Actuarial Datasets, originally for the book 'Computational Actuarial Science with R' ===
+# *CASdatasets*: Actuarial Datasets, originally for the book 'Computational Actuarial Science with R'
+
+## Release list
+
+- Version 1.0-12: release for university year 2022/2023
+- Version 1.0-11: release for university year 2020/2021
+- Version 1.0-10: release for university year 2019/2020
+- Version 1.0-9: release for university year 2018/2019
+- Version 1.0-8: release for university year 2017/2018
+- Versions 1.0-6/1.0-7: release for university year 2016/2017
+- Version 1.0-5: release for university year 2015/2016
+- Version 1.0-4: release for university year 2014/2015
+- Version from 0.9-8 to 1.0-3: release for university year 2013/2014
 
 
-Version 1.0-12: release for university year 2022/2023
-Version 1.0-11: release for university year 2020/2021
-Version 1.0-10: release for university year 2019/2020
-Version 1.0-9: release for university year 2018/2019
-Version 1.0-8: release for university year 2017/2018
-Versions 1.0-6/1.0-7: release for university year 2016/2017
-Version 1.0-5: release for university year 2015/2016
-Version 1.0-4: release for university year 2014/2015
-Version from 0.9-8 to 1.0-3: release for university year 2013/2014
-
-
-Dataset list with entry date or latest update
-=============================================
+## Dataset list with entry date or latest update
 
 usMTVA.rda	-	2022/10/21	-	25785.18kB
 freMTPL2freq.rda	-	2022/06/23	-	9104.81kB
@@ -222,8 +222,7 @@ ausNSWdriver04.rda	-	2017/01/21	-	1.49kB
 asiacomrisk.rda	-	2017/01/21	-	12.42kB
 
 
-Removed dataset list
-====================
+## Removed dataset list
 
 - frepermdis10 24/04/2014 (removed)
 - fretempdis10 24/04/2014 (removed)
