@@ -27,10 +27,6 @@ data(beaonre)
 
 }
 
-\source{ 
-\url{https://lstat.kuleuven.be/Wiley/}
-}
-
 \references{ 
 Dataset used in Beirlant, Dierckx, Goegebeur and Matthys (1999),
 \emph{Tail index estimation and an exponential regression model}, 
