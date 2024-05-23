@@ -13,6 +13,14 @@ toc:
   
 intro:
 - title: Getting started
+  navbar: ~
   contents:
   - CASdatasets  
+  
+
+authors:
+  Christophe Dutang
+    href: http://dutangc.free.fr/
+  Arthur Charpentier:
+    href: https://freakonometrics.github.io/
   
