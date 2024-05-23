@@ -1,7 +1,7 @@
 
 
 # Package description
--------------------
+---------------------
 
 A collection of datasets, originally for the book 'Computational Actuarial Science with R' 
 edited by Arthur Charpentier. Now, the package contains a large variety of actuarial datasets
@@ -9,7 +9,7 @@ for students, teachers and researchers.
 
 
 # Install
--------
+---------------------
 
 Please make sure that [xts](https://CRAN.R-project.org/package=xts), 
 [sp](https://CRAN.R-project.org/package=sp), 
@@ -35,3 +35,23 @@ install.packages("devtools")
 devtools::install_github("dutangc/CASdatasets", subdir="pkg")
 library(CASdatasets)
 ```
+
+# Authors and contact
+---------------------
+
+
+Issues can be reported on https://github.com/dutangc/CASdatasets/issues.
+
+- Arthur Charpentier: charpentier.arthur@uqam.ca
+- Christophe Dutang: dutangc@gmail.com
+
+Authors gratefully acknowledge Julien Siharath for building up vignettes for the package.
+
+
+# Citation
+---------------------
+
+If you use `CASdatasets`, you should cite: <br />
+Christophe Dutang and Arthur Charpentier (2024). 
+*CASdatasets: Insurance datasets*
+R package version 1.0-13.
