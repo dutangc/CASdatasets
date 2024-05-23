@@ -1,0 +1,125 @@
+---
+title: "Getting Started"
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+This package contains the following datasets
+
+-   Australia:
+
+    -   `auscathist`: Historical disaster statistics in Australia.
+    -   `ausNLHYtotal`, `ausNLHYCapAdeq`, `ausNLHYFinPerf`, `ausNLHYFinPos`, `ausNLHYLiability`, `ausNLHYOffProf`, `ausNLHYOpIncExp`, `ausNLHYPremClaim`, `ausNLHYPrivInsur`, `ausNLHYPubInsur`, `ausNLHYRecAASB`, `ausNLHYReserve`: Australian Market - non-life insurance (aggregate level).
+    -   `ausNLHYCapAdeqByComp`, `ausNLHYClaimByState`, `ausNLHYFinPerfByComp`, `ausNLHYFinPerfPublic`, `ausNLHYFinPosByComp`, `ausNLHYFinPosPublic`, `ausNLHYOpIncExpPublic`, `ausNLHYPremByState`, `ausNLHYPremClaimPublic`, `ausNLHYPrivInsur`, `ausNLHYPubInsur`: Australian Market - non-life insurance (company, state, public level).
+    -   `ausNLHYLloydAsset`, `ausNLHYLloydGPI` `ausNLHYLloydUWAcc`, `ausNLHYLloydUWRes`: Lloyds Market in Australia. - `austriLoB`: Australian claim triangles. - `ausprivauto`: Australian private motor datasets (by policy). - `ausNSW`: New South Wales statistics.
+
+-   Belgium:
+
+    - `beaonre`: AON Re Belgium dataset. 
+    - `besecura`: Secura Re Belgium dataset.
+
+-   Brazil:
+
+    - `brgeomunic`: a geospatial dataset of Brazilian cities. 
+    - `brgeomunicins`: a geospatial dataset of Brazilian cities with insurance indicators (exposure, claim frequency and premium). 
+    - `brautocoll`: a Brazilian dataset of auto collision in Belo Horizonte during one month (categorical claim severity). 
+    - `bragg`: aggregate Brazilian dataset per region. 
+    - `brvehins1`: a Brazilian vehicle insurance datasets (by policy) with risk features except City. 
+    - `brvehins2`: a Brazilian vehicle insurance datasets (by policy) with risk features including City.
+
+-   Canada:
+
+    - `canlifins`: A portfolio of a Canadian life insurer.
+
+-   Danemark:
+
+    - `danishuni`, `danishmulti`: Danish reinsurance claim dataset.
+
+-   European Union:
+
+    - `eudirectlapse`: lapse dataset.
+
+-   France:
+
+    - `freaggnumber`: a French aggregate claim number dataset. 
+    - `frebiloss`: French business interruption losses. 
+    - `freclaimset`, `freclaimset2`: French claim settlements.
+    - `frecomfire`: French commercial fire losses. 
+    - `freDisTables`: French disability tables.
+    - `fremarine`: French marine claim dataset (by policy). 
+    - `freMortTables`: French mortality tables. 
+    - `fremotorclaim`: French private motor claim datasets (by policy). 
+    - `freMTPL`: two French Motor-TPL claim datasets (by policy). 
+    - `freMPL`: a collection of ten French Motor personal line datasets (by policy). 
+    - `freportfolio`: fictive mortality tables and French nation-wide corresponding tables; two disability datasets from a French insurer. 
+    - `fre4LoBtriangles`: A collection of triangles for 5 line of business from a private insurer. 
+    - `pricingame`: Datesets of Pricing Games of the French institute of Actuaries.
+
+-   Germany:
+
+    - `credit`: A German Credit dataset.
+
+-   Italy:
+
+    - `itamtplcost`: Large losses of an Italian Motor-TPL company.
+
+-   New Zealand:
+
+        -   `nzcathist`: Historical disaster statistics in New Zealand.
+
+-   Norway:
+
+    - `norauto`: Norwegian automobile dataset. 
+    - `norfire`: Norwegian fire dataset.
+
+    - `Norberg`: Norberg's credibility dataset. 
+    - `nortritpl8800`: Norwegian claim triangle.
+
+-   Singapore:
+
+    - `sgautonb`: Singapore Automobile claim count dataset. 
+    - `sgtriangles`: Singapore Property and Casualty triangles.
+
+-   Sweden:
+
+    - `swautoins`: Swedish Motor Insurance dataset 
+    - `swbusscase`: Swedish Buss Insurance dataset 
+    - `swmotorcycle`: Swedish Motorcycle Insurance dataset
+
+-   United Kingdom:
+
+    - `ukaggclaim`: United Kingdom Car Insurance Claims. 
+    - `ukautocoll`: United Kingdom Car Collision Insurance Claims.
+
+-   United States of America:
+
+    - `Davis`: Davis height-weight dataset. 
+    - `ICB1`, `ICB2`: Insurance Company Benchmarks. 
+    - `lossalae`,`lossalaefull`: General Third Part-liability claims and expenses. 
+    - `SOAGMI`: SOA Group Medical Insurance dataset.
+    - `usautoBI`: Automobile Bodily Injuries in US. 
+    - `usautotriangles`: US automobile triangles. 
+    - `usexpense`: US expense dataset. 
+    - `usGLtriangles`: US Property and Casualty triangles. 
+    - `ushurricane`, `ushustormloss4980`: Historical hurricane statistics in United States of America.
+    - `uslapseagent`: US lapse dataset from tied-agent channel. 
+    - `usmassBI`: US Massachusetts Automobile bodily injury claim datasets. 
+    - `usmedclaim`: US medical claim triangle. 
+    - `usMVTA`: US motor vehicle traffic accident. 
+    - `usprivautoclaim`: private automobile claims. 
+    - `usquakeLR`: California earthquake loss ratios. 
+    - `ustermlife`: Term life insurance survey. 
+    - `uswarrantaggnum`: US warranty automobile. 
+    - `usworkcomp`: US workers compensation datasets.
+
+-   Misc.:
+
+    - `eqlist`: Earthquake list. 
+    - `hurricanehist`: Hurricane history. 
+    - `PnCdemand`: Property and Casualty demand. 
+    - `spacedata`: Space dataset. 
+    - `ECBYieldCurve`, `FedYieldCurve`Yield curve for eurozone and US. 
+    - `forexUSUK`Foreign exchange rate between USD and GBP. 
+    - Use the HMD website for mortality tables https://www.mortality.org/
