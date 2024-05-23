@@ -1,16 +1,14 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-CASdatasets
-======
 
 
-Package description
+# Package description
 -------------------
 
 A collection of datasets, originally for the book 'Computational Actuarial Science with R' 
-edited by Arthur Charpentier. Now, the package contains a large variety of actuarial datasets.
+edited by Arthur Charpentier. Now, the package contains a large variety of actuarial datasets
+for students, teachers and researchers.
 
 
-Install
+# Install
 -------
 
 Please make sure that [xts](https://CRAN.R-project.org/package=xts), 
