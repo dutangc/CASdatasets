@@ -15,3 +15,4 @@ new-example.R
 make-NEWS-datalist-files.R
 compress dataset file.R
 check-ref-namespace.R
+crandb.rda
