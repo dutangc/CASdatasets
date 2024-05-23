@@ -53,8 +53,6 @@ Understanding relationships using copulas.
 \emph{North American Actuarial Journal}, \bold{2}, 1--15,
 \doi{10.1080/10920277.1998.10595749}.
   
-\url{https://lstat.kuleuven.be/Wiley/}
-  
 }
 \references{
 Klugman, S. A. and Parsa, R. (1999)
