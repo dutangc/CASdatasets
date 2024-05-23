@@ -5,8 +5,10 @@
 *.Rproj
 *.tar.gz
 *.out
+
 CASdatasets.Rcheck/
 web-index-page/
+
 R repository local.R
 nonacii-detect.R
 new-example.R
