@@ -1,5 +1,6 @@
 \name{canlifins}
 \alias{canlifins}
+\alias{canlifins2}
 \title{Canadian life insurance}
 \docType{data}
 
@@ -12,24 +13,44 @@ These contracts are joint and last-survivor annuities that
 were in the payout status over the observation period.
 For each contract, we have the date of birth, 
 date of death (if applicable) and sex of each annuitant.
+Binary dummies for uncensored observations and exit times are also available. 
 
 }
 \usage{
 data(canlifins)
+data(canlifins2)
 }
 \format{ 
-\code{data} is a data frame of 5 columns and 14,889 rows:
+\code{canlifins} is a data frame of 10 columns and 14,889 rows:
 \describe{
 	\item{\code{EntryAgeM}}{Entry age of the male.}
-	\item{\code{EntryAgeF}}{Entry age of the female.}
 	\item{\code{DeathTimeM}}{Time of death of the male (zero if not applicable).}
-	\item{\code{DeathTimeF}}{Time of death of the female (zero if not applicable).}
 	\item{\code{AnnuityExpiredM}}{The date that the annuity guarantee expired (if applicable).}
+	\item{\code{IsDeadM}}{A binary indicating uncensored observation.}
+	\item{\code{ExitAgeM}}{Exit age of the male.}
+	
+	\item{\code{EntryAgeF}}{Entry age of the female.}
+	\item{\code{DeathTimeF}}{Time of death of the female (zero if not applicable).}
+	\item{\code{AnnuityExpiredF}}{The date that the annuity guarantee expired (if applicable).}
+	\item{\code{IsDeadF}}{A binary indicating uncensored observation.}
+	\item{\code{ExitAgeF}}{Exit age of the female.}
 }
 Originally in Frees et al. (1995), the dataset contains 
 22 contracts where both annuitants are male, 36 contracts where both annuitants are female,
 in addition to 14,889 contracts where one annuitant is male and the other female
 (so a total of 14,947 contracts).
+
+\code{canlifins2} is a data frame of 2 columns and 14,889 rows
+with either the observed death age in \code{canlifins} or simulated death age
+based on the residual survival time. Dependency between male and female is taken
+into account.
+\describe{
+	\item{\code{DeathAgeM}}{Death age of the male.}
+	\item{\code{DeathAgeF}}{Death age of the female.}
+}
+
+}
+
 }
 
 \source{ 
@@ -59,6 +80,16 @@ Status=cut(canlifins$DeathTimeM, c(-1, 0, 10)))
 table(Age=cut(canlifins$EntryAgeF, c(0, 60, 70, 80, 120)), 
 Status=cut(canlifins$DeathTimeF, c(-1, 0, 10)))
 
+
+# (3) Figure 1 of Frees et al. (1995)
+#
+
+KMmale <- survfit(Surv(ExitAgeM, IsDeadM)~1, data=canlifins)
+KMfemale <- survfit(Surv(ExitAgeF, IsDeadF)~1, data=canlifins)
+
+plot(KMmale, xlim=c(40, 110), conf.int=FALSE)
+lines(KMfemale, col="red", conf.int=FALSE)
+grid()
 
 
 
