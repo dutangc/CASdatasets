@@ -42,8 +42,8 @@ library(CASdatasets)
 
 Issues can be reported on https://github.com/dutangc/CASdatasets/issues.
 
-- Arthur Charpentier: charpentier.arthur@uqam.ca
-- Christophe Dutang: dutangc@gmail.com
+- Arthur Charpentier: charpentier.arthur<<@>>uqam.ca
+- Christophe Dutang: dutangc<<@>>gmail.com
 
 Authors gratefully acknowledge Julien Siharath for building up vignettes for the package.
 
