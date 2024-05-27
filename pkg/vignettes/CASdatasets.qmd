@@ -4,8 +4,6 @@ vignette: >
   %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
-pkgdown:
-  as_is: true
 ---
 
 CASdatasets package contains the following datasets (ordered by country/area):
