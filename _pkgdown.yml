@@ -1,7 +1,6 @@
 
 template:
   bootstrap: 5
-  bootswatch: cerulean
 
 navbar:
   structure:
@@ -12,11 +11,6 @@ toc:
   number_sections: yes
   depth: 3
   
-intro:
-- title: Getting started
-  navbar: ~
-  contents:
-  - CASdatasets  
   
 
 authors:
