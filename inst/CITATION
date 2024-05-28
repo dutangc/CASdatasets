@@ -8,7 +8,7 @@ citEntry(entry="Manual",
          note = "R package version 1.0-13",
          textVersion =
 	 paste(	"C. Dutang and A. Charpentier",
-		"(2020)",
+		"(2024)",
 	       	"CASdatasets: Insurance datasets.")
 )
 

@@ -30,7 +30,7 @@ longer than downloading the source file from a repository.
 
 ``` r
 install.packages("devtools")
-devtools::install_github("dutangc/CASdatasets", subdir="pkg")
+devtools::install_github("dutangc/CASdatasets")
 library(CASdatasets)
 ```
 

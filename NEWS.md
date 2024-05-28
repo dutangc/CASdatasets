@@ -1,6 +1,6 @@
-# *CASdatasets*: Actuarial Datasets, originally for the book 'Computational Actuarial Science with R'
+# CASdatasets: Insurance Datasets
 
-## Release list
+## Release history
 
 - Version 1.0-12: release for university year 2022/2023
 - Version 1.0-11: release for university year 2020/2021
@@ -10,7 +10,7 @@
 - Versions 1.0-6/1.0-7: release for university year 2016/2017
 - Version 1.0-5: release for university year 2015/2016
 - Version 1.0-4: release for university year 2014/2015
-- Version from 0.9-8 to 1.0-3: release for university year 2013/2014
+- Versions from 0.9-8 to 1.0-3: release for university year 2013/2014
 
 
 ## Dataset list with entry date or latest update
@@ -222,6 +222,7 @@
 - ausNSWdriver04.rda	-	2017/01/21	-	1.49kB
 - asiacomrisk.rda	-	2017/01/21	-	12.42kB
 
+# Appendix
 
 ## Removed dataset list
 
