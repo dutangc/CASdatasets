@@ -90,33 +90,33 @@ This dataset is available on Zenodo, see Iturria et al.(2021b).</p>
 (character strings are of class <code>factor</code>)</p><dl><dt><code>ST_CASE</code></dt>
 <dd><p>Unique case number assigned to each crash.</p></dd>
 
-<dt><code>VEH_NO</code></dt>
+  <dt><code>VEH_NO</code></dt>
 <dd><p>Assigned to each vehicle in the case.</p></dd>
 
-<dt><code>PER_NO</code></dt>
+  <dt><code>PER_NO</code></dt>
 <dd><p>Consecutive number assigned to each person in the case.</p></dd>
 
-<dt><code>AGE</code></dt>
+  <dt><code>AGE</code></dt>
 <dd><p>Discrete age categories. Due to historical coding practices, 
 people aged 97 or older are coded as 97. The range is (0, 97).</p></dd>
 
-<dt><code>GENDER</code></dt>
+  <dt><code>GENDER</code></dt>
 <dd><p>A character string either <code>'Female'</code> or <code>'Male'</code>.</p></dd>
 
-<dt><code>YEAR</code></dt>
+  <dt><code>YEAR</code></dt>
 <dd><p>This data element records the year in which the crash occurred.</p></dd>
 
-<dt><code>SOURCE</code></dt>
+  <dt><code>SOURCE</code></dt>
 <dd><p>Source of the element (CRSS = Crash Report Sampling System, 
 FARS = Fatality Analysis Reporting System, GES = General Estimates System).</p></dd>
 
-<dt><code>PER_TYP</code></dt>
+  <dt><code>PER_TYP</code></dt>
 <dd><p>This variable describes the role of the individual. 
 Stationary non-occupants (SNO) are people in a working vehicle, transport device or standing in buildings. 
 A character string: <code>'Driver'</code>, <code>'Passenger'</code>, 
 <code>'Pedalcyclists'</code>, <code>'Pedestrians'</code>, <code>'SNO'</code>.</p></dd>
 
-<dt><code>INJ_SEV</code></dt>
+  <dt><code>INJ_SEV</code></dt>
 <dd><p>The 9,325 and 2,648 records in GES/CRSS and FARS,
 respectively, that were reported as injured but their injury
 severity is unknown (historically coded with 5) are not
@@ -126,18 +126,18 @@ to the categories of the severity of the injury. A character string:
 <code>'Fatal Injury'</code>, <code>'Minor Injury'</code>, <code>'No Injury'</code>, 
 <code>'Possible Injury'</code>, <code>'Serious Injury'</code>.</p></dd>
 
-<dt><code>DRINKING</code></dt>
+  <dt><code>DRINKING</code></dt>
 <dd><p>This variable records whether the individual was recorded as having been drinking. 
 A character string: <code>'No'</code>, <code>'Yes'</code>.</p></dd>
 
-<dt><code>DRUGS</code></dt>
+  <dt><code>DRUGS</code></dt>
 <dd><p>This variable records whether the individual was under the influence of drugs. 
 A character string: <code>'No'</code>, <code>'Yes'</code>.</p></dd>
 
-<dt><code>NUMOCCS</code></dt>
+  <dt><code>NUMOCCS</code></dt>
 <dd><p>Discrete number of occupants in the vehicle, an integer ranges in (1,80).</p></dd>
 
-<dt><code>MAKE</code></dt>
+  <dt><code>MAKE</code></dt>
 <dd><p>Discrete vehicle's make categories. Coding has been
 standard since 1988 and 1991 for GES/CRSS and FARS,
 respectively. In the FARS user's manual, code 77
@@ -148,7 +148,7 @@ corresponds to Victory and therefore, omitted in the
 NHTSA notes. A character string converted 
 from an integer in (1, 98).</p></dd>
 
-<dt><code>MODEL</code></dt>
+  <dt><code>MODEL</code></dt>
 <dd><p>Discrete vehicle's model categories. Models for non-
 standard cars are recoded as NaN. FARS and CRSS
 have the same coding practice. GES uses the same as
@@ -160,13 +160,13 @@ some models of: Volkswagen, KIA and Oldsmobile.
 A character string converted 
 from an integer in (1, 63).</p></dd>
 
-<dt><code>MOD_YEAR</code></dt>
+  <dt><code>MOD_YEAR</code></dt>
 <dd><p>Discrete number for the vehicle's model year. Ranges in (1900, 2021).</p></dd>
 
-<dt><code>HIT_RUN</code></dt>
+  <dt><code>HIT_RUN</code></dt>
 <dd><p>An indicator of a hit-and-run. A character string: <code>'No'</code>, <code>'Yes'</code></p></dd>
 
-<dt><code>BODY_TYP</code></dt>
+  <dt><code>BODY_TYP</code></dt>
 <dd><p>Classification of the vehicle based on its configuration, shape, size and doors. 
 A character string: <code>'(2,3)-door hatchback'</code>, <code>'(4,5)-door hatchback'</code>, <code>'2-door sedan'</code>,
 <code>'3-door coupe'</code>, <code>'3-wheel automobile'</code>, <code>'4-door sedan'</code>, <code>'auto-based panel'</code>,
@@ -175,24 +175,24 @@ A character string: <code>'(2,3)-door hatchback'</code>, <code>'(4,5)-door hatch
 <code>'other automobiles'</code>, <code>'other vehicles'</code>, <code>'sedan (unknown door number)'</code>, 
 <code>'station wagon'</code>, <code>'utility vehicles'</code>, <code>'van-based trucks'</code>.</p></dd>
 
-<dt><code>DEFORMED</code></dt>
+  <dt><code>DEFORMED</code></dt>
 <dd><p>This variable records the amount of damage sustained by the vehicle.
 A character string: <code>'minor damage'</code>, <code>'moderate damage'</code>, <code>'no damage'</code>, 
 <code>'severe damage'</code>.</p></dd>
 
-<dt><code>SPEC_USE</code></dt>
+  <dt><code>SPEC_USE</code></dt>
 <dd><p>Example of a vehicle with a special use are taxi, military vehicle, 
 police vehicle, ambulance, fire truck, among others. A character string: <code>'no special use'</code>,
 <code>'special use'</code>.</p></dd>
 
-<dt><code>TRAV_SP</code></dt>
+  <dt><code>TRAV_SP</code></dt>
 <dd><p>Discrete number for travel speeds in miles per hour. 
 Values greater than 96 coded as 97. An integer ranges in (0, 97).</p></dd>
 
-<dt><code>DR_ZIP</code></dt>
+  <dt><code>DR_ZIP</code></dt>
 <dd><p>Driver's address U.S. zip codes. An integer of the form <code>XXXXX</code>.</p></dd>
 
-<dt><code>SPEEDREL</code></dt>
+  <dt><code>SPEEDREL</code></dt>
 <dd><p>This variable records whether the driver's speed was
 related to the crash. Different speed related categories in
 all datasets grouped to the 'Yes' classification. FARS data
@@ -202,7 +202,7 @@ variable DR_SF1 had speeding categories with codes 43,
 codes are standardized so that <code>'Yes'</code> corresponds to 1.
 A character string: <code>'No'</code>, <code>'Yes'</code>.</p></dd>
 
-<dt><code>DR_SF1</code></dt>
+  <dt><code>DR_SF1</code></dt>
 <dd><p>Factors related to the driver expressed in the case materials. 
 Careless driving includes: improper driving, road rage or driving in an emotional state 
 (fatigued, depressed, among others). Police related factors include: police pursuit, 
@@ -211,128 +211,126 @@ homicide, among others).
 A character string: <code>'Careless driving'</code>, <code>'Miscellaneous'</code>, <code>'None'</code>, 
 <code>'Police related'</code>.</p></dd>
 
-<dt><code>HARM_EV</code></dt>
+  <dt><code>HARM_EV</code></dt>
 <dd><p>This field describes the first injury or damage producing 
 event of the crash. MVT stands for motor vehicles in transport. Non-collision includes 
 rollover, fire or explosion, gas inhalation, surface irregularities, among others.
 A character string: <code>'Collision with fixed object'</code>, <code>'Collision with MVT'</code>, 
 <code>'Collision with object not fixed'</code>, <code>'Non-collision'</code>.</p></dd>
 
-<dt><code>HOUR</code></dt>
+  <dt><code>HOUR</code></dt>
 <dd><p>Discrete number denoting the hour of the accident. 
 Accidents that occurred at 12:00 am standardized to 0 hours. An integer ranges in (0, 23).</p></dd>
 
-<dt><code>WEATHER</code></dt>
+  <dt><code>WEATHER</code></dt>
 <dd><p>Weather at the time of the accident. An 'atmospheric condition' 
 includes rain, snow, cloudy, fog/smoke, sand, among others.
 A character string: <code>'Atmospheric condition'</code>, <code>'Clear'</code>.</p></dd>
 
-<dt><code>STRATUM</code></dt>
+  <dt><code>STRATUM</code></dt>
 <dd><p>This data element identifies the number of the categories in 
 which the police report was originally listed. An integer ranges from 1 to 10.</p></dd>
 
-<dt><code>REGION</code></dt>
+  <dt><code>REGION</code></dt>
 <dd><p>NHTSA Region.
 A character string: <code>'Midwest'</code>, <code>'Northeast'</code>, <code>'South'</code>, <code>'West'</code>.</p></dd>
 
-<dt><code>PSU</code></dt>
+  <dt><code>PSU</code></dt>
 <dd><p>Primary sampling unit (PSU). 3117 counties in the country were grouped into 707 PSU.</p></dd>
 
-<dt><code>PJ</code></dt>
+  <dt><code>PJ</code></dt>
 <dd><p>This integer identifies the number of the police jurisdiction 
 from which the police crash report was originally sampled.</p></dd>
 
-<dt><code>WEIGHT</code></dt>
+  <dt><code>WEIGHT</code></dt>
 <dd><p>Case weight, this data element is used to produce national estimates from the data.</p></dd>
 
-<dt><code>NUM_VEH</code></dt>
+  <dt><code>NUM_VEH</code></dt>
 <dd><p>Denotes the number of vehicles involved in the MVTA.</p></dd>
 
-<dt><code>MAX_SEV</code></dt>
+  <dt><code>MAX_SEV</code></dt>
 <dd><p>The maximum severity variable is the highest injury 
 severity of all the people involved in the same MVTA. 
 A character string: <code>'Minor Injury'</code>, <code>'No Injury'</code>, <code>'Possible Injury'</code>, 
 <code>'Serious Injury'</code>.</p></dd>
 
-<dt><code>MAKEMODEL</code></dt>
+  <dt><code>MAKEMODEL</code></dt>
 <dd><p>An integer is created as a concatenation of <code>MODEL</code> and <code>MAKE</code> 
 of the vehicle.</p></dd>
 
-<dt><code>COUNTYNAME</code></dt>
+  <dt><code>COUNTYNAME</code></dt>
 <dd><p>Reflects the location of the accident. 
 Derived from driver's zip code if unavailable and possible.
 A character string from <code>'Abbeville'</code>, <code>'Acadia'</code>,... to <code>'Yuma'</code>, <code>'Zavala'</code>.</p></dd>
 
-<dt><code>STATENAME</code></dt>
+  <dt><code>STATENAME</code></dt>
 <dd><p>Reflects the location of the accident. Derived from driver's zip code if unavailable.
 A character string from <code>'Alabama'</code>, <code>'Alaska'</code>,... to <code>'Wisconsin'</code>, <code>'Wyoming'</code>.</p></dd>
 
-<dt><code>SEG</code></dt>
+  <dt><code>SEG</code></dt>
 <dd><p>Socio-economic groups. An integer ranges (1, 10).</p></dd>
 
-<dt><code>MARITAL</code></dt>
+  <dt><code>MARITAL</code></dt>
 <dd><p>The marital status, denoted by MARITAL, is randomly assigned 
 using probabilities based on age, gender and zip code. For parsimony, we use only two 
 mutually exclusive categories for marital status. 
 A character string: <code>'Married'</code>, <code>'Single'</code>.</p></dd>
 
-<dt><code>POP2018</code></dt>
+  <dt><code>POP2018</code></dt>
 <dd><p>Population count for the zip code. 
 This allows to distinguish between rural and urban areas.</p></dd>
 
-<dt><code>RACE</code></dt>
+  <dt><code>RACE</code></dt>
 <dd><p>The so-called race of the individual by NHTSA. 
 A character string: <code>'Asian'</code>, <code>'Black'</code>, <code>'Hispanic'</code>, <code>'White'</code>.</p></dd>
 
-<dt><code>PREV</code></dt>
+  <dt><code>PREV</code></dt>
 <dd><p>Summary of the driving record variables (<code>PREV_ACC</code>, 
 <code>PREV_SUS</code>, <code>PREV_DWI</code> and <code>PREV_SPD</code>). 
 An integer: 1 if the person has had one or more accidents or driving offences 
 in the last 5 years, and to 0 otherwise.</p></dd>
 
-<dt><code>DR_DRINK</code></dt>
+  <dt><code>DR_DRINK</code></dt>
 <dd><p>This field records whether the driver was drinking.
 A character string: <code>'No'</code>, <code>'Yes'</code>.</p></dd>
 
-<dt><code>CDL_STAT</code></dt>
+  <dt><code>CDL_STAT</code></dt>
 <dd><p>This field indicates the status of the driver's commercial driver's 
 license (CDL). A character string: <code>'Cancelled or Denied'</code>, <code>"Commercial Learner's Permit"</code>,
 <code>'Disqualified'</code>, <code>'Expired'</code>, <code>'No Driver Present/Unknown if Driver Present'</code>, 
 <code>'No license'</code>, <code>'Not Reported'</code>, <code>'Other - Not Valid'</code>, <code>'Revoked'</code>, 
 <code>'Suspended'</code>, <code>'Unknown CDL'</code>, <code>'Unknown License Status'</code>, <code>'Valid'</code>.</p></dd>
 
-<dt><code>PREV_ACC</code></dt>
+  <dt><code>PREV_ACC</code></dt>
 <dd><p>This field indicates if there was any previous crashes for 
 this driver that occurred within 5 years of the crash date.</p></dd>
 
-<dt><code>PREV_SUS</code></dt>
+  <dt><code>PREV_SUS</code></dt>
 <dd><p>This field indicates if there was any previous license suspensions 
 or revocations for this driver that occurred within 5 years of the crash date.</p></dd>
 
-<dt><code>PREV_DWI</code></dt>
+  <dt><code>PREV_DWI</code></dt>
 <dd><p>This field indicates if there was any previous DWI 
 (driving while intoxicated) convictions for this driver that occurred within 
 5 years of the crash date.</p></dd>
 
-<dt><code>PREV_SPD</code></dt>
+  <dt><code>PREV_SPD</code></dt>
 <dd><p>This field records any previous speeding convictions for this 
 driver that occurred within 5 years of the crash date.</p></dd>
 
-<dt><code>COUNTY</code></dt>
+  <dt><code>COUNTY</code></dt>
 <dd><p>This data element records the location of the unstabilized 
 event with regard to the County. The codes are from the General Services 
 Administration's (GSA) publication of worldwide Geographic Location Codes (GLC).</p></dd>
 
-<dt><code>ZCTA</code></dt>
+  <dt><code>ZCTA</code></dt>
 <dd><p>U.S. Zip code of the crash. An integer of the form <code>XXXXX</code>.</p></dd>
 
 
 </dl></div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
-    <p><a href="https://doi.org/10.2139/ssrn.3977693" class="external-link">doi:10.2139/ssrn.3977693</a>
-SSRN paper</p>
-<p></p>
+    <p>Iturria, A., Andres, C., Hardy, M. and Marriott, P., (2021a), see below.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
