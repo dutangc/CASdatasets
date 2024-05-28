@@ -1,17 +1,45 @@
-# CASdatasets: Insurance Datasets
+# CASdatasets 1.0-13
 
-## Release history
+Current version for development.
+
+# CASdatasets 1.0-12
 
 - Version 1.0-12: release for university year 2022/2023
+
+# CASdatasets 1.0-11
+
 - Version 1.0-11: release for university year 2020/2021
+
+# CASdatasets 1.0-10
+
 - Version 1.0-10: release for university year 2019/2020
+
+# CASdatasets 1.0-9
+
 - Version 1.0-9: release for university year 2018/2019
+
+# CASdatasets 1.0-8
+
 - Version 1.0-8: release for university year 2017/2018
+
+# CASdatasets 1.0-6/1.0-7
+
 - Versions 1.0-6/1.0-7: release for university year 2016/2017
+
+# CASdatasets 1.0-5
+
 - Version 1.0-5: release for university year 2015/2016
+
+# CASdatasets 1.0-4
+
 - Version 1.0-4: release for university year 2014/2015
+
+# CASdatasets 1.0-3 and before
+
 - Versions from 0.9-8 to 1.0-3: release for university year 2013/2014
 
+
+# Dataset list
 
 ## Dataset list with entry date or latest update
 
@@ -221,8 +249,6 @@
 - ausNSWdeath02.rda	-	2017/01/21	-	0.79kB
 - ausNSWdriver04.rda	-	2017/01/21	-	1.49kB
 - asiacomrisk.rda	-	2017/01/21	-	12.42kB
-
-# Appendix
 
 ## Removed dataset list
 
