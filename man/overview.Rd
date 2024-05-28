@@ -7,9 +7,9 @@
 	}
 \details{
 This package contains the following datasets
-\describe{
+\itemize{
 	\item Australia:
-	\describe{
+	\itemize{
         \item{ \code{\link{auscathist}}: Historical disaster statistics in Australia.}
         \item{ \code{\link{ausNLHYtotal}}, \code{\link{ausNLHYCapAdeq}},
 			\code{\link{ausNLHYFinPerf}}, \code{\link{ausNLHYFinPos}},
@@ -28,16 +28,15 @@ This package contains the following datasets
         \item{\code{\link{austriLoB}}: Australian claim triangles.}
         \item{\code{\link{ausprivauto}}: Australian private motor datasets (by policy).}
         \item{\code{\link{ausNSW}}: New South Wales statistics.}
-
 		}
 
 	\item Belgium:
-	\describe{
+	\itemize{
 		\item{\code{\link{beaonre}}: AON Re Belgium dataset.}
 		\item{\code{\link{besecura}}: Secura Re Belgium dataset.}
 	}	
   \item Brazil:
-  \describe{
+  \itemize{
         \item{\code{\link{brgeomunic}}: a geospatial dataset of Brazilian cities.}
         \item{\code{\link{brgeomunicins}}: a geospatial dataset of Brazilian cities with
             insurance indicators (exposure, claim frequency and premium).}
@@ -51,19 +50,19 @@ This package contains the following datasets
     }
 
   \item Canada:
-	\describe{
+	\itemize{
 		\item{\code{\link{canlifins}}: A portfolio of a Canadian life insurer.}
 	}
 	\item Danemark: 
-	\describe{
+	\itemize{
 		\item{\code{\link{danishuni}}, \code{\link{danishmulti}}: Danish reinsurance claim dataset.}
 	}
 	\item European Union: 
-	\describe{
+	\itemize{
 		\item{\code{\link{eudirectlapse}}: lapse dataset.}
 	}
 	\item France:
-	\describe{
+	\itemize{
 		\item{\code{\link{freaggnumber}}: a French aggregate claim number dataset.}
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
 		\item{\code{\link{freclaimset}}, \code{\link{freclaimset2}}: French claim settlements.}
@@ -77,49 +76,49 @@ This package contains the following datasets
 		\item{\code{\link{freMPL}}: a collection of ten French Motor personal line datasets (by policy).}
 		\item{\code{\link{freportfolio}}: fictive mortality tables and French
 		nation-wide corresponding tables; two disability datasets from a French insurer.}
-    \item{\code{\link{fre4LoBtriangles}}}{: A collection of triangles for 5
+    \item{\code{\link{fre4LoBtriangles}}: A collection of triangles for 5
         line of business from a private insurer.}
     \item{\code{\link{pricingame}}: Datesets of Pricing Games of the
     French institute of Actuaries.}    
 	}
 	\item Germany:
-	\describe{
+	\itemize{
 		\item{\code{\link{credit}}: A German Credit dataset.}	
 	}
 	\item Italy:
-	\describe{
+	\itemize{
 		\item{\code{\link{itamtplcost}}: Large losses of an Italian Motor-TPL company.}
 	}
   \item New Zealand:
-  \describe{
+  \itemize{
         \item{ \code{\link{nzcathist}}: Historical disaster statistics in New Zealand.}
     }
 
 	\item Norway:
-	\describe{
+	\itemize{
 		\item{\code{\link{norauto}}: Norwegian automobile dataset.}
 		\item{\code{\link{norfire}}: Norwegian fire dataset.}
     \item{\code{\link{Norberg}}: Norberg's credibility dataset.}
     \item{\code{\link{nortritpl8800}}: Norwegian claim triangle.}
 	}
 	\item Singapore:
-	\describe{
+	\itemize{
 		\item{\code{\link{sgautonb}}: Singapore Automobile claim count dataset.}
         \item{\code{\link{sgtriangles}}: Singapore Property and Casualty triangles.}
 	}
 	\item Sweden:
-	\describe{
+	\itemize{
 		\item{\code{\link{swautoins}}: Swedish Motor Insurance dataset}
         \item{\code{\link{swbusscase}}: Swedish Buss Insurance dataset}
         \item{\code{\link{swmotorcycle}}: Swedish Motorcycle Insurance dataset}
 	}
 	\item United Kingdom:
-	\describe{
+	\itemize{
 		\item{\code{\link{ukaggclaim}}: United Kingdom Car Insurance Claims.}
 		\item{\code{\link{ukautocoll}}: United Kingdom Car Collision Insurance Claims.}
 	}
 	\item United States of America:
-	\describe{
+	\itemize{
 		\item{\code{\link{Davis}}: Davis height-weight dataset.}
 		\item{\code{\link{ICB1}}, \code{\link{ICB2}}: Insurance Company Benchmarks.}
 		\item{\code{\link{lossalae}},\code{\link{lossalaefull}}: General Third Part-liability claims and expenses.}
@@ -142,30 +141,30 @@ This package contains the following datasets
 		\item{\code{\link{usworkcomp}}: US workers compensation datasets.}
 	}
 	\item Misc.: 	
-	\describe{
+	\itemize{
 		\item{\code{\link{eqlist}}: Earthquake list.}
 		\item{\code{\link{hurricanehist}}: Hurricane history.}
 		\item{\code{\link{PnCdemand}}: Property and Casualty demand.}
 		\item{\code{\link{spacedata}}: Space dataset.}
-        \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}}}{Yield curve
+        \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}} Yield curve
             for eurozone and US.}
-        \item{\code{\link{forexUSUK}}}{Foreign exchange rate between USD and GBP.}
+        \item{\code{\link{forexUSUK}} Foreign exchange rate between USD and GBP.}
         \item{Use the HMD website for mortality tables \url{https://www.mortality.org/}.}
 	}
 	
 }
 
 Here is a list of datasets whose name has changed compared to the book 'Computational Actuarial Science with R':'
-\describe{
-    \item{Chapter 1:}{\code{extreme2datasince1899} is \code{\link{hurricanehist}}.}
-    \item{Chapter 5:}{\code{accidents} and \code{accidents_data} are merged in \code{\link{brautocoll}};
-    \code{55mu2500gsd} is \code{\link{brgeomunic}};
-    \code{sul_sp}, \code{sul+sp_shape} are stored in \code{\link{brgeomunicins}};}
-    \item{Chapter 9:}{\code{MyPortfolio} is \code{\link{freprojqxINSEE}}.}
-    \item{Chapter 10:}{\code{DataMortality} is \code{\link{freptfpermdis}}.}
-    \item{Chapter 11:}{\code{DEXUSUK} is \code{\link{forexUSUK}}.}
-    \item{Chapter 14:}{\code{CONTRACTS} is \code{\link{freMTPLfreq}}; \code{CLAIMS} is \code{\link{freMTPLsev}}.}
-    \item{Chapter 15:}{\code{AutoClaimData} is \code{\link{usmassBI2}}.}
+\itemize{
+    \item{Chapter 1: \code{extreme2datasince1899} is \code{\link{hurricanehist}}.}
+    \item{Chapter 5: \code{accidents} and \code{accidents_data} are merged in \code{\link{brautocoll}};
+      \code{55mu2500gsd} is \code{\link{brgeomunic}};
+      \code{sul_sp}, \code{sul+sp_shape} are stored in \code{\link{brgeomunicins}}.}
+    \item{Chapter 9: \code{MyPortfolio} is \code{\link{freprojqxINSEE}}.}
+    \item{Chapter 10: \code{DataMortality} is \code{\link{freptfpermdis}}.}
+    \item{Chapter 11: \code{DEXUSUK} is \code{\link{forexUSUK}}.}
+    \item{Chapter 14: \code{CONTRACTS} is \code{\link{freMTPLfreq}}; \code{CLAIMS} is \code{\link{freMTPLsev}}.}
+    \item{Chapter 15: \code{AutoClaimData} is \code{\link{usmassBI2}}.}
 }
 
 }

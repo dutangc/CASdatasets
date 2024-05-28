@@ -1,14 +1,16 @@
 citHeader("To cite CASdatasets in publications use:")
 
+p1 <- person("Christophe", "Dutang", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6732-1501"))
+p2 <- person("Arthur", "Charpentier", role = c("aut"), comment = c(ORCID = "0000-0003-3654-6286"))
 
-bibentry(entry="Manual",
+
+bibentry(bibtype="Manual",
          title = "CASdatasets: Insurance datasets",
-         author = "Christophe Dutang, Arthur Charpentier",
-	        year = 2024,
+         author = c(p1, p2),
+	       year = "2024",
          note = "R package version 1.0-13",
          textVersion =
-	 paste(	"C. Dutang and A. Charpentier",
-		"(2024)",
+	 paste(	"C. Dutang and A. Charpentier", "(2024)",
 	       	"CASdatasets: Insurance datasets.")
 )
 
