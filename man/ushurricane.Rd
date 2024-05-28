@@ -84,7 +84,7 @@ data(ushupopulation)
 }
 
 \source{ 
-\url{http://sciencepolicy.colorado.edu/publications/special/normalized_hurricane_damages.html}
+\url{https://sciencepolicy.colorado.edu/publications/special/normalized_hurricane_damages.html}
  }
  
 \references{ 

@@ -58,7 +58,7 @@ data(uslapseagent)
 
 \source{
 Unknown non-life insurers from United States, used in Milhaud and Dutang (2018), 
-preprint at \url{https://hal.archives-ouvertes.fr/hal-01985256}.
+preprint at \url{https://hal.science/hal-01985256}.
 
 }
 \references{ 

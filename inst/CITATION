@@ -1,7 +1,7 @@
 citHeader("To cite CASdatasets in publications use:")
 
 
-citEntry(entry="Manual",
+bibentry(entry="Manual",
          title = "CASdatasets: Insurance datasets",
          author = "Christophe Dutang, Arthur Charpentier",
 	        year = 2024,
