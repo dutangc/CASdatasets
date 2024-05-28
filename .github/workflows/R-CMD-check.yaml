@@ -45,6 +45,11 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get install libcurl4-openssl-dev texlive
+
+      - name: Install brew Mac packages
+        if: runner.os == 'MacOS'
+        run: |
+          brew install xquartz
           
       - name: Install dependencies
         run: |
