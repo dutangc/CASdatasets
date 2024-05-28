@@ -7,11 +7,6 @@
 *.out
 
 web-index-page/
+share/
 
-R repository local.R
-nonacii-detect.R
-new-example.R
-make-NEWS-datalist-files.R
-compress dataset file.R
-check-ref-namespace.R
 crandb.rda
