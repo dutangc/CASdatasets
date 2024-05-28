@@ -7,9 +7,9 @@
 	}
 \details{
 This package contains the following datasets
-\itemize{
+\describe{
 	\item Australia:
-	\itemize{
+	\describe{
         \item{ \code{\link{auscathist}}: Historical disaster statistics in Australia.}
         \item{ \code{\link{ausNLHYtotal}}, \code{\link{ausNLHYCapAdeq}},
 			\code{\link{ausNLHYFinPerf}}, \code{\link{ausNLHYFinPos}},
@@ -32,12 +32,12 @@ This package contains the following datasets
 		}
 
 	\item Belgium:
-	\itemize{
+	\describe{
 		\item{\code{\link{beaonre}}: AON Re Belgium dataset.}
 		\item{\code{\link{besecura}}: Secura Re Belgium dataset.}
 	}	
-    \item Brazil:
-    \itemize{
+  \item Brazil:
+  \describe{
         \item{\code{\link{brgeomunic}}: a geospatial dataset of Brazilian cities.}
         \item{\code{\link{brgeomunicins}}: a geospatial dataset of Brazilian cities with
             insurance indicators (exposure, claim frequency and premium).}
@@ -50,20 +50,20 @@ This package contains the following datasets
             (by policy) with risk features including City.}
     }
 
-    \item Canada:
-	\itemize{
+  \item Canada:
+	\describe{
 		\item{\code{\link{canlifins}}: A portfolio of a Canadian life insurer.}
 	}
 	\item Danemark: 
-	\itemize{
+	\describe{
 		\item{\code{\link{danishuni}}, \code{\link{danishmulti}}: Danish reinsurance claim dataset.}
 	}
 	\item European Union: 
-	\itemize{
+	\describe{
 		\item{\code{\link{eudirectlapse}}: lapse dataset.}
 	}
 	\item France:
-	\itemize{
+	\describe{
 		\item{\code{\link{freaggnumber}}: a French aggregate claim number dataset.}
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
 		\item{\code{\link{freclaimset}}, \code{\link{freclaimset2}}: French claim settlements.}
@@ -83,43 +83,43 @@ This package contains the following datasets
     French institute of Actuaries.}    
 	}
 	\item Germany:
-	\itemize{
+	\describe{
 		\item{\code{\link{credit}}: A German Credit dataset.}	
 	}
 	\item Italy:
-	\itemize{
+	\describe{
 		\item{\code{\link{itamtplcost}}: Large losses of an Italian Motor-TPL company.}
 	}
-    \item New Zealand:
-    \itemize{
+  \item New Zealand:
+  \describe{
         \item{ \code{\link{nzcathist}}: Historical disaster statistics in New Zealand.}
     }
 
 	\item Norway:
-	\itemize{
+	\describe{
 		\item{\code{\link{norauto}}: Norwegian automobile dataset.}
 		\item{\code{\link{norfire}}: Norwegian fire dataset.}
     \item{\code{\link{Norberg}}: Norberg's credibility dataset.}
     \item{\code{\link{nortritpl8800}}: Norwegian claim triangle.}
 	}
 	\item Singapore:
-	\itemize{
+	\describe{
 		\item{\code{\link{sgautonb}}: Singapore Automobile claim count dataset.}
         \item{\code{\link{sgtriangles}}: Singapore Property and Casualty triangles.}
 	}
 	\item Sweden:
-	\itemize{
+	\describe{
 		\item{\code{\link{swautoins}}: Swedish Motor Insurance dataset}
         \item{\code{\link{swbusscase}}: Swedish Buss Insurance dataset}
         \item{\code{\link{swmotorcycle}}: Swedish Motorcycle Insurance dataset}
 	}
 	\item United Kingdom:
-	\itemize{
+	\describe{
 		\item{\code{\link{ukaggclaim}}: United Kingdom Car Insurance Claims.}
 		\item{\code{\link{ukautocoll}}: United Kingdom Car Collision Insurance Claims.}
 	}
 	\item United States of America:
-	\itemize{
+	\describe{
 		\item{\code{\link{Davis}}: Davis height-weight dataset.}
 		\item{\code{\link{ICB1}}, \code{\link{ICB2}}: Insurance Company Benchmarks.}
 		\item{\code{\link{lossalae}},\code{\link{lossalaefull}}: General Third Part-liability claims and expenses.}
@@ -142,7 +142,7 @@ This package contains the following datasets
 		\item{\code{\link{usworkcomp}}: US workers compensation datasets.}
 	}
 	\item Misc.: 	
-	\itemize{
+	\describe{
 		\item{\code{\link{eqlist}}: Earthquake list.}
 		\item{\code{\link{hurricanehist}}: Hurricane history.}
 		\item{\code{\link{PnCdemand}}: Property and Casualty demand.}

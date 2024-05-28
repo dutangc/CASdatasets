@@ -35,6 +35,7 @@ data(canlifins2)
 	\item{\code{IsDeadF}}{A binary indicating uncensored observation.}
 	\item{\code{ExitAgeF}}{Exit age of the female.}
 }
+
 Originally in Frees et al. (1995), the dataset contains 
 22 contracts where both annuitants are male, 36 contracts where both annuitants are female,
 in addition to 14,889 contracts where one annuitant is male and the other female
@@ -47,8 +48,6 @@ into account.
 \describe{
 	\item{\code{DeathAgeM}}{Death age of the male.}
 	\item{\code{DeathAgeF}}{Death age of the female.}
-}
-
 }
 
 }
