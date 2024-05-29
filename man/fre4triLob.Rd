@@ -8,6 +8,7 @@
 \alias{fretri1TPL9207}
 \alias{fretri1dis1418}
 
+
 \title{French private motor, third party liability or disability triangles}
 \docType{data}
 
@@ -32,10 +33,10 @@ Dataset \code{fretri1TPL9207} contains a claim triangle of third party
 liability policies from a French non-life insurer between 1992 and 2007.
 For \code{fretri1TPL9207}, only paid cumulative claim amounts are available.
 
-%Dataset \code{fretri1dis1418} contains a claim triangle of disability insurance 
-%policies from a French non-life insurer between 2014 and 2018.
-%For \code{fretri1dis1418}, only cumulative claim numbers are available
-%on a monthly basis.
+Dataset \code{fretri1dis1418} contains a claim triangle of disability insurance 
+policies from a French non-life insurer between 2014 and 2018.
+For \code{fretri1dis1418}, only cumulative claim numbers are available
+on a monthly basis.
 
 
 
@@ -57,8 +58,8 @@ data(fretri4auto9403)
 #5th Line of Business
 data(fretri1TPL9207)
 
-%#6th Line of Business
-%data(fretri1dis1418)
+#6th Line of Business
+data(fretri1dis1418)
 
 }
 \format{ 
@@ -90,6 +91,9 @@ data(fretri4auto9403)
 
 #5th Line of Business
 data(fretri1TPL9207)
+
+#6th Line of Business
+data(fretri1dis1418)
 
 }
 \keyword{datasets}
