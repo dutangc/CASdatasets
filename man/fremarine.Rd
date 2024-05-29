@@ -36,7 +36,6 @@ data(fremarine)
     \item{\code{ClaimStatus}}{The status of the claim (factor).}
     \item{\code{ClaimCateg}}{The category of the claim (unknown factor).}
     \item{\code{Deductible}}{The deductible value (numeric) (rescaled and noisy).}
-    \item{\code{HeadQuarter}}{The city name of the ship headquarter (factor) (resampled).}
     \item{\code{Departement}}{The corresponding French departement of the cityname (factor).}
 	}
 
