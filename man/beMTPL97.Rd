@@ -13,7 +13,8 @@ of the number of claims filed and the total amount claimed (in euro) by a policy
 the period of exposure.
 The data set lists five categorical, four continuous and two spatial risk
 factors, each of them informing about specific characteristics of the policy or the policyholder.
-A detailed discussion on the distribution of all variables is available in Henckaerts et al. (2018).
+A detailed discussion on the distribution of all variables is available in Henckaerts et al. (2018)
+and some code examples is available at \url{https://github.com/henckr/treeML}.
 }
 
 \usage{
