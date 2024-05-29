@@ -54,6 +54,7 @@ This package contains the following datasets
   \item Canada:
 	\itemize{
 		\item{\code{\link{canlifins}}: A portfolio of a Canadian life insurer.}
+		\item{\code{\link{catelematic13}}: Canadian telematic insurance dataset.}
 	}
 	\item Danemark: 
 	\itemize{
