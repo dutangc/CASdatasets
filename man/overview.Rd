@@ -78,10 +78,10 @@ This package contains the following datasets
 		\item{\code{\link{freMPL}}: a collection of ten French Motor personal line datasets (by policy).}
 		\item{\code{\link{freportfolio}}: fictive mortality tables and French
 		nation-wide corresponding tables; two disability datasets from a French insurer.}
-    \item{\code{\link{fre4LoBtriangles}}: A collection of triangles for 5
+    \item{\code{\link{fre4LoBtriangles}}: A collection of triangles 
         line of business from a private insurer.}
-    \item{\code{\link{pricingame}}: Datesets of Pricing Games of the
-    French institute of Actuaries.}    
+    \item{\code{\link{pricingame}}: Datesets used at Pricing Games of the
+    French Institute of Actuaries.}    
 	}
 	\item Germany:
 	\itemize{
@@ -135,6 +135,7 @@ This package contains the following datasets
     \item{\code{\link{uslapseagent}}: US lapse dataset from tied-agent channel.}
     \item{\code{\link{usmassBI}}: US Massachusetts Automobile bodily injury claim datasets.}
 		\item{\code{\link{usmedclaim}}: US medical claim triangle.}
+		\item{\code{\link{usMSHA1316}}: US Mine Safety and Health Administration claim dataset.}
 		\item{\code{\link{usMVTA}}: US motor vehicle traffic accident.}
 		\item{\code{\link{usprivautoclaim}}: private automobile claims.}
 		\item{\code{\link{usquakeLR}}: California earthquake loss ratios.}
