@@ -33,6 +33,8 @@ This package contains the following datasets
 	\item Belgium:
 	\itemize{
 		\item{\code{\link{beaonre}}: AON Re Belgium dataset.}
+		\item{\code{\link{beMTPL}}: a MTPL Belgium dataset (by policy).}
+		\item{\code{\link{beMTPL97}}: a MTPL Belgium dataset of 1997 (by policy).}
 		\item{\code{\link{besecura}}: Secura Re Belgium dataset.}
 	}	
   \item Brazil:
