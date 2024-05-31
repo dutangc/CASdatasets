@@ -39,16 +39,16 @@ This package contains the following datasets
 	}	
   \item Brazil:
   \itemize{
-        \item{\code{\link{brgeomunic}}: a geospatial dataset of Brazilian cities.}
-        \item{\code{\link{brgeomunicins}}: a geospatial dataset of Brazilian cities with
+        \item{\code{brgeomunic*}: geospatial datasets of Brazilian cities in extra directory.}
+        \item{\code{\link{brgeomunicins}}: a dataset of Brazilian cities with
             insurance indicators (exposure, claim frequency and premium).}
         \item{\code{\link{brautocoll}}: a Brazilian dataset of auto collision in Belo
             Horizonte during one month (categorical claim severity).}
         \item{\code{\link{bragg}}: aggregate Brazilian dataset per region.}
         \item{\code{\link{brvehins1}}: a Brazilian vehicle insurance datasets
-            (by policy) with risk features except City.}
+            (by policy) with risk features except City code.}
         \item{\code{\link{brvehins2}}: a Brazilian vehicle insurance datasets
-            (by policy) with risk features including City.}
+            (by policy) with risk features including City code.}
     }
 
   \item Canada:

@@ -2,7 +2,7 @@
 # exportPattern(".")
 
 # Import all packages listed as Imports or Depends
-import(xts, sp)
+import(xts)
 
 importFrom(survival, "survfit", "Surv")
 

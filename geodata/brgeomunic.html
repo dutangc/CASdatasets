@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><title>R: Brazilian geospatial dataset for municipalities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>brgeomunic</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Brazilian geospatial dataset for municipalities </h2>
+
+<h3>Description</h3>
+
+<p><code>brgeomunic*</code> are spatial database containing geospatial information of Brazilian municipalities
+provided by IBGE, the Brazilian governmental agency
+in charge of geographical issues and official statistics (ibge.gov.br, accessed in
+February, 2013). <code>brgeomunic</code> is a geospatial dataframe of class sp based on three files:
+one containing the geographical coordinates of the polygons, lines or dots (55mu2500gsd.shp);
+another with attribute data (55mu2500gsd.dbf); a third file with the index that
+allows the connection between  the .shp and .dbf files(55mu2500gsd.shx).
+<code>brgeomunic</code> is provided in two versions: <code>brgeomunic_sp</code> of class sp and
+<code>brgeomunic_sf</code> of class sf in the directory <code>geodata</code> on the github
+directory, please visit the repository at <a href="https://github.com/dutangc/CASdatasets">https://github.com/dutangc/CASdatasets</a>.
+You may also consider the package <code>geobr</code> at <a href="https://cran.r-project.org/package=geobr">https://cran.r-project.org/package=geobr</a>.
+</p>
+<p>The final database is restricted to the municipalities from only four Brazilian states
+(Sao Paulo (SP), Santa Catarina (SC), Parana (PR), and Rio Grande do Sul (RS)).
+These states are located in the southern region of Brazil and contain almost 70 million
+inhabitants (around 36 percent of the Brazilian population) and constitute one of the
+richest regions of the country (approximately 60 percent of the Brazilian gross product).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(brgeomunic_sp)
+data(brgeomunic_sf)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>brgeomunic_sp@data</code> contains 1 column:
+</p>
+
+<dl>
+<dt>CityCode</dt><dd><p>A character string for the severity.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>The original dataset was provided in Chapter 5 of Charpentier (2014).
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Charpentier, A. (2014).
+<em>Computational Actuarial Science with R</em>. CRC Press.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(brgeomunicins)
+str(brgeomunicins@data)
+
+## Not run: 
+# (2) plot of data
+#
+ cols &lt;- rev(gray(seq(0.1, 0.9, length = 5)))
+
+ spplot(brgeomunicins, "HDIcity00", col.regions = cols, cuts = length(cols) - 1)
+ spplot(brgeomunicins, "PopClaimFire", col.regions = cols, cuts = length(cols) - 1)
+ spplot(brgeomunicins, "PopClaimColl", col.regions = cols, cuts = length(cols) - 1)
+ spplot(brgeomunicins, "PopClaimRob", col.regions = cols, cuts = length(cols) - 1)
+
+
+## End(Not run)
+</code></pre>
+
+</main>
+
+</div>
+</body></html>

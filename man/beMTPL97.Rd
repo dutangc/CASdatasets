@@ -74,7 +74,7 @@ Unknown insurer
  Denuit et al. (2007) 
  \emph{Actuarial modelling of claim counts: Risk
  classification, credibility and bonus-malus systems},
-  John Wiley \& Sons Ltd, West Sussex,
+  John Wiley and Sons Ltd, West Sussex,
  \doi{10.1002/9780470517420.fmatter}
  
  Klein et al. (2014)  

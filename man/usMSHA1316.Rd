@@ -55,7 +55,8 @@ data(usMSHA1316)
 Gan, Guojun, and Emiliano A. Valdez. 2024. 
 \emph{Compositional Data Regression in Insurance with Exponential Family PCA},
 Variance 17 (1),
-\doi{missing}.
+\url{https://variancejournal.org/article/116404-compositional-data-regression-in-insurance-with-exponential-family-pca},
+\doi{10.48550/arXiv.2112.14865} of the arxiv version.
 
 
  }

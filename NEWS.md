@@ -2,6 +2,8 @@
 
 Current version for development.
 
+Remove dependency on `sp` package.
+
 Latest list is below
 
 - `beMTPL.rda`			2024/05/29	1399.62kB

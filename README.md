@@ -9,7 +9,6 @@ and researchers.
 ## Install
 
 Please make sure that [xts](https://CRAN.R-project.org/package=xts),
-[sp](https://CRAN.R-project.org/package=sp),
 [zoo](https://CRAN.R-project.org/package=zoo) packages are installed
 
 To get the current released version from [UQAM](http://cas.uqam.ca/),
