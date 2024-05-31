@@ -43,8 +43,9 @@ Issues can be reported on
     charpentier.arthur\<\<\@))uqam.ca
 -   [Christophe Dutang](http://dutangc.free.fr/): dutangc\<\<\@))gmail.com
 
-Authors gratefully acknowledge Julien Siharath and Ewen Gallic for
-building up vignettes for the package.
+Authors gratefully acknowledge the following contributors: 
+Julien Siharath and Ewen Gallic for
+building up new vignettes for the package.
 
 ## Citation
 
