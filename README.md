@@ -6,6 +6,8 @@ Actuarial Science with R' edited by Arthur Charpentier. Now, the package
 contains a large variety of actuarial datasets for students, teachers
 and researchers.
 
+This package cannot be hosted on CRAN because the installed size is 192.8Mb. 
+
 ## Install
 
 Please make sure that [xts](https://CRAN.R-project.org/package=xts),
