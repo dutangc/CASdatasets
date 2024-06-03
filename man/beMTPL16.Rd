@@ -1,5 +1,5 @@
-\name{beMTPL}
-\alias{beMTPL}
+\name{beMTPL16}
+\alias{beMTPL16}
 
 \docType{data}
 \title{ Belgian motor third-part liability dataset }
@@ -14,11 +14,11 @@ insurance.
 }
 
 \usage{
-data(beMTPL)
+data(beMTPL16)
 }
 
 \format{ 
-\code{beMTPL} contains:
+\code{beMTPL16} contains:
 \describe{
   \item{\code{insurance_contract}}{a numeric for Unique identifier for the contract}
   \item{\code{policy_year}}{a numeric for Year of study or observation for the insured person}
@@ -53,7 +53,7 @@ Unknown insurer
 
 # (1) load of data
 #
-data(beMTPL)
+data(beMTPL16)
 
 
 }

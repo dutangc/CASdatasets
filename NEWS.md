@@ -2,11 +2,21 @@
 
 Current version for development.
 
-Remove dependency on `sp` package.
+Remove dependency on `sp` package as the package does not contain any 
+geographical datasets. Geographical datasets have been put to `geodata/` directory.
 
 Latest list is below
 
-- `beMTPL.rda`			2024/05/29	1399.62kB
+- `beMTPL16.rda`			2024/06/03	1399.52kB
+- `brgeomunicins.rda`		2024/05/31	66.86kB
+- `brautocoll.rda`			2024/05/30	16.95kB
+- `braggprem.rda`			2024/05/30	4.61kB
+- `braggclaim.rda`			2024/05/30	3.6kB
+- `catelematic13.rda`		2024/05/29	13753.97kB
+- `usMSHA1316.rda`			2024/05/29	969.5kB
+- `fremarine.rda`			2024/05/29	27.9kB
+- `fretri1dis1418.rda`		2024/05/29	2.2kB
+- `beMTPL97.rda`			2024/05/29	1493.27kB
 - `eqlist.rda`			2024/05/28	592.3kB
 - `usworkcomptri8807.rda`		2024/05/28	1.46kB
 - `usworkcomp.rda`			2024/05/28	7.3kB
@@ -89,11 +99,9 @@ Latest list is below
 - `fremotor1freq0304c.rda`		2024/05/28	264.26kB
 - `fremotor1freq0304b.rda`		2024/05/28	264.16kB
 - `fremotor1freq0304a.rda`		2024/05/28	264.3kB
-- `fremarine.rda`			2024/05/28	20.73kB
 - `frefictivetable3.rda`		2024/05/28	510.42kB
 - `frefictivetable2.rda`		2024/05/28	510.61kB
 - `frefictivetable.rda`		2024/05/28	321.64kB
-- `fredpt17.rda`			2024/05/28	375.31kB
 - `frecomfire.rda`			2024/05/28	119.81kB
 - `freclaimset3fire9207.rda`	2024/05/28	4245.51kB
 - `freclaimset3dam9207.rda`		2024/05/28	99.52kB
@@ -164,11 +172,6 @@ Latest list is below
 - `brvehins1c.rda`			2024/05/28	6223.93kB
 - `brvehins1b.rda`			2024/05/28	6218.83kB
 - `brvehins1a.rda`			2024/05/28	6233.16kB
-- `brgeomunicins.rda`		2024/05/28	1405.03kB
-- `brgeomunic.rda`			2024/05/28	5201kB
-- `brautocoll.rda`			2024/05/28	13.81kB
-- `braggprem.rda`			2024/05/28	4.59kB
-- `braggclaim.rda`			2024/05/28	3.21kB
 - `besecura.rda`			2024/05/28	1.82kB
 - `beaonre.rda`			2024/05/28	11.72kB
 - `austri2auto.rda`			2024/05/28	0.35kB
