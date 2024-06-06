@@ -10,44 +10,44 @@ This package contains the following datasets
 \itemize{
 	\item Australia:
 	\itemize{
-        \item{ \code{\link{auscathist}}: Historical disaster statistics in Australia.}
-        \item{ \code{\link{ausNLHYtotal}}, \code{\link{ausNLHYCapAdeq}},
-			\code{\link{ausNLHYFinPerf}}, \code{\link{ausNLHYFinPos}},
-			\code{\link{ausNLHYLiability}},	\code{\link{ausNLHYOffProf}},
-			\code{\link{ausNLHYOpIncExp}}, \code{\link{ausNLHYPremClaim}},
-			\code{\link{ausNLHYPrivInsur}}, \code{\link{ausNLHYPubInsur}},
+      \item{ \code{\link{auscathist}}: Historical disaster statistics in Australia.}
+      \item{ \code{\link{ausNLHYtotal}}, \code{\link{ausNLHYCapAdeq}},
+			  \code{\link{ausNLHYFinPerf}}, \code{\link{ausNLHYFinPos}},
+			  \code{\link{ausNLHYLiability}},	\code{\link{ausNLHYOffProf}},
+			  \code{\link{ausNLHYOpIncExp}}, \code{\link{ausNLHYPremClaim}},
+			  \code{\link{ausNLHYPrivInsur}}, \code{\link{ausNLHYPubInsur}},
             \code{\link{ausNLHYRecAASB}}, \code{\link{ausNLHYReserve}}: Australian Market - non-life insurance (aggregate level).}
-        \item{ \code{\link{ausNLHYCapAdeqByComp}}, \code{\link{ausNLHYClaimByState}},
-			\code{\link{ausNLHYFinPerfByComp}}, \code{\link{ausNLHYFinPerfPublic}},
-			\code{\link{ausNLHYFinPosByComp}}, \code{\link{ausNLHYFinPosPublic}},
-			\code{\link{ausNLHYOpIncExpPublic}}, \code{\link{ausNLHYPremByState}},
-			\code{\link{ausNLHYPremClaimPublic}}, \code{\link{ausNLHYPrivInsur}},
+      \item{ \code{\link{ausNLHYCapAdeqByComp}}, \code{\link{ausNLHYClaimByState}},
+			  \code{\link{ausNLHYFinPerfByComp}}, \code{\link{ausNLHYFinPerfPublic}},
+			  \code{\link{ausNLHYFinPosByComp}}, \code{\link{ausNLHYFinPosPublic}},
+			  \code{\link{ausNLHYOpIncExpPublic}}, \code{\link{ausNLHYPremByState}},
+			  \code{\link{ausNLHYPremClaimPublic}}, \code{\link{ausNLHYPrivInsur}},
             \code{\link{ausNLHYPubInsur}}: Australian Market - non-life insurance (company, state, public level).}
-        \item{ \code{\link{ausNLHYLloydAsset}}, \code{\link{ausNLHYLloydGPI}}
+      \item{ \code{\link{ausNLHYLloydAsset}}, \code{\link{ausNLHYLloydGPI}}
             \code{\link{ausNLHYLloydUWAcc}}, \code{\link{ausNLHYLloydUWRes}}: Lloyds Market in Australia.}
-        \item{\code{\link{austriLoB}}: Australian claim triangles.}
-        \item{\code{\link{ausprivauto}}: Australian private motor datasets (by policy).}
-        \item{\code{\link{ausNSW}}: New South Wales statistics.}
+      \item{\code{\link{austriLoB}}: Australian claim triangles.}
+      \item{\code{\link{ausprivauto}}: Australian private motor datasets (by policy).}
+      \item{\code{\link{ausNSW}}: New South Wales statistics.}
 		}
 
 	\item Belgium:
 	\itemize{
 		\item{\code{\link{beaonre}}: AON Re Belgium dataset.}
-		\item{\code{\link{beMTPL}}: a MTPL Belgium dataset (by policy).}
+		\item{\code{\link{beMTPL16}}: a MTPL Belgium dataset of 2016 (by policy).}
 		\item{\code{\link{beMTPL97}}: a MTPL Belgium dataset of 1997 (by policy).}
 		\item{\code{\link{besecura}}: Secura Re Belgium dataset.}
 	}	
   \item Brazil:
   \itemize{
-        \item{\code{brgeomunic*}: geospatial datasets of Brazilian cities in extra directory.}
-        \item{\code{\link{brgeomunicins}}: a dataset of Brazilian cities with
+      \item{\code{brgeomunic*}: geospatial datasets of Brazilian cities in extra directory.}
+      \item{\code{\link{brgeomunicins}}: a dataset of Brazilian cities with
             insurance indicators (exposure, claim frequency and premium).}
-        \item{\code{\link{brautocoll}}: a Brazilian dataset of auto collision in Belo
+      \item{\code{\link{brautocoll}}: a Brazilian dataset of auto collision in Belo
             Horizonte during one month (categorical claim severity).}
-        \item{\code{\link{bragg}}: aggregate Brazilian dataset per region.}
-        \item{\code{\link{brvehins1}}: a Brazilian vehicle insurance datasets
+      \item{\code{\link{bragg}}: aggregate Brazilian dataset per region.}
+      \item{\code{\link{brvehins1}}: a Brazilian vehicle insurance datasets
             (by policy) with risk features except City code.}
-        \item{\code{\link{brvehins2}}: a Brazilian vehicle insurance datasets
+      \item{\code{\link{brvehins2}}: a Brazilian vehicle insurance datasets
             (by policy) with risk features including City code.}
     }
 
@@ -94,7 +94,7 @@ This package contains the following datasets
 	}
   \item New Zealand:
   \itemize{
-        \item{ \code{\link{nzcathist}}: Historical disaster statistics in New Zealand.}
+      \item{ \code{\link{nzcathist}}: Historical disaster statistics in New Zealand.}
     }
 
 	\item Norway:
@@ -107,13 +107,13 @@ This package contains the following datasets
 	\item Singapore:
 	\itemize{
 		\item{\code{\link{sgautonb}}: Singapore Automobile claim count dataset.}
-        \item{\code{\link{sgtriangles}}: Singapore Property and Casualty triangles.}
+    \item{\code{\link{sgtriangles}}: Singapore Property and Casualty triangles.}
 	}
 	\item Sweden:
 	\itemize{
 		\item{\code{\link{swautoins}}: Swedish Motor Insurance dataset}
-        \item{\code{\link{swbusscase}}: Swedish Buss Insurance dataset}
-        \item{\code{\link{swmotorcycle}}: Swedish Motorcycle Insurance dataset}
+    \item{\code{\link{swbusscase}}: Swedish Buss Insurance dataset}
+    \item{\code{\link{swmotorcycle}}: Swedish Motorcycle Insurance dataset}
 	}
 	\item United Kingdom:
 	\itemize{
@@ -130,7 +130,7 @@ This package contains the following datasets
 		\item{\code{\link{usautoBI}}: Automobile Bodily Injuries in US.}
 		\item{\code{\link{usautotriangles}}: US automobile triangles.}
 		\item{\code{\link{usexpense}}: US expense dataset.}
-        \item{\code{\link{usGLtriangles}}: US Property and Casualty triangles.}
+    \item{\code{\link{usGLtriangles}}: US Property and Casualty triangles.}
 		\item{\code{\link{ushurricane}}, \code{\link{ushustormloss4980}}:
             Historical hurricane statistics in United States of America.}
     \item{\code{\link{uslapseagent}}: US lapse dataset from tied-agent channel.}
@@ -150,10 +150,10 @@ This package contains the following datasets
 		\item{\code{\link{hurricanehist}}: Hurricane history.}
 		\item{\code{\link{PnCdemand}}: Property and Casualty demand.}
 		\item{\code{\link{spacedata}}: Space dataset.}
-        \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}} Yield curve
+    \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}} Yield curve
             for eurozone and US.}
-        \item{\code{\link{forexUSUK}} Foreign exchange rate between USD and GBP.}
-        \item{Use the HMD website for mortality tables \url{https://www.mortality.org/}.}
+    \item{\code{\link{forexUSUK}} Foreign exchange rate between USD and GBP.}
+    \item{Use the HMD website for mortality tables \url{https://www.mortality.org/}.}
 	}
 	
 }
@@ -162,8 +162,8 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
 \itemize{
     \item{Chapter 1: \code{extreme2datasince1899} is \code{\link{hurricanehist}}.}
     \item{Chapter 5: \code{accidents} and \code{accidents_data} are merged in \code{\link{brautocoll}};
-      \code{55mu2500gsd} is \code{\link{brgeomunic}};
-      \code{sul_sp}, \code{sul+sp_shape} are stored in \code{\link{brgeomunicins}}.}
+      \code{55mu2500gsd} is \code{\link{brgeomunic_sf}};
+      \code{sul_sp} is stored in \code{\link{brgeomunicins}}.}
     \item{Chapter 9: \code{MyPortfolio} is \code{\link{freprojqxINSEE}}.}
     \item{Chapter 10: \code{DataMortality} is \code{\link{freptfpermdis}}.}
     \item{Chapter 11: \code{DEXUSUK} is \code{\link{forexUSUK}}.}
