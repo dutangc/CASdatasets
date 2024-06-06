@@ -45,7 +45,7 @@ Issues can be reported on
 -   [Christophe Dutang](http://dutangc.free.fr/): dutangc\<\<\@))gmail.com
 
 Authors gratefully acknowledge the following contributors: 
-Julien Siharath and Ewen Gallic for
+Julien Siharath and [Ewen Gallic](https://egallic.fr/) for
 building up new vignettes for the package.
 
 ## Citation
