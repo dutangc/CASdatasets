@@ -3,10 +3,20 @@
 Current version for development.
 
 Remove dependency on `sp` package as the package does not contain any 
-geographical datasets. Geographical datasets have been put to `geodata/` directory.
+geographical datasets. Geographical datasets have been put in
+the extra directory `geodata/` of this repository.
 
 Latest list is below
 
+- `ushu18NCEI.rda`			2024/06/07	2.7kB
+- `ushu18W.rda`			2024/06/07	11.55kB
+- `ushu18ICAT.rda`			2024/06/07	12.75kB
+- `ushu17population.rda`		2024/06/07	10.9kB
+- `ushu17inflation.rda`		2024/06/07	7.48kB
+- `ushu17annualloss.rda`		2024/06/07	1.95kB
+- `ushu17stormloss.rda`		2024/06/07	5.95kB
+- `euMTPL.rda`			2024/06/07	17411.29kB
+- `euhealthinsurance.rda`		2024/06/07	2061.5kB
 - `beMTPL16.rda`			2024/06/03	1399.52kB
 - `brgeomunicins.rda`		2024/05/31	66.86kB
 - `brautocoll.rda`			2024/05/30	16.95kB
@@ -34,10 +44,6 @@ Latest list is below
 - `usmassBI.rda`			2024/05/28	2.73kB
 - `uslapseagent.rda`		2024/05/28	246.21kB
 - `ushustormloss4980.rda`		2024/05/28	0.38kB
-- `ushustormloss.rda`		2024/05/28	5.91kB
-- `ushupopulation.rda`		2024/05/28	9.74kB
-- `ushuinflation.rda`		2024/05/28	6.59kB
-- `ushuannualloss.rda`		2024/05/28	1.11kB
 - `usexpense.rda`			2024/05/28	32.56kB
 - `usautotri9504.rda`		2024/05/28	0.39kB
 - `usautoBI.rda`			2024/05/28	7.92kB
@@ -216,6 +222,7 @@ Latest list is below
 - `FedYieldCurve.rda`		2024/05/28	6.43kB
 - `ECBYieldCurve.rda`		2024/05/28	43.91kB
 - `Davis.rda`			2024/05/28	1.06kB
+
 
 
 # CASdatasets 1.0-12
