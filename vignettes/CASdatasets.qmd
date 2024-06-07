@@ -44,7 +44,9 @@ or region is given.
   
      - [`brgeomunicins`](https://dutangc.github.io/CASdatasets/reference/brgeomunicins.html): a dataset of Brazilian cities with
             insurance indicators (exposure, claim frequency and premium).
-            geographical datasets should be downloaded from the github repository.
+            Geographical datasets `brgeomunic_sf, `brgeomunic_sp
+            should be downloaded from the github repository
+            in extra directory `geodata/.
      - [`brautocoll`](https://dutangc.github.io/CASdatasets/reference/brautocoll.html): a Brazilian dataset of auto collision in Belo
             Horizonte during one month (categorical claim severity).
      - [`braggprem`](https://dutangc.github.io/CASdatasets/reference/braggclaimprem.html), [`braggclaim`](https://dutangc.github.io/CASdatasets/reference/braggclaimprem.html): aggregate Brazilian datasets per region.
@@ -166,8 +168,10 @@ or region is given.
 Here is a list of datasets whose name has changed compared to the book 'Computational Actuarial Science with R':'
   
 - Chapter 1: `extreme2datasince1899` is [`hurricanehist`](https://dutangc.github.io/CASdatasets/reference/hurricanehist.html).
-- Chapter 5: `accidents` and `accidents_data` are merged in [`brautocoll`](https://dutangc.github.io/CASdatasets/reference/brautocoll.html);
-      `55mu2500gsd` is brgeomunic_sf;
+- Chapter 5: `accidents` and `accidents_data` are 
+      merged in [`brautocoll`](https://dutangc.github.io/CASdatasets/reference/brautocoll.html);
+      `55mu2500gsd` is `brgeomunic_sf` in extra directory `geodata/
+      in the github repository;
       `sul_sp` is stored in [`brgeomunicins`](https://dutangc.github.io/CASdatasets/reference/brgeomunicins.html).
 - Chapter 9: `MyPortfolio` is [`freprojqxINSEE`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html).
 - Chapter 10: `DataMortality` is [`freptfpermdis`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html).
@@ -176,4 +180,4 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
 - Chapter 15: `AutoClaimData` is [`usmassBI2`](https://dutangc.github.io/CASdatasets/reference/usmassBI.html).
   
 
-  
+
