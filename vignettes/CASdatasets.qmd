@@ -13,24 +13,24 @@ or region is given.
 -  Australia:
     
      -  [`auscathist`](https://dutangc.github.io/CASdatasets/reference/auscathist.html): Historical disaster statistics in Australia.
-     -  [`ausNLHYCapAdeq`](https://dutangc.github.io/CASdatasets/reference/ausNLHYCapAdeq.html),
-              [`ausNLHYFinPerf`](https://dutangc.github.io/CASdatasets/reference/ausNLHYFinPerf.html), [`ausNLHYFinPos`](https://dutangc.github.io/CASdatasets/reference/ausNLHYFinPos.html),
-              [`ausNLHYLiability`](https://dutangc.github.io/CASdatasets/reference/ausNLHYLiability.html),    [`ausNLHYOffProf`](https://dutangc.github.io/CASdatasets/reference/ausNLHYOffProf.html),
-              [`ausNLHYOpIncExp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYOpIncExp.html), [`ausNLHYPremClaim`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPremClaim.html),
-              [`ausNLHYPrivInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPrivInsur.html), [`ausNLHYPubInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPubInsur.html),
-            [`ausNLHYRecAASB`](https://dutangc.github.io/CASdatasets/reference/ausNLHYRecAASB.html), [`ausNLHYReserve`](https://dutangc.github.io/CASdatasets/reference/ausNLHYReserve.html): Australian Market - non-life insurance (aggregate level).
-     -  [`ausNLHYCapAdeqByComp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYCapAdeqByComp.html), [`ausNLHYClaimByState`](https://dutangc.github.io/CASdatasets/reference/ausNLHYClaimByState.html),
-              [`ausNLHYFinPerfByComp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYFinPerfByComp.html), [`ausNLHYFinPerfPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYFinPerfPublic.html),
-              [`ausNLHYFinPosByComp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYFinPosByComp.html), [`ausNLHYFinPosPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYFinPosPublic.html),
-              [`ausNLHYOpIncExpPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYOpIncExpPublic.html), [`ausNLHYPremByState`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPremByState.html),
-              [`ausNLHYPremClaimPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPremClaimPublic.html), [`ausNLHYPrivInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPrivInsur.html),
-            [`ausNLHYPubInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYPubInsur.html): Australian Market - non-life insurance (company, state, public level).
-     -  [`ausNLHYLloydAsset`](https://dutangc.github.io/CASdatasets/reference/ausNLHYLloydAsset.html), [`ausNLHYLloydGPI`](https://dutangc.github.io/CASdatasets/reference/ausNLHYLloydGPI.html)
-            [`ausNLHYLloydUWAcc`](https://dutangc.github.io/CASdatasets/reference/ausNLHYLloydUWAcc.html), [`ausNLHYLloydUWRes`](https://dutangc.github.io/CASdatasets/reference/ausNLHYLloydUWRes.html): Lloyds Market in Australia.
-     - [`austri1autoBI7895`](https://dutangc.github.io/CASdatasets/reference/austri1autoBI7895.html), [`austri2auto`](https://dutangc.github.io/CASdatasets/reference/austri2auto.html): Australian claim triangles.
-     - [`ausprivautolong`](https://dutangc.github.io/CASdatasets/reference/ausprivautolong.html), [`ausMTPL8486`](https://dutangc.github.io/CASdatasets/reference/ausMTPL8486.html),
-        [`ausprivauto0405`](https://dutangc.github.io/CASdatasets/reference/ausprivauto0405.html): Australian private motor datasets (by policy).
-     - [`ausNSWdriver04`](https://dutangc.github.io/CASdatasets/reference/ausNSWdriver04.html), [`ausNSWdeath02`](https://dutangc.github.io/CASdatasets/reference/ausNSWdeath02.html): New South Wales statistics.
+     -  [`ausNLHYCapAdeq`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html),
+              [`ausNLHYFinPerf`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html), [`ausNLHYFinPos`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html),
+              [`ausNLHYLiability`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html),    [`ausNLHYOffProf`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html),
+              [`ausNLHYOpIncExp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html), [`ausNLHYPremClaim`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html),
+              [`ausNLHYPrivInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html), [`ausNLHYPubInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html),
+            [`ausNLHYRecAASB`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html), [`ausNLHYReserve`](https://dutangc.github.io/CASdatasets/reference/ausNLHYtotal.html): Australian Market - non-life insurance (aggregate level).
+     -  [`ausNLHYCapAdeqByComp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html), [`ausNLHYClaimByState`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html),
+              [`ausNLHYFinPerfByComp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html), [`ausNLHYFinPerfPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html),
+              [`ausNLHYFinPosByComp`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html), [`ausNLHYFinPosPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html),
+              [`ausNLHYOpIncExpPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html), [`ausNLHYPremByState`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html),
+              [`ausNLHYPremClaimPublic`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html), [`ausNLHYPrivInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html),
+            [`ausNLHYPubInsur`](https://dutangc.github.io/CASdatasets/reference/ausNLHYby.html): Australian Market - non-life insurance (company, state, public level).
+     -  [`ausNLHYLloydAsset`](https://dutangc.github.io/CASdatasets/reference/ausNLHYlloyds.html), [`ausNLHYLloydGPI`](https://dutangc.github.io/CASdatasets/reference/ausNLHYlloyds.html)
+            [`ausNLHYLloydUWAcc`](https://dutangc.github.io/CASdatasets/reference/ausNLHYlloyds.html), [`ausNLHYLloydUWRes`](https://dutangc.github.io/CASdatasets/reference/ausNLHYlloyds.html): Lloyds Market in Australia.
+     - [`austri1autoBI7895`](https://dutangc.github.io/CASdatasets/reference/austriLob.html), [`austri2auto`](https://dutangc.github.io/CASdatasets/reference/austriLob.html): Australian claim triangles.
+     - [`ausprivautolong`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html), [`ausMTPL8486`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html),
+        [`ausprivauto0405`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html): Australian private motor datasets (by policy).
+     - [`ausNSWdriver04`](https://dutangc.github.io/CASdatasets/reference/ausNSW.html), [`ausNSWdeath02`](https://dutangc.github.io/CASdatasets/reference/ausNSW.html): New South Wales statistics.
         
 
 -  Belgium:
@@ -47,25 +47,27 @@ or region is given.
             geographical datasets should be downloaded from the github repository.
      - [`brautocoll`](https://dutangc.github.io/CASdatasets/reference/brautocoll.html): a Brazilian dataset of auto collision in Belo
             Horizonte during one month (categorical claim severity).
-     - [`braggprem`](https://dutangc.github.io/CASdatasets/reference/braggprem.html), [`braggclaim`](https://dutangc.github.io/CASdatasets/reference/braggclaim.html): aggregate Brazilian datasets per region.
-     - [`brvehins1`](https://dutangc.github.io/CASdatasets/reference/brvehins1.html): a Brazilian vehicle insurance datasets
+     - [`braggprem`](https://dutangc.github.io/CASdatasets/reference/braggclaimprem.html), [`braggclaim`](https://dutangc.github.io/CASdatasets/reference/braggclaimprem.html): aggregate Brazilian datasets per region.
+     - [`brvehins1`](https://dutangc.github.io/CASdatasets/reference/brvehins.html): a Brazilian vehicle insurance datasets
             (by policy) with risk features except City code.
-     - [`brvehins2`](https://dutangc.github.io/CASdatasets/reference/brvehins2.html): a Brazilian vehicle insurance datasets
+     - [`brvehins2`](https://dutangc.github.io/CASdatasets/reference/brvehins.html): a Brazilian vehicle insurance datasets
             (by policy) with risk features including City code.
     
 
 -  Canada:
     
-     - [`canlifins`](https://dutangc.github.io/CASdatasets/reference/canlifins.html), [`canlifins2`](https://dutangc.github.io/CASdatasets/reference/canlifins2.html): A portfolio of a Canadian life insurer.
+     - [`canlifins`](https://dutangc.github.io/CASdatasets/reference/canlifins.html), [`canlifins2`](https://dutangc.github.io/CASdatasets/reference/canlifins.html): A portfolio of a Canadian life insurer.
      - [`catelematic13`](https://dutangc.github.io/CASdatasets/reference/catelematic13.html): Canadian telematic insurance dataset.
     
 -  Danemark: 
     
-     - [`danishuni`](https://dutangc.github.io/CASdatasets/reference/danishuni.html), [`danishmulti`](https://dutangc.github.io/CASdatasets/reference/danishmulti.html): Danish reinsurance claim dataset.
+     - [`danishuni`](https://dutangc.github.io/CASdatasets/reference/danish.html), [`danishmulti`](https://dutangc.github.io/CASdatasets/reference/danish.html): Danish reinsurance claim dataset.
     
 -  European Union: 
     
-     - [`eudirectlapse`](https://dutangc.github.io/CASdatasets/reference/eudirectlapse.html): lapse dataset.
+     - [`eudirectlapse`](https://dutangc.github.io/CASdatasets/reference/eudirectlapse.html): non-life insurance lapse dataset.
+     - [`euhealthinsurance`](https://dutangc.github.io/CASdatasets/reference/euhealthinsurance.html): European health insurance dataset.
+     - [`euMTPL`](https://dutangc.github.io/CASdatasets/reference/euMTPL.html): European motor TPL insurance dataset.
     
 -  France:
     
@@ -74,15 +76,15 @@ or region is given.
      - [`freclaimset`](https://dutangc.github.io/CASdatasets/reference/freclaimset.html), freclaimset2: French claim settlements.
 
      - [`frecomfire`](https://dutangc.github.io/CASdatasets/reference/frecomfire.html): French commercial fire losses.
-     - [`freDisTables`](https://dutangc.github.io/CASdatasets/reference/freDisTables.html): French disability tables.
+     - [`freDisTables`](https://dutangc.github.io/CASdatasets/reference/fredistables.html): French disability tables.
      - [`fremarine`](https://dutangc.github.io/CASdatasets/reference/fremarine.html): French marine claim dataset (by policy).
-     - [`freMortTables`](https://dutangc.github.io/CASdatasets/reference/freMortTables.html): French mortality tables.
+     - [`freMortTables`](https://dutangc.github.io/CASdatasets/reference/fremorttables.html): French mortality tables.
      - [`fremotorclaim`](https://dutangc.github.io/CASdatasets/reference/fremotorclaim.html): French private motor claim datasets (by policy).
      - [`freMTPL`](https://dutangc.github.io/CASdatasets/reference/freMTPL.html): two French Motor-TPL claim datasets (by policy).
      - [`freMPL`](https://dutangc.github.io/CASdatasets/reference/freMPL.html): a collection of ten French Motor personal line datasets (by policy).
      - [`freportfolio`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html): fictive mortality tables and French
         nation-wide corresponding tables; two disability datasets from a French insurer.
-     - [`fre4LoBtriangles`](https://dutangc.github.io/CASdatasets/reference/fre4LoBtriangles.html): A collection of triangles 
+     - [`fre4LoBtriangles`](https://dutangc.github.io/CASdatasets/reference/fre4triLob.html): A collection of triangles 
         line of business from a private insurer.
      - [`pricingame`](https://dutangc.github.io/CASdatasets/reference/pricingame.html): Datesets used at Pricing Games of the
     French Institute of Actuaries.`    
@@ -105,7 +107,7 @@ or region is given.
      - [`norauto`](https://dutangc.github.io/CASdatasets/reference/norauto.html): Norwegian automobile dataset.
      - [`norfire`](https://dutangc.github.io/CASdatasets/reference/norfire.html): Norwegian fire dataset.
      - [`Norberg`](https://dutangc.github.io/CASdatasets/reference/Norberg.html): Norberg's credibility dataset.
-     - [`nortritpl8800`](https://dutangc.github.io/CASdatasets/reference/nortritpl8800.html): Norwegian claim triangle.
+     - [`nortritpl8800`](https://dutangc.github.io/CASdatasets/reference/nortritpl.html): Norwegian claim triangle.
     
 -  Singapore:
     
@@ -115,7 +117,7 @@ or region is given.
 -  Sweden:
     
      - [`swautoins`](https://dutangc.github.io/CASdatasets/reference/swautoins.html): Swedish Motor Insurance dataset
-     - [`swbusscase`](https://dutangc.github.io/CASdatasets/reference/swbusscase.html): Swedish Buss Insurance dataset
+     - [`swbusscase`](https://dutangc.github.io/CASdatasets/reference/swbuss.html): Swedish Buss Insurance dataset
      - [`swmotorcycle`](https://dutangc.github.io/CASdatasets/reference/swmotorcycle.html): Swedish Motorcycle Insurance dataset
     
 -  United Kingdom:
@@ -126,15 +128,15 @@ or region is given.
 -  United States of America:
     
      - [`Davis`](https://dutangc.github.io/CASdatasets/reference/Davis.html): Davis height-weight dataset.
-     - [`ICB1`](https://dutangc.github.io/CASdatasets/reference/ICB1.html), [`ICB2`](https://dutangc.github.io/CASdatasets/reference/ICB2.html): Insurance Company Benchmarks.
-     - [`lossalae`](https://dutangc.github.io/CASdatasets/reference/lossalae.html),[`lossalaefull`](https://dutangc.github.io/CASdatasets/reference/lossalaefull.html): General Third Part-liability claims and expenses.
+     - [`ICB1`](https://dutangc.github.io/CASdatasets/reference/ICB.html), [`ICB2`](https://dutangc.github.io/CASdatasets/reference/ICB.html): Insurance Company Benchmarks.
+     - [`lossalae`](https://dutangc.github.io/CASdatasets/reference/lossalae.html),[`lossalaefull`](https://dutangc.github.io/CASdatasets/reference/lossalae.html): General Third Part-liability claims and expenses.
      - [`SOAGMI`](https://dutangc.github.io/CASdatasets/reference/SOAGMI.html): SOA Group Medical Insurance dataset.
 
      - [`usautoBI`](https://dutangc.github.io/CASdatasets/reference/usautoBI.html): Automobile Bodily Injuries in US.
-     - [`usautotriangles`](https://dutangc.github.io/CASdatasets/reference/usautotriangles.html): US automobile triangles.
+     - [`usautotriangles`](https://dutangc.github.io/CASdatasets/reference/usautotri.html): US automobile triangles.
      - [`usexpense`](https://dutangc.github.io/CASdatasets/reference/usexpense.html): US expense dataset.
      - [`usGLtriangles`](https://dutangc.github.io/CASdatasets/reference/usGLtriangles.html): US Property and Casualty triangles.
-     - [`ushurricane`](https://dutangc.github.io/CASdatasets/reference/ushurricane.html), [`ushustormloss4980`](https://dutangc.github.io/CASdatasets/reference/ushustormloss4980.html):
+     - [`ushurricane`](https://dutangc.github.io/CASdatasets/reference/ushurricane.html), [`ushustormloss4980`](https://dutangc.github.io/CASdatasets/reference/ushurricanesub.html):
             Historical hurricane statistics in United States of America.
      - [`uslapseagent`](https://dutangc.github.io/CASdatasets/reference/uslapseagent.html): US lapse dataset from tied-agent channel.
      - [`usmassBI`](https://dutangc.github.io/CASdatasets/reference/usmassBI.html): US Massachusetts Automobile bodily injury claim datasets.
@@ -142,10 +144,10 @@ or region is given.
      - [`usMSHA1316`](https://dutangc.github.io/CASdatasets/reference/usMSHA1316.html): US Mine Safety and Health Administration claim dataset.
      - [`usMVTA`](https://dutangc.github.io/CASdatasets/reference/usMVTA.html): US motor vehicle traffic accident.
      - [`usprivautoclaim`](https://dutangc.github.io/CASdatasets/reference/usprivautoclaim.html): private automobile claims.
-     - [`usquakeLR`](https://dutangc.github.io/CASdatasets/reference/usquakeLR.html): California earthquake loss ratios.
+     - [`usquakeLR`](https://dutangc.github.io/CASdatasets/reference/usearthquake.html): California earthquake loss ratios.
      - [`ustermlife`](https://dutangc.github.io/CASdatasets/reference/ustermlife.html): Term life insurance survey.
      - [`uswarrantaggnum`](https://dutangc.github.io/CASdatasets/reference/uswarrantaggnum.html): US warranty automobile.
-     - [`usworkcomp`](https://dutangc.github.io/CASdatasets/reference/usworkcomp.html): US workers compensation datasets.
+     - [`usworkcomp`](https://dutangc.github.io/CASdatasets/reference/usworkerscomp.html): US workers compensation datasets.
     
 -  Misc.:     
     
@@ -155,7 +157,7 @@ or region is given.
      - [`spacedata`](https://dutangc.github.io/CASdatasets/reference/spacedata.html): Space dataset.
      - [`ECBYieldCurve`](https://dutangc.github.io/CASdatasets/reference/ECBYieldCurve.html), [`FedYieldCurve`](https://dutangc.github.io/CASdatasets/reference/FedYieldCurve.html) Yield curve
             for eurozone and US.
-     - [`forexUSUK`](https://dutangc.github.io/CASdatasets/reference/forexUSUK.html) Foreign exchange rate between USD and GBP.
+     - [`forexUSUK`](https://dutangc.github.io/CASdatasets/reference/forex.html) Foreign exchange rate between USD and GBP.
      - Use the HMD website for mortality tables https://www.mortality.org/.
     
     
@@ -167,9 +169,11 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
 - Chapter 5: `accidents` and `accidents_data` are merged in [`brautocoll`](https://dutangc.github.io/CASdatasets/reference/brautocoll.html);
       `55mu2500gsd` is brgeomunic_sf;
       `sul_sp` is stored in [`brgeomunicins`](https://dutangc.github.io/CASdatasets/reference/brgeomunicins.html).
-- Chapter 9: `MyPortfolio` is [`freprojqxINSEE`](https://dutangc.github.io/CASdatasets/reference/freprojqxINSEE.html).
-- Chapter 10: `DataMortality` is [`freptfpermdis`](https://dutangc.github.io/CASdatasets/reference/freptfpermdis.html).
-- Chapter 11: `DEXUSUK` is [`forexUSUK`](https://dutangc.github.io/CASdatasets/reference/forexUSUK.html).
-- Chapter 14: `CONTRACTS` is [`freMTPLfreq`](https://dutangc.github.io/CASdatasets/reference/freMTPLfreq.html); `CLAIMS` is [`freMTPLsev`](https://dutangc.github.io/CASdatasets/reference/freMTPLsev.html).
-- Chapter 15: `AutoClaimData` is [`usmassBI2`](https://dutangc.github.io/CASdatasets/reference/usmassBI2.html).
+- Chapter 9: `MyPortfolio` is [`freprojqxINSEE`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html).
+- Chapter 10: `DataMortality` is [`freptfpermdis`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html).
+- Chapter 11: `DEXUSUK` is [`forexUSUK`](https://dutangc.github.io/CASdatasets/reference/forex.html).
+- Chapter 14: `CONTRACTS` is [`freMTPLfreq`](https://dutangc.github.io/CASdatasets/reference/freMTPL.html); `CLAIMS` is [`freMTPLsev`](https://dutangc.github.io/CASdatasets/reference/freMTPL.html).
+- Chapter 15: `AutoClaimData` is [`usmassBI2`](https://dutangc.github.io/CASdatasets/reference/usmassBI.html).
+  
+
   
