@@ -6,65 +6,68 @@
 		Actuarial Datasets (originally for the 'Computational Actuarial Science with R' book)
 	}
 \details{
-This package contains the following datasets
+This package contains aggregated and policy-level datasets. Below a list by country
+or region is given.
+
 \itemize{
-	\item Australia:
+\item Australia:
 	\itemize{
-      \item{ \code{\link{auscathist}}: Historical disaster statistics in Australia.}
-      \item{ \code{\link{ausNLHYtotal}}, \code{\link{ausNLHYCapAdeq}},
+    \item{ \code{\link{auscathist}}: Historical disaster statistics in Australia.}
+    \item{ \code{\link{ausNLHYCapAdeq}},
 			  \code{\link{ausNLHYFinPerf}}, \code{\link{ausNLHYFinPos}},
 			  \code{\link{ausNLHYLiability}},	\code{\link{ausNLHYOffProf}},
 			  \code{\link{ausNLHYOpIncExp}}, \code{\link{ausNLHYPremClaim}},
 			  \code{\link{ausNLHYPrivInsur}}, \code{\link{ausNLHYPubInsur}},
             \code{\link{ausNLHYRecAASB}}, \code{\link{ausNLHYReserve}}: Australian Market - non-life insurance (aggregate level).}
-      \item{ \code{\link{ausNLHYCapAdeqByComp}}, \code{\link{ausNLHYClaimByState}},
+    \item{ \code{\link{ausNLHYCapAdeqByComp}}, \code{\link{ausNLHYClaimByState}},
 			  \code{\link{ausNLHYFinPerfByComp}}, \code{\link{ausNLHYFinPerfPublic}},
 			  \code{\link{ausNLHYFinPosByComp}}, \code{\link{ausNLHYFinPosPublic}},
 			  \code{\link{ausNLHYOpIncExpPublic}}, \code{\link{ausNLHYPremByState}},
 			  \code{\link{ausNLHYPremClaimPublic}}, \code{\link{ausNLHYPrivInsur}},
             \code{\link{ausNLHYPubInsur}}: Australian Market - non-life insurance (company, state, public level).}
-      \item{ \code{\link{ausNLHYLloydAsset}}, \code{\link{ausNLHYLloydGPI}}
+    \item{ \code{\link{ausNLHYLloydAsset}}, \code{\link{ausNLHYLloydGPI}}
             \code{\link{ausNLHYLloydUWAcc}}, \code{\link{ausNLHYLloydUWRes}}: Lloyds Market in Australia.}
-      \item{\code{\link{austriLoB}}: Australian claim triangles.}
-      \item{\code{\link{ausprivauto}}: Australian private motor datasets (by policy).}
-      \item{\code{\link{ausNSW}}: New South Wales statistics.}
+    \item{\code{\link{austri1autoBI7895}}, \code{\link{austri2auto}}: Australian claim triangles.}
+    \item{\code{\link{ausprivautolong}}, \code{\link{ausMTPL8486}},
+        \code{\link{ausprivauto0405}}: Australian private motor datasets (by policy).}
+    \item{\code{\link{ausNSWdriver04}}, \code{\link{ausNSWdeath02}}: New South Wales statistics.}
 		}
 
-	\item Belgium:
+\item Belgium:
 	\itemize{
 		\item{\code{\link{beaonre}}: AON Re Belgium dataset.}
 		\item{\code{\link{beMTPL16}}: a MTPL Belgium dataset of 2016 (by policy).}
 		\item{\code{\link{beMTPL97}}: a MTPL Belgium dataset of 1997 (by policy).}
 		\item{\code{\link{besecura}}: Secura Re Belgium dataset.}
 	}	
-  \item Brazil:
+\item Brazil:
   \itemize{
-      \item{\code{brgeomunic*}: geospatial datasets of Brazilian cities in extra directory.}
-      \item{\code{\link{brgeomunicins}}: a dataset of Brazilian cities with
-            insurance indicators (exposure, claim frequency and premium).}
-      \item{\code{\link{brautocoll}}: a Brazilian dataset of auto collision in Belo
+    \item{\code{\link{brgeomunicins}}: a dataset of Brazilian cities with
+            insurance indicators (exposure, claim frequency and premium).
+            geographical datasets should be downloaded from the github repository.}
+    \item{\code{\link{brautocoll}}: a Brazilian dataset of auto collision in Belo
             Horizonte during one month (categorical claim severity).}
-      \item{\code{\link{bragg}}: aggregate Brazilian dataset per region.}
-      \item{\code{\link{brvehins1}}: a Brazilian vehicle insurance datasets
+    \item{\code{\link{braggprem}}, \code{\link{braggclaim}}: aggregate Brazilian datasets per region.}
+    \item{\code{\link{brvehins1}}: a Brazilian vehicle insurance datasets
             (by policy) with risk features except City code.}
-      \item{\code{\link{brvehins2}}: a Brazilian vehicle insurance datasets
+    \item{\code{\link{brvehins2}}: a Brazilian vehicle insurance datasets
             (by policy) with risk features including City code.}
     }
 
-  \item Canada:
+\item Canada:
 	\itemize{
-		\item{\code{\link{canlifins}}: A portfolio of a Canadian life insurer.}
+		\item{\code{\link{canlifins}}, \code{\link{canlifins2}}: A portfolio of a Canadian life insurer.}
 		\item{\code{\link{catelematic13}}: Canadian telematic insurance dataset.}
 	}
-	\item Danemark: 
+\item Danemark: 
 	\itemize{
 		\item{\code{\link{danishuni}}, \code{\link{danishmulti}}: Danish reinsurance claim dataset.}
 	}
-	\item European Union: 
+\item European Union: 
 	\itemize{
 		\item{\code{\link{eudirectlapse}}: lapse dataset.}
 	}
-	\item France:
+\item France:
 	\itemize{
 		\item{\code{\link{freaggnumber}}: a French aggregate claim number dataset.}
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
@@ -84,43 +87,43 @@ This package contains the following datasets
     \item{\code{\link{pricingame}}: Datesets used at Pricing Games of the
     French Institute of Actuaries.}    
 	}
-	\item Germany:
+\item Germany:
 	\itemize{
 		\item{\code{\link{credit}}: A German Credit dataset.}	
 	}
-	\item Italy:
+\item Italy:
 	\itemize{
 		\item{\code{\link{itamtplcost}}: Large losses of an Italian Motor-TPL company.}
 	}
-  \item New Zealand:
+\item New Zealand:
   \itemize{
-      \item{ \code{\link{nzcathist}}: Historical disaster statistics in New Zealand.}
+    \item{ \code{\link{nzcathist}}: Historical disaster statistics in New Zealand.}
     }
 
-	\item Norway:
+\item Norway:
 	\itemize{
 		\item{\code{\link{norauto}}: Norwegian automobile dataset.}
 		\item{\code{\link{norfire}}: Norwegian fire dataset.}
     \item{\code{\link{Norberg}}: Norberg's credibility dataset.}
     \item{\code{\link{nortritpl8800}}: Norwegian claim triangle.}
 	}
-	\item Singapore:
+\item Singapore:
 	\itemize{
 		\item{\code{\link{sgautonb}}: Singapore Automobile claim count dataset.}
     \item{\code{\link{sgtriangles}}: Singapore Property and Casualty triangles.}
 	}
-	\item Sweden:
+\item Sweden:
 	\itemize{
 		\item{\code{\link{swautoins}}: Swedish Motor Insurance dataset}
     \item{\code{\link{swbusscase}}: Swedish Buss Insurance dataset}
     \item{\code{\link{swmotorcycle}}: Swedish Motorcycle Insurance dataset}
 	}
-	\item United Kingdom:
+\item United Kingdom:
 	\itemize{
 		\item{\code{\link{ukaggclaim}}: United Kingdom Car Insurance Claims.}
 		\item{\code{\link{ukautocoll}}: United Kingdom Car Collision Insurance Claims.}
 	}
-	\item United States of America:
+\item United States of America:
 	\itemize{
 		\item{\code{\link{Davis}}: Davis height-weight dataset.}
 		\item{\code{\link{ICB1}}, \code{\link{ICB2}}: Insurance Company Benchmarks.}
@@ -144,7 +147,7 @@ This package contains the following datasets
 		\item{\code{\link{uswarrantaggnum}}: US warranty automobile.}
 		\item{\code{\link{usworkcomp}}: US workers compensation datasets.}
 	}
-	\item Misc.: 	
+\item Misc.: 	
 	\itemize{
 		\item{\code{\link{eqlist}}: Earthquake list.}
 		\item{\code{\link{hurricanehist}}: Hurricane history.}
@@ -159,7 +162,7 @@ This package contains the following datasets
 }
 
 Here is a list of datasets whose name has changed compared to the book 'Computational Actuarial Science with R':'
-\itemize{
+  \itemize{
     \item{Chapter 1: \code{extreme2datasince1899} is \code{\link{hurricanehist}}.}
     \item{Chapter 5: \code{accidents} and \code{accidents_data} are merged in \code{\link{brautocoll}};
       \code{55mu2500gsd} is \code{\link{brgeomunic_sf}};
@@ -169,7 +172,7 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
     \item{Chapter 11: \code{DEXUSUK} is \code{\link{forexUSUK}}.}
     \item{Chapter 14: \code{CONTRACTS} is \code{\link{freMTPLfreq}}; \code{CLAIMS} is \code{\link{freMTPLsev}}.}
     \item{Chapter 15: \code{AutoClaimData} is \code{\link{usmassBI2}}.}
-}
+  }
 
 }
 
