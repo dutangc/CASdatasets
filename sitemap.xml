@@ -10,6 +10,9 @@
     <loc>/articles/index.html</loc>
   </url>
   <url>
+    <loc>/articles/poisson_vignette.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -17,6 +20,9 @@
   </url>
   <url>
     <loc>/news/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/1overview.html</loc>
   </url>
   <url>
     <loc>/reference/Davis.html</loc>
@@ -188,9 +194,6 @@
   </url>
   <url>
     <loc>/reference/nzcathist.html</loc>
-  </url>
-  <url>
-    <loc>/reference/overview.html</loc>
   </url>
   <url>
     <loc>/reference/pricingame.html</loc>
