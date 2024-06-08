@@ -159,7 +159,7 @@ or region is given.
     \item{\code{\link{ECBYieldCurve}}, \code{\link{FedYieldCurve}} Yield curve
             for eurozone and US.}
     \item{\code{\link{forexUSUK}} Foreign exchange rate between USD and GBP.}
-    \item{Use the HMD website for mortality tables \url{https://www.mortality.org/}.}
+    \item{Use the HMD website \url{https://www.mortality.org/} for mortality tables.}
 	}
 	
 }
