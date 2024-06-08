@@ -44,9 +44,8 @@ or region is given.
   \itemize{
     \item{\code{\link{brgeomunicins}}: a dataset of Brazilian cities with
             insurance indicators (exposure, claim frequency and premium).
-            Geographical datasets \code{brgeomunic_sf}, \code{brgeomunic_sp}
-            should be downloaded from the github repository
-            in extra directory \code{geodata/}.}
+            Geographical datasets \code{brgeomunic_sf}, \code{brgeomunic_sp} should
+            be downloaded from the github repository in extra directory \code{geodata}.}
     \item{\code{\link{brautocoll}}: a Brazilian dataset of auto collision in Belo
             Horizonte during one month (categorical claim severity).}
     \item{\code{\link{braggprem}}, \code{\link{braggclaim}}: aggregate Brazilian datasets per region.}
@@ -169,9 +168,8 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
   \itemize{
     \item{Chapter 1: \code{extreme2datasince1899} is \code{\link{hurricanehist}}.}
     \item{Chapter 5: \code{accidents} and \code{accidents_data} are 
-      merged in \code{\link{brautocoll}};
-      \code{55mu2500gsd} is \code{brgeomunic_sf} in extra directory \code{geodata/}
-      in the github repository;
+      merged in \code{\link{brautocoll}}; \code{55mu2500gsd} is \code{brgeomunic_sf} in 
+      extra directory \code{geodata} in the github repository;
       \code{sul_sp} is stored in \code{\link{brgeomunicins}}.}
     \item{Chapter 9: \code{MyPortfolio} is \code{\link{freprojqxINSEE}}.}
     \item{Chapter 10: \code{DataMortality} is \code{\link{freptfpermdis}}.}
