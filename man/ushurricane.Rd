@@ -134,13 +134,13 @@ Natural Hazards Review, Volume 9, Issue 1, pp. 29-42.
 
 Weinkle, J., Landsea, C., Collins, D., Musulin, R., Crompton, R. P., 
 Klotzbach, P. J.,  Pielke Jr, R. (2018)
-\emph{Normalized hurricane damage in the continental United States 1900–2017},
+\emph{Normalized hurricane damage in the continental United States 1900-2017},
 Nature sustainability, 1(12), 808-813. 
 \doi{10.1038/s41893-018-0165-2}
 
 
 Grinsted, A., Ditlevsen, P., & Christensen, J. H. (2019). 
-\emph{Normalized US hurricane damage estimates using area of total destruction, 1900−2018}
+\emph{Normalized US hurricane damage estimates using area of total destruction, 1900-2018}
 Proceedings of the National Academy of Sciences, 116(48), 23942-23946.
 \doi{10.1073/pnas.1912277116}
 
