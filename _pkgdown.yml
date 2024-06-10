@@ -7,6 +7,20 @@ navbar:
     left:  [intro, reference, articles, tutorials, news]
     right: [search, github]
 
+reference:
+- title: Overview
+  desc: Overview of the package
+  contents:
+    - CASdatasets
+- title: Datasets
+  desc: Datasets available in `CASdatasets`. You can access them by typing `r data(dataset)`.
+
+articles:
+- title: Articles
+  navbar: ~
+  contents:
+  - poisson_vignette
+  
 toc:
   number_sections: yes
   depth: 3
