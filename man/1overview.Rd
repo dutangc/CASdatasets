@@ -169,8 +169,8 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
     \item{Chapter 1: \code{extreme2datasince1899} is \code{\link{hurricanehist}}.}
     \item{Chapter 5: \code{accidents} and \code{accidents_data} are 
       merged in \code{\link{brautocoll}}; \code{55mu2500gsd} is \code{brgeomunic_sf} in 
-      extra directory \code{geodata} in the github repository;
-      \code{sul_sp} is stored in \code{\link{brgeomunicins}}.}
+      extra directory \code{geodata} in the github 
+      repository; \code{sul_sp} is stored in \code{\link{brgeomunicins}}.}
     \item{Chapter 9: \code{MyPortfolio} is \code{\link{freprojqxINSEE}}.}
     \item{Chapter 10: \code{DataMortality} is \code{\link{freptfpermdis}}.}
     \item{Chapter 11: \code{DEXUSUK} is \code{\link{forexUSUK}}.}
