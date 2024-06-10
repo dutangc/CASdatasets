@@ -28,6 +28,7 @@ reference:
    - ausNLHYFinPos
    - ausNLHYFinPosByComp
    - ausNLHYFinPosPublic
+   - ausNLHYglossary
    - ausNLHYLiability
    - ausNLHYLloydAsset
    - ausNLHYLloydGPI
