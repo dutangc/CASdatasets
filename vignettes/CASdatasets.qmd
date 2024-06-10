@@ -8,6 +8,7 @@ vignette: >
 
 This package contains aggregated and policy-level datasets. Below a list by country
 or region is given.
+ 
 -  Australia:
     
      -  [`auscathist`](https://dutangc.github.io/CASdatasets/reference/auscathist.html): Historical disaster statistics in Australia.
