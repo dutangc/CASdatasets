@@ -9,12 +9,10 @@ navbar:
 
 reference:
 - title: Overview
-  desc: Overview of the package
+  desc: Overview of datasets available in `CASdatasets`. You can access them by typing `r data(dataset)`.
   contents:
     - CASdatasets
-- title: Datasets by country / region
-  desc: Datasets available in `CASdatasets`. You can access them by typing `r data(dataset)`.
-- subtitle: Australia
+- title: Australia
   desc: Australian datasets
   contents:
    - ausautoBI8999
@@ -51,14 +49,14 @@ reference:
    - ausprivautolong
    - austri1autoBI7895
    - austri2auto
-- subtitle: Belgium
+- title: Belgium
   desc: Belgian datasets   
   contents:
    - beaonre
    - beMTPL16
    - beMTPL97
    - besecura
-- subtitle: Brazil
+- title: Brazil
   desc: Brazilian datasets   
   contents:
    - braggclaim
@@ -74,18 +72,18 @@ reference:
    - brvehins2b
    - brvehins2c
    - brvehins2d
-- subtitle: Canada
+- title: Canada
   desc: Canadian datasets   
   contents:
    - canlifins
    - canlifins2
    - catelematic13
-- subtitle: Danemark
+- title: Danemark
   desc: Danish datasets   
   contents:
    - danishmulti
    - danishuni
-- subtitle: European Union
+- title: European Union
   desc: European datasets 
   contents:
    - ECBYieldCurve
@@ -97,7 +95,7 @@ reference:
    - eusavingULnoPSperQtr
    - eusavingULnoPSperYr
    - spacedata
-- subtitle: France
+- title: France
   desc: French datasets   
   contents:
    - freaggnumber
@@ -193,7 +191,7 @@ reference:
    - pg17testyear4
    - pg17trainclaim
    - pg17trainpol
-- subtitle: Norway
+- title: Norway
   desc: Norwegian datasets   
   contents:
    - norauto
@@ -201,25 +199,25 @@ reference:
    - norfire
    - nortritpl8800
    - nzcathist
-- subtitle: Singapore
+- title: Singapore
   desc: Singaporian datasets   
   contents:
    - sgautoBI9301
    - sgautonb
    - sgautoprop9701
-- subtitle: Sweden
+- title: Sweden
   desc: Swedish datasets 
   contents:
    - swautoins
    - swbusscase
    - swmotorcycle
    - swtri1auto
-- subtitle: United Kingdom
+- title: United Kingdom
   desc: UK datasets   
   contents:
    - ukaggclaim
    - ukautocoll
-- subtitle: United States
+- title: United States
   desc: UK datasets 
   contents:
    - FedYieldCurve
@@ -256,7 +254,7 @@ reference:
    - uswarrantaggnum
    - usworkcomp
    - usworkcomptri8807  
-- subtitle: Misc.
+- title: Misc.
   desc: Misc.
   contents:
    - asiacomrisk
