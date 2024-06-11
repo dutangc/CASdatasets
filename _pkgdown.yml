@@ -218,11 +218,13 @@ reference:
    - ukaggclaim
    - ukautocoll
 - title: United States
-  desc: UK datasets 
+  desc: US datasets 
   contents:
    - FedYieldCurve
    - forexUSUK
    - hurricanehist  
+   - ICB1
+   - ICB2
    - lossalae
    - lossalaefull
    - SOAGMI
@@ -261,8 +263,6 @@ reference:
    - credit
    - Davis
    - eqlist
-   - ICB1
-   - ICB2
    - itamtplcost
    - linearmodelfactor
    - PnCdemand
