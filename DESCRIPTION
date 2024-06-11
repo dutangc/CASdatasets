@@ -13,7 +13,7 @@ Depends: R (>= 3.6.0), xts, survival
 Imports: lattice
 Suggests: sp, sf, quarto, rmarkdown, tidyverse, wesanderson, glmnet, AER, broom, ggplot2
 License: GPL (>= 2)
-URL: http://dutangc.free.fr/pub/RRepos/, http://cas.uqam.ca/, http://dutangc.perso.math.cnrs.fr/RRepository/, https://dutangc.github.io/CASdatasets/
+URL: https://dutangc.github.io/CASdatasets/, http://dutangc.free.fr/pub/RRepos/, http://cas.uqam.ca/, http://dutangc.perso.math.cnrs.fr/RRepository/
 BugReports: https://github.com/dutangc/CASdatasets/issues
 NeedsCompilation: no
 VignetteBuilder: quarto

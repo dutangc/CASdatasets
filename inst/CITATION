@@ -14,3 +14,9 @@ bibentry(bibtype="Manual",
 	       	"CASdatasets: Insurance datasets.")
 )
 
+bibentry(bibtype = "Book",
+         title = "Computational actuarial science with {R}",
+         author = p2,
+         publisher= "CRC press",
+         url = "https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788",
+	       year = "2014")

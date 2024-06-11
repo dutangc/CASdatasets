@@ -5,6 +5,10 @@ Now, the package contains a large variety of actuarial datasets for students, te
 
 This package cannot be hosted on CRAN because the installed size is 211.3Mb.
 
+We strongly encourage users to visit the [R project website](https://www.r-project.org/)
+and take a look at the CRAN task view 
+on [Actuarial science](https://CRAN.R-project.org/view=ActuarialScience) proposed by Dutang & Goulet (2024).
+
 ## Install
 
 Please make sure that [xts](https://CRAN.R-project.org/package=xts), [zoo](https://CRAN.R-project.org/package=zoo) packages are installed.

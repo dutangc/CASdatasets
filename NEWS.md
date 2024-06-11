@@ -8,6 +8,7 @@ the extra directory `geodata/` of this repository.
 
 Latest list is below
 
+- `fretplclaimnumber.rda`		2024/06/11	3916.37kB
 - `ushu18NCEI.rda`			2024/06/07	2.7kB
 - `ushu18W.rda`			2024/06/07	11.55kB
 - `ushu18ICAT.rda`			2024/06/07	12.75kB
@@ -50,7 +51,6 @@ Latest list is below
 - `usMVTA.rda`			2024/05/28	25785.18kB
 - `ukautocoll.rda`			2024/05/28	0.59kB
 - `ukaggclaim.rda`			2024/05/28	0.82kB
-- `tplclaimnumber.rda`		2024/05/28	906.04kB
 - `swtri1auto.rda`			2024/05/28	0.66kB
 - `swmotorcycle.rda`		2024/05/28	145.06kB
 - `swbusscase.rda`			2024/05/28	9.08kB
