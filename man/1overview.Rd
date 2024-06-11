@@ -75,7 +75,6 @@ or region is given.
 		\item{\code{\link{freaggnumber}}: a French aggregate claim number dataset.}
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
 		\item{\code{\link{freclaimset}}, \code{\link{freclaimset2}}: French claim settlements.}
-
 		\item{\code{\link{frecomfire}}: French commercial fire losses.}
 		\item{\code{\link{freDisTables}}: French disability tables.}
     \item{\code{\link{fremarine}}: French marine claim dataset (by policy).}
@@ -85,6 +84,7 @@ or region is given.
 		\item{\code{\link{freMPL}}: a collection of ten French Motor personal line datasets (by policy).}
 		\item{\code{\link{freportfolio}}: fictive mortality tables and French
 		nation-wide corresponding tables; two disability datasets from a French insurer.}
+		\item{\code{\link{fretplclaimnumber}}: a French Motor-TPL claim dataset (by policy).}
     \item{\code{\link{fre4LoBtriangles}}: A collection of triangles 
         line of business from a private insurer.}
     \item{\code{\link{pricingame}}: Datesets used at Pricing Games of the

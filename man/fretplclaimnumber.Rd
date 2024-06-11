@@ -1,23 +1,21 @@
-\name{tplclaimnumber}
-\alias{tplclaimnumber}
+\name{fretplclaimnumber}
+\alias{fretplclaimnumber}
 
 \docType{data}
 \title{ TPL claim number dataset}
 
 \description{
 The univariate dataset was collected in the French motor market and 
-comprise 90270 one-year policies for which the claim number is recorded.
-
-
+comprise 678 013 one-year policies for which the claim number is recorded.
 
 }
 
 \usage{
-data(tplclaimnumber)
+data(fretplclaimnumber)
 }
 
 \format{ 
-\code{tplclaimnumber} contains three columns:
+\code{fretplclaimnumber} contains three columns:
 \describe{
     \item{\code{policy.id}}{The policy identification number.}
     \item{\code{claim.number}}{The claim number.}
@@ -31,11 +29,11 @@ data(tplclaimnumber)
 
 # (1) load of data
 #
-data(tplclaimnumber)
+data(fretplclaimnumber)
 
 # (2) plot and description of data
 #
-table(tplclaimnumber$claim.number)
+table(fretplclaimnumber$claim.number)
 
 }
 
