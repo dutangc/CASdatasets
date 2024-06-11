@@ -9,7 +9,7 @@ navbar:
 
 reference:
 - title: Overview
-  desc: Overview of datasets available in `CASdatasets`. You can access them by typing `r data(dataset)`.
+  desc: Overview of datasets available in `CASdatasets`. You can access them by typing `data(<datasetname>)`.
   contents:
     - CASdatasets
 - title: Australia
@@ -255,7 +255,7 @@ reference:
    - usworkcomp
    - usworkcomptri8807  
 - title: Misc.
-  desc: Misc.
+  desc: Other datasets
   contents:
    - asiacomrisk
    - credit
