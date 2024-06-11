@@ -169,6 +169,9 @@
     <loc>/reference/freportfolio.html</loc>
   </url>
   <url>
+    <loc>/reference/fretplclaimnumber.html</loc>
+  </url>
+  <url>
     <loc>/reference/hurricanehist.html</loc>
   </url>
   <url>
@@ -218,9 +221,6 @@
   </url>
   <url>
     <loc>/reference/swtriangles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tplclaimnumber.html</loc>
   </url>
   <url>
     <loc>/reference/ukaggclaim.html</loc>
