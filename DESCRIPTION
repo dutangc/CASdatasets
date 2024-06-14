@@ -1,7 +1,7 @@
 Package: CASdatasets
 Type: Package
 Title: Insurance Datasets
-Version: 1.0-13
+Version: 1.2-0
 Authors@R: c(person("Christophe", "Dutang", role = c("aut", "cre"), email = "dutangc@gmail.com", comment = c(ORCID = "0000-0001-6732-1501")),
              person("Arthur", "Charpentier", role = c("aut"), comment = c(ORCID = "0000-0003-3654-6286")),
              person("Ewen", "Gallic", role = c("ctb"), comment = c(ORCID = "0000-0003-3740-2620")),

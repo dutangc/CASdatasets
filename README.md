@@ -50,4 +50,4 @@ Authors gratefully acknowledge the following contributors: Julien Siharath and [
 
 ## Citation
 
-If you use `CASdatasets`, you should cite: <br/> Christophe Dutang and Arthur Charpentier (2024). *CASdatasets: Insurance datasets*, R package version 1.0-13.
+If you use `CASdatasets`, you should cite: <br/> Christophe Dutang and Arthur Charpentier (2024). *CASdatasets: Insurance datasets*, R package version 1.2-0.
