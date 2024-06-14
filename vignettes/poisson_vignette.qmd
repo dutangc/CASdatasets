@@ -1,5 +1,5 @@
 ---
-title: "Patron sur CASdataset Fremtpl"
+title: "Analysis of fremtpl"
 author: "Siharath Julien"
 date: "03/04/2023"
 chapters:
@@ -17,6 +17,10 @@ toc-depth: 2
 theme: 
   - cosmo
   - style.scss
+vignette: >
+  %\VignetteIndexEntry{Analysis of fremtpl}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}  
 ---
 
 # Introduction {#sec-poisson-introduction}
