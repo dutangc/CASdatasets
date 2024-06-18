@@ -1,5 +1,7 @@
 # CASdatasets 1.2-0
 
+## Main info 
+
 Current version for development.
 
 - **Remove dependency** on `sp` package as the package does not contain any geographical datasets. 
@@ -7,7 +9,9 @@ Current version for development.
 - All **Geographical datasets** have been put in the extra directory `geodata/` of this repository.
 - New datasets have been added.
 
-List of new datasets is below
+## Datasets lists
+
+List of **new datasets** is below
 
 - `beMTPL16.rda`			2024/06/03	1399.52kB
 - `beMTPL97.rda`			2024/05/29	1493.27kB
@@ -228,7 +232,7 @@ List of (usual) datasets is below
 - `usworkcomp.rda`			2024/05/28	7.3kB
 - `usworkcomptri8807.rda`		2024/05/28	1.46kB
 
-List of removed datasets is below
+List of removed/replaced datasets is below
 
 - `brgeomunic`
 - `fredpt17`
