@@ -268,7 +268,7 @@ reference:
    - PnCdemand
 
 articles:
-- title: Articles
+- title: Detailed use-cases with R code
   navbar: ~
   contents:
   - poisson_vignette
