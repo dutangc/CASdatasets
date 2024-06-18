@@ -3,7 +3,7 @@
 A collection of datasets, originally for the book [Computational Actuarial Science with R](https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788) edited by Arthur Charpentier. 
 Now, the package contains a large variety of actuarial datasets for students, teachers and researchers.
 
-This package cannot be hosted on CRAN because the installed size is 211.3Mb.
+This package cannot be hosted on [CRAN](https://cran.r-project.org/) because the installed size is 211.3Mb.
 
 We strongly encourage users to visit the [R project website](https://www.r-project.org/)
 and take a look at the CRAN task view 
@@ -46,7 +46,14 @@ Issues can be reported on <https://github.com/dutangc/CASdatasets/issues>.
 -   [Arthur Charpentier](https://freakonometrics.github.io/): charpentier.arthur\<\<\@))uqam.ca
 -   [Christophe Dutang](http://dutangc.free.fr/): dutangc\<\<\@))gmail.com
 
-Authors gratefully acknowledge the following contributors: Julien Siharath and [Ewen Gallic](https://egallic.fr/) for building up new vignettes for the package.
+Authors gratefully acknowledge the following contributors: Julien Siharath and [Ewen Gallic](https://egallic.fr/) for contributing to the package.
+
+
+
+## How to contribute?
+
+If you to contribute, please contact us. We will help you in the anonymizing process
+in order that neither policyholders nor the insurer can be identified.
 
 ## Citation
 

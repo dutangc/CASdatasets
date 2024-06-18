@@ -1,7 +1,8 @@
 ---
-title: "Analysis of fremtpl"
+title: "Frequency analysis of French MTPL dataset"
+date: "2024-06-01"
+date-format: "MMMM YYYY"
 author: "Siharath Julien"
-date: "03/04/2023"
 chapters:
   - Introduction
   - Models
@@ -14,13 +15,10 @@ editor:
     wrap: 72
 toc: true
 toc-depth: 2
+code_folding: hide
 theme: 
   - cosmo
   - style.scss
-vignette: >
-  %\VignetteIndexEntry{Analysis of fremtpl}
-  %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}  
 ---
 
 # Introduction {#sec-poisson-introduction}
@@ -119,7 +117,7 @@ within the freMTPLsev dataset are itemized in the table denoted as
 
 ::: justify
 | Attribute | Type    | Description                                             |
-|----------------|----------------|---------------------------------------|
+|-----------------|-----------------|--------------------------------------|
 | PolicyID  | Numeric | Unique identifier for the contract                      |
 | ClaimNB   | Numeric | Number of claims during the exposure period             |
 | Exposure  | Numeric | Exposure duration in years                              |
@@ -131,14 +129,16 @@ within the freMTPLsev dataset are itemized in the table denoted as
 | Region    | Factor  | Region in France where the driver resides               |
 | Density   | Numeric | Population density in the city where the driver resides |
 
-: Content of the `CONTRACTS` dataset: contracts {#tbl-dict-freMTPLfreq .striped .hover}
+: Content of the `CONTRACTS` dataset: contracts {#tbl-dict-freMTPLfreq
+.striped .hover}
 
 | Attribute   | Type    | Description                                 |
 |-------------|---------|---------------------------------------------|
 | PolicyID    | Numeric | Unique identifier for the contract          |
 | ClaimAmount | Numeric | Cost of the claim, seen as at a recent date |
 
-: Content of the `CLAIMS` dataset: claims {#tbl-dict-freMTPLsev .striped .hover}
+: Content of the `CLAIMS` dataset: claims {#tbl-dict-freMTPLsev .striped
+.hover}
 :::
 
 ## Importation
@@ -284,6 +284,8 @@ ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
   global_theme()
 ```
 
+## Model
+
 ```{r model}
 reg <- glm(
   ClaimNb ~ DriverAge + Density,
@@ -296,24 +298,28 @@ summary(reg)
 dispersiontest(reg)
 ```
 
-
 ::: justify
 This is a Poisson regression model predicting `ClaimNb` (number of
-claims) with `DriverAge` and `Density` as predictors. The coefficients indicate the change in log count of claims
-associated with each predictor level compared to a reference level. For
-instance, as `DriverAge` increases from 22 to 26, the log count of
-claims decreases by `r abs(round(coef(reg)[2], 2))` Similarly, as `Density` increases within
-each category, the log count of claims increases.
+claims) with `DriverAge` and `Density` as predictors. The coefficients
+indicate the change in log count of claims associated with each
+predictor level compared to a reference level. For instance, as
+`DriverAge` increases from 22 to 26, the log count of claims decreases
+by `r abs(round(coef(reg)[2], 2))` Similarly, as `Density` increases
+within each category, the log count of claims increases.
 
 All coefficients are statistically significant.
 :::
 
-
 ::: callout-warning
 ### Presence of overdispersion
-This leads to inadequate model fit, inflated standard errors, incorrect inference, and biased parameter estimates, 
-as such, the following interpretations should be approached with caution.
-Addressing overdispersion may require alternative modeling approaches such as negative binomial regression or quasi-Poisson regression [faire reference à une autre section], which offer greater flexibility in capturing the variability in the data.
+
+This leads to inadequate model fit, inflated standard errors, incorrect
+inference, and biased parameter estimates, as such, the following
+interpretations should be approached with caution. Addressing
+overdispersion may require alternative modeling approaches such as
+negative binomial regression or quasi-Poisson regression \[faire
+reference à une autre section\], which offer greater flexibility in
+capturing the variability in the data.
 :::
 
 ::: panel-tabset
@@ -348,12 +354,13 @@ kable(exp(coef(reg)[-1]))
 ::: justify
 Each count ratio represents the change in count of making a claim
 associated with a one-unit increase in the predictor variable, compared
-to the reference category `DriverAge` (18,22\]. For example, a count ratio of `r exp(coef(reg)[2])` for
-`DriverAge` (22,26\] implies that the count of making a claim for
-individuals aged 22 to 26 are approximately `r round((1-exp(coef(reg)[2]))*100)`% lower compared to the
-reference category. Similarly, count ratios above 1 for `Density`
-categories suggest an increase in the count of making a claim as the
-density increases within each category.
+to the reference category `DriverAge` (18,22\]. For example, a count
+ratio of `r exp(coef(reg)[2])` for `DriverAge` (22,26\] implies that the
+count of making a claim for individuals aged 22 to 26 are approximately
+`r round((1-exp(coef(reg)[2]))*100)`% lower compared to the reference
+category. Similarly, count ratios above 1 for `Density` categories
+suggest an increase in the count of making a claim as the density
+increases within each category.
 :::
 
 ## Confidence intervals
@@ -470,4 +477,13 @@ ggplot(
 # References
 
 ::: {#refs}
+:::
+
+# See also
+
+::: justify
+For more similar databases with a Poisson-like distribution, see
+`ausprivauto0405` (import with data("ausprivauto0405")), `brvehins1a`
+(import with data("brvehins1a")), or `freMPL1` (import with
+data("freMPL1")).
 :::
