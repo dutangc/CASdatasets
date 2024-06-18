@@ -1,12 +1,12 @@
 ---
-title: "Poisson frequency analysis of a French MTPL dataset"
+title: "QuasiPoisson frequency analysis of a French MTPL dataset"
 date: '`r format(Sys.Date(), "%B %Y")`'
 author: "Julien Siharath"
 chapters:
   - Introduction
   - Models
   - Graphics
-categories: [Poisson, Claim frequency, France, freMTPL]
+categories: [Quasi-Poisson, Claim frequency, France, freMTPL]
 bibliography: references.bib
 fig-cap-location: top
 editor: 
@@ -22,9 +22,8 @@ format:
     toc-depth: 2
 ---
 
-<!-- see help at https://quarto.org/docs/output-formats/html-basics.html -->
 
-# Introduction {#sec-poisson-introduction}
+# Introduction {#sec-quasi-poisson-introduction}
 
 ```{r setup, message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -69,11 +68,11 @@ options("digits" = 2)
 ::: callout-tip
 ### In Brief
 
-The objective of this vignette is to demonstrate the application of
-Poisson regression in analyzing insurance data, specifically focusing on
+The objective of this vignette is to demonstrate the application of Quasi-Poisson
+regression in analyzing insurance data, specifically focusing on
 the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
 datasets provide information on insurance contracts and claims related
-to French motor third-party liability insurance. By leveraging Poisson
+to French motor third-party liability insurance. By leveraging Quasi-Poisson
 regression, our goal is to model the frequency of claims and investigate
 the factors influencing claim occurrence within the insurance data.
 :::
@@ -86,7 +85,7 @@ required_libraries <- c(
   "tidyverse", 
   "CASdatasets",
   "wesanderson",
-  "glmnet",
+  "MASS",
   "AER",
   "broom",
   "knitr"
@@ -120,7 +119,7 @@ within the freMTPLsev dataset are itemized in the table denoted as
 
 ::: justify
 | Attribute | Type    | Description                                             |
-|-----------------|-----------------|--------------------------------------|
+|----------------|----------------|---------------------------------------|
 | PolicyID  | Numeric | Unique identifier for the contract                      |
 | ClaimNB   | Numeric | Number of claims during the exposure period             |
 | Exposure  | Numeric | Exposure duration in years                              |
@@ -132,21 +131,19 @@ within the freMTPLsev dataset are itemized in the table denoted as
 | Region    | Factor  | Region in France where the driver resides               |
 | Density   | Numeric | Population density in the city where the driver resides |
 
-: Content of the `CONTRACTS` dataset: contracts {#tbl-dict-freMTPLfreq
-.striped .hover}
+: Content of the `CONTRACTS` dataset: contracts {#tbl-dict-freMTPLfreq .striped .hover}
 
 | Attribute   | Type    | Description                                 |
 |-------------|---------|---------------------------------------------|
 | PolicyID    | Numeric | Unique identifier for the contract          |
 | ClaimAmount | Numeric | Cost of the claim, seen as at a recent date |
 
-: Content of the `CLAIMS` dataset: claims {#tbl-dict-freMTPLsev .striped
-.hover}
+: Content of the `CLAIMS` dataset: claims {#tbl-dict-freMTPLsev .striped .hover}
 :::
 
 ## Importation
 
-```{r load-poisson-data, output=FALSE}
+```{r load-quasi-poisson-data, output=FALSE}
 #| code-fold: true
 #| code-summary: "code for importing our datasets"
 
@@ -179,16 +176,16 @@ if (sum(freMTPLsev$PolicyID %in% CONTRACTS$PolicyID) == sum(CONTRACTS$ClaimNb)) 
 
 ```
 
-# Models {#sec-poisson-models}
+# Models {#sec-quasi-poisson-models}
 
 ## Purpose
 
 ::: justify
-In the realm of automobile insurance, Poisson regression stands as a
+In the realm of automobile insurance, Quasi-Poisson regression stands as a
 reliable tool for understanding and predicting accident frequencies,
 repair costs, and claims trends.
 
-With Poisson regression, insurers can anticipate forthcoming challenges,
+With Quasi-Poisson regression, insurers can anticipate forthcoming challenges,
 refine pricing strategies, and ensure resilience in a dynamic landscape
 of risk.
 :::
@@ -197,14 +194,19 @@ of risk.
 ## Pay Attention
 
 ::: justify
-The results from Poisson regression models are valid if:\
+The results from QuasiPoisson regression models are valid if:\
 - the responses are independent.\
 - the responses are distributed according to a Poisson distribution with
 parameter Lambda.\
-- there is no
-[overdispersion](https://en.wikipedia.org/wiki/Overdispersion).
+- There may be [overdispersion](https://en.wikipedia.org/wiki/Overdispersion) present in the data.
+Quasi-Poisson regression models are appropriate for handling situations where the variance exceeds the mean in the data.
 :::
 :::
+
+The results from QuasiPoisson regression models are valid if:
+
+The responses are independent.
+The responses are distributed according to a Poisson distribution with parameter Lambda.
 
 ::: justify
 In this analysis, we will explore the relationship between the response
@@ -219,13 +221,13 @@ equation:
 
 $$
 \begin{equation}
-\text{ClaimNb} \sim \text{Poisson}(\lambda)
+\text{ClaimNb} \sim \text{QuasiPoisson}(e^{X\beta + \log E})
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\log(\lambda) = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density}
+\log(\lambda) = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density} + \text{log(Exposure)}
 \end{equation}
 $$
 :::
@@ -287,42 +289,24 @@ ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
   global_theme()
 ```
 
-## Model
-
 ```{r model}
-reg <- glm(
-  ClaimNb ~ DriverAge + Density,
-  family = poisson,
-  data = CONTRACTS.f
-)
+
+freg <- formula(ClaimNb ~ DriverAge + Density + offset(log(Exposure)))
+  
+reg <- glm(freg, family = quasipoisson, data = CONTRACTS.f)
 
 summary(reg)
-
-dispersiontest(reg)
 ```
 
 ::: justify
-This is a Poisson regression model predicting `ClaimNb` (number of
-claims) with `DriverAge` and `Density` as predictors. The coefficients
-indicate the change in log count of claims associated with each
-predictor level compared to a reference level. For instance, as
-`DriverAge` increases from 22 to 26, the log count of claims decreases
-by `r abs(round(coef(reg)[2], 2))` Similarly, as `Density` increases
-within each category, the log count of claims increases.
+This is a Quasi-Poisson regression model predicting `ClaimNb` (number of
+claims) with `DriverAge` and `Density` as predictors. The coefficients indicate the change in log count of claims
+associated with each predictor level compared to a reference level. For
+instance, as `DriverAge` increases from 22 to 26, the log count of
+claims decreases by `r abs(round(coef(reg)[2], 2))` Similarly, as `Density` increases within
+each category, the log count of claims increases.
 
 All coefficients are statistically significant.
-:::
-
-::: callout-warning
-### Presence of overdispersion
-
-This leads to inadequate model fit, inflated standard errors, incorrect
-inference, and biased parameter estimates, as such, the following
-interpretations should be approached with caution. Addressing
-overdispersion may require alternative modeling approaches such as
-negative binomial regression or quasi-Poisson regression \[faire
-reference à une autre section\], which offer greater flexibility in
-capturing the variability in the data.
 :::
 
 ::: panel-tabset
@@ -357,13 +341,12 @@ kable(exp(coef(reg)[-1]))
 ::: justify
 Each count ratio represents the change in count of making a claim
 associated with a one-unit increase in the predictor variable, compared
-to the reference category `DriverAge` (18,22\]. For example, a count
-ratio of `r exp(coef(reg)[2])` for `DriverAge` (22,26\] implies that the
-count of making a claim for individuals aged 22 to 26 are approximately
-`r round((1-exp(coef(reg)[2]))*100)`% lower compared to the reference
-category. Similarly, count ratios above 1 for `Density` categories
-suggest an increase in the count of making a claim as the density
-increases within each category.
+to the reference category `DriverAge` (18,22\]. For example, a count ratio of `r exp(coef(reg)[2])` for
+`DriverAge` (22,26\] implies that the count of making a claim for
+individuals aged 22 to 26 are approximately `r round((1-exp(coef(reg)[2]))*100)`% lower compared to the
+reference category. Similarly, count ratios above 1 for `Density`
+categories suggest an increase in the count of making a claim as the
+density increases within each category.
 :::
 
 ## Confidence intervals
@@ -379,10 +362,10 @@ kable(exp(confint(reg))[-1, ])
 ```
 :::
 
-# Graphics {#sec-poisson-graphics}
+# Graphics {#sec-quasi-poisson-graphics}
 
 ::: panel-tabset
-## DriverAge {#sec-poisson-graphics-age}
+## DriverAge {#sec-quasi-poisson-graphics-age}
 
 ```{r Visualisation-coef-age, message = FALSE}
 #| fig-cap: "Count ratio and confidence interval of DriverAge"
@@ -415,11 +398,10 @@ data_density <- tibble(
 )
 
 ggplot(
-  data_age |>
-  mutate(variable = fct_rev(variable)), 
+  data_age, 
   aes(
     x = coefficient,
-    y = variable,
+    y = rev(variable),
     xmin = lower_bound,
     xmax = upper_bound
   )
@@ -437,10 +419,10 @@ ggplot(
   global_theme()
 ```
 
-## Density {#sec-poisson-graphics-density}
+## Density {#sec-quasi-poisson-graphics-density}
 
 ```{r visualisation-coef-density}
-#| fig-cap: "count ratio and confidence interval of Density "
+#| fig-cap: "Count ratio and confidence interval of Density "
 #| label: "fig-plot-coef-density"
 #| code-fold: true
 #| code-summary: code to create the following graph
@@ -480,16 +462,4 @@ ggplot(
 # References
 
 ::: {#refs}
-:::
-
-# See also
-
-::: justify
-For more similar claim frequency datasets with a Poisson-like distribution, see
-[`ausprivauto0405`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html) 
-(import with `data("ausprivauto0405")`), 
-[`norauto`](https://dutangc.github.io/CASdatasets/reference/norauto.html): 
-Norwegian automobile dataset (import with `data("norauto")`), 
-or [`pg17trainpol`](https://dutangc.github.io/CASdatasets/reference/pricingame.html) (import with
-`data("pg17trainpol")`).
 :::

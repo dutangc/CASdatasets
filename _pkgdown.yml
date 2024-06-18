@@ -272,6 +272,7 @@ articles:
   navbar: ~
   contents:
   - poisson_vignette
+  - quasi_poisson_vignette
   
 toc:
   number_sections: yes
