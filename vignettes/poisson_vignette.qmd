@@ -1,25 +1,28 @@
 ---
-title: "Frequency analysis of French MTPL dataset"
-date: "2024-06-01"
-date-format: "MMMM YYYY"
+title: "Frequency analysis of a French MTPL dataset"
+date: '`r format(Sys.Date(), "%B %Y")`'
 author: "Siharath Julien"
 chapters:
   - Introduction
   - Models
   - Graphics
-categories: [Poisson, freMTPL]
+categories: [Poisson, Claim frequency, France, freMTPL]
 bibliography: references.bib
 fig-cap-location: top
 editor: 
   markdown: 
     wrap: 72
-toc: true
-toc-depth: 2
-code_folding: hide
-theme: 
-  - cosmo
-  - style.scss
+format:
+  html:     
+    code_fold: true
+    code-summary: "Show the code"
+    css: style.scss
+    theme: cosmo
+    toc: true
+    toc-depth: 2
 ---
+
+<!-- see help at https://quarto.org/docs/output-formats/html-basics.html -->
 
 # Introduction {#sec-poisson-introduction}
 
@@ -482,8 +485,11 @@ ggplot(
 # See also
 
 ::: justify
-For more similar databases with a Poisson-like distribution, see
-`ausprivauto0405` (import with data("ausprivauto0405")), `brvehins1a`
-(import with data("brvehins1a")), or `freMPL1` (import with
-data("freMPL1")).
+For more similar claim frequency datasets with a Poisson-like distribution, see
+[`ausprivauto0405`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html) 
+(import with `data("ausprivauto0405")`), 
+[`norauto`](https://dutangc.github.io/CASdatasets/reference/norauto.html): 
+Norwegian automobile dataset (import with `data("norauto")`), 
+or [`pg17trainpol`](https://dutangc.github.io/CASdatasets/reference/pricingame.html) (import with
+`data("pg17trainpol")`).
 :::

@@ -1,5 +1,6 @@
 ---
 title: "Get Started"
+date: '`r format(Sys.Date(), "%B %Y")`'
 vignette: >
   %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{quarto::html}

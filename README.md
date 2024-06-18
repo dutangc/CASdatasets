@@ -53,7 +53,7 @@ Authors gratefully acknowledge the following contributors: Julien Siharath and [
 ## How to contribute?
 
 If you to contribute, please contact us. We will help you in the anonymizing process
-in order that neither policyholders nor the insurer can be identified.
+so that neither policyholders nor the insurer can be identified.
 
 ## Citation
 
