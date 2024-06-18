@@ -84,6 +84,7 @@ or region is given.
      - [`freMPL`](https://dutangc.github.io/CASdatasets/reference/freMPL.html): a collection of ten French Motor personal line datasets (by policy).
      - [`freportfolio`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html): fictive mortality tables and French
         nation-wide corresponding tables; two disability datasets from a French insurer.
+     - [`fretplclaimnumber`](https://dutangc.github.io/CASdatasets/reference/fretplclaimnumber.html): a French Motor-TPL claim dataset (by policy).
      - [`fre4LoBtriangles`](https://dutangc.github.io/CASdatasets/reference/fre4triLob.html): A collection of triangles 
         line of business from a private insurer.
      - [`pricingame`](https://dutangc.github.io/CASdatasets/reference/pricingame.html): Datesets used at Pricing Games of the
@@ -171,3 +172,4 @@ Here is a list of datasets whose name has changed compared to the book 'Computat
 - Chapter 11: `DEXUSUK` is [`forexUSUK`](https://dutangc.github.io/CASdatasets/reference/forex.html).
 - Chapter 14: `CONTRACTS` is [`freMTPLfreq`](https://dutangc.github.io/CASdatasets/reference/freMTPL.html); `CLAIMS` is [`freMTPLsev`](https://dutangc.github.io/CASdatasets/reference/freMTPL.html).
 - Chapter 15: `AutoClaimData` is [`usmassBI2`](https://dutangc.github.io/CASdatasets/reference/usmassBI.html).
+
