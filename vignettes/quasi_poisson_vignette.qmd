@@ -20,6 +20,10 @@ format:
     theme: cosmo
     toc: true
     toc-depth: 2
+vignette: >
+  %\VignetteIndexEntry{quasi-Poisson frequency analysis}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
 ---
 
 

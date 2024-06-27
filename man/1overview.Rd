@@ -74,7 +74,7 @@ or region is given.
 	\itemize{
 		\item{\code{\link{freaggnumber}}: a French aggregate claim number dataset.}
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
-		\item{\code{\link{freclaimset}}, \code{\link{freclaimset2}}: French claim settlements.}
+		\item{\code{\link{freclaimset}}, \code{\link{freclaimset9207}}: French claim settlements.}
 		\item{\code{\link{frecomfire}}: French commercial fire losses.}
 		\item{\code{\link{freDisTables}}: French disability tables.}
     \item{\code{\link{fremarine}}: French marine claim dataset (by policy).}

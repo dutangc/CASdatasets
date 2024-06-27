@@ -10,7 +10,6 @@
 \alias{freT2Tdis13}
 \alias{freT2Pdis13}
 
-
 \alias{freT2Pdisprob10}
 \alias{freT2Tdisprob10}
 \alias{freP2Pdisprob10}

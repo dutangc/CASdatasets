@@ -74,7 +74,7 @@ or region is given.
     
      - [`freaggnumber`](https://dutangc.github.io/CASdatasets/reference/freaggnumber.html): a French aggregate claim number dataset.
      - [`frebiloss`](https://dutangc.github.io/CASdatasets/reference/frebiloss.html): French business interruption losses.
-     - [`freclaimset`](https://dutangc.github.io/CASdatasets/reference/freclaimset.html), freclaimset2: French claim settlements.
+     - [`freclaimset`](https://dutangc.github.io/CASdatasets/reference/freclaimset.html), [`freclaimset9207`](https://dutangc.github.io/CASdatasets/reference/freclaimset9207.html): French claim settlements.
      - [`frecomfire`](https://dutangc.github.io/CASdatasets/reference/frecomfire.html): French commercial fire losses.
      - [`freDisTables`](https://dutangc.github.io/CASdatasets/reference/fredistables.html): French disability tables.
      - [`fremarine`](https://dutangc.github.io/CASdatasets/reference/fremarine.html): French marine claim dataset (by policy).

@@ -103,8 +103,10 @@ reference:
    - frebiloss
    - freclaimset
    - freclaimset2motor
+   - freclaimset9207
    - freclaimset3dam9207
    - freclaimset3fire9207
+   - freclaimset3multi9207
    - frecomfire
    - frefictivetable
    - frefictivetable2
@@ -280,9 +282,8 @@ toc:
 
 authors:
   Christophe Dutang:
-    href: http://dutangc.free.fr/
+    href: http://dutangc.free.fr
   Arthur Charpentier:
-    href: https://freakonometrics.github.io/
+    href: https://freakonometrics.github.io
   Ewen Gallic:
-    href: https://egallic.fr/
-  
+    href: https://egallic.fr

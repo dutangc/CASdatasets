@@ -3,7 +3,7 @@
 \alias{freclaimset2motor}
 
 \docType{data}
-\title{ French claim settlements }
+\title{ Two datasets of French claim settlements }
 
 \description{
 The dataset \code{freclaimset} consists of 2306 claims settlements
