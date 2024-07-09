@@ -15,5 +15,3 @@ data(ushustormloss4980)
 ## References
 
 Dataset used in Beirlant, Teugels and Vynckier (1996), **Practical Analysis of Extreme Values**, Leuven University Press.
-
- 

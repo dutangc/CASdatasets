@@ -1,7 +1,6 @@
+\docType{data}
 \name{usprivautoclaim}
 \alias{usprivautoclaim}
-
-\docType{data}
 \title{ US Private Auto Claims }
 
 \description{
@@ -11,7 +10,6 @@ from a US property and casualty insurer.
 Claims that were not closed by the year end are excluded.
 A risk classification is available and is based on driver and vehicle
 characteristics.
-
 
 }
 
@@ -29,9 +27,7 @@ data(usprivautoclaim)
     \item{\code{PAID}}{Claim amount.}
 	}
 
-
 }
-
 
 \source{ 
 \href{https://instruction.bus.wisc.edu/jfrees/jfreesbooks/}{FreesBook-RMAFA}

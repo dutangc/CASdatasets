@@ -131,6 +131,7 @@ reference:
    - fremotor4freq9907u
    - fremotor4sev9907
    - freMPL1
+   - freMPL1sub
    - freMPL10
    - freMPL2
    - freMPL3
@@ -167,6 +168,7 @@ reference:
    - freT2Tdisprob13
    - freTD7377
    - freTD8890
+   - fretelematic
    - freTF0002
    - freTGF05
    - freTGH05

@@ -1,11 +1,10 @@
+\docType{data}
 \name{usautotriangles}
 \alias{usautotri9504}
 \alias{usreauto8700}
 \alias{usautotriangles}
 
 \title{US Automobile triangles}
-\docType{data}
-
 
 \description{
 
@@ -23,7 +22,6 @@ This dataset has been used by Braun (2004).
 These data are from reinsurance business for
 automobile liability coverages for years 1987-2000 and
 contain cumulative incurred amounts in thousands of US dollars.
-
 
 }
 \usage{

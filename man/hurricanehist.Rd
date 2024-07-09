@@ -1,7 +1,7 @@
+\docType{data}
 \name{hurricanehist}
 \alias{hurricanehist}
 
-\docType{data}
 \title{ Hurricane history: Per Storm Maximum Wind Speeds (North Atlantic) }
 
 \description{

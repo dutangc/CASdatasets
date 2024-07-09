@@ -20,6 +20,8 @@ List of **new datasets** is below
 - `euhealthinsurance.rda`		2024/06/07	2061.5kB
 - `euMTPL.rda`			2024/06/07	17411.29kB
 - `freclaimset3multi9207.rda`	2024/06/27	62.61kB
+- `freMPL1sub.rda`			2024/07/09	134.78kB
+- `fretelematic.rda`		2024/07/09	29.68kB
 - `fretplclaimnumber.rda`		2024/06/11	3916.37kB
 - `fretri1dis1418.rda`		2024/05/29	2.2kB
 - `ushu17annualloss.rda`		2024/06/07	1.95kB
@@ -31,6 +33,7 @@ List of **new datasets** is below
 - `ushu18W.rda`			2024/06/07	11.55kB
 - `usMSHA1316.rda`			2024/05/29	969.5kB
 - `usMVTA.rda`			2024/05/28	25785.18kB
+
 
 
 List of (usual) datasets is below
@@ -103,7 +106,7 @@ List of (usual) datasets is below
 - `frebiloss.rda`			2024/05/28	50kB
 - `freclaimset.rda`			2024/05/28	10.97kB
 - `freclaimset2motor.rda`		2024/05/28	9260.54kB
-- `freclaimset3dam9207.rda`		2024/05/28	99.52kB
+- `freclaimset3dam9207.rda`		2024/07/09	7135kB
 - `freclaimset3fire9207.rda`	2024/05/28	4245.51kB
 - `frecomfire.rda`			2024/05/28	119.81kB
 - `frefictivetable.rda`		2024/05/28	321.64kB

@@ -1,8 +1,7 @@
+\docType{data}
 \name{auscathist}
 \alias{auscathist}
 \title{Australian catastrophe historic}
-\docType{data}
-
 \description{
   Historical disaster statistics in Australia from 1967 to 2014.
 }

@@ -1,13 +1,11 @@
+\docType{data}
 \name{eqlist}
 \alias{eqlist}
 \title{Earthquake list}
-\docType{data}
-
 \description{
 
 This dataset contains a list of all earthquakes of magnitude 
 greater than 6 between 1900 and 2024.
-
 
 }
 \usage{

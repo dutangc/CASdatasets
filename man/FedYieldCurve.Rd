@@ -1,6 +1,6 @@
+\docType{data}
 \name{FedYieldCurve}
 \alias{FedYieldCurve}
-\docType{data}
 \title{Federal Reserve interest rates }
 \description{
 The data-set contains the interest rates of the Federal Reserve, from January 1982 to December 2012.

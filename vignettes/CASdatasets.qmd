@@ -84,6 +84,7 @@ or region is given.
      - [`freMPL`](https://dutangc.github.io/CASdatasets/reference/freMPL.html): a collection of ten French Motor personal line datasets (by policy).
      - [`freportfolio`](https://dutangc.github.io/CASdatasets/reference/freportfolio.html): fictive mortality tables and French
         nation-wide corresponding tables; two disability datasets from a French insurer.
+     - [`fretelematic`](https://dutangc.github.io/CASdatasets/reference/fretelematic.html): a French telematic Motor-TPL claim dataset (by policy).
      - [`fretplclaimnumber`](https://dutangc.github.io/CASdatasets/reference/fretplclaimnumber.html): a French Motor-TPL claim dataset (by policy).
      - [`fre4LoBtriangles`](https://dutangc.github.io/CASdatasets/reference/fre4triLob.html): A collection of triangles 
         line of business from a private insurer.

@@ -1,3 +1,4 @@
+\docType{data}
 \name{freportfolio}
 \alias{freportfolio}
 \alias{freprojqxINSEE}
@@ -6,7 +7,7 @@
 \alias{frefictivetable3}
 \alias{freptfpermdis}
 \alias{freptftempdis}
-\docType{data}
+
 \title{ Portfolio Mortality and Disability Tables }
 
 \description{

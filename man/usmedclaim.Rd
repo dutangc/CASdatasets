@@ -1,10 +1,8 @@
+\docType{data}
 \name{usmedclaim}
 \alias{usmedclaim}
 
 \title{US Medical claim incremental triangles}
-\docType{data}
-
-
 \description{
 
 This dataset comes from Gamage et al. (2007) and contains
@@ -16,13 +14,9 @@ but are cumulated over development year.
 The payments exclude prescription drugs that typically have a shorter 
 payment pattern than other medical claims.
 
-
-
 }
 \usage{
 data(usmedclaim)
-
-
 }
 \format{ 
 \code{usmedclaim} is a matrix containing two columns (with members count
@@ -33,10 +27,9 @@ data(usmedclaim)
 \source{ 
 \href{https://instruction.bus.wisc.edu/jfrees/jfreesbooks/}{FreesBook-RMAFA}
 
- }
+}
 
 \references{ 
-
 
 Frees (2010), 
 \emph{Regression modelling with actuarial and financial applications},
@@ -47,8 +40,7 @@ Gamage, J., Linfield, J., Ostaszewski, K. and S. Siegel (2007).
 \emph{Statistical methods for health actuaries - IBNR estimates: An introduction},
 Society of Actuaries Working Paper, Schaumburg, Illinois.
 
-
- }
+}
  
 \examples{
 
@@ -56,7 +48,6 @@ Society of Actuaries Working Paper, Schaumburg, Illinois.
 #
 data(usmedclaim)
 head(usmedclaim, 10)
-
 
 # (2) graph of data
 #

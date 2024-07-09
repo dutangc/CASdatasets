@@ -1,7 +1,8 @@
+\docType{data}
 \name{usexpense}
 \alias{usexpense}
 \title{US expense dataset}
-\docType{data}
+
 \description{
 
 This dataset is originally from the National Association 

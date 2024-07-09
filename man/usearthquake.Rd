@@ -1,9 +1,7 @@
+\docType{data}
 \name{usquakeLR}
 \alias{usquakeLR}
 \title{California earthquake loss ratios}
-\docType{data}
-
-
 \description{
 
 Loss ratios for earthquake insurance in California
@@ -22,10 +20,8 @@ data(usquakeLR)
 	\item{\code{LossRatio}}{Loss ratio.}
 }
 
-
 }
 
- 
 \references{ 
 
 Jaffee, D.M. and Russell, T. (1996),

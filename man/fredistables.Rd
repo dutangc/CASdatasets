@@ -1,3 +1,4 @@
+\docType{data}
 \name{freDisTables}
 \alias{freDisTables}
 \alias{freP2Pdis10}
@@ -20,11 +21,9 @@
 \alias{freT2Tdisprob13}
 \alias{freT2Pdisprob13}
 
-\docType{data}
 \title{ French Disability Tables and Probabilities }
 
 \description{
-
 
 Naming convention: \code{X2Y} stands for going 
 from state \code{X} to state \code{Y},

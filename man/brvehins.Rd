@@ -1,3 +1,4 @@
+\docType{data}
 \name{brvehins}
 \alias{brvehins}
 \alias{brvehins1}
@@ -11,8 +12,6 @@
 \alias{brvehins2b}
 \alias{brvehins2c}
 \alias{brvehins2d}
-
-\docType{data}
 \title{ Two Brazilian datasets for vehicle insurance}
 
 \description{

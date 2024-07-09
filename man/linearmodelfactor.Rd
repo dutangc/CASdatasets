@@ -1,7 +1,7 @@
+\docType{data}
 \name{linearmodelfactor}
 \alias{linearmodelfactor}
 
-\docType{data}
 \title{ A simulated with linear model factor }
 
 \description{ A simulated with linear model factor }

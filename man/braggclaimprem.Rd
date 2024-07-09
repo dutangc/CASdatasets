@@ -1,9 +1,8 @@
+\docType{data}
 \name{bragg}
 \alias{bragg}
 \alias{braggclaim}
 \alias{braggprem}
-
-\docType{data}
 \title{ Descriptive statistics of aggregate claims and premiums for the 41 Brazilian regions}
 
 \description{

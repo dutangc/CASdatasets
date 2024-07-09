@@ -1,3 +1,4 @@
+\docType{data}
 \name{lossalae}
 \alias{lossalae}
 \alias{lossalaefull}

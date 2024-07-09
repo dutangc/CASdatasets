@@ -1,3 +1,4 @@
+\docType{data}
 \name{eusavingsurrender}
 \alias{eusavingsurrender}
 \alias{eusavingULnoPSperYr}
@@ -6,10 +7,7 @@
 \alias{eusavingULnoPS}
 
 \title{European surrender dataset from the direct channel}
-\docType{data}
-
 \description{
-
 
 The \code{eusavingULnoPS} dataset is based on 
 unit-linked saving products with no profit sharing sold in an unknown European 
@@ -19,7 +17,6 @@ entries and exits are possible.
 per year, per quarter or per month of \code{eusavingULnoPS}
 such that a policy is repeated per time interval as long as
 it stays in-force.
-
 
 }
 \usage{

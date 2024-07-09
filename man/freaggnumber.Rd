@@ -1,7 +1,6 @@
+\docType{data}
 \name{freaggnumber}
 \alias{freaggnumber}
-
-\docType{data}
 \title{ French aggregate claim numbers }
 
 \description{

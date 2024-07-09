@@ -1,3 +1,4 @@
+\docType{data}
 \name{ausNLHYlloyd}
 \alias{ausNLHYlloyd}
 \alias{ausNLHYLloydAsset}
@@ -6,7 +7,6 @@
 \alias{ausNLHYLloydUWRes}
 
 \title{Australian Market - non-life insurance (LLoyds insurance business)}
-\docType{data}
 
 \description{
   Financial performance and financial position of insurers operating 

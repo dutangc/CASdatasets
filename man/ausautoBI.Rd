@@ -1,17 +1,13 @@
+\docType{data}
 \name{ausautoBI8999}
 \alias{ausautoBI8999}
 \title{Automobile bodily injury claim dataset in Australia}
-\docType{data}
-
 \description{
 
 This data set contains information on 22036 settled personal
 injury insurance claims in Australia. These claims arose from accidents occurring
 from July 1989 through to  January 1999. Claims settled with zero
 payment are not included.
-
-
-
 
 }
 \usage{
@@ -32,8 +28,6 @@ data(ausautoBI8999)
     \item{\code{AggClaim}}{Aggregate settled amount of claims.}
 }
 
-
-
 }
 
 \source{
@@ -49,8 +43,7 @@ P. De Jong and G.Z. Heller (2008),
 Cambridge University Press,
 \doi{10.1017/CBO9780511755408}.
 
-
- }
+}
  
 \examples{
 
@@ -59,8 +52,6 @@ Cambridge University Press,
 data(ausautoBI8999)
 dim(ausautoBI8999)
 head(ausautoBI8999)
-
-
 
 }
 \keyword{datasets}

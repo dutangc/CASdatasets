@@ -1,3 +1,4 @@
+\docType{data}
 \name{fre4LoBtriangles}
 \alias{fre4LoBtriangles}
 
@@ -8,11 +9,7 @@
 \alias{fretri1TPL9207}
 \alias{fretri1dis1418}
 
-
 \title{French private motor, third party liability or disability triangles}
-\docType{data}
-
-
 \description{
 
 Datasets \code{fretri1auto9605}, \code{fretri2auto9605} and 

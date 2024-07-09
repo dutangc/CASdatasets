@@ -1,3 +1,4 @@
+\docType{data}
 \name{ushurricane}
 \alias{ushurricane}
 \alias{ushu17stormloss}
@@ -10,8 +11,6 @@
 \alias{ushu18NCEI}
 
 \title{Normalized Hurricane Damages}
-
-\docType{data}
 
 \description{
 
@@ -118,11 +117,7 @@ with most of the following columns:
 
 }
 
-
-
-
 }
-
 
 \references{ 
 
@@ -146,7 +141,6 @@ Proceedings of the National Academy of Sciences, 116(48), 23942-23946.
 
  }
  
-
 \examples{
 
 # (1) load of data

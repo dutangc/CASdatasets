@@ -1,9 +1,8 @@
+\docType{data}
 \name{usMVTA}
 \alias{usMVTA}
 \title{Motor Vehicle Traffic Accident: A consolidated database of police-reported motor vehicle 
 traffic accidents in the United States for actuarial applications}
-\docType{data}
-
 \description{
 
 \code{usMVTA} dataset contains a sample of 1 583 520 people involved in 20 years

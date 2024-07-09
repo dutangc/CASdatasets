@@ -1,8 +1,8 @@
+\docType{data}
 \name{canlifins}
 \alias{canlifins}
 \alias{canlifins2}
 \title{Canadian life insurance}
-\docType{data}
 
 \description{
 

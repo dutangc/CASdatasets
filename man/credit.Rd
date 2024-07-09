@@ -1,7 +1,7 @@
+\docType{data}
 \name{credit}
 \alias{credit}
 \title{German Credit dataset}
-\docType{data}
 
 \description{
 

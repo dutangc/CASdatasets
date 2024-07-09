@@ -1,7 +1,7 @@
+\docType{data}
 \name{spacedata}
 \alias{spacedata}
 \title{Space dataset}
-\docType{data}
 
 \description{
 

@@ -1,15 +1,12 @@
+\docType{data}
 \name{eudirectlapse}
 \alias{eudirectlapse}
 
 \title{European lapse dataset from the direct channel}
-\docType{data}
-
 \description{
-
 
 The \code{eudirectlapse} dataset is based on  one-year vehicle insurance
 renewal quotes for an unknown year and an unknown insurer. There are 23,060 policies.
-
 
 }
 \usage{

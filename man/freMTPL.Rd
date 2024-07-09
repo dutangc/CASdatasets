@@ -1,3 +1,4 @@
+\docType{data}
 \name{freMTPL}
 \alias{freMTPL}
 \alias{freMTPLfreq}
@@ -5,7 +6,6 @@
 \alias{freMTPL2freq}
 \alias{freMTPL2sev}
 
-\docType{data}
 \title{ French Motor Third-Part Liability datasets }
 
 \description{

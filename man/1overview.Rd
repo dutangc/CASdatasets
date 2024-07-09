@@ -84,6 +84,7 @@ or region is given.
 		\item{\code{\link{freMPL}}: a collection of ten French Motor personal line datasets (by policy).}
 		\item{\code{\link{freportfolio}}: fictive mortality tables and French
 		nation-wide corresponding tables; two disability datasets from a French insurer.}
+		\item{\code{\link{fretelematic}}: a French telematic Motor-TPL claim dataset (by policy).}
 		\item{\code{\link{fretplclaimnumber}}: a French Motor-TPL claim dataset (by policy).}
     \item{\code{\link{fre4LoBtriangles}}: A collection of triangles 
         line of business from a private insurer.}

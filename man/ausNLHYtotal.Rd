@@ -1,3 +1,4 @@
+\docType{data}
 \name{ausNLHYtotal}
 \alias{ausNLHYtotal}
 \alias{ausNLHYCapAdeq}
@@ -11,7 +12,6 @@
 \alias{ausNLHYReserve}
 
 \title{Australian Market - non-life insurance (aggregate level)}
-\docType{data}
 
 \description{
   Financial performance and financial position of insurers operating 

@@ -1,7 +1,6 @@
+\docType{data}
 \name{besecura}
 \alias{besecura}
-
-\docType{data}
 \title{ Secura Re Belgian dataset }
 
 \description{

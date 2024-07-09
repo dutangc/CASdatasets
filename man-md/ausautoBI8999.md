@@ -21,5 +21,3 @@ data(ausautoBI8999)
 ## References
 
 P. De Jong and G.Z. Heller (2008), **Generalized linear models for insurance data**, Cambridge University Press, .
-
- 

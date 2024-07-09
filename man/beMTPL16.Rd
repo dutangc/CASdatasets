@@ -1,15 +1,12 @@
+\docType{data}
 \name{beMTPL16}
 \alias{beMTPL16}
-
-\docType{data}
 \title{ Belgian motor third-part liability dataset }
 
 \description{
 The dataset \code{beMTPL} was collected by an unknown Belgium
 insurer. It consists of 70 791 claims for private motor
 insurance.
-
-
 
 }
 

@@ -1,7 +1,7 @@
+\docType{data}
 \name{ukaggclaim}
 \alias{ukaggclaim}
 
-\docType{data}
 \title{ UK Car Insurance Claims for 1975 }
 
 \description{
@@ -24,7 +24,6 @@ data(ukaggclaim)
     \item{\code{NClaims}}{Number of claims.}
     \item{\code{AveCost}}{Average cost of each claim in pounds.}
 	}
-
 
 }
 

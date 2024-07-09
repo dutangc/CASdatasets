@@ -1,7 +1,7 @@
+\docType{data}
 \name{catelematic13}
 \alias{catelematic13}
 \title{Canadian telematic insurance dataset}
-\docType{data}
 
 \description{
 

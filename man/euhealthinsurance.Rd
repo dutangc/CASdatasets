@@ -1,9 +1,8 @@
+\docType{data}
 \name{euhealthinsurance}
 \alias{euhealthinsurance}
 
 \title{European health insurance}
-\docType{data}
-
 \description{
 
 The \code{euhealthinsurance} compiles data coming from a health group collective fund that 

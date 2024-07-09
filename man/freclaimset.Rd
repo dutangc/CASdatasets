@@ -1,8 +1,7 @@
+\docType{data}
 \name{freclaimset}
 \alias{freclaimset}
 \alias{freclaimset2motor}
-
-\docType{data}
 \title{ Two datasets of French claim settlements }
 
 \description{

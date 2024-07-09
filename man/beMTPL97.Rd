@@ -1,7 +1,6 @@
+\docType{data}
 \name{beMTPL97}
 \alias{beMTPL97}
-
-\docType{data}
 \title{a Belgian motor third-part liability dataset }
 
 \description{

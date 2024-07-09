@@ -1,9 +1,9 @@
+\docType{data}
 \name{ICB}
 \alias{ICB}
 \alias{ICB1}
 \alias{ICB2}
 \title{Insurance Company Benchmark}
-\docType{data}
 
 \description{
 

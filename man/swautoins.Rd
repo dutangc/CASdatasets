@@ -1,7 +1,7 @@
+\docType{data}
 \name{swautoins}
 \alias{swautoins}
 \title{Swedish Motor Insurance dataset}
-\docType{data}
 
 \description{
 

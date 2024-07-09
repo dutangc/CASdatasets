@@ -1,12 +1,10 @@
+\docType{data}
 \name{sgtriangles}
 \alias{sgautoprop9701}
 \alias{sgautoBI9301}
 \alias{sgtriangles}
 
 \title{Singapore general liability triangles}
-\docType{data}
-
-
 \description{
 
 \code{sgautoprop9701} is a data report incremental payments 
@@ -22,8 +20,6 @@ policies for a Singapore property and casualty (general) insurer
 for years 1993-2001.
 Payments, deflated for inflation, are for third party injury from 
 comprehensive insurance policies. 
-
-
 
 }
 \usage{

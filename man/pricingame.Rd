@@ -1,3 +1,4 @@
+\docType{data}
 \name{pricingame}
 \alias{pricingame}
 \alias{pg15training}
@@ -12,7 +13,6 @@
 \alias{pg17testyear3}
 \alias{pg17testyear4}
 
-\docType{data}
 \title{ French Motor Third-Part Liability datasets used for 100 percent Data Science game }
 
 \description{

@@ -1,15 +1,13 @@
+\docType{data}
 \name{beaonre}
 \alias{beaonre}
 
-\docType{data}
 \title{ AON Re Belgian dataset }
 
 \description{
 The dataset was collected by the reinsurance broker 
 AON Re Belgium and comprise 1,823 fire losses for which the building 
 type and the sum insured are available.
-
-
 
 }
 

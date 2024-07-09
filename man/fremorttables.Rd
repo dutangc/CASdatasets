@@ -1,3 +1,4 @@
+\docType{data}
 \name{freMortTables}
 \alias{freMortTables}
 \alias{frePF6064}
@@ -13,7 +14,6 @@
 \alias{freTGF05}
 \alias{freTGH05}
 \alias{freTPG93full}
-\docType{data}
 \title{ French Mortality Tables }
 
 \description{

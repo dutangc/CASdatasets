@@ -1,7 +1,6 @@
+\docType{data}
 \name{fremarine}
 \alias{fremarine}
-
-\docType{data}
 \title{Some French marine losses }
 
 \description{

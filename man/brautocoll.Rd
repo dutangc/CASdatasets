@@ -1,7 +1,6 @@
+\docType{data}
 \name{brautocoll}
 \alias{brautocoll}
-
-\docType{data}
 \title{ Brazilian Automobile Collision Claims }
 
 \description{

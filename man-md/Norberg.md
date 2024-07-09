@@ -1,4 +1,4 @@
-# Norberg's credibility dataset
+# Ragnar Norberg's credibility dataset
 
 This univariate dataset was self-made by Norberg (1979) for pointing out the relevancy of credibility. It contains hypothetic records of binary claim of an insurance portfolio with 20 policies.
 

@@ -1,15 +1,12 @@
-
+\docType{data}
 \name{austriLoB}
 \alias{austriLoB}
 \alias{austri1autoBI7895}
 \alias{austri2auto}
 
 \title{Australian private motor triangles}
-\docType{data}
-
 
 \description{
-
 
 Dataset \code{austri1autoBI7895} contains claim triangles from an Australian non-life
 insurer between 1978 and 1995 for bodily injuries.

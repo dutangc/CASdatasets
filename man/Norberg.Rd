@@ -1,8 +1,8 @@
+\docType{data}
 \name{Norberg}
 \alias{Norberg}
 
-\docType{data}
-\title{ Norberg's credibility dataset }
+\title{ Ragnar Norberg's credibility dataset }
 
 \description{
 This univariate dataset was self-made by Norberg (1979)

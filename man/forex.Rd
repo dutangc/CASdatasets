@@ -1,6 +1,6 @@
+\docType{data}
 \name{forexUSUK}
 \alias{forexUSUK}
-\docType{data}
 \title{Foreign exchange rate between USD and GBP}
 \description{
 

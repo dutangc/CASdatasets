@@ -1,3 +1,4 @@
+\docType{data}
 \name{PnCdemand}
 \alias{PnCdemand}
 \title{Property and casualty insurance demand}

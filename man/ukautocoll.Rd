@@ -1,7 +1,7 @@
+\docType{data}
 \name{ukautocoll}
 \alias{ukautocoll}
 
-\docType{data}
 \title{ UK Automobile Collision Claims }
 
 \description{

@@ -4,6 +4,7 @@ This collection of ten datasets comes from a private motor French insurer. Each 
 
 ```r
 data(freMPL1)
+data(freMPL1sub)
 data(freMPL2)
 data(freMPL3)
 data(freMPL4)
@@ -17,7 +18,7 @@ data(freMPL10)
 
 ## Format
 
-For this collection of dataset, possible variables are given below. `freMPL1-10` contains claim severity and frequency information. The following tabular gives the list of variables by file.
+For this collection of dataset, possible variables are given below. `freMPL1-10` contains claim severity and frequency information. The following tabular gives the list of variables by file. `freMPL1sub` is a subset of `freMPL1` with exposure closed to 1: rownames of `freMPL1sub` are extracted rownames of `freMPL1`.
 
 ||||||||||||
 |--:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|

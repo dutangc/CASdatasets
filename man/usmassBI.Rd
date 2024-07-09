@@ -1,8 +1,8 @@
+\docType{data}
 \name{usmassBI}
 \alias{usmassBI}
 \alias{usmassBI2}
 \title{Massachusetts Automobile bodily injury claim datasets}
-\docType{data}
 
 \description{
 
@@ -14,17 +14,12 @@ Claims that are closed by year end are excluded.
 Potential fraudulent claims are from provider=A.
 
 
-
-
-
 The dataset \code{usmassBI2} contains automobile bodily injury claims collected
 between 1993 and 1998 in Massachusetts, and studied in Frees and Wang (2005).
 This is a sample of 29 Massachusetts towns described in Frees (2003).
 Claim amounts have been rescaled to adjust for the effects of inflation:
 all claims are in 1991 dollars, using the Consumer Price Index (CPI)
 for the rescaling factor.
-
-
 
 }
 \usage{
@@ -49,7 +44,6 @@ data(usmassBI2)
 \item{\code{PCI}}{Per-capita income of the town.}
 \item{\code{PPSM}}{Population per square mile of the town.}
 }
-
 
 }
 

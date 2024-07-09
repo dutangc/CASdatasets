@@ -1,10 +1,9 @@
+\docType{data}
 \name{swtriangles}
 \alias{swtri1auto}
 \alias{swtriangles}
 
 \title{Switzerland general liability triangles}
-\docType{data}
-
 
 \description{
 
@@ -19,7 +18,6 @@ data(swtri1auto)
 \format{ 
 \code{swtriangles} is a named list of two matrices, respectively for incurred and paid amounts.
 }
-
 
 \references{ 
 

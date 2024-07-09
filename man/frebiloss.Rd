@@ -1,7 +1,6 @@
+\docType{data}
 \name{frebiloss}
 \alias{frebiloss}
-
-\docType{data}
 \title{ French business interruption losses }
 
 \description{
@@ -9,7 +8,6 @@ The univariate dataset was collected at FFSA and
 comprise 2387 business interruption losses 
 over the period 1985 to 2000 (for losses above 100,000 French 
 Francs). 
-
 
 }
 

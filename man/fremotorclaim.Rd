@@ -1,3 +1,4 @@
+\docType{data}
 \name{fremotorclaim}
 \alias{fremotorclaim}
 \alias{fremotor1prem0304a}
@@ -22,8 +23,6 @@
 \alias{fremotor2freq9907b}
 \alias{fremotor3freq9907b}
 \alias{fremotor4freq9907b}
-
-\docType{data}
 \title{ French claims for private motor }
 
 \description{

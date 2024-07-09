@@ -1,10 +1,8 @@
+\docType{data}
 \name{usworkcomp}
 \alias{usworkcomp}
 \alias{usworkcomptri8807}
 \title{US workers compensation datasets}
-\docType{data}
-
-
 \description{
 
 The dataset \code{usworkcomp} is originally from the National Council on 
@@ -20,7 +18,6 @@ A total of 847 data points is available coming from the observation of
 
 The dataset \code{usworkcomptri8807} comes from an unknown US insurer:
  this reserve triangle was used in Lacoume (2007).
-	
 
 }
 \usage{

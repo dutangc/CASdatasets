@@ -1,9 +1,9 @@
+\docType{data}
 \name{ausNSW}
 \alias{ausNSW}
 \alias{ausNSWdriver04}
 \alias{ausNSWdeath02}
 \title{Australian Statistics - New South Wales in 2004}
-\docType{data}
 
 \description{
   General statistics of Australian drivers in New South Wales in 2004.

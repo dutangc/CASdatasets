@@ -1,7 +1,7 @@
+\docType{data}
 \name{nzcathist}
 \alias{nzcathist}
 \title{New Zealand catastrophe historic}
-\docType{data}
 
 \description{
   Historical disaster statistics in Zealand from 1968 to 2014.

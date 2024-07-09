@@ -1,13 +1,12 @@
+\docType{data}
 \name{norauto}
 \alias{norauto}
 
-\docType{data}
 \title{ Norwegian fire insurance dataset }
 
 \description{
 This dataset comprises 183,999 observations of automobile insurance
 policies losses over a one-year period.
-
 
 }
 

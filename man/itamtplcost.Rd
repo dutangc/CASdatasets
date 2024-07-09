@@ -1,7 +1,7 @@
+\docType{data}
 \name{itamtplcost}
 \alias{itamtplcost}
 \title{Italian MTPL cost}
-\docType{data}
 
 \description{
  This dataset contains large losses (in excess of 500 Keuro) of an Italian Motor-TPL company since 1997.

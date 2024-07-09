@@ -1,7 +1,7 @@
+\docType{data}
 \name{swbusscase}
 \alias{swbusscase}
 \title{Swedish Buss Insurance dataset}
-\docType{data}
 
 \description{
 

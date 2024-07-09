@@ -1,7 +1,7 @@
+\docType{data}
 \name{norfire}
 \alias{norfire}
 
-\docType{data}
 \title{ Norwegian fire insurance dataset }
 
 \description{

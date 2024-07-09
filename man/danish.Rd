@@ -1,9 +1,8 @@
+\docType{data}
 \name{danish}
 \alias{danish}
 \alias{danishuni}
 \alias{danishmulti}
-
-\docType{data}
 \title{ Danish reinsurance claim dataset }
 
 \description{

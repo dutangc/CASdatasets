@@ -1,3 +1,4 @@
+\docType{data}
 \name{ausprivauto}
 \alias{ausprivauto}
 \alias{ausprivautolong}
@@ -5,7 +6,6 @@
 \alias{ausprivauto0405}
 
 \title{Automobile claim datasets in Australia}
-\docType{data}
 
 \description{
 

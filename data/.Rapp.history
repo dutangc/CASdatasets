@@ -1,0 +1,4 @@
+load("/Users/dutang/Documents/recherche-enseignement/code/R/datasetpkg/ongithub/CASdatasets/data/freclaimset3dam9207.rda")
+ls
+ls()
+head(freclaim9207multi)

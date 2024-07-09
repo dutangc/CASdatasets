@@ -1,9 +1,7 @@
+\docType{data}
 \name{euMTPL}
 \alias{euMTPL}
-
 \title{European motor TPL insurance}
-\docType{data}
-
 \description{
 
 The \code{euMTPL} compiles three years of experience from a European MTPL (Motor Third Party Liability) portfolio, 

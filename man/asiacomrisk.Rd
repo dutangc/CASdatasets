@@ -1,7 +1,7 @@
+\docType{data}
 \name{asiacomrisk}
 \alias{asiacomrisk}
 
-\docType{data}
 \title{ Large commercial risks in Asia-Pacific }
 
 \description{

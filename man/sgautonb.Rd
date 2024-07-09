@@ -1,7 +1,7 @@
+\docType{data}
 \name{sgautonb}
 \alias{sgautonb}
 \title{Singapore Automobile claim count dataset}
-\docType{data}
 
 \description{
 

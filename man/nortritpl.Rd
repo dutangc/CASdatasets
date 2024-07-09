@@ -1,13 +1,9 @@
-
+\docType{data}
 \name{nortritpl8800}
 \alias{nortritpl8800}
 
 \title{Australian liabilty insurance triangles}
-\docType{data}
-
-
 \description{
-
 
 Dataset \code{nortritpl8800} contains claim triangles from a Norwegian non-life
 insurer between 1988 and 2000 for bodily injuries.
@@ -19,16 +15,11 @@ a triangle of claim payments by valuation delay,
 a triangle of reported incurred claims by valuation delay.
 Values are cumulated amounts.
 
-
-
 }
 \usage{
 
 #1st Line of Business
 data(nortritpl8800)
-
-
-
 
 }
 \format{ 
@@ -40,7 +31,6 @@ data(nortritpl8800)
 \code{nortritpl8800$incurbydel} contains the insurance triangles by valuation delay.
 
 }
-
 
 \references{
 

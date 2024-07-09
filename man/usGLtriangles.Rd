@@ -1,3 +1,4 @@
+\docType{data}
 \name{usGLtriangles}
 \alias{usreGL8190}
 \alias{usreGL8700}
@@ -6,9 +7,6 @@
 \alias{usGLtriangles}
 
 \title{US general liability triangles}
-\docType{data}
-
-
 \description{
 
 \code{usreGL8190} comes from the 1991 edition of the Historical Loss 

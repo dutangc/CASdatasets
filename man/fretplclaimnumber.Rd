@@ -1,7 +1,7 @@
+\docType{data}
 \name{fretplclaimnumber}
 \alias{fretplclaimnumber}
 
-\docType{data}
 \title{ TPL claim number dataset}
 
 \description{

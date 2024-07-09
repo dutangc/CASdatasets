@@ -1,6 +1,8 @@
+\docType{data}
 \name{freMPL}
 \alias{freMPL}
 \alias{freMPL1}
+\alias{freMPL1sub}
 \alias{freMPL2}
 \alias{freMPL3}
 \alias{freMPL4}
@@ -11,7 +13,6 @@
 \alias{freMPL9}
 \alias{freMPL10}
 
-\docType{data}
 \title{ French Motor Personal Line datasets }
 
 \description{
@@ -24,6 +25,7 @@ of around 30,000 policies for year 2004.
 
 \usage{
 data(freMPL1)
+data(freMPL1sub)
 data(freMPL2)
 data(freMPL3)
 data(freMPL4)
@@ -41,6 +43,9 @@ data(freMPL10)
 For this collection of dataset, possible variables are given below. 
 \code{freMPL1-10} contains claim severity and frequency information.
 The following tabular gives the list of variables by file. 
+\code{freMPL1sub} is a subset of \code{freMPL1} with exposure closed to 1: 
+rownames of \code{freMPL1sub} are extracted rownames of \code{freMPL1}.
+
 \tabular{rcccccccccc}{
   \tab freMPL1 \tab freMPL2 \tab freMPL3 \tab freMPL4 \tab freMPL5 \tab freMPL6 \tab freMPL7 \tab freMPL8 \tab freMPL9 \tab freMPL10 \cr
   Exposure \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \tab 1 \cr 
@@ -164,6 +169,7 @@ For the French career categories, see \url{https://fr.wikipedia.org/wiki/Profess
 # (1) load of data
 #
 data(freMPL1)
+data(freMPL1sub)
 data(freMPL2)
 data(freMPL3)
 data(freMPL4)

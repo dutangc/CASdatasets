@@ -1,10 +1,9 @@
+\docType{data}
 \name{freclaimset9207}
 \alias{freclaimset9207}
 \alias{freclaimset3fire9207}
 \alias{freclaimset3dam9207}
 \alias{freclaimset3multi9207}
-
-\docType{data}
 \title{ French individual claim settlements }
 
 \description{
@@ -105,11 +104,9 @@ The resulted dataset contains 37 variables.
 
 }
 
-
 \source{
 Unknown private insurer.
 }
-
 
 \examples{
 

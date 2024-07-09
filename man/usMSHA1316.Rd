@@ -1,16 +1,14 @@
+\docType{data}
 \name{usMSHA1316}
 \alias{usMSHA1316}
 
 \title{U.S. Mine Safety and Health Administration claim datasets}
-\docType{data}
-
 \description{
 
 \code{usMSHA1316} is a data set from the U.S. Mine Safety and Health Administration from 2013 to 2016. 
 The data set was used in the Predictive Analytics exam administered by the Society of Actuaries 
 in December 2018. This data set contains 53,746 observations described by 20 variables, 
 including compositional variables.
-
 
 }
 \usage{

@@ -1,11 +1,10 @@
+\docType{data}
 \name{uslapseagent}
 \alias{uslapseagent}
 
 \title{United States lapse dataset from tied-agent channel}
-\docType{data}
 
 \description{
-
 
 The \code{uslapseagent} portfolio contains 
 detailed information on the 29,317 Whole Life policies, all sold from the tied-agent channel between January 
@@ -13,9 +12,6 @@ detailed information on the 29,317 Whole Life policies, all sold from the tied-a
 
 For each policy, we know the issuance date, the gender of the policyholder, the age category, 
 etc\dots~Unfortunately, some variables are rather uninformative.
-
-
-
 
 }
 \usage{
@@ -52,8 +48,6 @@ data(uslapseagent)
     \item{\code{allcause}}{A binary variable indicating all termination.}
 }
 
-
-
 }
 
 \source{
@@ -69,17 +63,12 @@ a competing risk approach}. European Actuarial Journal, 8 (1), 97-126,
 \doi{10.1007/s13385-018-0165-7}.
  }
 
-
- 
 \examples{
 
 # (1) load of data
 #
 data(uslapseagent)
 head(uslapseagent)
-
-
-
 
 }
 \keyword{datasets}

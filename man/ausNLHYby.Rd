@@ -1,3 +1,4 @@
+\docType{data}
 \name{ausNLHYby}
 \alias{ausNLHYby}
 \alias{ausNLHYCapAdeqByComp}
@@ -13,7 +14,6 @@
 \alias{ausNLHYPubInsur}
 
 \title{Australian Market - non-life insurance (company, state, public level)}
-\docType{data}
 
 \description{
   Financial performance and financial position of insurers operating 

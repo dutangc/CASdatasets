@@ -1,13 +1,11 @@
+\docType{data}
 \name{Davis}
 \alias{Davis}
 \title{Davis dataset}
-\docType{data}
 
 \description{
 
 This dataset contains information of 200 individuals.
-
-
 
 }
 \usage{

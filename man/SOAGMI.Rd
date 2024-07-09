@@ -1,7 +1,7 @@
+\docType{data}
 \name{SOAGMI}
 \alias{SOAGMI}
 
-\docType{data}
 \title{ SOA Group Medical Insurance claim dataset }
 
 \description{
@@ -30,7 +30,6 @@ data(SOAGMI)
 }
 
 \references{ 
-
 
 Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
 \emph{Statistics of Extremes: Theory and Applications.},

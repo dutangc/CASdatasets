@@ -1,9 +1,8 @@
+\docType{data}
 \name{ustermlife}
 \alias{ustermlife}
 \title{US Term Life insurance}
-\docType{data}
 \description{
-
 
 This dataset comes from Survey of Consumer Finances (SCF), a nationally
  representative sample that contains extensive information on assets, 
@@ -16,7 +15,6 @@ the policy face, the amount that the company will pay in the event
 of the death of the named insured. Characteristics include annual 
 income, the number of years of education of the survey respondent 
 and the number of household members.
-
 
 }
 \usage{

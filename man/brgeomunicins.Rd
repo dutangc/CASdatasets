@@ -1,8 +1,7 @@
+\docType{data}
 \name{brgeomunicins}
 \alias{brgeomunicins}
 \alias{brgeomunic}
-
-\docType{data}
 \title{ Brazilian geospatial dataset for municipalities }
 
 \description{
@@ -69,9 +68,6 @@ and the 2000 municipality Human Development Index (\code{HDIcity00}).
 Both \code{CityDens10} and \code{HDIcity00} columns were generated
 from the IBGE site (ibge.gov.br, accessed February 2013).
 
-
-
-
 }
 
 \usage{
@@ -80,7 +76,6 @@ data(brgeomunicins)
 }
 
 \format{ 
-
 
 \code{brgeomunicins} contains 18 columns:
 \describe{
@@ -118,8 +113,6 @@ Charpentier, A. (2014).
 
 
 }
-
-
 
 
 \examples{

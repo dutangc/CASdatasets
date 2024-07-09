@@ -15,5 +15,3 @@ data(usmedclaim)
 Frees (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
 
 Gamage, J., Linfield, J., Ostaszewski, K. and S. Siegel (2007). **Statistical methods for health actuaries - IBNR estimates: An introduction**, Society of Actuaries Working Paper, Schaumburg, Illinois.
-
- 

@@ -1,17 +1,13 @@
+\docType{data}
 \name{usautoBI}
 \alias{usautoBI}
 \title{Automobile bodily injury claim dataset}
-\docType{data}
-
 \description{
 
 This dataset contains automobile injury claims collected in 2002
 by the Insurance Research Council (part of AICPCU and IIA).
 There are 1,340 records with demographic information, in
 addition to the claim amount.
-
-
-
 
 }
 \usage{
@@ -56,8 +52,6 @@ Cambridge University Press,
 data(usautoBI)
 dim(usautoBI)
 head(usautoBI)
-
-
 
 }
 \keyword{datasets}
