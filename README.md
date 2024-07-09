@@ -9,15 +9,21 @@ We strongly encourage users to visit the [R project website](https://www.r-proje
 and take a look at the CRAN task view 
 on [Actuarial science](https://CRAN.R-project.org/view=ActuarialScience) proposed by Dutang & Goulet (2024).
 
+## Topics (MSC 2010)
+
+- [actuarial science](https://mathscinet.ams.org/mathscinet/msc/msc2010.html?t=62P05)
+- [insurance](https://mathscinet.ams.org/mathscinet/msc/msc2010.html?t=97M30)
+- [risk](https://mathscinet.ams.org/mathscinet/msc/msc2010.html?t=91B30)
+
 ## Install
 
 Please make sure that [xts](https://CRAN.R-project.org/package=xts), [zoo](https://CRAN.R-project.org/package=zoo) packages are installed.
 
 To get the current released version please visit one of the three servers
 
--   [UQAM](http://cas.uqam.ca/),
--   [CNRS](http://dutangc.perso.math.cnrs.fr/RRepository/),
--   [website](http://dutangc.free.fr/pub/RRepos/).
+- [UQAM](http://cas.uqam.ca/),
+- [CNRS](http://dutangc.perso.math.cnrs.fr/RRepository/),
+- [website](http://dutangc.free.fr/pub/RRepos/).
 
 Alternatively, you can use
 
@@ -43,8 +49,8 @@ library(CASdatasets)
 
 Issues can be reported on <https://github.com/dutangc/CASdatasets/issues>.
 
--   [Arthur Charpentier](https://freakonometrics.github.io/): charpentier.arthur\<\<\@))uqam.ca
--   [Christophe Dutang](http://dutangc.free.fr/): dutangc\<\<\@))gmail.com
+- [Arthur Charpentier](https://freakonometrics.github.io/): charpentier.arthur\<\<\@))uqam.ca
+- [Christophe Dutang](http://dutangc.free.fr/): dutangc\<\<\@))gmail.com
 
 Authors gratefully acknowledge the following contributors: Julien Siharath and [Ewen Gallic](https://egallic.fr/) for contributing to the package.
 
