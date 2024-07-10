@@ -21,4 +21,4 @@ BuildVignettes: true
 BuildResaveData: no
 LazyData: no
 Encoding: UTF-8
-Classification/MSC-2010: 62P05, 91B30
+Classification/MSC-2010: 62P05, 91B30, 97M30
