@@ -2,7 +2,7 @@
 title: "Get Started"
 author: "Christophe Dutang"
 date: '`r format(Sys.Date(), "%B %Y")`'
-categories: [Claim severity, Claim frequency, Mortality tables]
+categories: [Non-life insurance, Life insurance, Claim severity, Claim frequency, Mortality data]
 vignette: >
   %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{quarto::html}

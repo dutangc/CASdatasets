@@ -52,8 +52,7 @@ Issues can be reported on <https://github.com/dutangc/CASdatasets/issues>.
 - [Arthur Charpentier](https://freakonometrics.github.io/): charpentier.arthur\<\<\@))uqam.ca
 - [Christophe Dutang](http://dutangc.free.fr/): dutangc\<\<\@))gmail.com
 
-Authors gratefully acknowledge the following contributors: Julien Siharath and [Ewen Gallic](https://egallic.fr/) for contributing to the package.
-
+Authors gratefully acknowledge the following contributors: Julien Siharath and [Ewen Gallic](https://egallic.fr/).
 
 
 ## How to contribute?
@@ -63,4 +62,4 @@ so that neither policyholders nor the insurer can be identified.
 
 ## Citation
 
-If you use `CASdatasets`, you should cite: <br/> Christophe Dutang and Arthur Charpentier (2024). *CASdatasets: Insurance datasets*, R package version 1.2-0.
+If you use `CASdatasets`, you should cite: <br/> Christophe Dutang and Arthur Charpentier (2024). *CASdatasets: Insurance datasets*, R package version 1.2-0, DOI [10.57745/P0KHAG](https://doi.org/10.57745/P0KHAG).
