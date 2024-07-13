@@ -5,9 +5,10 @@
 Current version for development.
 
 - **Remove dependency** on `sp` package as the package does not contain any geographical datasets. 
-- Put new packages in Suggest fields.
 - All **Geographical datasets** have been put in the extra directory `geodata/` of this repository.
-- New datasets have been added.
+- Put new packages in Suggest fields.
+- New datasets have been added (see below).
+- Add qmd vignettes for use case.
 - The package has been uploaded on [French data repository](https://entrepot.recherche.data.gouv.fr) and obtained a DOI : [10.57745/P0KHAG](https://doi.org/10.57745/P0KHAG).
 
 ## Datasets lists

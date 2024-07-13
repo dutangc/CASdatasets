@@ -276,7 +276,9 @@ articles:
   navbar: ~
   contents:
   - poisson_vignette
-  - quasi_poisson_vignette
+  - quasi_poisson_vignette_ausprivauto0405
+  - zero_inflated_vignette
+  - gam_rc_phileas_vignette
   
 toc:
   number_sections: yes
