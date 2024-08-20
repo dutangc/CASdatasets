@@ -11,7 +11,7 @@ Description: A collection of insurance datasets, originally for the book 'Comput
   edited by Arthur Charpentier. Now, the package contains a large variety of actuarial datasets.
 Depends: R (>= 3.6.0), xts, survival
 Imports: lattice
-Suggests: sp, sf, quarto, rmarkdown, tidyverse, wesanderson, glmnet, AER, broom, ggplot2, knitr, kableExtra
+Suggests: sp, sf, knitr, kableExtra, quarto, rmarkdown, AER, boot, broom, ChainLadder, dplyr, ggplot2, glmnet, MASS, mgcv, pscl, tidyverse, wesanderson, 
 License: GPL (>= 2)
 URL: https://dutangc.github.io/CASdatasets/, http://dutangc.free.fr/pub/RRepos/, http://cas.uqam.ca/, http://dutangc.perso.math.cnrs.fr/RRepository/
 BugReports: https://github.com/dutangc/CASdatasets/issues
