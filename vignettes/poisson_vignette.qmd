@@ -57,81 +57,6 @@ options("digits" = 2)
 ### In Brief
 
 The objective of this vignette is to demonstrate the application of
-Poisson regression in analyzing insurance data, specifically focusing on---
-title: "Frequency analysis of a French Motor Third Party Liability dataset"
-date: '`r Sys.Date()`'
-date-format: "MMMM, YYYY"
-author: "Julien Siharath"
-chapters:
-  - Introduction
-  - Models
-  - Graphs
-categories: [Poisson,  Public liability, Claim frequency, France, freMTPL]
-bibliography: references.bib
-fig-cap-location: top
-editor: 
-  markdown: 
-    wrap: 72
-format:
-  html:     
-    code-fold: true
-    code-summary: "Show the code"
-    css: style.scss
-    theme: cosmo
-    toc: true
-    toc-depth: 2
-vignette: >
-  %\VignetteIndexEntry{Poisson frequency analysis}
-  %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}     
----
-
-# Introduction {#sec-poisson-introduction}
-
-```{r setup, message=FALSE, warning=FALSE}
-#| code-fold: true
-#| code-summary: "Session Settings"
-#| label: load-packages
-
-# Graphs----
-face_text='plain'
-face_title='plain'
-size_title = 14
-size_text = 11
-legend_size = 11
-
-global_theme <- function() {
-  theme_minimal() %+replace%
-    theme(
-      text = element_text(size = size_text, face = face_text),
-      legend.position = "bottom",
-      legend.direction = "horizontal", 
-      legend.box = "vertical",
-      legend.key = element_blank(),
-      legend.text = element_text(size = legend_size),
-      axis.text = element_text(size = size_text, face = face_text), 
-      plot.title = element_text(
-        size = size_title, 
-        hjust = 0.5
-      ),
-      plot.subtitle = element_text(hjust = 0.5)
-    )
-}
-
-# Outputs
-options("digits" = 2)
-```
-
-```{css setup, echo = FALSE}
-.justify {
-  text-align: justify !important
-}
-```
-
-::: callout-tip
-### In Brief
-
-The objective of this vignette is to demonstrate the application of
 Poisson regression in analyzing insurance data, specifically focusing on
 the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
 datasets provide information on insurance contracts and claims related
@@ -596,46 +521,5 @@ Norwegian automobile dataset (import with `data("norauto")`),
 Belgian automobile dataset (import with `data("beMTPL16")`), or
 [`pg17trainpol`](https://dutangc.github.io/CASdatasets/reference/pricingame.html)
 (import with `data("pg17trainpol")`).
-:::
-
-the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
-datasets provide information on insurance contracts and claims related
-to French motor third-party liability insurance. By leveraging Poisson
-regression, our goal is to model the frequency of claims and investigate
-the factors influencing claim occurrence within the insurance data.
-:::
-
-## Required Packages
-
-```{r libraries, message=FALSE}
-
-required_libraries <- c(
-  "tidyverse", 
-  "CASdatasets",
-  "glmnet",
-  "AER",
-  "broom",
-  "knitr",
-  "kableExtra"
-)
-invisible(lapply(required_libraries, library, character.only = TRUE))
-```
-
-
-## Data
-
-::: justify
-The Data used in this vignette come from French motor third party
-liability insurance portfolio.
-
-The first dataset, `freMTPLfreq`, encompasses details regarding
-contracts and clients obtained from a French insurance company, related
-to some motor insurance portfolio.
-
-The second dataset, `freMTPLsev`, contains claims information, from the
-same company.
-
-For convenience, the `freMTPLfreq` table will be named `CONTRACTS`
-hereafter. The `freMTPLsev` will be named `CLAIMS`
 :::
 
