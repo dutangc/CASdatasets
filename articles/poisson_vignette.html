@@ -58,7 +58,7 @@
       <h1>Frequency analysis of a French Motor Third Party Liability dataset</h1>
 
       <p class="author">Julien Siharath</p>
-      <p class="date">Invalid Date</p>
+      <p class="date">August, 2024</p>
 
       <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/master/vignettes/poisson_vignette.qmd" class="external-link"><code>vignettes/poisson_vignette.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
@@ -69,11 +69,53 @@
 
 
 
-    <p>TOTO</p>
-
-
-
-<script id="quarto-html-after-body" type="application/javascript">
+    <section class="section level2"><h2 id="sec-poisson-introduction">Introduction<a class="anchor" aria-label="anchor" href="#sec-poisson-introduction"></a>
+</h2>
+<div class="cell">
+<details class="code-fold"><summary>Session Settings</summary><div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Graphs----</span></span>
+<span><span class="va">face_text</span><span class="op">=</span><span class="st">'plain'</span></span>
+<span><span class="va">face_title</span><span class="op">=</span><span class="st">'plain'</span></span>
+<span><span class="va">size_title</span> <span class="op">=</span> <span class="fl">14</span></span>
+<span><span class="va">size_text</span> <span class="op">=</span> <span class="fl">11</span></span>
+<span><span class="va">legend_size</span> <span class="op">=</span> <span class="fl">11</span></span>
+<span></span>
+<span><span class="va">global_theme</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">%+replace%</span></span>
+<span>    <span class="fu">theme</span><span class="op">(</span></span>
+<span>      text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="va">size_text</span>, face <span class="op">=</span> <span class="va">face_text</span><span class="op">)</span>,</span>
+<span>      legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>      legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>, </span>
+<span>      legend.box <span class="op">=</span> <span class="st">"vertical"</span>,</span>
+<span>      legend.key <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="va">legend_size</span><span class="op">)</span>,</span>
+<span>      axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="va">size_text</span>, face <span class="op">=</span> <span class="va">face_text</span><span class="op">)</span>, </span>
+<span>      plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span></span>
+<span>        size <span class="op">=</span> <span class="va">size_title</span>, </span>
+<span>        hjust <span class="op">=</span> <span class="fl">0.5</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      plot.subtitle <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Outputs</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"digits"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<style type="text/css">
+.justify {
+  text-align: justify !important
+}
+</style>
+</div>
+<div>
+<blockquote>
+<p><strong>In Brief</strong></p>
+<p>The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from <span class="citation" data-cites="charpentierCAS">@charpentierCAS</span>. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance. By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
+</blockquote>
+</div>
+</section><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
