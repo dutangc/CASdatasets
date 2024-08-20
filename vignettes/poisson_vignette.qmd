@@ -3,13 +3,8 @@ title: "Frequency analysis of a French Motor Third Party Liability dataset"
 date: '`r Sys.Date()`'
 date-format: "MMMM, YYYY"
 author: "Julien Siharath"
-chapters:
-  - Introduction
-  - Models
-  - Graphs
 categories: [Poisson,  Public liability, Claim frequency, France, freMTPL]
 bibliography: references.bib
-fig-cap-location: top
 editor: 
   markdown: 
     wrap: 72
