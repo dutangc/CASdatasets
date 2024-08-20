@@ -5,9 +5,6 @@ date-format: "MMMM, YYYY"
 author: "Julien Siharath"
 categories: [Poisson,  Public liability, Claim frequency, France, freMTPL]
 bibliography: references.bib
-editor: 
-  markdown: 
-    wrap: 72
 vignette: >
   %\VignetteIndexEntry{Poisson frequency analysis}
   %\VignetteEngine{quarto::html}
