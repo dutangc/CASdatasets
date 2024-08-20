@@ -1,7 +1,8 @@
 ---
 title: "Get Started"
 author: "Christophe Dutang"
-date: '`r format(Sys.Date(), "%B %Y")`'
+date: '`r Sys.Date()`'
+date-format: "MMMM, YYYY"
 categories: [Non-life insurance, Life insurance, Claim severity, Claim frequency, Mortality data]
 vignette: >
   %\VignetteIndexEntry{Getting started}
