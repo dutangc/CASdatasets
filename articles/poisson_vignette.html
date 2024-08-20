@@ -115,7 +115,30 @@
 <p>The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from <span class="citation" data-cites="charpentierCAS">@charpentierCAS</span>. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance. By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
 </blockquote>
 </div>
-</section><script id="quarto-html-after-body" type="application/javascript">
+<section class="level2"><h3 id="required-packages">Required Packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
+</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">required_libraries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"tidyverse"</span>, </span>
+<span>  <span class="st">"CASdatasets"</span>,</span>
+<span>  <span class="st">"glmnet"</span>,</span>
+<span>  <span class="st">"AER"</span>,</span>
+<span>  <span class="st">"broom"</span>,</span>
+<span>  <span class="st">"knitr"</span>,</span>
+<span>  <span class="st">"kableExtra"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">required_libraries</span>, <span class="va">library</span>, character.only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+</section><section class="level2"><h3 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
+</h3>
+<div class="justify">
+<p>The Data used in this vignette come from French motor third party liability insurance portfolio.</p>
+<p>The first dataset, <code>freMTPLfreq</code>, encompasses details regarding contracts and clients obtained from a French insurance company, related to some motor insurance portfolio.</p>
+<p>The second dataset, <code>freMTPLsev</code>, contains claims information, from the same company.</p>
+<p>For convenience, the <code>freMTPLfreq</code> table will be named <code>CONTRACTS</code> hereafter. The <code>freMTPLsev</code> will be named <code>CLAIMS</code></p>
+</div>
+</section></section><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -216,7 +239,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script></main>
+</script></main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
