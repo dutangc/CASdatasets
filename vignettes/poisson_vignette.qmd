@@ -3,7 +3,24 @@ title: "Frequency analysis of a French Motor Third Party Liability dataset"
 date: '`r Sys.Date()`'
 date-format: "MMMM, YYYY"
 author: "Julien Siharath"
-categories: [Poisson, Public liability, Claim frequency, France, freMTPL]
+chapters:
+  - Introduction
+  - Models
+  - Graphs
+categories: [Poisson,  Public liability, Claim frequency, France, freMTPL]
+bibliography: references.bib
+fig-cap-location: top
+editor: 
+  markdown: 
+    wrap: 72
+format:
+  html:     
+    code-fold: true
+    code-summary: "Show the code"
+    css: style.scss
+    theme: cosmo
+    toc: true
+    toc-depth: 2
 vignette: >
   %\VignetteIndexEntry{Poisson frequency analysis}
   %\VignetteEngine{quarto::html}
