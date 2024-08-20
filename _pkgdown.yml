@@ -275,7 +275,7 @@ articles:
 - title: Detailed use-cases with R code
   navbar: ~
   contents:
-  - poisson_vignette
+   - poisson_vignette
 
 toc:
   number_sections: yes
