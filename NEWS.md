@@ -9,7 +9,7 @@ Current version for development.
 - Put new packages in Suggest fields.
 - New datasets have been added (see below).
 - Add qmd vignettes for use case.
-- The package has been uploaded on [French data repository](https://entrepot.recherche.data.gouv.fr) and obtained a DOI : [10.57745/P0KHAG](https://doi.org/10.57745/P0KHAG).
+- The package has been uploaded on the [French research data repository](https://entrepot.recherche.data.gouv.fr) and obtained a DOI : [10.57745/P0KHAG](https://doi.org/10.57745/P0KHAG).
 
 ## Datasets lists
 

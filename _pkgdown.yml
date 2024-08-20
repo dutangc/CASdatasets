@@ -271,7 +271,9 @@ reference:
    - linearmodelfactor
    - PnCdemand
 
-
+articles:
+- title: Detailed use-cases with R code
+  navbar: ~
 
 toc:
   number_sections: yes
