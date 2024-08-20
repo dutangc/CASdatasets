@@ -57,7 +57,547 @@ options("digits" = 2)
 ### In Brief
 
 The objective of this vignette is to demonstrate the application of
+Poisson regression in analyzing insurance data, specifically focusing on---
+title: "Frequency analysis of a French Motor Third Party Liability dataset"
+date: '`r Sys.Date()`'
+date-format: "MMMM, YYYY"
+author: "Julien Siharath"
+chapters:
+  - Introduction
+  - Models
+  - Graphs
+categories: [Poisson,  Public liability, Claim frequency, France, freMTPL]
+bibliography: references.bib
+fig-cap-location: top
+editor: 
+  markdown: 
+    wrap: 72
+format:
+  html:     
+    code-fold: true
+    code-summary: "Show the code"
+    css: style.scss
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+vignette: >
+  %\VignetteIndexEntry{Poisson frequency analysis}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}     
+---
+
+# Introduction {#sec-poisson-introduction}
+
+```{r setup, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Session Settings"
+#| label: load-packages
+
+# Graphs----
+face_text='plain'
+face_title='plain'
+size_title = 14
+size_text = 11
+legend_size = 11
+
+global_theme <- function() {
+  theme_minimal() %+replace%
+    theme(
+      text = element_text(size = size_text, face = face_text),
+      legend.position = "bottom",
+      legend.direction = "horizontal", 
+      legend.box = "vertical",
+      legend.key = element_blank(),
+      legend.text = element_text(size = legend_size),
+      axis.text = element_text(size = size_text, face = face_text), 
+      plot.title = element_text(
+        size = size_title, 
+        hjust = 0.5
+      ),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+}
+
+# Outputs
+options("digits" = 2)
+```
+
+```{css setup, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+::: callout-tip
+### In Brief
+
+The objective of this vignette is to demonstrate the application of
 Poisson regression in analyzing insurance data, specifically focusing on
+the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
+datasets provide information on insurance contracts and claims related
+to French motor third-party liability insurance. By leveraging Poisson
+regression, our goal is to model the frequency of claims and investigate
+the factors influencing claim occurrence within the insurance data.
+:::
+
+## Required Packages
+
+```{r libraries, message=FALSE}
+
+required_libraries <- c(
+  "tidyverse", 
+  "CASdatasets",
+  "glmnet",
+  "AER",
+  "broom",
+  "knitr",
+  "kableExtra"
+)
+invisible(lapply(required_libraries, library, character.only = TRUE))
+```
+
+## Data
+
+::: justify
+The Data used in this vignette come from French motor third party
+liability insurance portfolio.
+
+The first dataset, `freMTPLfreq`, encompasses details regarding
+contracts and clients obtained from a French insurance company, related
+to some motor insurance portfolio.
+
+The second dataset, `freMTPLsev`, contains claims information, from the
+same company.
+
+For convenience, the `freMTPLfreq` table will be named `CONTRACTS`
+hereafter. The `freMTPLsev` will be named `CLAIMS`
+:::
+
+## Dictionaries
+
+The list of the 10 variables from the `freMTPLfreq` dataset is reported
+in @tbl-dict-freMTPLfreq. Similarly, the two variables encapsulated
+within the `freMTPLsev` dataset are reported in table @tbl-dict-freMTPLsev.
+
+::: justify
+| Attribute | Type    | Description                                             |
+|------------------|------------------|-------------------------------------|
+| PolicyID  | Numeric | Unique identifier for the contract                      |
+| ClaimNB   | Numeric | Number of claims during the exposure period             |
+| Exposure  | Numeric | Exposure duration in years                              |
+| Power     | Factor  | Power of the car (ordered categorical)                  |
+| CarAge    | Numeric | Age of the car in years                                 |
+| DriverAge | Numeric | Age of the driver in years                              |
+| Brand     | Factor  | Brand of the car categorized                            |
+| Gaz       | Factor  | Type of fuel used (diesel or regular)                   |
+| Region    | Factor  | Region in France where the driver resides               |
+| Density   | Numeric | Population density in the city where the driver resides |
+
+: Content of the `freMTPLfreq` dataset: CONTRACTS {#tbl-dict-freMTPLfreq
+.striped .hover}
+
+| Attribute   | Type    | Description                                 |
+|-------------|---------|---------------------------------------------|
+| PolicyID    | Numeric | Unique identifier for the contract          |
+| ClaimAmount | Numeric | Cost of the claim, seen as at a recent date |
+
+: Content of the `freMTPLsev` dataset: CLAIMS {#tbl-dict-freMTPLsev .striped
+.hover}
+:::
+
+## Importation
+
+```{r load-poisson-data, output=FALSE}
+#| code-fold: true
+#| code-summary: "Code for importing our datasets"
+
+data("freMTPLfreq")
+data("freMTPLsev")
+
+CONTRACTS <- freMTPLfreq |>
+  filter(Exposure > 0.90)
+
+
+# Create factors
+CONTRACTS.f <- 
+  CONTRACTS |> 
+  mutate(
+    DriverAge = cut(DriverAge, c(17, 22, 26, 42, 74, Inf)),
+    CarAge = cut(CarAge, c(0, 1, 4, 15, Inf), include.lowest = TRUE),
+    Density = cut(Density, c(0, 40, 200, 500, 4500, Inf), include.lowest = TRUE)
+  )
+
+
+CLAIMS <- freMTPLsev |>
+  as_tibble()
+
+# check
+if (sum(freMTPLsev$PolicyID %in% CONTRACTS$PolicyID) == sum(CONTRACTS$ClaimNb)) {
+  message("Data import has been completed successfully.")
+} else {
+  stop("Error when importing data: numbers are not equal.")
+}
+
+```
+
+# Models {#sec-poisson-models}
+
+## Purpose
+
+::: justify
+In the realm of automobile insurance, Poisson regression stands as a
+reliable tool for understanding and predicting accident frequencies,
+repair costs, and claims trends.
+
+With Poisson regression, insurers can anticipate forthcoming challenges,
+refine pricing strategies, and ensure resilience in a dynamic landscape
+of risk.
+:::
+
+::: {.callout-caution appearance="simple"}
+## Pay Attention
+
+::: justify
+The results from Poisson regression models are valid if:\
+
+- the responses are independent.\
+- the responses are distributed according to a Poisson distribution with
+parameter Lambda.\
+- there is no
+[overdispersion](https://en.wikipedia.org/wiki/Overdispersion).
+:::
+:::
+
+::: justify
+In this analysis, we will explore the relationship between the response
+variable `ClaimNb` and the explanatory variables `DriverAge` and
+`Density`. This modeling framework aligns with the principles outlined
+by @agresti, a prominent figure in statistical methodology, who
+emphasizes the significance of considering multiple explanatory factors
+in regression analysis.
+
+To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as `ClaimNB`, represents the count of insurance claims and is assumed to follow a Poisson distribution:
+
+$$
+\text{ClaimNB} \sim \text{Poisson}(\lambda),
+$$
+where $\lambda$ is the mean rate of claims. The Poisson regression model relates $\lambda$ on a set of predictor variables through a logarithmic link function. The logarithmic link function ensures that the predicted rate of claims is always positive, as required by the Poisson distribution. More precisely, we express the natural logarithm of $\lambda$ as a linear combination of the predictors:
+
+$$
+\log{(\lambda)} = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density},
+$$
+
+where `DriverAge` is the age of the driver, `Density` is the population density of the city in which the driver resides, and $\beta_0$, $\beta_1$, and $\beta_2$ are the regression coefficients that need to be estimated.
+:::
+
+The estimated lambda parameter, which represents the mean of claims, is:
+`r mean(CONTRACTS.f$ClaimNb)`.
+
+```{r lambda_parameter, lambda_parameter}
+#| code-fold: false
+
+set.seed(1234) 
+
+theoretic_count <- rpois(nrow(CONTRACTS.f), mean(CONTRACTS.f$ClaimNb))
+
+tc_df <- tibble(theoretic_count)
+
+freq_theoretic <- prop.table(table(tc_df$theoretic_count))
+
+freq_claim <- prop.table(table(CONTRACTS.f$ClaimNb))
+
+freq_theoretic_df <- tibble(
+  Count = as.numeric(names(freq_theoretic)),
+  Frequency = as.numeric(freq_theoretic),
+  Source = "Theoretical Count"
+)
+
+freq_claim_df <- tibble(
+  Count = as.numeric(names(freq_claim)),
+  Frequency = as.numeric(freq_claim),
+  Source = "Empirical Count"
+)
+
+freq_combined <- freq_theoretic_df |> 
+  rbind(freq_claim_df)
+```
+
+The theoretical and empirical histograms associated with a Poisson
+distribution are shown in @fig-plot-hist-claims.
+
+```{r poisson-claim}
+#| fig-cap: "<span style='color: #1E88E5;'>Theoretical</span> and <span style='color: black;'>empirical</span> histogram of claims in frequence"
+#| label: "fig-plot-hist-claims"
+#| code-fold: true
+#| code-summary: "Code for the following graph"
+#| fig-width: 8
+#| fig-height: 5
+
+ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
+  geom_bar(stat = "identity", position = "dodge2", width = 0.3) +
+  labs(x = "Claim Number", y = "Frequency", fill = "Legend") +
+  theme(legend.position = "right") +
+  scale_fill_manual(
+    NULL,
+    values = c("Empirical Count" = "black", "Theoretical Count" = "#1E88E5")
+  ) +
+  labs(fill = "Legend") +
+  labs(x = "Claim Number", y = NULL) +
+  theme(legend.position = "right")+
+  global_theme()
+```
+
+## Model
+
+```{r model}
+#| code-fold: false
+
+reg <- glm(
+  ClaimNb ~ DriverAge + Density,
+  family = poisson,
+  data = CONTRACTS.f
+)
+
+summary(reg)
+
+dispersiontest(reg)
+```
+
+::: justify
+This is a Poisson regression model predicting `ClaimNb` (number of
+claims) with `DriverAge` and `Density` as predictors. The coefficients
+indicate the change in log count of claims associated with each
+predictor level compared to a reference level. For instance, as
+`DriverAge` increases from 22 to 26, the log count of claims decreases
+by `r abs(round(coef(reg)[2], 2))`. Similarly, as `Density` increases
+within each category, the log count of claims increases.
+
+All coefficients are statistically significant.
+:::
+
+::: callout-warning
+### Presence of overdispersion
+
+Overdispersion leads to inadequate model fit, inflated standard errors, incorrect
+inference, and biased parameter estimates, as such, the following
+interpretations should be approached with caution. Addressing
+overdispersion may require alternative modeling approaches such as
+negative binomial regression or quasi-Poisson regression, which offer
+greater flexibility in capturing the variability in the data.
+:::
+
+::: panel-tabset
+## Coefficients
+
+```{r Coefficients, warning = FALSE}
+#| tbl-cap: Coefficients
+#| label: tbl-poisson-coef
+#| code-fold: true
+#| code-summary: Code to create the table
+
+reg_coef <- tidy(reg)
+
+reg_coef$p.value <- format(reg_coef$p.value, scientific = TRUE, digits = 3)
+
+reg_coef <- reg_coef |>
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ ""
+  ))
+
+kable(reg_coef, format = "html", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
+
+
+```
+
+## Count-Ratio
+
+```{r count-ratio, warning = FALSE}
+#| tbl-cap: Count Ratio
+#| label: tbl-poisson-count-ratio
+#| code-fold: true
+#| code-summary: Code to create the table
+
+reg_count_ratio <- tidy(exp(coef(reg)[-1]))
+
+reg_count_ratio <- reg_count_ratio |>
+  mutate(p.value = reg_coef$p.value[-1]) |>
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ ""
+  )) |>
+  dplyr::select(-p.value)
+
+kable(reg_count_ratio, format = "html", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
+
+```
+
+::: justify
+Each count ratio represents the change in count of making a claim
+associated with a one-unit increase in the predictor variable, compared
+to the reference category `DriverAge` (18,22\]. For example, a count
+ratio of `r exp(coef(reg)['DriverAge(22,26]'])` for `DriverAge` (22,26\]
+implies that the count of making a claim for individuals aged 22 to 26
+are approximately `r round((1-exp(coef(reg)['DriverAge(22,26]']))*100)`%
+lower compared to the reference category. Similarly, count ratios above
+1 for `Density` categories suggest an increase in the count of making a
+claim as the density increases within each category.
+:::
+
+## Confidence intervals
+
+```{r Conf, warning = FALSE}
+#| tbl-cap: Confidence intervals
+#| label: tbl-poisson-ci
+#| code-fold: true
+#| code-summary: Code to create the table
+
+reg_conf_int <- as.data.frame(exp(confint(reg))[-1, ])
+colnames(reg_conf_int) <- c("2.5 %", "97.5 %")
+
+reg_conf_int <- reg_conf_int |>
+  mutate(p.value = reg_coef$p.value[-1]) |>
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ ""
+  )) |>
+  dplyr::select(-p.value)
+
+kable(reg_conf_int, format = "html", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels : *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
+
+```
+:::
+
+# Graphs {#sec-poisson-graph}
+
+::: panel-tabset
+## DriverAge {#sec-poisson-graph-age}
+
+```{r Visualisation-coef-age, message = FALSE}
+#| fig-cap: "Count ratio and confidence interval of DriverAge"
+#| label: "fig-plot-coef-age"
+#| code-fold: true
+#| code-summary: Code to create the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+count_ratio <- exp(coef(reg)[-1])
+conf_int <- exp(confint(reg))[-1, ]
+
+driver_age_vars <- grep("^DriverAge", names(count_ratio), value = TRUE)
+
+data_age <- tibble(
+  variable = driver_age_vars,
+  coefficient = count_ratio[driver_age_vars], 
+  lower_bound = conf_int[driver_age_vars, 1], 
+  upper_bound = conf_int[driver_age_vars, 2]
+)
+
+
+driver_density_vars <- grep("^Density", names(count_ratio), value = TRUE)
+
+data_density <- tibble(
+  variable = driver_density_vars,
+  coefficient = count_ratio[driver_density_vars], 
+  lower_bound = conf_int[driver_density_vars, 1], 
+  upper_bound = conf_int[driver_density_vars, 2]
+)
+
+ggplot(
+  data_age |>
+  mutate(variable = fct_rev(variable)), 
+  aes(
+    x = coefficient,
+    y = variable,
+    xmin = lower_bound,
+    xmax = upper_bound
+  )
+) +
+  geom_point(stat = "identity", size = 3, color = "#1E88E5") +
+  geom_errorbar(
+    width = 0.2,
+    position = position_dodge(width = 0.6),
+    color = "#1E88E5"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL
+  ) +
+  global_theme()
+```
+
+## Density {#sec-poisson-graph-density}
+
+```{r visualisation-coef-density}
+#| fig-cap: "count ratio and confidence interval of Density "
+#| label: "fig-plot-coef-density"
+#| code-fold: true
+#| code-summary: Code to create the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+data_density <- data_density |> 
+  mutate(variable = reorder(variable, coefficient, decreasing = TRUE))
+
+ggplot(
+  data_density, 
+  aes(
+    x = coefficient,
+    y = variable,
+    xmin = lower_bound,
+    xmax = upper_bound
+  )
+) +
+  geom_point(
+    stat = "identity",
+    size = 3,
+    color = "#1E88E5"
+  ) +
+  geom_errorbar(
+    width = 0.2,
+    position = position_dodge(width = 0.6),
+    color = "#1E88E5"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL
+  ) +
+  global_theme()
+```
+:::
+
+# References
+
+::: {#refs}
+:::
+
+# See also
+
+::: justify
+For more similar claim frequency datasets with a Poisson-like
+distribution, see
+[`ausprivauto0405`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html)
+(import with `data("ausprivauto0405")`): Australian automobile dataset,
+[`norauto`](https://dutangc.github.io/CASdatasets/reference/norauto.html):
+Norwegian automobile dataset (import with `data("norauto")`),
+[`beMTPL16`](https://dutangc.github.io/CASdatasets/reference/beMTPL16.html):
+Belgian automobile dataset (import with `data("beMTPL16")`), or
+[`pg17trainpol`](https://dutangc.github.io/CASdatasets/reference/pricingame.html)
+(import with `data("pg17trainpol")`).
+:::
+
 the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
 datasets provide information on insurance contracts and claims related
 to French motor third-party liability insurance. By leveraging Poisson
