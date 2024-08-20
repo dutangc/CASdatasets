@@ -10,5 +10,58 @@ vignette: >
   %\VignetteEncoding{UTF-8}     
 ---
 
-TOTO 
+
+# Introduction {#sec-poisson-introduction}
+
+```{r setup, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Session Settings"
+#| label: load-packages
+
+# Graphs----
+face_text='plain'
+face_title='plain'
+size_title = 14
+size_text = 11
+legend_size = 11
+
+global_theme <- function() {
+  theme_minimal() %+replace%
+    theme(
+      text = element_text(size = size_text, face = face_text),
+      legend.position = "bottom",
+      legend.direction = "horizontal", 
+      legend.box = "vertical",
+      legend.key = element_blank(),
+      legend.text = element_text(size = legend_size),
+      axis.text = element_text(size = size_text, face = face_text), 
+      plot.title = element_text(
+        size = size_title, 
+        hjust = 0.5
+      ),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+}
+
+# Outputs
+options("digits" = 2)
+```
+
+```{css setup, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+::: callout-tip
+### In Brief
+
+The objective of this vignette is to demonstrate the application of
+Poisson regression in analyzing insurance data, specifically focusing on
+the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
+datasets provide information on insurance contracts and claims related
+to French motor third-party liability insurance. By leveraging Poisson
+regression, our goal is to model the frequency of claims and investigate
+the factors influencing claim occurrence within the insurance data.
+:::
 
