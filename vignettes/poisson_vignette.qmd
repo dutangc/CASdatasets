@@ -4,7 +4,6 @@ date: '`r Sys.Date()`'
 date-format: "MMMM, YYYY"
 author: "Julien Siharath"
 categories: [Poisson, Public liability, Claim frequency, France, freMTPL]
-bibliography: references.bib
 vignette: >
   %\VignetteIndexEntry{Poisson frequency analysis}
   %\VignetteEngine{quarto::html}
