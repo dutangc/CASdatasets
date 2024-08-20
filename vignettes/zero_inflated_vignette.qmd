@@ -1,0 +1,573 @@
+---
+title: "Frequency analysis of a Norwegian Motor Third Party Liability dataset"
+date: '`r format(Sys.Date(), "%B %Y")`'
+author: "Siharath Julien"
+chapters:
+  - Introduction
+  - Models
+  - Graphs
+categories: [zero inflated, Public liability, CLAIMS frequency, Norway, Norauto]
+bibliography: references.bib
+fig-cap-location: top
+editor: 
+  markdown: 
+    wrap: 72
+format:
+  html:     
+    code-fold: true
+    code-summary: "Show the code"
+    css: style.scss
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+vignette: >
+  %\VignetteIndexEntry{Zero-inflated-Poisson frequency analysis}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}    
+---
+
+# Introduction {#sec-zero-inflated-introduction}
+
+```{r setup, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Session Settings"
+#| label: load-packages
+
+# Graphs----
+face_text='plain'
+face_title='plain'
+size_title = 14
+size_text = 11
+legend_size = 11
+
+global_theme <- function() {
+  theme_minimal() %+replace%
+    theme(
+      text = element_text(size = size_text, face = face_text),
+      legend.position = "bottom",
+      legend.direction = "horizontal", 
+      legend.box = "vertical",
+      legend.key = element_blank(),
+      legend.text = element_text(size = legend_size),
+      axis.text = element_text(size = size_text, face = face_text), 
+      plot.title = element_text(
+        size = size_title, 
+        hjust = 0.5
+      ),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+}
+
+# Outputs
+options("digits" = 2)
+```
+
+```{css setup, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+::: callout-tip
+### In Brief
+In some instances, zeros appear in the data. A simple Poisson model overlooks this specific structure, leading to inaccurate estimates. To resolve this issue, we employ zero-inflated regression models.
+
+The purpose of this vignette is to demonstrate the application of zero-inflated regression in analyzing insurance data, with a particular focus on the `norauto` dataset from @charpentierCAS. This dataset contains information on insurance contracts and claims related to Norwegian motor third-party liability insurance. By using zero-inflated regression, we aim to model the frequency of claims and explore the factors influencing claim occurrences within the insurance data.
+:::
+
+## Required Packages
+
+```{r libraries, message=FALSE}
+
+required_libraries <- c(
+  "tidyverse", 
+  "CASdatasets",
+  "pscl",
+  "AER",
+  "broom",
+  "knitr",
+  "kableExtra"
+)
+invisible(lapply(required_libraries, library, character.only = TRUE))
+```
+
+## Data
+
+::: justify
+  The data used in this vignette come from the motor third-party liability insurance portfolio of a Norwegian insurer, `norauto`.
+
+  The `norauto` dataset, encompasses details regarding contracts and clients obtained from a Norwegian insurance company, related to a motor insurance portfolio.
+Third-party insurance insures vehicle owners against injury caused to other drivers, passengers, or pedestrians as a result of an accident.
+
+  For convenience, the `norauto` table will be named `CLAIMS`.
+
+:::
+
+## Dictionaries
+
+The list of the 9 variables from the `freMTPLfreq` dataset is reported
+in @tbl-dict-norauto.
+
+::: justify
+| Attribute    | Type    | Description                                                                           |
+|--------------|---------|---------------------------------------------------------------------------------------|
+| Male         | Factor  | 1 if the policyholder is a male, 0 otherwise                                          |
+| Young        | Factor  | 1 if the policyholder age is below 26 years, 0 otherwise                              |
+| DistLimit    | Factor  | The distance limit as stated in the insurance contract: "8000 km", "12000 km", "16000 km", "20000 km", "25000-30000 km", "no limit" |
+| GeoRegion    | Factor  | Density of the geographical region (from heaviest to lightest): "High+", "High-", "Medium+", "Medium-", "Low+", "Low-" |
+| Expo         | Numeric | Exposure as a fraction of year                                                        |
+| ClaimAmount  | Numeric | 0 or the average CLAIMS amount if NbClaim > 0                                          |
+| NbClaim      | Numeric | The CLAIMS number                                                                      |
+
+
+: Content of the `CLAIMS` dataset: norauto {#tbl-dict-norauto .striped .hover}
+
+:::
+
+## Importation
+
+```{r load-zero-inflated-data, output=FALSE}
+#| code-fold: true
+#| code-summary: "code for importing our datasets"
+
+data(norauto)
+
+CLAIMS <- norauto |>
+  filter(Expo > 0.80)
+
+CLAIMS <- 
+  CLAIMS |> 
+  mutate(
+    DistLimit = factor(
+      DistLimit,
+      levels = c(
+        "8000 km", "12000 km", "16000 km", "20000 km", 
+        "25000-30000 km", "no limit"
+      )
+    ),
+    GeoRegion = factor(
+      GeoRegion,
+      levels = c("Low-" , "Low+", "Medium-", "Medium+", "High-", "High+")
+    )
+  )
+
+```
+
+# Models {#sec-zero-inflated-models}
+
+## Purpose
+
+::: justify
+Zero-inflated regression models offer distinct advantages over simple Poisson regression because they explicitly address zero inflation in the data. Zero-inflated models, such as Zero-inflated Poisson (ZIP) or Zero-inflated negative binomial (ZINB) regression, recognize that zeros can arise from two distinct processes: structural reasons (e.g., policyholders who never file claims) and random chance.
+
+By incorporating these dual processes, zero-inflated regression models provide more accurate estimates and better predictions, particularly in scenarios where excess zeros are prevalent. This enhances the precision of risk assessments, improves the effectiveness of pricing strategies, and facilitates better decision-making for insurers operating in domains like automobile insurance. These models excel in handling situations characterized by an abundance of zeros in the response variable, making them highly valuable in fields such as insurance claims analysis, healthcare data analytics, and ecological studies.
+:::
+
+::: {.callout-caution appearance="simple"}
+## Pay Attention
+
+::: justify
+The results from Zero-inflated regression models are valid if:\
+
+- the responses are independent.\
+- the responses are distributed according to a Poisson distribution with
+parameter Lambda.\
+- There may be [overdispersion](https://en.wikipedia.org/wiki/Overdispersion) present in the data.
+:::
+:::
+
+::: justify
+
+  In this analysis, we will explore the relationship between the response
+variable `NbClaim` and the explanatory variables `Young`, `Male`, `DistLimit` and
+`GeoRegion`. This modeling framework aligns with the principles outlined
+by @agresti, a prominent figure in statistical methodology, who
+emphasizes the significance of considering multiple explanatory factors
+in regression analysis.
+:::
+
+::: justify
+To model the frequency of insurance claims, we employ a Zero-Inflated Negative Binomial (ZINB) Regression approach for the response variable `NbClaim`, which represents the count of insurance claims and is assumed to follow a Negative Binomial distribution:
+
+$$
+\text{NbClaim} \sim \text{NegBin}(\mu, \theta),
+$$
+where $\mu$ is the mean rate of claims and $\theta$ is the dispersion parameter that controls the variance of the distribution. The ZINB approach allows for flexible, nonlinear relationships and accounts for excess zeros in the data. More precisely, we express the natural logarithm of $\mu$ as a combination of predictor variables and an additional term accounting for exposure:
+
+$$
+\log(\mu) = \beta_0 + \beta_1 \times \text{Young} + \beta_2 \times \text{Male} + \beta_3 \times \text{DistLimit} + \beta_4 \times \text{GeoRegion} + \text{log(Exposure)},
+$$
+where `Young` is a variable indicating if the driver is young, `Male` is a variable indicating if the driver is male, `DistLimit` represents the distance limit on the insurance policy, `GeoRegion` denotes the density of the geographical region, $\ \log(\text{Exposure})$ adjusts for the exposure variable and $\beta_0,\ \beta_1,\ \beta_2,\ \beta_3,\ \beta_4$ are the coefficients to be estimated.
+
+Additionally, the zero-inflation component models the probability of excess zeros using a logistic regression:
+$$
+\text{Logit}(P(\text{zero})) = Z\gamma
+$$
+where $Z$ represents the matrices of covariates for the or the zero-inflation model and $\gamma$ are the vectors of coefficients.
+
+In this model, the intercept $\beta_0$ and the coefficients $\beta_0,\ \beta_1,\ \beta_2,\ \beta_3,\ \beta_4$ are estimated through regression to quantify their impact on the expected rate of claims. The logistic regression for zero inflation allows the model to capture complex, nonlinear relationships and the presence of excess zeros in the data, providing a more flexible and accurate fit.
+:::
+The estimated $\mu$ parameter, which represents the mean of claims, is
+`r mean(CLAIMS$NbClaim)`.
+
+```{r lambda_parameter, lambda_parameter}
+#| code-fold: false
+
+set.seed(1234) 
+
+theoretic_count <- rpois(nrow(CLAIMS), mean(CLAIMS$NbClaim))
+
+tc_df <- tibble(theoretic_count)
+
+freq_theoretic <- prop.table(table(tc_df$theoretic_count))
+
+freq_claim <- prop.table(table(CLAIMS$NbClaim))
+
+freq_theoretic_df <- tibble(
+  Count = as.numeric(names(freq_theoretic)),
+  Frequency = as.numeric(freq_theoretic),
+  Source = "Theoretical Count"
+)
+
+freq_claim_df <- tibble(
+  Count = as.numeric(names(freq_claim)),
+  Frequency = as.numeric(freq_claim),
+  Source = "Empirical Count"
+)
+
+freq_combined <- freq_theoretic_df |> 
+  rbind(freq_claim_df)
+```
+
+The theoretical and empirical histograms associated with a Poisson
+distribution are shown in @fig-plot-hist-claims.
+
+```{r poisson-CLAIMS}
+#| fig-cap: "<span style='color: #1E88E5;'>Theoretical</span> and <span style='color: black;'>empirical</span> histogram of claims in frequence"
+#| label: "fig-plot-hist-claims"
+#| code-fold: true
+#| code-summary: Code for the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
+  geom_bar(stat = "identity", position = "dodge2", width = 0.3) +
+  labs(x = "CLAIMS Number", y = "Frequency", fill = "Legend") +
+  theme(legend.position = "right") +
+  scale_fill_manual(
+    NULL,
+    values = c("Empirical Count" = "black", "Theoretical Count" = "#1E88E5")
+  ) +
+  labs(fill = "Legend") +
+  labs(x = "CLAIMS Number", y = NULL) +
+  theme(legend.position = "right")+
+  global_theme()
+```
+
+```{r model}
+#| code-fold: false
+
+freg <- formula(NbClaim ~ Young + Male + DistLimit + GeoRegion + offset(log(Expo)) | Young + Male + DistLimit + GeoRegion)
+
+reg <- zeroinfl(freg, data = CLAIMS, dist = "negbin")
+
+summary(reg)
+```
+
+::: justify
+This Zero-inflated regression model predicts NbClaim (number of claims) using `Young`, `Male`, `DistLimit` and `GeoRegion` as predictors.
+
+Count Model (Negative Binomial with Log Link):
+The coefficients represent the estimated change in log counts of claims associated with each predictor level compared to a reference level. Most coefficients are statistically significant (p < 0.05), indicating their relevance in predicting claim counts.
+
+Zero-Inflation Model (Binomial with Logit Link):
+These coefficients indicate the log-odds of observing excess zeros (zero-inflation) compared to non-excess zeros. Some coefficients, such as Young and Male, are statistically significant (p < 0.05), suggesting their impact on the likelihood of excess zeros.
+
+For example if the insured is `Young`, meaning younger than 26, it increases the log-odds of excess zeros by `r reg$coefficients$zero['Young']`. Whereas `Male` decreases the log-odds by `r abs(reg$coefficients$zero['Male'])`, indicating a lower likelihood of zero-inflation among male drivers.
+
+`DistLimit` have varied impacts on zero-inflation, though most are not statistically significant.
+
+`GeoRegion` showing a non-significant impact.
+:::
+
+::: panel-tabset
+## Count
+::: panel-tabset
+## Coefficients
+
+```{r Coefficients, warning = FALSE}
+#| tbl-cap: Coefficients for the Count model
+#| label: tbl-zi-coef-count
+#| code-fold: true
+#| code-summary: Code to create the table
+
+
+summary_reg <- summary(reg)
+
+# Create a tidy data frame for the count model coefficients
+tidy_count <- summary_reg$coefficients$count |>
+  as.data.frame() |>
+  mutate(significance = case_when(
+    `Pr(>|z|)` < 0.001 ~ "***",
+    `Pr(>|z|)` < 0.01 ~ "**",
+    `Pr(>|z|)` < 0.05 ~ "*",
+    `Pr(>|z|)` < 0.1 ~ ".",
+    TRUE ~ ""
+  ))
+
+kable(tidy_count, format = "html", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels : *** p < 0.001, ** p < 0.01, * p < 0.05, . p < 0.1"),
+               notation = "none")
+
+```
+
+## Count-Ratio and Confidence intervals
+
+```{r Odds-ratio, warning = FALSE}
+#| tbl-cap: Count Ratio and confidence intervals for the Count model
+#| label: tbl-zi-odds-ratio-ci-count
+#| code-fold: true
+#| code-summary: Code to create the table
+
+
+estimates <- summary_reg$coefficients$count[-1, ] 
+
+exp_estimates <- exp(estimates[, "Estimate"])
+
+p_values <- estimates[, "Pr(>|z|)"]
+
+conf_int <- confint(reg)
+
+conf_int_exp <- exp(conf_int)
+
+reg_count_ratio <- data.frame(
+  count_ratio = round(exp_estimates, 2),
+  `CI 2.5` = conf_int_exp[2:14, 1],
+  `CI 97.5` = conf_int_exp[2:14, 2],
+  p.value = p_values
+)
+
+reg_count_ratio <- reg_count_ratio |>
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    p.value < 0.1 ~ ".",
+    TRUE ~ ""
+  )) |>
+  dplyr::select(-p.value)
+
+kable(reg_count_ratio, format = "html", escape = FALSE, digits = 2) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05, . p < 0.1"),
+               notation = "none")
+
+```
+
+::: justify
+Each count ratio represents the change in odds of making a claim associated with a one-unit increase in the predictor variable, relative to the reference category. For instance, a count ratio of `r exp(coef(reg)['count_Young'])` for `Young` implies that the odds of making a claim for younger individuals are approximately `r round(( exp(coef(reg)['count_Young'])-1) * 100)`% higher compared to the reference category, which is older individuals. Similarly, a count ratio above 1 for `Distlimit` categories suggests an increase in the odds of making a claim as the distance limit increases within each category.
+:::
+
+:::
+## Zero
+::: panel-tabset
+## Coefficents
+```{r Coefficients-zero, warning = FALSE}
+#| tbl-cap: Coefficients for the Zero model
+#| label: tbl-zi-coef-zero
+#| code-fold: true
+#| code-summary: code to create the table
+
+
+# Create a tidy data frame for the zero-inflation model coefficients
+tidy_zero <- summary_reg$coefficients$zero |>
+  as.data.frame() |>
+  mutate(significance = case_when(
+    `Pr(>|z|)` < 0.001 ~ "***",
+    `Pr(>|z|)` < 0.01 ~ "**",
+    `Pr(>|z|)` < 0.05 ~ "*",
+    TRUE ~ ""
+  ))
+
+kable(tidy_zero, format = "html", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels : *** p < 0.001, ** p < 0.01, * p < 0.05"),
+               notation = "none")
+```
+## Count-Ratio and Confidence intervals
+
+```{r Odds-ratio-zero, warning = FALSE}
+#| tbl-cap: Count-Ratio and Confidence intervals for the Zero model
+#| label: tbl-zi-odds-ratio-ci-zero
+#| code-fold: true
+#| code-summary: Code to create the table
+
+
+estimates <- summary_reg$coefficients$zero[-1, ]
+
+exp_estimates <- exp(estimates[, "Estimate"])
+
+p_values <- estimates[, "Pr(>|z|)"]
+
+conf_int <- confint(reg)
+
+conf_int_exp <- exp(conf_int)
+
+reg_count_ratio <- data.frame(
+  count_ratio = exp_estimates,
+  `CI 2.5` = conf_int_exp[15:26, 1],
+  `CI 97.5` = conf_int_exp[15:26, 2],
+  p.value = p_values
+)
+
+reg_count_ratio <- reg_count_ratio |>
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    p.value < 0.1 ~ ".",
+    TRUE ~ ""
+  )) |>
+  dplyr::select(-p.value)
+
+kable(reg_count_ratio, format = "html", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05, . p < 0.1"),
+               notation = "none")
+```
+
+
+:::
+:::
+# Graphs {#sec-zero-inflated-graphs}
+
+::: panel-tabset
+## Count Model {#sec-zero-inflated-graphs-count}
+
+```{r Visualisation-coef-age, message = FALSE}
+#| fig-cap: "Counts ratio and confidence intervals of the count model"
+#| label: "fig-plot-coef-count"
+#| code-fold: true
+#| code-summary: Code to create the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+estimates <- summary_reg$coefficients$count[-1, ] 
+
+count_ratio <- exp(estimates[, "Estimate"])
+
+conf_int <- exp(confint(reg))[-1, ]
+
+vars_count <- grep("^(Young|Male|DistLimit|GeoRegion)", names(count_ratio), value = TRUE)
+
+vars_count_with_count <- paste0("count_", vars_count)
+
+data_age <- tibble(
+  variable = vars_count,
+  coefficient = count_ratio[vars_count], 
+  lower_bound = conf_int[vars_count_with_count, 1], 
+  upper_bound = conf_int[vars_count_with_count, 2]
+)
+
+data_age$variable <- factor(data_age$variable, levels = rev(vars_count))
+
+ggplot(
+  data_age, 
+  aes(
+    x = coefficient,
+    y = variable,
+    xmin = lower_bound,
+    xmax = upper_bound
+  )
+) +
+  geom_point(stat = "identity", size = 3, color = "#1E88E5") +
+  geom_errorbar(
+    width = 0.2,
+    position = position_dodge(width = 0.6),
+    color = "#1E88E5"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL
+  ) +
+  global_theme()
+```
+
+## Zero Model {#sec-zero-inflated-graphs-density}
+
+```{r visualisation-coef-density}
+#| fig-cap: "Odds ratio and confidence interval of the zero model"
+#| label: "fig-plot-coef-zero"
+#| code-fold: true
+#| code-summary: Code to create the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+estimates <- summary_reg$coefficients$zero[-1, ] 
+
+count_ratio <- exp(estimates[, "Estimate"])
+
+conf_int <- exp(confint(reg))[-1, ]
+
+vars_zero <- grep("^(Young|Male)", names(count_ratio), value = TRUE)
+
+vars_zero_with_count <- paste0("zero_", vars_zero)
+
+data_zero <- tibble(
+  variable = vars_zero,
+  coefficient = count_ratio[vars_zero], 
+  lower_bound = conf_int[vars_zero_with_count, 1], 
+  upper_bound = conf_int[vars_zero_with_count, 2]
+)
+
+
+ggplot(
+  data_zero, 
+  aes(
+    x = coefficient,
+    y = variable,
+    xmin = lower_bound,
+    xmax = upper_bound
+  )
+) +
+  geom_point(
+    stat = "identity",
+    size = 3,
+    color = "#1E88E5"
+  ) +
+  geom_errorbar(
+    width = 0.2,
+    position = position_dodge(width = 0.6),
+    color = "#1E88E5"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL
+  ) +
+  global_theme()
+```
+:::
+
+# References
+
+::: {#refs}
+:::
+
+
+# See also
+
+::: justify
+For more similar claim frequency datasets with a Poisson-like
+distribution, see
+[`freMTPL`](https://dutangc.github.io/CASdatasets/reference/freMTPL.html)
+(import with `data("freMTPLfreq")`): French automobile dataset,
+[`beMTPL16`](https://dutangc.github.io/CASdatasets/reference/beMTPL16.html):
+Belgian automobile  dataset (import with `data("beMTPL16")`),
+[`ausprivauto0405`](https://dutangc.github.io/CASdatasets/reference/ausprivauto.html)
+(import with `data("ausprivauto0405")`): Australian automobile dataset,
+or [`pg17trainpol`](https://dutangc.github.io/CASdatasets/reference/pricingame.html)
+(import with `data("pg17trainpol")`).
+
+
+:::
