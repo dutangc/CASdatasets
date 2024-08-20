@@ -65,3 +65,37 @@ regression, our goal is to model the frequency of claims and investigate
 the factors influencing claim occurrence within the insurance data.
 :::
 
+## Required Packages
+
+```{r libraries, message=FALSE}
+
+required_libraries <- c(
+  "tidyverse", 
+  "CASdatasets",
+  "glmnet",
+  "AER",
+  "broom",
+  "knitr",
+  "kableExtra"
+)
+invisible(lapply(required_libraries, library, character.only = TRUE))
+```
+
+
+## Data
+
+::: justify
+The Data used in this vignette come from French motor third party
+liability insurance portfolio.
+
+The first dataset, `freMTPLfreq`, encompasses details regarding
+contracts and clients obtained from a French insurance company, related
+to some motor insurance portfolio.
+
+The second dataset, `freMTPLsev`, contains claims information, from the
+same company.
+
+For convenience, the `freMTPLfreq` table will be named `CONTRACTS`
+hereafter. The `freMTPLsev` will be named `CLAIMS`
+:::
+
