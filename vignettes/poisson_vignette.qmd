@@ -3,7 +3,7 @@ title: "Frequency analysis of a French Motor Third Party Liability dataset"
 date: '`r Sys.Date()`'
 date-format: "MMMM, YYYY"
 author: "Julien Siharath"
-categories: [Poisson,  Public liability, Claim frequency, France, freMTPL]
+categories: [Poisson, Public liability, Claim frequency, France, freMTPL]
 bibliography: references.bib
 vignette: >
   %\VignetteIndexEntry{Poisson frequency analysis}
