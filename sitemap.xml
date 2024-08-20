@@ -1,282 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/CASdatasets.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/poisson_vignette.html</loc>
-  </url>
-  <url>
-    <loc>/articles/quasi_poisson_vignette.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/1overview.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Davis.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ECBYieldCurve.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FedYieldCurve.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ICB.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Norberg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PnCdemand.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SOAGMI.html</loc>
-  </url>
-  <url>
-    <loc>/reference/asiacomrisk.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausNLHYby.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausNLHYglossary.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausNLHYlloyds.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausNLHYtotal.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausNSW.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausautoBI.html</loc>
-  </url>
-  <url>
-    <loc>/reference/auscathist.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ausprivauto.html</loc>
-  </url>
-  <url>
-    <loc>/reference/austriLob.html</loc>
-  </url>
-  <url>
-    <loc>/reference/beMTPL16.html</loc>
-  </url>
-  <url>
-    <loc>/reference/beMTPL97.html</loc>
-  </url>
-  <url>
-    <loc>/reference/beaonre.html</loc>
-  </url>
-  <url>
-    <loc>/reference/besecura.html</loc>
-  </url>
-  <url>
-    <loc>/reference/braggclaimprem.html</loc>
-  </url>
-  <url>
-    <loc>/reference/brautocoll.html</loc>
-  </url>
-  <url>
-    <loc>/reference/brgeomunicins.html</loc>
-  </url>
-  <url>
-    <loc>/reference/brvehins.html</loc>
-  </url>
-  <url>
-    <loc>/reference/canlifins.html</loc>
-  </url>
-  <url>
-    <loc>/reference/catelematic13.html</loc>
-  </url>
-  <url>
-    <loc>/reference/credit.html</loc>
-  </url>
-  <url>
-    <loc>/reference/danish.html</loc>
-  </url>
-  <url>
-    <loc>/reference/eqlist.html</loc>
-  </url>
-  <url>
-    <loc>/reference/euMTPL.html</loc>
-  </url>
-  <url>
-    <loc>/reference/eudirectlapse.html</loc>
-  </url>
-  <url>
-    <loc>/reference/euhealthinsurance.html</loc>
-  </url>
-  <url>
-    <loc>/reference/eusavingsurrender.html</loc>
-  </url>
-  <url>
-    <loc>/reference/forex.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fre4triLob.html</loc>
-  </url>
-  <url>
-    <loc>/reference/freMPL.html</loc>
-  </url>
-  <url>
-    <loc>/reference/freMTPL.html</loc>
-  </url>
-  <url>
-    <loc>/reference/freaggnumber.html</loc>
-  </url>
-  <url>
-    <loc>/reference/frebiloss.html</loc>
-  </url>
-  <url>
-    <loc>/reference/freclaimset.html</loc>
-  </url>
-  <url>
-    <loc>/reference/freclaimset9207.html</loc>
-  </url>
-  <url>
-    <loc>/reference/frecomfire.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fredistables.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fremarine.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fremorttables.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fremotorclaim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/freportfolio.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fretplclaimnumber.html</loc>
-  </url>
-  <url>
-    <loc>/reference/hurricanehist.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/itamtplcost.html</loc>
-  </url>
-  <url>
-    <loc>/reference/linearmodelfactor.html</loc>
-  </url>
-  <url>
-    <loc>/reference/lossalae.html</loc>
-  </url>
-  <url>
-    <loc>/reference/norauto.html</loc>
-  </url>
-  <url>
-    <loc>/reference/norfire.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nortritpl.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nzcathist.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pricingame.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sgautonb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sgtriangles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/spacedata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/swautoins.html</loc>
-  </url>
-  <url>
-    <loc>/reference/swbuss.html</loc>
-  </url>
-  <url>
-    <loc>/reference/swmotorcycle.html</loc>
-  </url>
-  <url>
-    <loc>/reference/swtriangles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ukaggclaim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ukautocoll.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usGLtriangles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usMSHA1316.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usMVTA.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usautoBI.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usautotri.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usearthquake.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usexpense.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ushurricane.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ushurricanesub.html</loc>
-  </url>
-  <url>
-    <loc>/reference/uslapseagent.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usmassBI.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usmedclaim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usprivautoclaim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ustermlife.html</loc>
-  </url>
-  <url>
-    <loc>/reference/uswarrantaggnum.html</loc>
-  </url>
-  <url>
-    <loc>/reference/usworkerscomp.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/1overview.html</loc></url>
+<url><loc>/reference/Davis.html</loc></url>
+<url><loc>/reference/ECBYieldCurve.html</loc></url>
+<url><loc>/reference/FedYieldCurve.html</loc></url>
+<url><loc>/reference/ICB.html</loc></url>
+<url><loc>/reference/Norberg.html</loc></url>
+<url><loc>/reference/PnCdemand.html</loc></url>
+<url><loc>/reference/SOAGMI.html</loc></url>
+<url><loc>/reference/asiacomrisk.html</loc></url>
+<url><loc>/reference/ausNLHYby.html</loc></url>
+<url><loc>/reference/ausNLHYglossary.html</loc></url>
+<url><loc>/reference/ausNLHYlloyds.html</loc></url>
+<url><loc>/reference/ausNLHYtotal.html</loc></url>
+<url><loc>/reference/ausNSW.html</loc></url>
+<url><loc>/reference/ausautoBI.html</loc></url>
+<url><loc>/reference/auscathist.html</loc></url>
+<url><loc>/reference/ausprivauto.html</loc></url>
+<url><loc>/reference/austriLob.html</loc></url>
+<url><loc>/reference/beMTPL16.html</loc></url>
+<url><loc>/reference/beMTPL97.html</loc></url>
+<url><loc>/reference/beaonre.html</loc></url>
+<url><loc>/reference/besecura.html</loc></url>
+<url><loc>/reference/braggclaimprem.html</loc></url>
+<url><loc>/reference/brautocoll.html</loc></url>
+<url><loc>/reference/brgeomunicins.html</loc></url>
+<url><loc>/reference/brvehins.html</loc></url>
+<url><loc>/reference/canlifins.html</loc></url>
+<url><loc>/reference/catelematic13.html</loc></url>
+<url><loc>/reference/credit.html</loc></url>
+<url><loc>/reference/danish.html</loc></url>
+<url><loc>/reference/eqlist.html</loc></url>
+<url><loc>/reference/euMTPL.html</loc></url>
+<url><loc>/reference/eudirectlapse.html</loc></url>
+<url><loc>/reference/euhealthinsurance.html</loc></url>
+<url><loc>/reference/eusavingsurrender.html</loc></url>
+<url><loc>/reference/forex.html</loc></url>
+<url><loc>/reference/fre4triLob.html</loc></url>
+<url><loc>/reference/freMPL.html</loc></url>
+<url><loc>/reference/freMTPL.html</loc></url>
+<url><loc>/reference/freaggnumber.html</loc></url>
+<url><loc>/reference/frebiloss.html</loc></url>
+<url><loc>/reference/freclaimset.html</loc></url>
+<url><loc>/reference/freclaimset9207.html</loc></url>
+<url><loc>/reference/frecomfire.html</loc></url>
+<url><loc>/reference/fredistables.html</loc></url>
+<url><loc>/reference/fremarine.html</loc></url>
+<url><loc>/reference/fremorttables.html</loc></url>
+<url><loc>/reference/fremotorclaim.html</loc></url>
+<url><loc>/reference/freportfolio.html</loc></url>
+<url><loc>/reference/fretelematic.html</loc></url>
+<url><loc>/reference/fretplclaimnumber.html</loc></url>
+<url><loc>/reference/hurricanehist.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/itamtplcost.html</loc></url>
+<url><loc>/reference/linearmodelfactor.html</loc></url>
+<url><loc>/reference/lossalae.html</loc></url>
+<url><loc>/reference/norauto.html</loc></url>
+<url><loc>/reference/norfire.html</loc></url>
+<url><loc>/reference/nortritpl.html</loc></url>
+<url><loc>/reference/nzcathist.html</loc></url>
+<url><loc>/reference/pricingame.html</loc></url>
+<url><loc>/reference/sgautonb.html</loc></url>
+<url><loc>/reference/sgtriangles.html</loc></url>
+<url><loc>/reference/spacedata.html</loc></url>
+<url><loc>/reference/swautoins.html</loc></url>
+<url><loc>/reference/swbuss.html</loc></url>
+<url><loc>/reference/swmotorcycle.html</loc></url>
+<url><loc>/reference/swtriangles.html</loc></url>
+<url><loc>/reference/ukaggclaim.html</loc></url>
+<url><loc>/reference/ukautocoll.html</loc></url>
+<url><loc>/reference/usGLtriangles.html</loc></url>
+<url><loc>/reference/usMSHA1316.html</loc></url>
+<url><loc>/reference/usMVTA.html</loc></url>
+<url><loc>/reference/usautoBI.html</loc></url>
+<url><loc>/reference/usautotri.html</loc></url>
+<url><loc>/reference/usearthquake.html</loc></url>
+<url><loc>/reference/usexpense.html</loc></url>
+<url><loc>/reference/ushurricane.html</loc></url>
+<url><loc>/reference/ushurricanesub.html</loc></url>
+<url><loc>/reference/uslapseagent.html</loc></url>
+<url><loc>/reference/usmassBI.html</loc></url>
+<url><loc>/reference/usmedclaim.html</loc></url>
+<url><loc>/reference/usprivautoclaim.html</loc></url>
+<url><loc>/reference/ustermlife.html</loc></url>
+<url><loc>/reference/uswarrantaggnum.html</loc></url>
+<url><loc>/reference/usworkerscomp.html</loc></url>
 </urlset>
+
