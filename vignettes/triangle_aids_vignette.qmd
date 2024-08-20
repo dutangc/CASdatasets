@@ -1,0 +1,317 @@
+---
+title: "Reserving exercice on reporting delays in AIDS Data"
+date: '`r Sys.Date()`'
+date-format: "MMMM, YYYY"
+author: "Julien Siharath"
+chapters:
+  - Introduction
+  - Models
+  - Graphs
+categories: [Triangle, Reserving, Reporting Delays, England, AIDS]
+bibliography: references.bib
+editor:
+  markdown:
+    wrap: 72
+format:
+  html:     
+    code-fold: true
+    code-summary: "Show the code"
+    css: style.scss
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+vignette: >
+  %\VignetteIndexEntry{Reserving exercice on reporting delays in AIDS Data}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}       
+---
+
+# Introduction {#sec-triangles-aids-introduction}
+
+```{r setup, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Session Settings"
+#| label: load-packages
+
+# Graphs----
+face_text='plain'
+face_title='plain'
+size_title = 14
+size_text = 11
+legend_size = 11
+
+```
+
+```{css setup, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+::: callout-tip
+### In Brief
+
+The reported number of acquired immune deficiency syndrome (AIDS) cases in England and Wales has recently been significantly underestimated due to substantial reporting delays. To address this issue, we'll use the `Chainladder` package, particularly the `MackChainLadder` function. This analysis is crucial for understanding the progression and impact of AIDS, enabling better resource allocation and public health planning. We apply this method to AIDS reports in England and Wales from July 1983 to December 1992.
+
+:::
+
+## Required Packages
+
+```{r libraries, message=FALSE}
+
+required_libraries <- c(
+  "tidyverse", 
+  "tidyr",
+  "ChainLadder",
+  "boot",
+  "dplyr"
+)
+invisible(lapply(required_libraries, library, character.only = TRUE))
+```
+
+## Data
+
+::: justify
+
+The AIDS data frame comprises 570 rows and 6 columns. While all AIDS cases in England and Wales are required to be reported to the Communicable Disease Surveillance Centre, there is often a significant delay between diagnosis and reporting. To accurately estimate the prevalence of AIDS, it is important to account for cases that have been diagnosed but not yet reported. This dataset, obtained from @deangelis1994estimating and available from the `boot` package, records reported AIDS cases from July 1983 through December 1992, with data organized by both the date of diagnosis and the delay in reporting.
+
+:::
+
+## Dictionaries
+
+The list of the 6 attributes from the `aids` dataset is reported
+in @tbl-dict-aids.
+
+::: justify
+| Column Name | Description | Notes |
+|-------------|-----------------------|---------------------------------------------|
+| year        | The year in which the diagnosis was made.|                          |
+| quarter     | The quarter of the year in which the diagnosis was made.| Values range from 1 to 4, representing Q1 to Q4.|
+| delay       | The time delay (in months) between diagnosis and reporting.                                         | 0 indicates reporting within one month. Longer delays are grouped in 3-month intervals, with the value representing the midpoint of the interval (e.g., 2 means the report was delayed between 1 and 3 months). |
+| dud         | An indicator of censoring, where categories have incomplete information.                            | The recorded number is a lower bound only.                                                         |
+| time        | The number of quarters from July 1983 until the end of the quarter in which the cases were diagnosed. | |
+| y           | The number of AIDS cases reported.       |    |
+
+
+: Content of the `aids` {#tbl-dict-aids
+.striped .hover}
+
+
+:::
+
+
+## Importation and triangle transformation
+
+```{r load-triangles-data, output=FALSE}
+#| code-fold: true
+#| code-summary: "Code for importing the dataset and transforming it into a triangle"
+
+data("aids")
+
+aids_agg <- aids |>
+  group_by(year, quarter, delay) |>
+  summarise(cases = sum(y), .groups = 'drop') |>
+  mutate(year_quarter = paste(year, quarter, sep = "-"))
+
+# Create a data frame in long format
+aids_long <- aids_agg |>
+  select(year_quarter, delay, cases)
+
+# Reshape the data into a wide format (triangle format)
+triangle <- aids_long |>
+  pivot_wider(names_from = delay,
+              values_from = cases,
+              values_fill = list(cases = 0)) |>
+  arrange(year_quarter)
+
+# Convert the wide format data frame to a matrix
+  triangle_matrix <- as.matrix(triangle |>
+  select(-year_quarter))  # Exclude the year_quarter column for matrix conversion
+
+rownames(triangle_matrix) <- triangle$year_quarter
+
+# Triangular shape
+n_rows <- nrow(triangle_matrix)
+n_cols <- ncol(triangle_matrix)
+  
+for (i in seq_len(n_cols-1)) {
+    triangle_matrix[(n_rows - i + 1):n_rows, i+1] <- NA
+}
+
+full_rows <- which(rowSums(is.na(triangle_matrix)) == 0)
+full_triangle <- triangle_matrix[full_rows, ]
+close_data <- colSums(full_triangle, na.rm = TRUE)
+
+triangle_rows <- which(rowSums(is.na(triangle_matrix)) != 0)
+
+triangle_matrix_final <- rbind(close_data, triangle_matrix[triangle_rows, ])
+
+# Convert matrix to a 'triangle' object for chainladder
+triangle_cl <- as.triangle(triangle_matrix_final)
+
+print(triangle_cl)
+
+```
+In this context, a triangle is a table used to display data over time. It shows information across two dimensions: 
+
+- Lines as origin Year: This is the year when the diagnosis occurred.\
+
+- Columns as development Year: This indicates the number of months +/- 1 that have passed since the origin year.\
+
+The table helps to track and analyze how data evolves from the time of origin over subsequent months.
+
+# Overview {#sec-triangles-aids-overview}
+
+## Purpose
+
+::: justify
+Prediction and monitoring of the acquired immune deficiency syndrome (AIDS) epidemic depend on the availability of reliable, complete information on AIDS diagnoses. Unfortunately, there is often a considerable delay between the diagnosis of an AIDS case and its reporting to the epidemic monitoring centre. For England and Wales, this reporting is managed by the Public Health Laboratory Service AIDS Centre at the Communicable Disease Surveillance Centre. To utilize AIDS reports effectively, it is crucial to correct for cases that have been diagnosed but not yet reported.
+
+The Mack chain ladder method will be used to address this issue. Statistically, the challenge involves making inferences about the unknown diagnosis process by analyzing right-truncated data. The Mack chain ladder method, originally developed for insurance claims forecasting, is particularly well-suited for this task. It allows for robust predictions of future case reports by estimating the development pattern of the reported cases over time. This method not only helps in adjusting for the reporting delay but also provides a measure of the uncertainty associated with these estimates.
+
+By applying the Mack chain ladder method, we aim to achieve more accurate and timely insights into the progression of the AIDS epidemic. This enhanced prediction and monitoring capability is vital for public health planning, resource allocation, and implementing timely interventions to control the spread of the disease. Various statistical techniques have been devised to solve this inferential problem, but the Mack chain ladder method stands out for its reliability and practicality in handling right-truncated data.
+:::
+
+::: panel-tabset
+
+## Claims development chart
+```{r dev-chart}
+#| code-fold: true
+
+triangle_cum <- incr2cum(triangle_cl)
+print(triangle_cum)
+```
+
+```{r TRIANGLES-plot}
+#| fig-cap: "Claims development chart of the damage triangle, with one line per origin period."
+#| label: "fig-dev-chart"
+#| code-fold: true
+#| code-summary: Code to create the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+ChainLadder::plot(as.triangle(triangle_cum[-1, -n_cols]))
+```
+## Origin year plot
+
+```{r}
+#| fig-cap: "Claims development by origin year"
+#| label: "fig-dev-origin"
+#| code-fold: true
+#| code-summary: Code to create the following graph
+#| fig-width: 8
+#| fig-height: 5
+
+plot(as.triangle(triangle_cum[-1, -n_cols]), lattice=TRUE)
+```
+:::
+
+# Mack chain-ladder
+
+::: justify
+Thomas Mack published in @Mack_distributionfree1993 a
+method which estimates the standard errors of the
+chain-ladder forecast without assuming a distribution under three
+conditions.
+
+Following the notation of @Mack1999 let $C_{ik}$ denote the cumulative loss
+amounts of origin period (e.g., accident year) $i=1,\ldots,m$, with
+losses known for development period  (e.g., development year) $k \le n+1-i.$
+
+In order to forecast the amounts $C_{ik}$ for $k > n+1-i$ the Mack
+chain-ladder-model assumes:
+
+$$
+\begin{aligned}
+  \mbox{CL1: }  & E[ F_{ik}| C_{i1},C_{i2},\ldots,C_{ik} ] = f_k
+  \mbox{ with } F_{ik}=\frac{C_{i,k+1}}{C_{ik}}\\
+    \mbox{CL2: } &  Var( \frac{C_{i,k+1}}{C_{ik}} | C_{i1},C_{i2},
+    \ldots,C_{ik} ) = \frac{\sigma_k^2}{w_{ik} C^\alpha_{ik}}\\
+  \mbox{CL3: } & \{C_{i1},\ldots,C_{in}\}, \{
+    C_{j1},\ldots,C_{jn}\},\mbox{ are independent for origin period } i
+    \neq j
+\end{aligned}
+$$
+
+with $w_{ik} \in [0;1], \alpha \in \{0,1,2\}$.  If these
+assumptions hold, the Mack chain-ladder-model gives an
+unbiased estimator for IBNR (Incurred But Not Reported) claims.
+
+## Intuition Behind the Method
+
+The Chain-Ladder model is used to project future claims based on historical data. The fundamental idea is that the pattern of claims development is relatively stable and predictable. The model assumes that the ratios of cumulative losses between successive development years remain consistent, allowing us to use these ratios to estimate future losses.
+
+**Assumptions:**
+
+1. **CL1: Expected Future Ratio**  
+   This assumption states that the expected future ratio  $F_{ik}$ of cumulative losses between successive development years is constant, given the known losses up to the current development year. In other words, the ratio of cumulative losses from one development year to the next is assumed to follow a consistent pattern, which can be summarized by a factor $f_k$ that reflects this pattern.
+
+2. **CL2: Variance of Future Ratio**  
+   This assumption specifies how the variance of the future ratio of cumulative losses behaves. It indicates that the variance is proportional to $\frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha}$, where $\sigma_k^2$ captures the variability, $w_{ik}$ is a weight, and $\alpha$ is a parameter that adjusts for different levels of variance. This helps in quantifying the uncertainty around the forecasts.
+
+3. **CL3: Independence of Origin Periods**  
+   This assumption ensures that the cumulative loss amounts from different origin periods are independent of each other. This means that the losses from one accident year do not affect the losses from another year, allowing for simpler and more robust estimation.
+
+The Mack Chain-Ladder model can be regarded as a weighted linear regression through the origin for each development period:
+
+The Mack chain-ladder model can be regarded as a weighted linear regression
+through the origin for each development period:
+`lm(y ~ x  + 0, weights=w/x^(2-alpha))`,
+where $y$ is the vector of claims at development period
+$k+1$ and $x$ is  the vector of claims at development period
+$k$.
+
+The Mack method is implemented in the ChainLadder package via the
+function `MackChainLadder`.
+
+As an example we apply the `MackChainLadder` function to our
+triangle `Damage`:
+::: 
+
+```{r MackChainLadder}
+#| code-fold: false
+
+mack <- MackChainLadder(triangle_cum, est.sigma="Mack")
+mack # same as summary(mack) 
+```
+```{r}
+#| code-fold: false
+#| code-summary: Show the code
+
+# Displaying the Mack model's parameters
+mack$f
+
+# Viewing the full triangle data from the Mack model
+mack$FullTriangle
+```
+:::
+
+::: justify
+
+The Mack model factors begin at 3.8 for the initial periods and gradually decrease to around 1 for the later periods.
+These factors represent the development factors for each period, indicating the expected growth in cumulative reports from one period to the next.
+This trend reflects that the bulk of reports early in the development process, and the rate of increase diminishes over time.
+
+The triangular data shows how claims develop over time for each origin period. For example, for the 4th quarter of year 1992, the number or reported cases of acquired immune deficiency syndrome (AIDS) is 67 in the 1st period and grow to 437 cases by the 41th period.
+
+Overall, this output provides a comprehensive view of how claims develop over time and the associated development factors used in the chain ladder method.
+
+:::
+# References
+
+::: {#refs}
+:::
+
+# See also
+
+::: justify
+For more similar triangles datasets, see
+[`nortritpl8800`](https://dutangc.github.io/CASdatasets/reference/nortritpl.html)
+(import with `data("ausprivauto0405")`): Australian liabilty insurance triangles dataset,
+[`sgautoprop9701`](https://dutangc.github.io/CASdatasets/reference/sgtriangles.html):
+Singapore general liability triangles dataset (import with `data("norauto")`),
+[`swtri1auto`](https://dutangc.github.io/CASdatasets/reference/swtriangles.html):
+Switzerland general liability triangles dataset (import with `data("beMTPL16")`), or
+[`usautotri9504`](https://dutangc.github.io/CASdatasets/reference/usautotri.html)
+(import with `data("pg17trainpol")`): US Automobile triangles dataset.
+:::
