@@ -12,6 +12,7 @@
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="poisson_vignette_files/libs/quarto-html/popper.min.js"></script><script src="poisson_vignette_files/libs/quarto-html/tippy.umd.min.js"></script><link href="poisson_vignette_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="poisson_vignette_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link rel="stylesheet" href="style.scss">
 <script src="poisson_vignette_files/libs/kePrint-0.0.1/kePrint.js"></script><link href="poisson_vignette_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Frequency analysis of a French Motor Third Party Liability dataset">
 </head>
@@ -113,13 +114,13 @@
 <div>
 <blockquote>
 <p><strong>In Brief</strong></p>
-<p>The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from <span class="citation" data-cites="charpentierCAS">@charpentierCAS</span>. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance. By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
+<p>The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from <span class="citation" data-cites="charpentierCAS">Charpentier (<a href="#ref-charpentierCAS" role="doc-biblioref">2014</a>)</span>. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance. By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
 </blockquote>
 </div>
 <section class="level2"><h3 id="required-packages">Required Packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
 </h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">required_libraries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"tidyverse"</span>, </span>
 <span>  <span class="st">"CASdatasets"</span>,</span>
@@ -130,6 +131,7 @@
 <span>  <span class="st">"kableExtra"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">required_libraries</span>, <span class="va">library</span>, character.only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</details>
 </div>
 </section><section class="level2"><h3 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h3>
@@ -297,7 +299,7 @@ Table 2: Content of the <code>freMTPLsev</code> dataset: CLAIMS
 </blockquote>
 </div>
 <div class="justify">
-<p>In this analysis, we will explore the relationship between the response variable <code>ClaimNb</code> and the explanatory variables <code>DriverAge</code> and <code>Density</code>. This modeling framework aligns with the principles outlined by <span class="citation" data-cites="agresti">@agresti</span>, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.</p>
+<p>In this analysis, we will explore the relationship between the response variable <code>ClaimNb</code> and the explanatory variables <code>DriverAge</code> and <code>Density</code>. This modeling framework aligns with the principles outlined by <span class="citation" data-cites="agresti">Agresti (<a href="#ref-agresti" role="doc-biblioref">2013</a>)</span>, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.</p>
 <p>To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as <code>ClaimNB</code>, represents the count of insurance claims and is assumed to follow a Poisson distribution:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNB</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \text{ClaimNB} \sim \text{Poisson}(\lambda),
@@ -352,12 +354,12 @@ Table 2: Content of the <code>freMTPLsev</code> dataset: CLAIMS
 <span>  <span class="fu">global_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </details><div class="cell-output-display">
 <div id="fig-plot-hist-claims" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-plot-hist-claims-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-plot-hist-claims-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 1: <span style="color: #1E88E5;">Theoretical</span> and <span style="color: black;">empirical</span> histogram of claims in frequence
+</figcaption><div aria-describedby="fig-plot-hist-claims-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="poisson_vignette_files/figure-html/fig-plot-hist-claims-1.png" width="768">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plot-hist-claims-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 1: <span style="color: #1E88E5;">Theoretical</span> and <span style="color: black;">empirical</span> histogram of claims in frequence
-</figcaption></figure>
+</figure>
 </div>
 </div>
 </div>
@@ -797,12 +799,12 @@ Table 5: Confidence intervals
 <span>  <span class="fu">global_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </details><div class="cell-output-display">
 <div id="fig-plot-coef-age" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-plot-coef-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-plot-coef-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2: Count ratio and confidence interval of DriverAge
+</figcaption><div aria-describedby="fig-plot-coef-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="poisson_vignette_files/figure-html/fig-plot-coef-age-1.png" width="768">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plot-coef-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 2: Count ratio and confidence interval of DriverAge
-</figcaption></figure>
+</figure>
 </div>
 </div>
 </div>
@@ -841,12 +843,12 @@ Figure 2: Count ratio and confidence interval of DriverAge
 <span>  <span class="fu">global_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </details><div class="cell-output-display">
 <div id="fig-plot-coef-density" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-plot-coef-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-plot-coef-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 3: count ratio and confidence interval of Density
+</figcaption><div aria-describedby="fig-plot-coef-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="poisson_vignette_files/figure-html/fig-plot-coef-density-1.png" width="768">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plot-coef-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 3: count ratio and confidence interval of Density
-</figcaption></figure>
+</figure>
 </div>
 </div>
 </div>
@@ -855,8 +857,13 @@ Figure 3: count ratio and confidence interval of Density
 </div>
 </section><section class="section level2"><h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-agresti" class="csl-entry" role="listitem">
+Agresti, Alan. 2013. <em>Categorical Data Analysis, 3rd Edition</em>.
+</div>
+<div id="ref-charpentierCAS" class="csl-entry" role="listitem">
+Charpentier, Arthur. 2014. <em>Computational Actuarial Science with <span>R</span></em>. The <span>R</span> Series. CRC Press. <a href="https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788" class="external-link">https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788</a>.
+</div>
 </div>
 </section><section class="section level2"><h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a>
 </h2>
