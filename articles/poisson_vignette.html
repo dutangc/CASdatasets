@@ -5,803 +5,177 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="CASdatasets">
-<title>Poisson frequency analysis of a French MTPL dataset • CASdatasets</title>
+<title>Frequency analysis of a French Motor Third Party Liability dataset • CASdatasets</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Poisson frequency analysis of a French MTPL dataset">
-<meta property="og:description" content="CASdatasets">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="poisson_vignette_files/libs/quarto-html/popper.min.js"></script><script src="poisson_vignette_files/libs/quarto-html/tippy.umd.min.js"></script><link href="poisson_vignette_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="poisson_vignette_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Frequency analysis of a French Motor Third Party Liability dataset">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">CASdatasets</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2-0</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../articles/CASdatasets.html">Get started</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../articles/CASdatasets.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/poisson_vignette.html">Poisson frequency analysis of a French MTPL dataset</a>
-    <a class="dropdown-item" href="../articles/quasi_poisson_vignette.html">QuasiPoisson frequency analysis of a French MTPL dataset</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/poisson_vignette.html">Frequency analysis of a French Motor Third Party Liability dataset</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="nav-link" href="../news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/dutangc/CASdatasets/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/dutangc/CASdatasets/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
-    
+
   </div>
-</nav><div class="container template-article">
-
-
-
-
+</nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Poisson frequency analysis of a French MTPL dataset</h1>
-                        <h4 data-toc-skip class="author">Julien
-Siharath</h4>
-            
-            <h4 data-toc-skip class="date">June 2024</h4>
-      
-      <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/HEAD/vignettes/poisson_vignette.qmd" class="external-link"><code>vignettes/poisson_vignette.qmd</code></a></small>
-      <div class="d-none name"><code>poisson_vignette.qmd</code></div>
+
+      <h1>Frequency analysis of a French Motor Third Party Liability dataset</h1>
+
+      <p class="author">Julien Siharath</p>
+      <p class="date">Invalid Date</p>
+
+      <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/master/vignettes/poisson_vignette.qmd" class="external-link"><code>vignettes/poisson_vignette.qmd</code></a></small>
+      <div class="d-none name"><code></code></div>
     </div>
 
-    
-    
-<!-- see help at https://quarto.org/docs/output-formats/html-basics.html -->
-<div class="section level2">
-<h2 id="sec-poisson-introduction">Introduction<a class="anchor" aria-label="anchor" href="#sec-poisson-introduction"></a>
-</h2>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Graphs----</span></span>
-<span><span class="va">face_text</span><span class="op">=</span><span class="st">'plain'</span></span>
-<span><span class="va">face_title</span><span class="op">=</span><span class="st">'plain'</span></span>
-<span><span class="va">size_title</span> <span class="op">=</span> <span class="fl">14</span></span>
-<span><span class="va">size_text</span> <span class="op">=</span> <span class="fl">11</span></span>
-<span><span class="va">legend_size</span> <span class="op">=</span> <span class="fl">11</span></span>
-<span></span>
-<span><span class="va">global_theme</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">%+replace%</span></span>
-<span>    <span class="fu">theme</span><span class="op">(</span></span>
-<span>      text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="va">size_text</span>, face <span class="op">=</span> <span class="va">face_text</span><span class="op">)</span>,</span>
-<span>      legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>      legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>, </span>
-<span>      legend.box <span class="op">=</span> <span class="st">"vertical"</span>,</span>
-<span>      legend.key <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="va">legend_size</span><span class="op">)</span>,</span>
-<span>      axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="va">size_text</span>, face <span class="op">=</span> <span class="va">face_text</span><span class="op">)</span>, </span>
-<span>      plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span></span>
-<span>        size <span class="op">=</span> <span class="va">size_title</span>, </span>
-<span>        hjust <span class="op">=</span> <span class="fl">0.5</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      plot.subtitle <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Outputs</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"digits"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<style type="text/css">
-.justify {
-  text-align: justify !important
-}
-</style>
-<div class="section level4">
-<h4 id="in-brief">In Brief<a class="anchor" aria-label="anchor" href="#in-brief"></a>
-</h4>
-<p>The objective of this vignette is to demonstrate the application of
-Poisson regression in analyzing insurance data, specifically focusing on
-the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from
-<span class="citation">Charpentier (2014)</span>. These datasets provide
-information on insurance contracts and claims related to French motor
-third-party liability insurance. By leveraging Poisson regression, our
-goal is to model the frequency of claims and investigate the factors
-influencing claim occurrence within the insurance data.</p>
-</div>
-<div class="section level3">
-<h3 id="required-packages">Required Packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
-</h3>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">required_libraries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"tidyverse"</span>, </span>
-<span>  <span class="st">"CASdatasets"</span>,</span>
-<span>  <span class="st">"wesanderson"</span>,</span>
-<span>  <span class="st">"glmnet"</span>,</span>
-<span>  <span class="st">"AER"</span>,</span>
-<span>  <span class="st">"broom"</span>,</span>
-<span>  <span class="st">"knitr"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">required_libraries</span>, <span class="va">library</span>, character.only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
-</h3>
-<div class="justify">
-<p>The Data used in this vignette come from French motor third party
-liability insurance portfolio.</p>
-<p>The first dataset, <code>freMTPLfreq</code>, encompasses details
-regarding contracts and clients obtained from a French insurance
-company, related to some motor insurance portfolio.</p>
-<p>The second dataset, <code>freMTPLsev</code>, contains claims
-information, from the same company.</p>
-<p>For convenience, the <code>freMTPLfreq</code> table will be named
-<code>CONTRACTS</code> hereafter. The <code>freMTPLsev</code> will be
-named <code>CLAIMS</code></p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="dictionaries">Dictionaries<a class="anchor" aria-label="anchor" href="#dictionaries"></a>
-</h3>
-<p>The list of the 10 variables from the <code>freMTPLfreq</code>
-dataset is reported in <span class="citation">(<strong>tbl-dict-freMTPLfreq?</strong>)</span>.
-Similarly, the two variables encapsulated within the freMTPLsev dataset
-are itemized in the table denoted as <span class="citation">(<strong>tbl-dict-freMTPLsev?</strong>)</span>.</p>
-<div class="justify">
-<table class="table">
-<caption>Content of the <code>CONTRACTS</code> dataset: contracts
-{#tbl-dict-freMTPLfreq .striped .hover}</caption>
-<colgroup>
-<col width="23%">
-<col width="23%">
-<col width="52%">
-</colgroup>
-<thead><tr class="header">
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>PolicyID</td>
-<td>Numeric</td>
-<td>Unique identifier for the contract</td>
-</tr>
-<tr class="even">
-<td>ClaimNB</td>
-<td>Numeric</td>
-<td>Number of claims during the exposure period</td>
-</tr>
-<tr class="odd">
-<td>Exposure</td>
-<td>Numeric</td>
-<td>Exposure duration in years</td>
-</tr>
-<tr class="even">
-<td>Power</td>
-<td>Factor</td>
-<td>Power of the car (ordered categorical)</td>
-</tr>
-<tr class="odd">
-<td>CarAge</td>
-<td>Numeric</td>
-<td>Age of the car in years</td>
-</tr>
-<tr class="even">
-<td>DriverAge</td>
-<td>Numeric</td>
-<td>Age of the driver in years</td>
-</tr>
-<tr class="odd">
-<td>Brand</td>
-<td>Factor</td>
-<td>Brand of the car categorized</td>
-</tr>
-<tr class="even">
-<td>Gaz</td>
-<td>Factor</td>
-<td>Type of fuel used (diesel or regular)</td>
-</tr>
-<tr class="odd">
-<td>Region</td>
-<td>Factor</td>
-<td>Region in France where the driver resides</td>
-</tr>
-<tr class="even">
-<td>Density</td>
-<td>Numeric</td>
-<td>Population density in the city where the driver resides</td>
-</tr>
-</tbody>
-</table>
-<table class="table">
-<caption>Content of the <code>CLAIMS</code> dataset: claims
-{#tbl-dict-freMTPLsev .striped .hover}</caption>
-<thead><tr class="header">
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>PolicyID</td>
-<td>Numeric</td>
-<td>Unique identifier for the contract</td>
-</tr>
-<tr class="even">
-<td>ClaimAmount</td>
-<td>Numeric</td>
-<td>Cost of the claim, seen as at a recent date</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section level3">
-<h3 id="importation">Importation<a class="anchor" aria-label="anchor" href="#importation"></a>
-</h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"freMTPLfreq"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"freMTPLsev"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">CONTRACTS</span> <span class="op">&lt;-</span> <span class="va">freMTPLfreq</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&gt;</span> <span class="fl">0.90</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Create factors</span></span>
-<span><span class="va">CONTRACTS.f</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="va">CONTRACTS</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span></span>
-<span>    DriverAge <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">DriverAge</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">17</span>, <span class="fl">22</span>, <span class="fl">26</span>, <span class="fl">42</span>, <span class="fl">74</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    CarAge <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">CarAge</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">15</span>, <span class="cn">Inf</span><span class="op">)</span>, include.lowest <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span>    Density <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">Density</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">200</span>, <span class="fl">500</span>, <span class="fl">4500</span>, <span class="cn">Inf</span><span class="op">)</span>, include.lowest <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">CLAIMS</span> <span class="op">&lt;-</span> <span class="va">freMTPLsev</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># check</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">freMTPLsev</span><span class="op">$</span><span class="va">PolicyID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">CONTRACTS</span><span class="op">$</span><span class="va">PolicyID</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">CONTRACTS</span><span class="op">$</span><span class="va">ClaimNb</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"L'importation des données a été effectuée avec succès."</span><span class="op">)</span></span>
-<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"Erreur lors de l'importation des données : les nombres ne sont pas égaux."</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
-<pre><code><span><span class="co">## L'importation des données a été effectuée avec succès.</span></span></code></pre>
-</div>
-</div>
-<div class="section level2">
-<h2 id="sec-poisson-models">Models<a class="anchor" aria-label="anchor" href="#sec-poisson-models"></a>
-</h2>
-<div class="section level3">
-<h3 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
-</h3>
-<div class="justify">
-<p>In the realm of automobile insurance, Poisson regression stands as a
-reliable tool for understanding and predicting accident frequencies,
-repair costs, and claims trends.</p>
-<p>With Poisson regression, insurers can anticipate forthcoming
-challenges, refine pricing strategies, and ensure resilience in a
-dynamic landscape of risk.</p>
-</div>
-</div>
-<div class="section level3" appearance="simple">
-<h3 id="pay-attention">Pay Attention<a class="anchor" aria-label="anchor" href="#pay-attention"></a>
-</h3>
-<div class="justify">
-<p>The results from Poisson regression models are valid if:<br>
-- the responses are independent.<br>
-- the responses are distributed according to a Poisson distribution with
-parameter Lambda.<br>
-- there is no <a href="https://en.wikipedia.org/wiki/Overdispersion" class="external-link">overdispersion</a>.</p>
-</div>
-</div>
-<div class="justify">
-<p>In this analysis, we will explore the relationship between the
-response variable <code>ClaimNb</code> and the explanatory variables
-<code>DriverAge</code> and <code>Density</code>. This modeling framework
-aligns with the principles outlined by <span class="citation">Agresti
-(2013)</span>, a prominent figure in statistical methodology, who
-emphasizes the significance of considering multiple explanatory factors
-in regression analysis.</p>
-<p>The relationship under study can be represented by the following
-equation:</p>
-<p><span class="math display">\[
-\begin{equation}
-\text{ClaimNb} \sim \text{Poisson}(\lambda)
-\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-\log(\lambda) = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2
-\times \text{Density}
-\end{equation}
-\]</span></p>
-</div>
-<p>The estimated lambda parameter which is the mean of claims is:
-0.05.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span> </span>
-<span></span>
-<span><span class="va">theoretic_count</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">CONTRACTS.f</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">CONTRACTS.f</span><span class="op">$</span><span class="va">ClaimNb</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">tc_df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span><span class="va">theoretic_count</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">freq_theoretic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">tc_df</span><span class="op">$</span><span class="va">theoretic_count</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">freq_claim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">CONTRACTS.f</span><span class="op">$</span><span class="va">ClaimNb</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">freq_theoretic_df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
-<span></span>
-<span>  Count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">freq_theoretic</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  Frequency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">freq_theoretic</span><span class="op">)</span>,</span>
-<span>  Source <span class="op">=</span> <span class="st">"Theoretical Count"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">freq_claim_df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
-<span>  Count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">freq_claim</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  Frequency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">freq_claim</span><span class="op">)</span>,</span>
-<span>  Source <span class="op">=</span> <span class="st">"Empirical Count"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">freq_combined</span> <span class="op">&lt;-</span> <span class="va">freq_theoretic_df</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">freq_claim_df</span><span class="op">)</span></span></code></pre></div>
-<p>The theoretical and empirical histograms associated with a Poisson
-distribution are sown in <span class="citation">(<strong>fig-plot-hist-claims?</strong>)</span>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">freq_combined</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Count</span>, y <span class="op">=</span> <span class="va">Frequency</span>, fill <span class="op">=</span> <span class="va">Source</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_bar</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"dodge2"</span>, width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Claim Number"</span>, y <span class="op">=</span> <span class="st">"Frequency"</span>, fill <span class="op">=</span> <span class="st">"Legend"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_fill_manual</span><span class="op">(</span></span>
-<span>    <span class="cn">NULL</span>,</span>
-<span>    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Empirical Count"</span> <span class="op">=</span> <span class="st">"black"</span>, <span class="st">"Theoretical Count"</span> <span class="op">=</span> <span class="st">"#1E88E5"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"Legend"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Claim Number"</span>, y <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">global_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="poisson_vignette_files/figure-html/fig-plot-hist-claims-1.png" alt="&lt;span style='color: #1E88E5;'&gt;Theoretical&lt;/span&gt; and &lt;span style='color: black;'&gt;empirical&lt;/span&gt; histogram of claims in frequence" width="768"><p class="caption">
-<span style="color: #1E88E5;">Theoretical</span> and <span style="color: black;">empirical</span> histogram of claims in frequence
-</p>
-</div>
-<div class="section level3">
-<h3 id="model">Model<a class="anchor" aria-label="anchor" href="#model"></a>
-</h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span></span>
-<span>  <span class="va">ClaimNb</span> <span class="op">~</span> <span class="va">DriverAge</span> <span class="op">+</span> <span class="va">Density</span>,</span>
-<span>  family <span class="op">=</span> <span class="va">poisson</span>,</span>
-<span>  data <span class="op">=</span> <span class="va">CONTRACTS.f</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## </span></span>
-<span><span class="co">## Call:</span></span>
-<span><span class="co">## glm(formula = ClaimNb ~ DriverAge + Density, family = poisson, </span></span>
-<span><span class="co">##     data = CONTRACTS.f)</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## Coefficients:</span></span>
-<span><span class="co">##                      Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span><span class="co">## (Intercept)           -2.5436     0.0843  -30.16  &lt; 2e-16 ***</span></span>
-<span><span class="co">## DriverAge(22,26]      -0.3902     0.1009   -3.87  0.00011 ***</span></span>
-<span><span class="co">## DriverAge(26,42]      -0.7148     0.0819   -8.73  &lt; 2e-16 ***</span></span>
-<span><span class="co">## DriverAge(42,74]      -0.7152     0.0807   -8.87  &lt; 2e-16 ***</span></span>
-<span><span class="co">## DriverAge(74,Inf]     -0.6946     0.0924   -7.52  5.5e-14 ***</span></span>
-<span><span class="co">## Density(40,200]        0.1721     0.0377    4.57  4.9e-06 ***</span></span>
-<span><span class="co">## Density(200,500]       0.2965     0.0421    7.04  1.9e-12 ***</span></span>
-<span><span class="co">## Density(500,4.5e+03]   0.4935     0.0375   13.15  &lt; 2e-16 ***</span></span>
-<span><span class="co">## Density(4.5e+03,Inf]   0.6987     0.0583   11.98  &lt; 2e-16 ***</span></span>
-<span><span class="co">## ---</span></span>
-<span><span class="co">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## (Dispersion parameter for poisson family taken to be 1)</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">##     Null deviance: 42434  on 135106  degrees of freedom</span></span>
-<span><span class="co">## Residual deviance: 42071  on 135098  degrees of freedom</span></span>
-<span><span class="co">## AIC: 55722</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## Number of Fisher Scoring iterations: 6</span></span></code></pre>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dispersiontest</span><span class="op">(</span><span class="va">reg</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## </span></span>
-<span><span class="co">##  Overdispersion test</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## data:  reg</span></span>
-<span><span class="co">## z = 7, p-value = 5e-12</span></span>
-<span><span class="co">## alternative hypothesis: true dispersion is greater than 1</span></span>
-<span><span class="co">## sample estimates:</span></span>
-<span><span class="co">## dispersion </span></span>
-<span><span class="co">##          1</span></span></code></pre>
-<div class="justify">
-<p>This is a Poisson regression model predicting <code>ClaimNb</code>
-(number of claims) with <code>DriverAge</code> and <code>Density</code>
-as predictors. The coefficients indicate the change in log count of
-claims associated with each predictor level compared to a reference
-level. For instance, as <code>DriverAge</code> increases from 22 to 26,
-the log count of claims decreases by 0.39 Similarly, as
-<code>Density</code> increases within each category, the log count of
-claims increases.</p>
-<p>All coefficients are statistically significant.</p>
-</div>
-<div class="section level4">
-<h4 id="presence-of-overdispersion">Presence of overdispersion<a class="anchor" aria-label="anchor" href="#presence-of-overdispersion"></a>
-</h4>
-<p>This leads to inadequate model fit, inflated standard errors,
-incorrect inference, and biased parameter estimates, as such, the
-following interpretations should be approached with caution. Addressing
-overdispersion may require alternative modeling approaches such as
-negative binomial regression or quasi-Poisson regression <span class="math display">\[faire
-reference à une autre section\]</span>, which offer greater flexibility
-in capturing the variability in the data.</p>
-</div>
-</div>
-<div class="panel-tabset">
 
 
 
-<ul class="nav nav-tabs" id="NA" role="tablist">
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#coefficients" id="coefficients-tab" type="button" role="tab" aria-controls="coefficients" aria-selected="true" class="active nav-link">Coefficients</button></li>
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#count-ratio" id="count-ratio-tab" type="button" role="tab" aria-controls="count-ratio" aria-selected="false" class="nav-link">Count-Ratio</button></li>
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#confidence-intervals" id="confidence-intervals-tab" type="button" role="tab" aria-controls="confidence-intervals" aria-selected="false" class="nav-link">Confidence intervals</button></li>
-</ul>
-<div class="tab-content">
-<div class="active  tab-pane" id="coefficients" role="tabpanel" aria-labelledby="coefficients-tab">
-
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">reg_coef</span> <span class="op">&lt;-</span> <span class="fu">tidy</span><span class="op">(</span><span class="va">reg</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">reg_coef</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">reg_coef</span><span class="op">$</span><span class="va">p.value</span>, scientific <span class="op">=</span> <span class="cn">TRUE</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">kable</span><span class="op">(</span><span class="va">reg_coef</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="left">term</th>
-<th align="right">estimate</th>
-<th align="right">std.error</th>
-<th align="right">statistic</th>
-<th align="left">p.value</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">(Intercept)</td>
-<td align="right">-2.54</td>
-<td align="right">0.08</td>
-<td align="right">-30.2</td>
-<td align="left">7.79e-200</td>
-</tr>
-<tr class="even">
-<td align="left">DriverAge(22,26]</td>
-<td align="right">-0.39</td>
-<td align="right">0.10</td>
-<td align="right">-3.9</td>
-<td align="left">1.10e-04</td>
-</tr>
-<tr class="odd">
-<td align="left">DriverAge(26,42]</td>
-<td align="right">-0.71</td>
-<td align="right">0.08</td>
-<td align="right">-8.7</td>
-<td align="left">2.64e-18</td>
-</tr>
-<tr class="even">
-<td align="left">DriverAge(42,74]</td>
-<td align="right">-0.72</td>
-<td align="right">0.08</td>
-<td align="right">-8.9</td>
-<td align="left">7.56e-19</td>
-</tr>
-<tr class="odd">
-<td align="left">DriverAge(74,Inf]</td>
-<td align="right">-0.69</td>
-<td align="right">0.09</td>
-<td align="right">-7.5</td>
-<td align="left">5.46e-14</td>
-</tr>
-<tr class="even">
-<td align="left">Density(40,200]</td>
-<td align="right">0.17</td>
-<td align="right">0.04</td>
-<td align="right">4.6</td>
-<td align="left">4.92e-06</td>
-</tr>
-<tr class="odd">
-<td align="left">Density(200,500]</td>
-<td align="right">0.30</td>
-<td align="right">0.04</td>
-<td align="right">7.0</td>
-<td align="left">1.91e-12</td>
-</tr>
-<tr class="even">
-<td align="left">Density(500,4.5e+03]</td>
-<td align="right">0.49</td>
-<td align="right">0.04</td>
-<td align="right">13.2</td>
-<td align="left">1.74e-39</td>
-</tr>
-<tr class="odd">
-<td align="left">Density(4.5e+03,Inf]</td>
-<td align="right">0.70</td>
-<td align="right">0.06</td>
-<td align="right">12.0</td>
-<td align="left">4.65e-33</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tab-pane" id="count-ratio" role="tabpanel" aria-labelledby="count-ratio-tab">
-
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="left"></th>
-<th align="right">x</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">DriverAge(22,26]</td>
-<td align="right">0.68</td>
-</tr>
-<tr class="even">
-<td align="left">DriverAge(26,42]</td>
-<td align="right">0.49</td>
-</tr>
-<tr class="odd">
-<td align="left">DriverAge(42,74]</td>
-<td align="right">0.49</td>
-</tr>
-<tr class="even">
-<td align="left">DriverAge(74,Inf]</td>
-<td align="right">0.50</td>
-</tr>
-<tr class="odd">
-<td align="left">Density(40,200]</td>
-<td align="right">1.19</td>
-</tr>
-<tr class="even">
-<td align="left">Density(200,500]</td>
-<td align="right">1.35</td>
-</tr>
-<tr class="odd">
-<td align="left">Density(500,4.5e+03]</td>
-<td align="right">1.64</td>
-</tr>
-<tr class="even">
-<td align="left">Density(4.5e+03,Inf]</td>
-<td align="right">2.01</td>
-</tr>
-</tbody>
-</table>
-<div class="justify">
-<p>Each count ratio represents the change in count of making a claim
-associated with a one-unit increase in the predictor variable, compared
-to the reference category <code>DriverAge</code> (18,22]. For example, a
-count ratio of 0.68 for <code>DriverAge</code> (22,26] implies that the
-count of making a claim for individuals aged 22 to 26 are approximately
-32% lower compared to the reference category. Similarly, count ratios
-above 1 for <code>Density</code> categories suggest an increase in the
-count of making a claim as the density increases within each
-category.</p>
-</div>
-</div>
-<div class="tab-pane" id="confidence-intervals" role="tabpanel" aria-labelledby="confidence-intervals-tab">
-
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Waiting for profiling to be done...</span></span></code></pre>
-<table class="table">
-<thead><tr class="header">
-<th align="left"></th>
-<th align="right">2.5 %</th>
-<th align="right">97.5 %</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">DriverAge(22,26]</td>
-<td align="right">0.56</td>
-<td align="right">0.83</td>
-</tr>
-<tr class="even">
-<td align="left">DriverAge(26,42]</td>
-<td align="right">0.42</td>
-<td align="right">0.58</td>
-</tr>
-<tr class="odd">
-<td align="left">DriverAge(42,74]</td>
-<td align="right">0.42</td>
-<td align="right">0.58</td>
-</tr>
-<tr class="even">
-<td align="left">DriverAge(74,Inf]</td>
-<td align="right">0.42</td>
-<td align="right">0.60</td>
-</tr>
-<tr class="odd">
-<td align="left">Density(40,200]</td>
-<td align="right">1.10</td>
-<td align="right">1.28</td>
-</tr>
-<tr class="even">
-<td align="left">Density(200,500]</td>
-<td align="right">1.24</td>
-<td align="right">1.46</td>
-</tr>
-<tr class="odd">
-<td align="left">Density(500,4.5e+03]</td>
-<td align="right">1.52</td>
-<td align="right">1.76</td>
-</tr>
-<tr class="even">
-<td align="left">Density(4.5e+03,Inf]</td>
-<td align="right">1.79</td>
-<td align="right">2.25</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="sec-poisson-graphics">Graphics<a class="anchor" aria-label="anchor" href="#sec-poisson-graphics"></a>
-</h2>
-<div class="panel-tabset">
 
 
-<ul class="nav nav-tabs" id="NA" role="tablist">
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#sec-poisson-graphics-age" id="sec-poisson-graphics-age-tab" type="button" role="tab" aria-controls="sec-poisson-graphics-age" aria-selected="true" class="active nav-link">DriverAge</button></li>
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#sec-poisson-graphics-density" id="sec-poisson-graphics-density-tab" type="button" role="tab" aria-controls="sec-poisson-graphics-density" aria-selected="false" class="nav-link">Density</button></li>
-</ul>
-<div class="tab-content">
-<div class="active  tab-pane" id="sec-poisson-graphics-age" role="tabpanel" aria-labelledby="sec-poisson-graphics-age-tab">
+    <p>TOTO</p>
 
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">count_ratio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="va">conf_int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span></span>
-<span></span>
-<span><span class="va">driver_age_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"^DriverAge"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">count_ratio</span><span class="op">)</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">data_age</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
-<span>  variable <span class="op">=</span> <span class="va">driver_age_vars</span>,</span>
-<span>  coefficient <span class="op">=</span> <span class="va">count_ratio</span><span class="op">[</span><span class="va">driver_age_vars</span><span class="op">]</span>, </span>
-<span>  lower_bound <span class="op">=</span> <span class="va">conf_int</span><span class="op">[</span><span class="va">driver_age_vars</span>, <span class="fl">1</span><span class="op">]</span>, </span>
-<span>  upper_bound <span class="op">=</span> <span class="va">conf_int</span><span class="op">[</span><span class="va">driver_age_vars</span>, <span class="fl">2</span><span class="op">]</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">driver_density_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"^Density"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">count_ratio</span><span class="op">)</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">data_density</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
-<span>  variable <span class="op">=</span> <span class="va">driver_density_vars</span>,</span>
-<span>  coefficient <span class="op">=</span> <span class="va">count_ratio</span><span class="op">[</span><span class="va">driver_density_vars</span><span class="op">]</span>, </span>
-<span>  lower_bound <span class="op">=</span> <span class="va">conf_int</span><span class="op">[</span><span class="va">driver_density_vars</span>, <span class="fl">1</span><span class="op">]</span>, </span>
-<span>  upper_bound <span class="op">=</span> <span class="va">conf_int</span><span class="op">[</span><span class="va">driver_density_vars</span>, <span class="fl">2</span><span class="op">]</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span></span>
-<span>  <span class="va">data_age</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>variable <span class="op">=</span> <span class="fu">fct_rev</span><span class="op">(</span><span class="va">variable</span><span class="op">)</span><span class="op">)</span>, </span>
-<span>  <span class="fu">aes</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="va">coefficient</span>,</span>
-<span>    y <span class="op">=</span> <span class="va">variable</span>,</span>
-<span>    xmin <span class="op">=</span> <span class="va">lower_bound</span>,</span>
-<span>    xmax <span class="op">=</span> <span class="va">upper_bound</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"#1E88E5"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_errorbar</span><span class="op">(</span></span>
-<span>    width <span class="op">=</span> <span class="fl">0.2</span>,</span>
-<span>    position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"#1E88E5"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">global_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="poisson_vignette_files/figure-html/fig-plot-coef-age-1.png" alt="Count ratio and confidence interval of DriverAge" width="768"><p class="caption">
-Count ratio and confidence interval of DriverAge
-</p>
-</div>
-</div>
-<div class="tab-pane" id="sec-poisson-graphics-density" role="tabpanel" aria-labelledby="sec-poisson-graphics-density-tab">
 
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data_density</span> <span class="op">&lt;-</span> <span class="va">data_density</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>variable <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">variable</span>, <span class="va">coefficient</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span></span>
-<span>  <span class="va">data_density</span>, </span>
-<span>  <span class="fu">aes</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="va">coefficient</span>,</span>
-<span>    y <span class="op">=</span> <span class="va">variable</span>,</span>
-<span>    xmin <span class="op">=</span> <span class="va">lower_bound</span>,</span>
-<span>    xmax <span class="op">=</span> <span class="va">upper_bound</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span></span>
-<span>    stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
-<span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"#1E88E5"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_errorbar</span><span class="op">(</span></span>
-<span>    width <span class="op">=</span> <span class="fl">0.2</span>,</span>
-<span>    position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"#1E88E5"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">global_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="poisson_vignette_files/figure-html/fig-plot-coef-density-1.png" alt="count ratio and confidence interval of Density " width="768"><p class="caption">
-count ratio and confidence interval of Density
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-agresti" class="csl-entry">
-Agresti, Alan. 2013. <em>Categorical Data Analysis, 3rd Edition</em>.
-</div>
-<div id="ref-charpentierCAS" class="csl-entry">
-Charpentier, Arthur. 2014. <em>Computational Actuarial Science</em>. The
-<span>R</span> Series. CRC Press.
-</div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a>
-</h2>
-<div class="justify">
-<p>For more similar claim frequency datasets with a Poisson-like
-distribution, see <a href="https://dutangc.github.io/CASdatasets/reference/ausprivauto.html" class="external-link"><code>ausprivauto0405</code></a>
-(import with <code>data("ausprivauto0405")</code>), <a href="https://dutangc.github.io/CASdatasets/reference/norauto.html" class="external-link"><code>norauto</code></a>:
-Norwegian automobile dataset (import with <code>data("norauto")</code>),
-or <a href="https://dutangc.github.io/CASdatasets/reference/pricingame.html" class="external-link"><code>pg17trainpol</code></a>
-(import with <code>data("pg17trainpol")</code>).</p>
-</div>
-</div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
-    </nav></aside>
-</div>
 
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'light-border',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config);
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script></main>
+</div>
 
 
     <footer><div class="pkgdown-footer-left">
@@ -809,15 +183,15 @@ or <a href="https://dutangc.github.io/CASdatasets/reference/pricingame.html" cla
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
