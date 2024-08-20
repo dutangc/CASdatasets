@@ -8,14 +8,6 @@ bibliography: references.bib
 editor: 
   markdown: 
     wrap: 72
-format:
-  html:     
-    code-fold: true
-    code-summary: "Show the code"
-    css: style.scss
-    theme: cosmo
-    toc: true
-    toc-depth: 2
 vignette: >
   %\VignetteIndexEntry{Poisson frequency analysis}
   %\VignetteEngine{quarto::html}
