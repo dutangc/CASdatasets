@@ -50,14 +50,14 @@ reference:
    - austri1autoBI7895
    - austri2auto
 - title: Belgium
-  desc: Belgian datasets   
+  desc: Belgian datasets
   contents:
    - beaonre
    - beMTPL16
    - beMTPL97
    - besecura
 - title: Brazil
-  desc: Brazilian datasets   
+  desc: Brazilian datasets
   contents:
    - braggclaim
    - braggprem
@@ -73,18 +73,18 @@ reference:
    - brvehins2c
    - brvehins2d
 - title: Canada
-  desc: Canadian datasets   
+  desc: Canadian datasets
   contents:
    - canlifins
    - canlifins2
    - catelematic13
 - title: Danemark
-  desc: Danish datasets   
+  desc: Danish datasets
   contents:
    - danishmulti
    - danishuni
 - title: European Union
-  desc: European datasets 
+  desc: European datasets
   contents:
    - ECBYieldCurve
    - eudirectlapse
@@ -96,7 +96,7 @@ reference:
    - eusavingULnoPSperYr
    - spacedata
 - title: France
-  desc: French datasets   
+  desc: French datasets
   contents:
    - freaggnumber
    - freAS0002
@@ -196,7 +196,7 @@ reference:
    - pg17trainclaim
    - pg17trainpol
 - title: Norway
-  desc: Norwegian datasets   
+  desc: Norwegian datasets
   contents:
    - norauto
    - Norberg
@@ -204,20 +204,20 @@ reference:
    - nortritpl8800
    - nzcathist
 - title: Singapore
-  desc: Singaporian datasets   
+  desc: Singaporian datasets
   contents:
    - sgautoBI9301
    - sgautonb
    - sgautoprop9701
 - title: Sweden
-  desc: Swedish datasets 
+  desc: Swedish datasets
   contents:
    - swautoins
    - swbusscase
    - swmotorcycle
    - swtri1auto
 - title: United Kingdom
-  desc: UK datasets   
+  desc: UK datasets
   contents:
    - ukaggclaim
    - ukautocoll
@@ -226,7 +226,7 @@ reference:
   contents:
    - FedYieldCurve
    - forexUSUK
-   - hurricanehist  
+   - hurricanehist
    - ICB1
    - ICB2
    - lossalae
@@ -259,7 +259,7 @@ reference:
    - ustri2GL
    - uswarrantaggnum
    - usworkcomp
-   - usworkcomptri8807  
+   - usworkcomptri8807
 - title: Misc.
   desc: Other datasets
   contents:
@@ -272,7 +272,7 @@ reference:
    - PnCdemand
 
 articles:
-- title: detailed use cases of claim frequency modeling of non-life insurance 
+- title: detailed use cases of claim frequency modeling of non-life insurance
   navbar: ~
   contents:
    - poisson_vignette
@@ -280,15 +280,12 @@ articles:
    - gam_rc_phileas_vignette
    - zero_inflated_vignette
    - zero_inflated_vignette_freMTPL
-- title: detailed use cases of claim severity modeling of non-life insurance 
-  navbar: ~
-  contents:
-- title: detailed use cases of claim reserving of non-life insurance 	
+- title: detailed use cases of claim reserving of non-life insurance
   navbar: ~
   contents:
    - triangle_vignette
    - triangle_aids_vignette
-- title: detailed use cases of life insurance    
+- title: detailed use cases of life insurance
   navbar: ~
   contents:
    - mortality_vignette
