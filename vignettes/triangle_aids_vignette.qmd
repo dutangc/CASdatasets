@@ -5,6 +5,7 @@ date-format: "MMMM, YYYY"
 author: "Julien Siharath"
 chapters:
   - Introduction
+  - Overview
   - Models
   - Graphs
 categories: [Triangle, Reserving, Reporting Delays, England, AIDS]
@@ -14,6 +15,7 @@ editor:
     wrap: 72
 format:
   html:     
+    embed-resources: true
     code-fold: true
     code-summary: "Show the code"
     css: style.scss
@@ -23,7 +25,7 @@ format:
 vignette: >
   %\VignetteIndexEntry{Reserving exercice on reporting delays in AIDS Data}
   %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}       
+  %\VignetteEncoding{UTF-8}
 ---
 
 # Introduction {#sec-triangles-aids-introduction}
@@ -51,7 +53,9 @@ legend_size = 11
 ::: callout-tip
 ### In Brief
 
-The reported number of acquired immune deficiency syndrome (AIDS) cases in England and Wales has recently been significantly underestimated due to substantial reporting delays. To address this issue, we'll use the `Chainladder` package, particularly the `MackChainLadder` function. This analysis is crucial for understanding the progression and impact of AIDS, enabling better resource allocation and public health planning. We apply this method to AIDS reports in England and Wales from July 1983 to December 1992.
+The reported number of Acquired Immune Deficiency Syndrome (AIDS) cases in England and Wales has recently been significantly underestimated due to substantial reporting delays. To address this issue, we will utilize the `Chainladder` package, specifically employing the `MackChainLadder` function. 
+
+This analysis is crucial for accurately understanding the progression and impact of AIDS, which is essential for effective resource allocation and public health planning. By applying this method to AIDS reports in England and Wales from July 1983 to December 1992, we aim to adjust for reporting delays, thereby providing a more accurate picture of the epidemic's evolution during this period.
 
 :::
 
@@ -73,7 +77,9 @@ invisible(lapply(required_libraries, library, character.only = TRUE))
 
 ::: justify
 
-The AIDS data frame comprises 570 rows and 6 columns. While all AIDS cases in England and Wales are required to be reported to the Communicable Disease Surveillance Centre, there is often a significant delay between diagnosis and reporting. To accurately estimate the prevalence of AIDS, it is important to account for cases that have been diagnosed but not yet reported. This dataset, obtained from @deangelis1994estimating and available from the `boot` package, records reported AIDS cases from July 1983 through December 1992, with data organized by both the date of diagnosis and the delay in reporting.
+The AIDS dataset consists of 570 rows and 6 columns, capturing critical information about AIDS cases in England and Wales. Although all AIDS cases are required to be reported to the Communicable Disease Surveillance Centre, there is often a significant delay between diagnosis and reporting. To accurately estimate the prevalence of AIDS, it is essential to account for cases that have been diagnosed but not yet reported.
+
+This dataset, obtained from @deangelis1994estimating and available in the `boot` package, records reported AIDS cases from July 1983 through December 1992. The data is organized by both the date of diagnosis and the delay in reporting, allowing for a more comprehensive analysis of the reporting delays and their impact on understanding the true prevalence of AIDS.
 
 :::
 
@@ -152,24 +158,24 @@ triangle_cl <- as.triangle(triangle_matrix_final)
 print(triangle_cl)
 
 ```
-In this context, a triangle is a table used to display data over time. It shows information across two dimensions: 
+In this context, a triangle is a table used to display data over time, organized across two dimensions:
 
-- Lines as origin Year: This is the year when the diagnosis occurred.\
+- **Lines as Origin Year:** Represents the year when the diagnosis occurred.
+- **Columns as Development Year:** Indicates the number of months (+/- 1) that have passed since the origin year.
 
-- Columns as development Year: This indicates the number of months +/- 1 that have passed since the origin year.\
-
-The table helps to track and analyze how data evolves from the time of origin over subsequent months.
+This table structure is instrumental in tracking and analyzing the progression of data from the time of origin over subsequent months. It allows for a clear visualization of how cases develop and accumulate over time, providing valuable insights for further analysis.
 
 # Overview {#sec-triangles-aids-overview}
 
 ## Purpose
 
 ::: justify
-Prediction and monitoring of the acquired immune deficiency syndrome (AIDS) epidemic depend on the availability of reliable, complete information on AIDS diagnoses. Unfortunately, there is often a considerable delay between the diagnosis of an AIDS case and its reporting to the epidemic monitoring centre. For England and Wales, this reporting is managed by the Public Health Laboratory Service AIDS Centre at the Communicable Disease Surveillance Centre. To utilize AIDS reports effectively, it is crucial to correct for cases that have been diagnosed but not yet reported.
 
-The Mack chain ladder method will be used to address this issue. Statistically, the challenge involves making inferences about the unknown diagnosis process by analyzing right-truncated data. The Mack chain ladder method, originally developed for insurance claims forecasting, is particularly well-suited for this task. It allows for robust predictions of future case reports by estimating the development pattern of the reported cases over time. This method not only helps in adjusting for the reporting delay but also provides a measure of the uncertainty associated with these estimates.
+The prediction and monitoring of the acquired immune deficiency syndrome (AIDS) epidemic rely heavily on the availability of reliable and complete data on AIDS diagnoses. However, a significant challenge in this context is the considerable delay that often occurs between the diagnosis of an AIDS case and its subsequent reporting to the epidemic monitoring center. In England and Wales, this reporting process is managed by the Public Health Laboratory Service AIDS Centre at the Communicable Disease Surveillance Centre. To effectively utilize AIDS reports, it is crucial to account for cases that have been diagnosed but have not yet been reported.
 
-By applying the Mack chain ladder method, we aim to achieve more accurate and timely insights into the progression of the AIDS epidemic. This enhanced prediction and monitoring capability is vital for public health planning, resource allocation, and implementing timely interventions to control the spread of the disease. Various statistical techniques have been devised to solve this inferential problem, but the Mack chain ladder method stands out for its reliability and practicality in handling right-truncated data.
+To address this issue, we will employ the Mack chain ladder method, a statistical tool originally developed for insurance claims forecasting. The method is particularly well-suited for analyzing right-truncated data, making it an ideal choice for correcting delays in reporting. The Mack chain ladder method enables robust predictions of future case reports by estimating the development pattern of reported cases over time. This approach not only adjusts for the reporting delay but also provides a measure of the uncertainty associated with these estimates.
+
+By applying the Mack chain ladder method, we aim to achieve more accurate and timely insights into the progression of the AIDS epidemic. Enhanced prediction and monitoring capabilities are essential for effective public health planning, resource allocation, and the implementation of timely interventions to control the spread of the disease. While various statistical techniques have been developed to address this inferential challenge, the Mack chain ladder method is distinguished by its reliability and practicality in handling right-truncated data.
 :::
 
 ::: panel-tabset
@@ -209,60 +215,54 @@ plot(as.triangle(triangle_cum[-1, -n_cols]), lattice=TRUE)
 # Mack chain-ladder
 
 ::: justify
-Thomas Mack published in @Mack_distributionfree1993 a
-method which estimates the standard errors of the
-chain-ladder forecast without assuming a distribution under three
-conditions.
+::: justify
+In 1993, Thomas Mack introduced a groundbreaking method in his paper [@Mack_distributionfree1993], which estimates the standard errors of the chain-ladder forecast without assuming a specific distribution, under three key conditions.
 
-Following the notation of @Mack1999 let $C_{ik}$ denote the cumulative loss
-amounts of origin period (e.g., accident year) $i=1,\ldots,m$, with
-losses known for development period  (e.g., development year) $k \le n+1-i.$
+## The Mack Chain-Ladder Model
 
-In order to forecast the amounts $C_{ik}$ for $k > n+1-i$ the Mack
-chain-ladder-model assumes:
+Following the notation established by Mack in 1999 [@Mack1999], let $C_{ik}$ denote the cumulative loss amounts of origin period (e.g., accident year) $i=1,\ldots,m$, with losses known for development period (e.g., development year) $k \le n+1-i.$
+
+To forecast the amounts $C_{ik}$ for $k > n+1-i$, the Mack chain-ladder model makes the following assumptions:
 
 $$
 \begin{aligned}
-  \mbox{CL1: }  & E[ F_{ik}| C_{i1},C_{i2},\ldots,C_{ik} ] = f_k
-  \mbox{ with } F_{ik}=\frac{C_{i,k+1}}{C_{ik}}\\
-    \mbox{CL2: } &  Var( \frac{C_{i,k+1}}{C_{ik}} | C_{i1},C_{i2},
-    \ldots,C_{ik} ) = \frac{\sigma_k^2}{w_{ik} C^\alpha_{ik}}\\
-  \mbox{CL3: } & \{C_{i1},\ldots,C_{in}\}, \{
-    C_{j1},\ldots,C_{jn}\},\mbox{ are independent for origin period } i
-    \neq j
+  \text{CL1:} & \quad E[ F_{ik}| C_{i1},C_{i2},\ldots,C_{ik} ] = f_k
+  \quad \text{where} \quad F_{ik} = \frac{C_{i,k+1}}{C_{ik}} \\
+  \text{CL2:} & \quad Var\left( \frac{C_{i,k+1}}{C_{ik}} \Bigg| C_{i1},C_{i2}, \ldots,C_{ik} \right) = \frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha} \\
+  \text{CL3:} & \quad \{C_{i1},\ldots,C_{in}\} \text{ and } \{C_{j1},\ldots,C_{jn}\} \text{ are independent for origin periods } i \neq j
 \end{aligned}
 $$
 
-with $w_{ik} \in [0;1], \alpha \in \{0,1,2\}$.  If these
-assumptions hold, the Mack chain-ladder-model gives an
-unbiased estimator for IBNR (Incurred But Not Reported) claims.
+where $w_{ik} \in [0,1]$ and $\alpha \in \{0,1,2\}$ are parameters that adjust the variance structure. If these assumptions hold, the Mack chain-ladder model provides an unbiased estimator for Incurred But Not Reported (IBNR) claims.
 
 ## Intuition Behind the Method
 
-The Chain-Ladder model is used to project future claims based on historical data. The fundamental idea is that the pattern of claims development is relatively stable and predictable. The model assumes that the ratios of cumulative losses between successive development years remain consistent, allowing us to use these ratios to estimate future losses.
+The Chain-Ladder model is a powerful tool used to project future claims based on historical data. The core idea is that claims development patterns are relatively stable and predictable. The model assumes that the ratios of cumulative losses between successive development years are consistent, allowing these ratios to be used in estimating future losses.
 
-**Assumptions:**
+### Assumptions Explained:
 
 1. **CL1: Expected Future Ratio**  
-   This assumption states that the expected future ratio  $F_{ik}$ of cumulative losses between successive development years is constant, given the known losses up to the current development year. In other words, the ratio of cumulative losses from one development year to the next is assumed to follow a consistent pattern, which can be summarized by a factor $f_k$ that reflects this pattern.
+   This assumption posits that the expected future ratio $F_{ik}$ of cumulative losses between successive development years is constant, given the known losses up to the current development year. Essentially, this means that the ratio of cumulative losses from one development year to the next is assumed to follow a consistent pattern, captured by a factor $f_k$.
 
 2. **CL2: Variance of Future Ratio**  
-   This assumption specifies how the variance of the future ratio of cumulative losses behaves. It indicates that the variance is proportional to $\frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha}$, where $\sigma_k^2$ captures the variability, $w_{ik}$ is a weight, and $\alpha$ is a parameter that adjusts for different levels of variance. This helps in quantifying the uncertainty around the forecasts.
+   Here, the model specifies that the variance of the future ratio of cumulative losses is proportional to $\frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha}$. The term $\sigma_k^2$ represents the variability, $w_{ik}$ is a weight, and $\alpha$ is a parameter that adjusts for different variance levels. This assumption is crucial for quantifying the uncertainty around the forecasts.
 
 3. **CL3: Independence of Origin Periods**  
-   This assumption ensures that the cumulative loss amounts from different origin periods are independent of each other. This means that the losses from one accident year do not affect the losses from another year, allowing for simpler and more robust estimation.
+   This assumption ensures that cumulative loss amounts from different origin periods (e.g., different accident years) are independent. This independence simplifies the estimation process and increases the robustness of the model.
 
-The Mack Chain-Ladder model can be regarded as a weighted linear regression through the origin for each development period:
+### Practical Application
 
-The Mack chain-ladder model can be regarded as a weighted linear regression
-through the origin for each development period:
-`lm(y ~ x  + 0, weights=w/x^(2-alpha))`,
-where $y$ is the vector of claims at development period
-$k+1$ and $x$ is  the vector of claims at development period
-$k$.
+The Mack Chain-Ladder model can be viewed as a weighted linear regression through the origin for each development period:
 
-The Mack method is implemented in the ChainLadder package via the
-function `MackChainLadder`.
+$$
+\text{lm}(y \sim x + 0, \text{weights} = w/x^{2-\alpha}),
+$$
+
+where $y$ is the vector of claims at development period $k+1$ and $x$ is the vector of claims at development period $k$.
+
+The Mack method is implemented in the ChainLadder package via the function `MackChainLadder`. This implementation enables actuaries to perform robust reserving exercises, forecast future claims developments, and maintain the financial stability of insurance companies by ensuring they can meet their future claim obligations.
+
+For a comprehensive understanding of this methodology, including its practical implications and applications, see @gesmann2014claims.
 
 As an example we apply the `MackChainLadder` function to our
 triangle `Damage`:
@@ -288,13 +288,11 @@ mack$FullTriangle
 
 ::: justify
 
-The Mack model factors begin at 3.8 for the initial periods and gradually decrease to around 1 for the later periods.
-These factors represent the development factors for each period, indicating the expected growth in cumulative reports from one period to the next.
-This trend reflects that the bulk of reports early in the development process, and the rate of increase diminishes over time.
+The Mack model factors start at 3.8 for the initial periods and gradually decrease to around 1 in the later periods. These factors represent the development factors for each period, indicating the expected growth in cumulative reports from one period to the next. This trend reflects the typical pattern where most reports occur early in the development process, with the rate of increase diminishing over time.
 
-The triangular data shows how claims develop over time for each origin period. For example, for the 4th quarter of year 1992, the number or reported cases of acquired immune deficiency syndrome (AIDS) is 67 in the 1st period and grow to 437 cases by the 41th period.
+The triangular data illustrates how reports develop over time for each origin period. For instance, in the 4th quarter of 1992, the number of reported cases of acquired immune deficiency syndrome (AIDS) begins at 67 in the 1st period and grows to 437 cases by the 41st period.
 
-Overall, this output provides a comprehensive view of how claims develop over time and the associated development factors used in the chain ladder method.
+Overall, this output offers a comprehensive view of how reports develop over time and highlights the associated development factors used in the chain ladder method.
 
 :::
 # References

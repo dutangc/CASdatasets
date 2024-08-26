@@ -272,15 +272,26 @@ reference:
    - PnCdemand
 
 articles:
-- title: Detailed use cases with R code
+- title: detailed use cases of claim frequency modeling of non-life insurance 
   navbar: ~
   contents:
    - poisson_vignette
    - quasi_poisson_vignette_ausprivauto0405
-   - zero_inflated_vignette
    - gam_rc_phileas_vignette
+   - zero_inflated_vignette
+   - zero_inflated_vignette_freMTPL
+- title: detailed use cases of claim severity modeling of non-life insurance 
+  navbar: ~
+  contents:
+- title: detailed use cases of claim reserving of non-life insurance 	
+  navbar: ~
+  contents:
    - triangle_vignette
    - triangle_aids_vignette
+- title: detailed use cases of life insurance    
+  navbar: ~
+  contents:
+   - mortality_vignette
 
 toc:
   number_sections: yes

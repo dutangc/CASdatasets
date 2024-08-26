@@ -14,7 +14,8 @@ editor:
   markdown: 
     wrap: 72
 format:
-  html:     
+  html:
+    embed-resources: true
     code-fold: true
     code-summary: "Show the code"
     css: style.scss
@@ -22,11 +23,10 @@ format:
     toc: true
     toc-depth: 2
 vignette: >
-  %\VignetteIndexEntry{Poisson frequency analysis}
+  %\VignetteIndexEntry{Frequency analysis of a French Motor Third Party Liability dataset}
   %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}     
+  %\VignetteEncoding{UTF-8}
 ---
-
 
 # Introduction {#sec-poisson-introduction}
 
@@ -73,13 +73,9 @@ options("digits" = 2)
 ::: callout-tip
 ### In Brief
 
-The objective of this vignette is to demonstrate the application of
-Poisson regression in analyzing insurance data, specifically focusing on
-the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These
-datasets provide information on insurance contracts and claims related
-to French motor third-party liability insurance. By leveraging Poisson
-regression, our goal is to model the frequency of claims and investigate
-the factors influencing claim occurrence within the insurance data.
+The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the `freMTPLfreq` and `freMTPLsev` datasets from @charpentierCAS. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance.
+
+By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data. Understanding these factors is crucial for accurate risk assessment, pricing strategies, and effective decision-making in the insurance industry.
 :::
 
 ## Required Packages
@@ -187,13 +183,9 @@ if (sum(freMTPLsev$PolicyID %in% CONTRACTS$PolicyID) == sum(CONTRACTS$ClaimNb)) 
 ## Purpose
 
 ::: justify
-In the realm of automobile insurance, Poisson regression stands as a
-reliable tool for understanding and predicting accident frequencies,
-repair costs, and claims trends.
+In the realm of automobile insurance, Poisson regression is a reliable tool for understanding and predicting accident frequencies, repair costs, and claims trends.
 
-With Poisson regression, insurers can anticipate forthcoming challenges,
-refine pricing strategies, and ensure resilience in a dynamic landscape
-of risk.
+By utilizing Poisson regression, insurers can anticipate forthcoming challenges, refine pricing strategies, and ensure resilience in a dynamic landscape of risk.
 :::
 
 ::: {.callout-caution appearance="simple"}
@@ -211,25 +203,21 @@ parameter Lambda.\
 :::
 
 ::: justify
-In this analysis, we will explore the relationship between the response
-variable `ClaimNb` and the explanatory variables `DriverAge` and
-`Density`. This modeling framework aligns with the principles outlined
-by @agresti, a prominent figure in statistical methodology, who
-emphasizes the significance of considering multiple explanatory factors
-in regression analysis.
+In this analysis, we will explore the relationship between the response variable `ClaimNb` and the explanatory variables `DriverAge` and `Density`. This modeling framework aligns with the principles outlined by @agresti, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.
 
-To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as `ClaimNB`, represents the count of insurance claims and is assumed to follow a Poisson distribution:
+To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as `ClaimNb`, represents the count of insurance claims and is assumed to follow a Poisson distribution:
 
 $$
-\text{ClaimNB} \sim \text{Poisson}(\lambda),
+\text{ClaimNb} \sim \text{Poisson}(\lambda),
 $$
-where $\lambda$ is the mean rate of claims. The Poisson regression model relates $\lambda$ on a set of predictor variables through a logarithmic link function. The logarithmic link function ensures that the predicted rate of claims is always positive, as required by the Poisson distribution. More precisely, we express the natural logarithm of $\lambda$ as a linear combination of the predictors:
+
+where $\lambda$ is the mean rate of claims. The Poisson regression model relates $\lambda$ to a set of predictor variables through a logarithmic link function. This link function ensures that the predicted rate of claims is always positive, as required by the Poisson distribution. More precisely, we express the natural logarithm of $\lambda$ as a linear combination of the predictors:
 
 $$
 \log{(\lambda)} = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density},
 $$
 
-where `DriverAge` is the age of the driver, `Density` is the population density of the city in which the driver resides, and $\beta_0$, $\beta_1$, and $\beta_2$ are the regression coefficients that need to be estimated.
+where `DriverAge` represents the age of the driver, `Density` indicates the population density of the city in which the driver resides, and $\beta_0$, $\beta_1$, and $\beta_2$ are the regression coefficients that need to be estimated.
 :::
 
 The estimated lambda parameter, which represents the mean of claims, is:
@@ -306,26 +294,17 @@ dispersiontest(reg)
 ```
 
 ::: justify
-This is a Poisson regression model predicting `ClaimNb` (number of
-claims) with `DriverAge` and `Density` as predictors. The coefficients
-indicate the change in log count of claims associated with each
-predictor level compared to a reference level. For instance, as
-`DriverAge` increases from 22 to 26, the log count of claims decreases
-by `r abs(round(coef(reg)[2], 2))`. Similarly, as `Density` increases
-within each category, the log count of claims increases.
+This is a Poisson regression model predicting `ClaimNb` (number of claims) with `DriverAge` and `Density` as predictors. The coefficients in the model indicate the change in the log count of claims associated with each predictor level compared to a reference level.
 
-All coefficients are statistically significant.
+For example, as `DriverAge` increases from 22 to 26, the log count of claims decreases by `r abs(round(coef(reg)[2], 2))`. Similarly, as `Density` increases within each category, the log count of claims increases.
+
+All coefficients in the model are statistically significant, reinforcing the reliability of these predictors in explaining the variation in the number of insurance claims.
 :::
 
 ::: callout-warning
 ### Presence of overdispersion
 
-Overdispersion leads to inadequate model fit, inflated standard errors, incorrect
-inference, and biased parameter estimates, as such, the following
-interpretations should be approached with caution. Addressing
-overdispersion may require alternative modeling approaches such as
-negative binomial regression or quasi-Poisson regression, which offer
-greater flexibility in capturing the variability in the data.
+Overdispersion can lead to an inadequate model fit, inflated standard errors, incorrect inference, and biased parameter estimates. As such, the following interpretations should be approached with caution. Addressing overdispersion may require alternative modeling approaches, such as negative binomial regression or quasi-Poisson regression, which offer greater flexibility in capturing the variability in the data.
 :::
 
 ::: panel-tabset
@@ -383,15 +362,9 @@ kable(reg_count_ratio, format = "html", escape = FALSE) |>
 ```
 
 ::: justify
-Each count ratio represents the change in count of making a claim
-associated with a one-unit increase in the predictor variable, compared
-to the reference category `DriverAge` (18,22\]. For example, a count
-ratio of `r exp(coef(reg)['DriverAge(22,26]'])` for `DriverAge` (22,26\]
-implies that the count of making a claim for individuals aged 22 to 26
-are approximately `r round((1-exp(coef(reg)['DriverAge(22,26]']))*100)`%
-lower compared to the reference category. Similarly, count ratios above
-1 for `Density` categories suggest an increase in the count of making a
-claim as the density increases within each category.
+Each count ratio represents the change in the count of making a claim associated with a one-unit increase in the predictor variable, compared to the reference category `DriverAge` (18,22]. For example, a count ratio of `r exp(coef(reg)['DriverAge(22,26]'])` for `DriverAge` (22,26] implies that the count of making a claim for individuals aged 22 to 26 is approximately `r round((1-exp(coef(reg)['DriverAge(22,26]']))*100)`% lower compared to the reference category.
+
+Similarly, count ratios above 1 for `Density` categories suggest an increase in the count of making a claim as the population density increases within each category.
 :::
 
 ## Confidence intervals
@@ -539,4 +512,3 @@ Belgian automobile dataset (import with `data("beMTPL16")`), or
 [`pg17trainpol`](https://dutangc.github.io/CASdatasets/reference/pricingame.html)
 (import with `data("pg17trainpol")`).
 :::
-

@@ -14,7 +14,8 @@ editor:
   markdown: 
     wrap: 72
 format:
-  html:     
+  html:
+    embed-resources: true
     code-fold: true
     code-summary: "Show the code"
     css: style.scss
@@ -22,7 +23,7 @@ format:
     toc: true
     toc-depth: 2
 vignette: >
-  %\VignetteIndexEntry{frequency analysis with GAM}
+  %\VignetteIndexEntry{Frequency analysis of a Belgian Motor Third Party Liability dataset}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
@@ -72,14 +73,8 @@ options("digits" = 2)
 ::: callout-tip
 ### In Brief
 
-The objective of this vignette is to illustrate the practical
-application of Generalized Additive Models (GAM) in analyzing insurance
-data. Emphasizing the `beMTPL` dataset from @charpentierCAS. Our focus
-lies in public liability for drivers, particularly in furnishing
-comprehensive insights into insurance contracts and claims associated
-with Belgium motor third-party liability insurance. our objective is to
-develop a model to explore the factors that impact claim occurrences
-within the insurance dataset, with a special focus on the elderly.
+The objective of this vignette is to illustrate the practical application of Generalized Additive Models (GAM) in analyzing insurance data, with an emphasis on the `beMTPL` dataset from @charpentierCAS. Our focus lies in public liability for drivers, particularly in providing comprehensive insights into insurance contracts and claims associated with Belgium motor third-party liability insurance. Our objective is to develop a model to explore the factors that impact claim occurrences within the insurance dataset, with a special focus on the elderly.
+
 :::
 
 ## Required Packages
@@ -100,14 +95,12 @@ invisible(lapply(required_libraries, library, character.only = TRUE))
 ## Data
 
 ::: justify
-The Data used in this vignette come from Belgium motor third party
-liability insurance portfolio.
+The data used in this vignette come from the Belgium motor third-party liability insurance portfolio.
 
-The dataset, `beMTPL`, encompasses details regarding contracts and
-clients obtained from a Belgium insurance company, related to some
-public liability insurance portfolio.
+The dataset, `beMTPL`, encompasses details regarding contracts and clients obtained from a Belgium insurance company, related to a public liability insurance portfolio.
 
-For convenience, the `beMTPL` table will be named `CLAIMS`.
+For convenience, the `beMTPL` table will be referred to as `CLAIMS`.
+
 :::
 
 ## Dictionaries
@@ -163,34 +156,22 @@ CLAIMS <- CLAIMS |>
 ## Purpose
 
 ::: justify
-In the domain of public liability for automobile accidents, particularly
-with a focus on the elderly, Generalized Additive Models (GAM) emerge as
-a reliable tool for understanding and predicting accident frequencies,
-repair costs, and claim patterns.
+In the domain of public liability for automobile accidents, particularly with a focus on elderly drivers, Generalized Additive Models (GAM) are a reliable tool for understanding and predicting accident frequencies, repair costs, and claim patterns.
 
-By employing GAM, insurers can anticipate future challenges, refine
-pricing strategies, and strengthen their resilience in an ever-evolving
-risk environment, specifically addressing the unique risks associated
-with elderly drivers.
+By employing GAM, insurers can better anticipate future challenges, refine pricing strategies, and enhance their resilience in an ever-evolving risk environment, specifically addressing the unique risks associated with elderly drivers.
+
 :::
 
 ::: justify
-In this analysis, we will explore the relationship between the response
-variable `target` and the explanatory variables `DriverAge` and
-`vehicle_age`. This modeling framework aligns with the principles
-outlined by @agresti, a prominent figure in statistical methodology, who
-emphasizes the significance of considering multiple explanatory factors
-in regression analysis.
+In this analysis, we explore the relationship between the response variable `target` and the explanatory variables `DriverAge` and `vehicle_age`. This modeling framework aligns with the principles outlined by @agresti, a prominent figure in statistical methodology, who emphasizes the importance of considering multiple explanatory factors in regression analysis.
 
 To model the frequency of insurance claims, we employ a Generalized Additive Model (GAM) approach for the response variable `ClaimNB`, which represents the count of insurance claims and is assumed to follow a Quasi-Poisson distribution:
 
 $$
-\begin{equation}
 \text{ClaimNB} \sim \text{QuasiPoisson}(\lambda),
-\end{equation}
 $$
 
-where $\lambda$ is the mean rate of claims. The GAM approach allows for flexible, nonlinear relationships between $\lambda$ and the predictor variables through the use of smooth functions. More precisely, we express the natural logarithm of $\lambda$ as a combination of these smooth functions and an additional term accounting for exposure:
+where $\lambda$ is the mean rate of claims. The GAM approach allows for flexible, nonlinear relationships between $\lambda$ and the predictor variables through the use of smooth functions. Specifically, we express the natural logarithm of $\lambda$ as a combination of these smooth functions and an additional term accounting for exposure:
 
 $$
 \begin{equation}
@@ -199,7 +180,8 @@ $$
 $$
 
 where $f_1(\text{insured age}_i)$, $f_2(\text{vehicle age}_i)$  are smooth functions of the predictor variables.
-In this model, $\text{insured age}$ represents the age of the insured individual, $\text{vehicle age}$ denotes the age of the vehicle, and $\log(\text{exposure})$ adjusts for the exposure variable. The intercept $\beta_0$ and the smooth functions $f_1$ and $f_2$ are estimated through regression to quantify their impact on the expected rate of claims. The smooth functions allow the model to capture complex, nonlinear relationships between the predictors and the response variable, providing a more flexible and accurate fit to the data.
+
+In this model, `DriverAge` represents the age of the insured individual, `vehicle_age` denotes the age of the vehicle, and $\log(\text{exposure})$ adjusts for the exposure variable. The intercept $\beta_0$ and the smooth functions $f_1$ and $f_2$ are estimated through regression to quantify their impact on the expected rate of claims. The smooth functions allow the model to capture complex, nonlinear relationships between the predictors and the response variable, providing a more flexible and accurate fit to the data.
 :::
 
 The estimated lambda parameter, which represents the mean of claims, is
@@ -272,17 +254,10 @@ summary(reg)
 ```
 
 ::: justify
-This generalized additive model (GAM) predicts the number of claims
-based on `insured_age` and `vehicle_age` as predictors. All coefficients
-in the model are statistically significant, indicating that both
-`insured_age` and `vehicle_age` have a significant effect on the number
-of claims.
+This generalized additive model (GAM) predicts the number of claims based on `insured_age` and `vehicle_age` as predictors. The smooth terms in the model are statistically significant, indicating that both `insured_age` and `vehicle_age` have a meaningful effect on the number of claims.
 
-A positive coefficient for s(insured_age) suggests that increasing
-insured age is associated with a higher expected log count of total
-liability claims. Similarly, the positive coefficient for s(vehicle_age)
-indicates that increasing vehicle age is also linked to a higher
-expected log count of claims.
+A positive coefficient for `s(insured_age)` suggests that increasing the age of the insured is associated with a higher expected log count of total liability claims. Similarly, the positive coefficient for `s(vehicle_age)` indicates that an increase in vehicle age is linked to a higher expected log count of claims.
+
 :::
 
 # Graphs {#sec-gam-graphs}
@@ -346,6 +321,13 @@ persp(
 
 plot(reg, select = 1)
 ```
+The plot displays the smooth function of `insured_age` from the Generalized Additive Model (GAM). The solid line represents the estimated effect of `insured_age` on the log count of claims, with the dashed lines indicating 95% confidence intervals.
+
+- **Trend**: The effect of `insured_age` is relatively flat for ages 60 to 70, suggesting minimal impact on claims. However, as age increases beyond 80, the smooth function rises, indicating a higher expected log count of claims with increasing age.
+- **Nonlinearity**: The curve demonstrates a nonlinear relationship, capturing the increasing risk associated with older insured individuals.
+- **Significance**: The upward trend, especially beyond age 80, suggests a significant increase in claim risk for older drivers, with the confidence intervals indicating reliability in these estimates.
+
+This plot suggests that insurers should consider the increasing risk with age, particularly for insured individuals over 80 years old, when assessing premiums and risk.
 
 ### vehicle_age {#sec-gam-effects-vehicle_age}
 

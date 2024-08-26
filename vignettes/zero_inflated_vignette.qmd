@@ -13,7 +13,8 @@ editor:
   markdown: 
     wrap: 72
 format:
-  html:     
+  html:
+    embed-resources: true     
     code-fold: true
     code-summary: "Show the code"
     css: style.scss
@@ -21,9 +22,9 @@ format:
     toc: true
     toc-depth: 2
 vignette: >
-  %\VignetteIndexEntry{Zero-inflated-Poisson frequency analysis}
+  %\VignetteIndexEntry{Frequency analysis of a Norwegian Motor Third Party Liability dataset}
   %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}    
+  %\VignetteEncoding{UTF-8}
 ---
 
 # Introduction {#sec-zero-inflated-introduction}
@@ -275,19 +276,21 @@ summary(reg)
 ```
 
 ::: justify
-This Zero-inflated regression model predicts NbClaim (number of claims) using `Young`, `Male`, `DistLimit` and `GeoRegion` as predictors.
+This Zero-Inflated Negative Binomial (ZINB) regression model is used to predict the number of claims (`NbClaim`) based on the predictors `Young`, `Male`, `DistLimit`, and `GeoRegion`.
 
-Count Model (Negative Binomial with Log Link):
-The coefficients represent the estimated change in log counts of claims associated with each predictor level compared to a reference level. Most coefficients are statistically significant (p < 0.05), indicating their relevance in predicting claim counts.
+### Count Model (Negative Binomial with Log Link)
 
-Zero-Inflation Model (Binomial with Logit Link):
-These coefficients indicate the log-odds of observing excess zeros (zero-inflation) compared to non-excess zeros. Some coefficients, such as Young and Male, are statistically significant (p < 0.05), suggesting their impact on the likelihood of excess zeros.
+In the count component, the coefficients reflect the estimated change in the log count of claims associated with each predictor, relative to a reference level. Most of these coefficients are statistically significant (p < 0.05), highlighting their importance in predicting claim counts. For instance, being classified as `Young` (under 26 years old) or `Male` influences the expected number of claims.
 
-For example if the insured is `Young`, meaning younger than 26, it increases the log-odds of excess zeros by `r reg$coefficients$zero['Young']`. Whereas `Male` decreases the log-odds by `r abs(reg$coefficients$zero['Male'])`, indicating a lower likelihood of zero-inflation among male drivers.
+### Zero-Inflation Model (Binomial with Logit Link)
 
-`DistLimit` have varied impacts on zero-inflation, though most are not statistically significant.
+The zero-inflation model coefficients represent the log-odds of excess zeros (instances with no claims) compared to non-excess zeros. Some variables, such as `Young` and `Male`, have statistically significant coefficients (p < 0.05), indicating their influence on the likelihood of excess zeros. Specifically:
 
-`GeoRegion` showing a non-significant impact.
+- If the insured individual is classified as `Young` (under 26 years old), the log-odds of excess zeros increase by `r reg$coefficients$zero['Young']`, suggesting that younger policyholders are more likely to contribute to the excess zeros.
+  
+- Conversely, being `Male` reduces the log-odds of zero-inflation by `r abs(reg$coefficients$zero['Male'])`, implying that male drivers are less likely to have zero claims.
+
+The impact of `DistLimit` on zero-inflation varies, though most effects are not statistically significant, indicating a limited role in predicting excess zeros. Similarly, `GeoRegion` shows a non-significant impact, suggesting that the geographical density of the region does not strongly influence the probability of zero claims.
 :::
 
 ::: panel-tabset
