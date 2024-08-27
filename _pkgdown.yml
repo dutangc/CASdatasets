@@ -285,10 +285,6 @@ articles:
   contents:
    - triangle_vignette
    - triangle_aids_vignette
-- title: detailed use cases of life insurance
-  navbar: ~
-  contents:
-   - mortality_vignette
 
 toc:
   number_sections: yes
