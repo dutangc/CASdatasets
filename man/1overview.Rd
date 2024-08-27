@@ -66,6 +66,7 @@ or region is given.
 	}
 \item European Union: 
 	\itemize{
+	  \item{\code{\link{eutelematic13}}: telematic insurance dataset.}
 		\item{\code{\link{eudirectlapse}}: non-life insurance lapse dataset.}
 		\item{\code{\link{euhealthinsurance}}: European health insurance dataset.}
 		\item{\code{\link{euMTPL}}: European motor TPL insurance dataset.}

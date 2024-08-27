@@ -87,6 +87,7 @@ reference:
   desc: European datasets
   contents:
    - ECBYieldCurve
+   - eutelematic13
    - eudirectlapse
    - euhealthinsurance
    - euMTPL

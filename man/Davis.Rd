@@ -23,11 +23,6 @@ data(Davis)
 
 }
 
-\source{ 
-\url{https://socialsciences.mcmaster.ca/jfox/Books/Applied-Regression-2E/datasets/Davis.txt}
-
- }
-
 \references{ 
 
 Davis (1990) \emph{Body image and weight preoccupation: 

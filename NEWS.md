@@ -21,6 +21,7 @@ List of **new datasets** is below
 - `catelematic13.rda`		2024/05/29	13753.97kB
 - `euhealthinsurance.rda`		2024/06/07	2061.5kB
 - `euMTPL.rda`			2024/06/07	17411.29kB
+- `eutelematic13.rda`		2024/08/27	33610.56kB
 - `freclaimset3multi9207.rda`	2024/06/27	62.61kB
 - `freMPL1sub.rda`			2024/07/09	134.78kB
 - `fretelematic.rda`		2024/07/09	29.68kB
@@ -35,7 +36,6 @@ List of **new datasets** is below
 - `ushu18W.rda`			2024/06/07	11.55kB
 - `usMSHA1316.rda`			2024/05/29	969.5kB
 - `usMVTA.rda`			2024/05/28	25785.18kB
-
 
 
 List of (usual) datasets is below
