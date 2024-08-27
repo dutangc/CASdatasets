@@ -276,7 +276,6 @@ articles:
   navbar: ~
   contents:
    - poisson_vignette
-   - quasi_poisson_vignette_ausprivauto0405
    - gam_rc_phileas_vignette
    - zero_inflated_vignette
    - zero_inflated_vignette_freMTPL
@@ -285,7 +284,11 @@ articles:
   contents:
    - triangle_vignette
    - triangle_aids_vignette
-
+- title: detailed use cases of life insurance
+  navbar: ~
+  contents:
+   - mortality_vignette
+   
 toc:
   number_sections: yes
   depth: 3
