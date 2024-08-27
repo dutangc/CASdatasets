@@ -39,9 +39,9 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/poisson_vignette.html">Frequency analysis of a French Motor Third Party Liability dataset</a></li>
-    <li><a class="dropdown-item" href="../articles/quasi_poisson_vignette_ausprivauto0405.html">Frequency analysis of an Australian Motor Third Party Liability dataset</a></li>
-    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette.html">Frequency analysis of a Norwegian Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/gam_rc_phileas_vignette.html">Frequency analysis of a Belgian Motor Third Party Liability dataset</a></li>
+    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette.html">Frequency analysis of a Norwegian Motor Third Party Liability dataset</a></li>
+    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette_freMTPL.html">Frequency analysis with a Zero Inflated Regression of a French Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_vignette.html">Claims reserving of a French Motor Third Party Liability triangle dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_aids_vignette.html">Reserving exercice on reporting delays in AIDS Data</a></li>
   </ul>
@@ -383,12 +383,19 @@ Log-likelihood: -1.83e+04 on 27 Df</code></pre>
 </div>
 </div>
 <div class="justify">
-<p>This Zero-inflated regression model predicts NbClaim (number of claims) using <code>Young</code>, <code>Male</code>, <code>DistLimit</code> and <code>GeoRegion</code> as predictors.</p>
-<p>Count Model (Negative Binomial with Log Link): The coefficients represent the estimated change in log counts of claims associated with each predictor level compared to a reference level. Most coefficients are statistically significant (p &lt; 0.05), indicating their relevance in predicting claim counts.</p>
-<p>Zero-Inflation Model (Binomial with Logit Link): These coefficients indicate the log-odds of observing excess zeros (zero-inflation) compared to non-excess zeros. Some coefficients, such as Young and Male, are statistically significant (p &lt; 0.05), suggesting their impact on the likelihood of excess zeros.</p>
-<p>For example if the insured is <code>Young</code>, meaning younger than 26, it increases the log-odds of excess zeros by 1.68. Whereas <code>Male</code> decreases the log-odds by 2.19, indicating a lower likelihood of zero-inflation among male drivers.</p>
-<p><code>DistLimit</code> have varied impacts on zero-inflation, though most are not statistically significant.</p>
-<p><code>GeoRegion</code> showing a non-significant impact.</p>
+<p>This Zero-Inflated Negative Binomial (ZINB) regression model is used to predict the number of claims (<code>NbClaim</code>) based on the predictors <code>Young</code>, <code>Male</code>, <code>DistLimit</code>, and <code>GeoRegion</code>.</p>
+<section class="level3"><h4 id="count-model-negative-binomial-with-log-link">Count Model (Negative Binomial with Log Link)<a class="anchor" aria-label="anchor" href="#count-model-negative-binomial-with-log-link"></a>
+</h4>
+<p>In the count component, the coefficients reflect the estimated change in the log count of claims associated with each predictor, relative to a reference level. Most of these coefficients are statistically significant (p &lt; 0.05), highlighting their importance in predicting claim counts. For instance, being classified as <code>Young</code> (under 26 years old) or <code>Male</code> influences the expected number of claims.</p>
+</section><section class="level3"><h4 id="zero-inflation-model-binomial-with-logit-link">Zero-Inflation Model (Binomial with Logit Link)<a class="anchor" aria-label="anchor" href="#zero-inflation-model-binomial-with-logit-link"></a>
+</h4>
+<p>The zero-inflation model coefficients represent the log-odds of excess zeros (instances with no claims) compared to non-excess zeros. Some variables, such as <code>Young</code> and <code>Male</code>, have statistically significant coefficients (p &lt; 0.05), indicating their influence on the likelihood of excess zeros. Specifically:</p>
+<ul>
+<li><p>If the insured individual is classified as <code>Young</code> (under 26 years old), the log-odds of excess zeros increase by 1.68, suggesting that younger policyholders are more likely to contribute to the excess zeros.</p></li>
+<li><p>Conversely, being <code>Male</code> reduces the log-odds of zero-inflation by 2.19, implying that male drivers are less likely to have zero claims.</p></li>
+</ul>
+<p>The impact of <code>DistLimit</code> on zero-inflation varies, though most effects are not statistically significant, indicating a limited role in predicting excess zeros. Similarly, <code>GeoRegion</code> shows a non-significant impact, suggesting that the geographical density of the region does not strongly influence the probability of zero claims.</p>
+</section>
 </div>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby">

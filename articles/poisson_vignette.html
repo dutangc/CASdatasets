@@ -39,9 +39,9 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/poisson_vignette.html">Frequency analysis of a French Motor Third Party Liability dataset</a></li>
-    <li><a class="dropdown-item" href="../articles/quasi_poisson_vignette_ausprivauto0405.html">Frequency analysis of an Australian Motor Third Party Liability dataset</a></li>
-    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette.html">Frequency analysis of a Norwegian Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/gam_rc_phileas_vignette.html">Frequency analysis of a Belgian Motor Third Party Liability dataset</a></li>
+    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette.html">Frequency analysis of a Norwegian Motor Third Party Liability dataset</a></li>
+    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette_freMTPL.html">Frequency analysis with a Zero Inflated Regression of a French Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_vignette.html">Claims reserving of a French Motor Third Party Liability triangle dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_aids_vignette.html">Reserving exercice on reporting delays in AIDS Data</a></li>
   </ul>
@@ -119,7 +119,8 @@
 <div>
 <blockquote>
 <p><strong>In Brief</strong></p>
-<p>The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from <span class="citation" data-cites="charpentierCAS">Charpentier (<a href="#ref-charpentierCAS" role="doc-biblioref">2014</a>)</span>. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance. By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
+<p>The objective of this vignette is to demonstrate the application of Poisson regression in analyzing insurance data, specifically focusing on the <code>freMTPLfreq</code> and <code>freMTPLsev</code> datasets from <span class="citation" data-cites="charpentierCAS">Charpentier (<a href="#ref-charpentierCAS" role="doc-biblioref">2014</a>)</span>. These datasets provide information on insurance contracts and claims related to French motor third-party liability insurance.</p>
+<p>By leveraging Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data. Understanding these factors is crucial for accurate risk assessment, pricing strategies, and effective decision-making in the insurance industry.</p>
 </blockquote>
 </div>
 <section class="level2"><h3 id="required-packages">Required Packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
@@ -285,8 +286,8 @@ Table 2: Content of the <code>freMTPLsev</code> dataset: CLAIMS
 <section class="level2"><h3 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
 </h3>
 <div class="justify">
-<p>In the realm of automobile insurance, Poisson regression stands as a reliable tool for understanding and predicting accident frequencies, repair costs, and claims trends.</p>
-<p>With Poisson regression, insurers can anticipate forthcoming challenges, refine pricing strategies, and ensure resilience in a dynamic landscape of risk.</p>
+<p>In the realm of automobile insurance, Poisson regression is a reliable tool for understanding and predicting accident frequencies, repair costs, and claims trends.</p>
+<p>By utilizing Poisson regression, insurers can anticipate forthcoming challenges, refine pricing strategies, and ensure resilience in a dynamic landscape of risk.</p>
 </div>
 <div>
 <blockquote>
@@ -305,14 +306,15 @@ Table 2: Content of the <code>freMTPLsev</code> dataset: CLAIMS
 </div>
 <div class="justify">
 <p>In this analysis, we will explore the relationship between the response variable <code>ClaimNb</code> and the explanatory variables <code>DriverAge</code> and <code>Density</code>. This modeling framework aligns with the principles outlined by <span class="citation" data-cites="agresti">Agresti (<a href="#ref-agresti" role="doc-biblioref">2013</a>)</span>, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.</p>
-<p>To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as <code>ClaimNB</code>, represents the count of insurance claims and is assumed to follow a Poisson distribution:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNB</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
-\text{ClaimNB} \sim \text{Poisson}(\lambda),
-</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is the mean rate of claims. The Poisson regression model relates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> on a set of predictor variables through a logarithmic link function. The logarithmic link function ensures that the predicted rate of claims is always positive, as required by the Poisson distribution. More precisely, we express the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> as a linear combination of the predictors:</p>
+<p>To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as <code>ClaimNb</code>, represents the count of insurance claims and is assumed to follow a Poisson distribution:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNb</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\text{ClaimNb} \sim \text{Poisson}(\lambda),
+</annotation></semantics></math></p>
+<p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is the mean rate of claims. The Poisson regression model relates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> to a set of predictor variables through a logarithmic link function. This link function ensures that the predicted rate of claims is always positive, as required by the Poisson distribution. More precisely, we express the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> as a linear combination of the predictors:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DriverAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">Density</mtext><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \log{(\lambda)} = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density},
 </annotation></semantics></math></p>
-<p>where <code>DriverAge</code> is the age of the driver, <code>Density</code> is the population density of the city in which the driver resides, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\beta_0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math> are the regression coefficients that need to be estimated.</p>
+<p>where <code>DriverAge</code> represents the age of the driver, <code>Density</code> indicates the population density of the city in which the driver resides, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\beta_0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math> are the regression coefficients that need to be estimated.</p>
 </div>
 <p>The estimated lambda parameter, which represents the mean of claims, is: 0.05.</p>
 <div class="cell">
@@ -422,13 +424,14 @@ dispersion
 </div>
 </div>
 <div class="justify">
-<p>This is a Poisson regression model predicting <code>ClaimNb</code> (number of claims) with <code>DriverAge</code> and <code>Density</code> as predictors. The coefficients indicate the change in log count of claims associated with each predictor level compared to a reference level. For instance, as <code>DriverAge</code> increases from 22 to 26, the log count of claims decreases by 0.39. Similarly, as <code>Density</code> increases within each category, the log count of claims increases.</p>
-<p>All coefficients are statistically significant.</p>
+<p>This is a Poisson regression model predicting <code>ClaimNb</code> (number of claims) with <code>DriverAge</code> and <code>Density</code> as predictors. The coefficients in the model indicate the change in the log count of claims associated with each predictor level compared to a reference level.</p>
+<p>For example, as <code>DriverAge</code> increases from 22 to 26, the log count of claims decreases by 0.39. Similarly, as <code>Density</code> increases within each category, the log count of claims increases.</p>
+<p>All coefficients in the model are statistically significant, reinforcing the reliability of these predictors in explaining the variation in the number of insurance claims.</p>
 </div>
 <div>
 <blockquote>
 <p><strong>Presence of overdispersion</strong></p>
-<p>Overdispersion leads to inadequate model fit, inflated standard errors, incorrect inference, and biased parameter estimates, as such, the following interpretations should be approached with caution. Addressing overdispersion may require alternative modeling approaches such as negative binomial regression or quasi-Poisson regression, which offer greater flexibility in capturing the variability in the data.</p>
+<p>Overdispersion can lead to an inadequate model fit, inflated standard errors, incorrect inference, and biased parameter estimates. As such, the following interpretations should be approached with caution. Addressing overdispersion may require alternative modeling approaches, such as negative binomial regression or quasi-Poisson regression, which offer greater flexibility in capturing the variability in the data.</p>
 </blockquote>
 </div>
 <div class="panel-tabset">
@@ -645,7 +648,8 @@ Table 4: Count Ratio
 </div>
 </div>
 <div class="justify">
-<p>Each count ratio represents the change in count of making a claim associated with a one-unit increase in the predictor variable, compared to the reference category <code>DriverAge</code> (18,22]. For example, a count ratio of 0.68 for <code>DriverAge</code> (22,26] implies that the count of making a claim for individuals aged 22 to 26 are approximately 32% lower compared to the reference category. Similarly, count ratios above 1 for <code>Density</code> categories suggest an increase in the count of making a claim as the density increases within each category.</p>
+<p>Each count ratio represents the change in the count of making a claim associated with a one-unit increase in the predictor variable, compared to the reference category <code>DriverAge</code> (18,22]. For example, a count ratio of 0.68 for <code>DriverAge</code> (22,26] implies that the count of making a claim for individuals aged 22 to 26 is approximately 32% lower compared to the reference category.</p>
+<p>Similarly, count ratios above 1 for <code>Density</code> categories suggest an increase in the count of making a claim as the population density increases within each category.</p>
 </div>
 </div>
 <div id="tabset-1-3">
