@@ -5,8 +5,9 @@ articles:
   CASdatasets: CASdatasets.html
   gam_rc_phileas_vignette: gam_rc_phileas_vignette.html
   poisson_vignette: poisson_vignette.html
+  quasi_poisson_vignette_ausprivauto0405: quasi_poisson_vignette_ausprivauto0405.html
   triangle_aids_vignette: triangle_aids_vignette.html
   triangle_vignette: triangle_vignette.html
   zero_inflated_vignette_freMTPL: zero_inflated_vignette_freMTPL.html
   zero_inflated_vignette: zero_inflated_vignette.html
-last_built: 2024-08-27T14:40Z
+last_built: 2024-08-27T20:28Z

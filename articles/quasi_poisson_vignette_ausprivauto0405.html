@@ -40,8 +40,9 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/poisson_vignette.html">Frequency analysis of a French Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/quasi_poisson_vignette_ausprivauto0405.html">Frequency analysis of an Australian Motor Third Party Liability dataset</a></li>
-    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette.html">Frequency analysis of a Norwegian Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/gam_rc_phileas_vignette.html">Frequency analysis of a Belgian Motor Third Party Liability dataset</a></li>
+    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette.html">Frequency analysis of a Norwegian Motor Third Party Liability dataset</a></li>
+    <li><a class="dropdown-item" href="../articles/zero_inflated_vignette_freMTPL.html">Frequency analysis with a Zero Inflated Regression of a French Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_vignette.html">Claims reserving of a French Motor Third Party Liability triangle dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_aids_vignette.html">Reserving exercice on reporting delays in AIDS Data</a></li>
   </ul>
@@ -119,7 +120,8 @@
 <div>
 <blockquote>
 <p><strong>In Brief</strong></p>
-<p>The objective of this vignette is to demonstrate the application of Quasi-Poisson regression in analyzing insurance data, specifically focusing on the <code>ausprivauto0405</code> dataset from <span class="citation" data-cites="charpentierCAS">Charpentier (<a href="#ref-charpentierCAS" role="doc-biblioref">2014</a>)</span>. This dataset provides information on insurance contracts and claims related to Australian motor third-party liability insurance. By leveraging Quasi-Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
+<p>The objective of this vignette is to demonstrate the application of Quasi-Poisson regression in analyzing insurance data, specifically focusing on the <code>ausprivauto0405</code> dataset from <span class="citation" data-cites="charpentierCAS">Charpentier (<a href="#ref-charpentierCAS" role="doc-biblioref">2014</a>)</span>. This dataset provides information on insurance contracts and claims related to Australian motor third-party liability insurance.</p>
+<p>By leveraging Quasi-Poisson regression, our goal is to model the frequency of claims and investigate the factors influencing claim occurrence within the insurance data.</p>
 </blockquote>
 </div>
 <section class="level2"><h3 id="required-packages">Required Packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
@@ -247,8 +249,8 @@ Table 1: Content of the <code>CLAIMS</code> dataset: ausprivauto0405
 <section class="level2"><h3 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
 </h3>
 <div class="justify">
-<p>In the domain of automobile insurance, Quasi-poisson Regression emerges as a potent tool for comprehending and forecasting accident frequencies, repair costs, and claims trends.</p>
-<p>Through Quasi-poisson Regression, insurers gain the ability to not only anticipate forthcoming challenges but also to refine pricing strategies and ensure resilience in a dynamic landscape of risk.</p>
+<p>In the domain of automobile insurance, Quasi-Poisson Regression emerges as a potent tool for understanding and forecasting accident frequencies, repair costs, and claims trends.</p>
+<p>Through Quasi-Poisson Regression, insurers gain the ability to not only anticipate forthcoming challenges but also refine pricing strategies and ensure resilience in a dynamic landscape of risk.</p>
 </div>
 <div>
 <blockquote>
@@ -266,19 +268,53 @@ Table 1: Content of the <code>CLAIMS</code> dataset: ausprivauto0405
 </blockquote>
 </div>
 <div class="justify">
-<p>In this analysis, we will explore the relationship between the response variable <code>ClaimNb</code> and the explanatory variables <code>DrivAge</code> and <code>VehAge</code>. This modeling framework aligns with the principles outlined by <span class="citation" data-cites="agresti">Agresti (<a href="#ref-agresti" role="doc-biblioref">2013</a>)</span>, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.</p>
-<p>To model the frequency of insurance claims, we employ a Quasi-Poisson Regression approach for the response variable <code>ClaimNB</code>, which represents the count of insurance claims and is assumed to follow a Quasi-Poisson distribution.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNB</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
-\begin{equation}
-\text{ClaimNB} \sim \text{Poisson}(\lambda),
-\end{equation}
-</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is the mean rate of claims. The Quasi-Poisson regression model relates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> on a set of predictor variables and an additional term accounting for exposure through a logarithmic link function. The logarithmic link function ensures that the predicted rate of claims is always positive, as required by the Quasi-poisson distribution. More precisely, we express the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> as a linear combination of the predictors:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DrivAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">VehAge</mtext><mo>+</mo><mtext mathvariant="normal">log(Exposure)</mtext><mo>,</mo></mrow><annotation encoding="application/x-tex">
-\begin{equation}
-\log(\lambda) = \beta_0 + \beta_1 \times \text{DrivAge} + \beta_2 \times \text{VehAge} + \text{log(Exposure)},
-\end{equation}
+<p>In this analysis, we explore the relationship between the response variable <code>ClaimNb</code> (the number of insurance claims) and the explanatory variables <code>DrivAge</code> (driver age) and <code>VehAge</code> (vehicle age). This modeling framework aligns with the principles outlined by <span class="citation" data-cites="agresti">Agresti (<a href="#ref-agresti" role="doc-biblioref">2013</a>)</span>, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.</p>
+<section class="level2"><h3 id="introduction-to-quasi-poisson-regression">Introduction to Quasi-Poisson Regression<a class="anchor" aria-label="anchor" href="#introduction-to-quasi-poisson-regression"></a>
+</h3>
+<p>To model the frequency of insurance claims, we employ a Quasi-Poisson regression approach. The response variable, <code>ClaimNb</code>, represents the count of insurance claims and is assumed to follow a Quasi-Poisson distribution:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNb</mtext><mo>∼</mo><mtext mathvariant="normal">QuasiPoisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\text{ClaimNb} \sim \text{QuasiPoisson}(\lambda),
 </annotation></semantics></math></p>
-<p>In this model, <code>DrivAge</code> represents the age of the driver, <code>VehAge</code> denotes the age of the vehicle, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\log(\text{Exposure})</annotation></semantics></math> adjusts for the exposure variable. The coefficients <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\beta_0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math> are estimated through regression to quantify their impact on the expected rate of claims.</p>
+<p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is the mean rate of claims. Unlike the standard Poisson regression, the Quasi-Poisson model is particularly useful when the data exhibits overdispersion—meaning the variance of <code>ClaimNb</code> is greater than the mean. This model adjusts for this overdispersion, ensuring that the estimates of variance are accurate, leading to more reliable inferences.</p>
+</section><section class="level2"><h3 id="model-specification">Model Specification<a class="anchor" aria-label="anchor" href="#model-specification"></a>
+</h3>
+<p>The Quasi-Poisson regression model relates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> to a set of predictor variables and an additional term accounting for exposure through a logarithmic link function. The logarithmic link function ensures that the predicted rate of claims is always positive, as required by the Quasi-Poisson distribution. More precisely, the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is expressed as a linear combination of the predictors:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DrivAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">VehAge</mtext><mo>+</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\log(\lambda) = \beta_0 + \beta_1 \times \text{DrivAge} + \beta_2 \times \text{VehAge} + \log(\text{Exposure}),
+</annotation></semantics></math></p>
+</section><section class="level2"><h3 id="explanation-of-the-model-components">Explanation of the Model Components<a class="anchor" aria-label="anchor" href="#explanation-of-the-model-components"></a>
+</h3>
+<ul>
+<li>
+<strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\beta_0</annotation></semantics></math></strong>: This is the intercept term, representing the log of the expected number of claims when all predictors are at their reference levels.</li>
+<li>
+<strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math></strong>: The coefficient for <code>DrivAge</code>, representing the change in the log expected number of claims for each one-unit increase in the driver’s age.</li>
+<li>
+<strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math></strong>: The coefficient for <code>VehAge</code>, indicating the change in the log expected number of claims for each one-unit increase in the vehicle’s age.</li>
+<li>
+<strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\log(\text{Exposure})</annotation></semantics></math></strong>: An offset term to adjust for varying levels of exposure across observations. This could represent differences in policy duration, the amount of coverage, or other factors that influence the level of risk exposure.</li>
+</ul>
+<section class="level3"><h4 id="addressing-overdispersion">Addressing Overdispersion<a class="anchor" aria-label="anchor" href="#addressing-overdispersion"></a>
+</h4>
+<p>In many real-world datasets, especially in insurance claims data, the variance often exceeds the mean, leading to overdispersion. The Quasi-Poisson model accounts for this by introducing a dispersion parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>, which scales the variance:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Var</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ϕ</mi><mo>⋅</mo><mi>λ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\text{Var}(Y) = \phi \cdot \lambda,
+</annotation></semantics></math></p>
+<p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\phi &gt; 1</annotation></semantics></math> indicates the presence of overdispersion. This adjustment makes the model more robust and ensures that standard errors and confidence intervals are correctly estimated.</p>
+</section><section class="level3"><h4 id="practical-applications">Practical Applications<a class="anchor" aria-label="anchor" href="#practical-applications"></a>
+</h4>
+<ul>
+<li>
+<strong>Risk Assessment</strong>: By understanding the relationship between claim frequency and variables such as <code>DrivAge</code> and <code>VehAge</code>, insurers can more accurately assess risk levels across different policyholders.</li>
+<li>
+<strong>Pricing Strategies</strong>: The insights gained from the Quasi-Poisson regression model can inform pricing strategies, helping insurers set premiums that reflect the underlying risk more accurately.</li>
+<li>
+<strong>Claims Management</strong>: Identifying key factors that drive claim frequencies allows insurers to implement targeted interventions, such as promoting safer driving habits among younger drivers or encouraging the use of newer, safer vehicles.</li>
+</ul></section><section class="level3"><h4 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
+</h4>
+<p>The Quasi-Poisson regression model is a powerful tool for analyzing insurance claims data, particularly when dealing with overdispersion. By adjusting for the extra variability in the data, this model provides more reliable and accurate estimates, which are crucial for effective risk management and decision-making in the insurance industry.</p>
+<p>The coefficients <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\beta_0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math> are estimated through regression to quantify their impact on the expected rate of claims. This model not only improves the understanding of the factors influencing claim frequencies but also enhances the insurer’s ability to make informed decisions.</p>
+</section></section>
 </div>
 <p>The estimated lambda parameter, which represents the mean of claims, is: 0.12.</p>
 <div class="cell">
@@ -370,8 +406,10 @@ Number of Fisher Scoring iterations: 6</code></pre>
 </div>
 </div>
 <div class="justify">
-<p>This is a Quasi-Poisson regression model predicting <code>ClaimNb</code> (number of claims) with <code>DrivAge</code> and <code>VehAge</code> as predictors. The coefficients indicate the change in log count of claims associated with each predictor level compared to a reference level. For instance, as <code>DrivAge</code> goes from <code>youngest</code> to <code>old people</code>, the log count of claims decreases by 0.33. Similarly, as <code>VehAge</code> increases within each category, the log count of claims decreases.</p>
-<p>Most coefficients are statistically significant.</p>
+<p>This is a Quasi-Poisson regression model predicting <code>ClaimNb</code> (number of claims) using <code>DrivAge</code> (driver age) and <code>VehAge</code> (vehicle age) as predictors. The model coefficients indicate the change in the log count of claims associated with each predictor level compared to a reference level.</p>
+<p>For instance, as <code>DrivAge</code> transitions from the <code>youngest</code> category to the <code>old people</code> category, the log count of claims decreases by 0.33. This suggests that older drivers are associated with fewer claims compared to younger drivers.</p>
+<p>Similarly, as <code>VehAge</code> increases within each category, the log count of claims also decreases, indicating that older vehicles tend to be involved in fewer claims.</p>
+<p>Most of the coefficients in the model are statistically significant.</p>
 </div>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby">
@@ -587,7 +625,8 @@ Table 3: Count Ratio
 </div>
 </div>
 <div class="justify">
-<p>Each count ratio represents the change in count of making a claim associated with a one-unit increase in the predictor variable, compared to the reference category <code>DrivAge youngest people</code>. For example, a count ratio of -0.33 for <code>DrivAge old people</code> implies that the count of making a claim for individuals considered as old is approximately -71% lower compared to the reference category. Similarly, count ratios below 1 for <code>VehAge</code> categories suggest a decrease in the count of making a claim as the vehicle age increases.</p>
+<p>Each count ratio represents the change in the count of making a claim associated with a one-unit increase in the predictor variable, compared to the reference category <code>DrivAge youngest people</code>. For example, a count ratio of -0.33 for <code>DrivAge old people</code> implies that the count of making a claim for individuals considered as old is approximately 28% lower compared to the reference category.</p>
+<p>Similarly, count ratios below 1 for <code>VehAge</code> categories suggest a decrease in the count of making a claim as the vehicle age increases.</p>
 </div>
 </div>
 <div id="tabset-1-3">
