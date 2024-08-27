@@ -3,11 +3,11 @@
 A collection of datasets, originally for the book [Computational Actuarial Science with R](https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788) edited by Arthur Charpentier. 
 Now, the package contains a large variety of actuarial datasets for students, teachers and researchers.
 
-This package cannot be hosted on [CRAN](https://cran.r-project.org/) because the installed size is 222.0Mb.
+This package cannot be hosted on [CRAN](https://cran.r-project.org/) because the installed size is too big: 257.4Mb.
 
 We strongly encourage users to visit the [R project website](https://www.r-project.org/)
 and take a look at the CRAN task view 
-on [Actuarial science](https://CRAN.R-project.org/view=ActuarialScience) proposed by Dutang & Goulet (2024).
+on [Actuarial science](https://CRAN.R-project.org/view=ActuarialScience) proposed by [Dutang & Goulet (2024)](https://CRAN.R-project.org/view=ActuarialScience).
 
 ## Topics (MSC 2010)
 
