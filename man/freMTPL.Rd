@@ -111,6 +111,31 @@ where the car driver lives in.}
 Unknown private insurer.
 }
 
+\references{
+
+M. Denuit, A. Charpentier, and J. Trufin (2021), 
+Autocalibration and tweedie-dominance for insurance pricing with machine learning, 
+\emph{Insurance: Mathematics and Economics}, \bold{101}, 485--497,
+\doi{10.1016/j.insmatheco.2021.09.001}.
+
+T. Miljkovic and D. Fernández (2018). 
+On Two Mixture-Based Clustering Approaches Used in Modeling an Insurance Portfolio,
+\emph{Risks}, \bold{6}(2), 1--18,
+\doi{10.3390/risks6020057}.
+
+A. Noll, R. Salzmann, and M. V. Wuthrich (2020), 
+Case study: French motor third-party liability claims, 
+\emph{Innovation Practice eJournal}, 
+\doi{10.2139/ssrn.3164764}.
+
+N. Pocuca, P. Jevtic, P. D. McNicholas, and T. Miljkovic (2020),
+Modeling frequency and severity of claims with the zero-inflated 
+generalized cluster-weighted models, 
+\emph{Insurance: Mathematics and Economics}, \bold{94}, 79--93,
+\doi{10.1016/j.insmatheco.2020.06.004}.
+
+}
+
 \examples{
 
 # (1) load of data
