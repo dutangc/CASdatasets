@@ -12,6 +12,10 @@ The `freTH0002` (resp. `freTF0002`) table has been established on INSEE observat
 
 The `freTGH05` (resp. `freTGF05`) table has been established based on 19 portfolios (16 from FFSA and 3 from CTIP) in the French male population (resp. the French female population) between 1993 and 2005. The underlying prospective INSEE table has been built on the basis of mortality tables between 1962 and 2000. The table was officially approved by the August 1 act in 2006. The `freTPG93full` table has been built for comparison with TGH05 and TGF05.
 
+`freHMD` is a subset of the French mortality dataset available on [https://mortality.org/](https://mortality.org/)
+
+in order to build the vignette. This dataset is not intended to be used directly. `freHMD` is an object of class `"demogdata"` from package `demography` by Hyndman (2023).
+
 ```r
 data(frePM6064)
 data(frePF6064)
@@ -31,6 +35,8 @@ data(freAS0002)
 
 data(freTGH05)
 data(freTGF05)
+
+data(freHMD)
 ```
 
 ## Format
@@ -89,5 +95,7 @@ Planchet (2006), **Construction des tables de mortalite d'experience pour les po
 Serant (2005), **Construction de tables prospectives de mortalite**, Document interne FFSA (confidentiel).
 
 Tassin (2006), **Note qualitative sur les tables prospectives IA 2006 masculines et feminines**, Document interne de l'Institut des Actuaires.
+
+R. Hyndman (2023), **demography: Forecasting Mortality, Fertility, Migration and Population Data**, R package, .
 
  

@@ -14,6 +14,7 @@
 \alias{freTGF05}
 \alias{freTGH05}
 \alias{freTPG93full}
+\alias{freHMD}
 \title{ French Mortality Tables }
 
 \description{
@@ -55,6 +56,11 @@ of mortality tables between 1962 and 2000.
 The table was officially approved by the August 1 act in 2006.
 The \code{freTPG93full} table has been built for comparison with TGH05 and TGF05.
 
+\code{freHMD} is a subset of the French mortality dataset available on \url{https://mortality.org/}
+in order to build the mortality vignette. This dataset is not intended to be used directly.
+\code{freHMD} is an object of class \code{"demogdata"} provided by the package 
+\code{demography} by Hyndman (2023).
+
 }
 
 \usage{
@@ -76,6 +82,8 @@ data(freAS0002)
 
 data(freTGH05)
 data(freTGF05)
+
+data(freHMD)
 
 }
 
@@ -157,6 +165,9 @@ Document interne FFSA (confidentiel).
 
 Tassin (2006), \emph{Note qualitative sur les tables prospectives IA 2006 
 masculines et feminines}, Document interne de l'Institut des Actuaires.
+
+R. Hyndman (2023), \emph{demography: Forecasting Mortality, Fertility, Migration and Population Data}, R package, 
+\doi{https://doi.org/10.32614/CRAN.package.demography}.
 
  }
 

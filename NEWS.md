@@ -23,6 +23,7 @@ List of **new datasets** is below
 - `euMTPL.rda`			2024/06/07	17411.29kB
 - `eutelematic13.rda`		2024/08/27	33610.56kB
 - `freclaimset3multi9207.rda`	2024/06/27	62.61kB
+- `freHMD.rda`			2024/09/17	382kB
 - `freMPL1sub.rda`			2024/07/09	134.78kB
 - `fretelematic.rda`		2024/07/09	29.68kB
 - `fretplclaimnumber.rda`		2024/06/11	3916.37kB
@@ -143,8 +144,8 @@ List of (usual) datasets is below
 - `freMPL7.rda`			2024/05/28	415kB
 - `freMPL8.rda`			2024/05/28	382.23kB
 - `freMPL9.rda`			2024/05/28	288.92kB
-- `freMTPL2freq.rda`		2024/05/28	9104.81kB
-- `freMTPL2sev.rda`			2024/05/28	261.37kB
+- `freMTPL2freq.rda`		2024/09/17	9065.21kB
+- `freMTPL2sev.rda`			2024/09/17	261.38kB
 - `freMTPLfreq.rda`			2024/05/28	5003.24kB
 - `freMTPLsev.rda`			2024/05/28	117.7kB
 - `freP2Ddis10.rda`			2024/05/28	2.11kB
