@@ -1,0 +1,1241 @@
+---
+title: "Optimal transport and fairness in a French insurance data analysis"
+date: '`r Sys.Date()`'
+date-format: "MMMM, YYYY"
+author: "Julien Siharath"
+chapters:
+  - Introduction
+  - Purpose
+  - Methods
+  - Estimation
+  - Fairness
+  - Visualisation 
+categories: [equipy,  Public liability, Optimal transport, fairness, equipy , France, freMPL1sub, Python]
+bibliography: references.bib
+fig-cap-location: top
+editor: 
+  markdown: 
+    wrap: 72
+format:
+  html:
+    embed-resources: true
+    code-fold: true
+    code-summary: "Show the code"
+    css: style.scss
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+vignette: >
+  %\VignetteIndexEntry{Optimal transport and fairness in a French insurance data analysis}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction {#sec-equipy-introduction}
+
+```{r setup, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Session Settings"
+#| label: load-packages
+
+# Graphs----
+face_text='plain'
+face_title='plain'
+size_title = 14
+size_text = 11
+legend_size = 11
+
+global_theme <- function() {
+  theme_minimal() %+replace%
+    theme(
+      text = element_text(size = size_text, face = face_text),
+      legend.position = "bottom",
+      legend.direction = "horizontal", 
+      legend.box = "vertical",
+      legend.key = element_blank(),
+      legend.text = element_text(size = legend_size),
+      axis.text = element_text(size = size_text, face = face_text), 
+      plot.title = element_text(
+        size = size_title, 
+        hjust = 0.5
+      ),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+}
+
+# Outputs
+options("digits" = 2)
+
+```
+
+```{css setup, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+::: callout-warning
+
+**This vignette uses Python code.**
+
+:::
+
+::: callout-tip
+### In Brief
+
+Insurance regulations often prohibit discrimination based on sensitive factors such as age and gender. In this vignette, we will explore a hypothetical law that prevents insurance companies from using age and gender as criteria for discrimination. To simulate this scenario, we will model sinistrality occurrences in **Python** using a Random Forest algorithm and apply optimal transport techniques with the `equipy` package. This approach ensures fairness within the `freMPL1sub` dataset from @charpentierCAS, which contains detailed information on French motor insurance contracts and claims.
+
+:::
+
+## Required Packages
+
+
+```{r libraries, message=FALSE}
+#| code-fold: false
+#| code-summary: "R packages"
+
+# R package required to run Python code in a Quarto document
+
+required_R_libraries <- c(
+  "reticulate"
+)
+invisible(lapply(required_R_libraries, library, character.only = TRUE))
+```
+
+```{python libraries-python}
+#| code-fold: false
+#| code-summary: "Python packages"
+
+from equipy import metrics
+from equipy import fairness
+from equipy import graphs
+from equipy.metrics import unfairness, performance
+from equipy.fairness import MultiWasserstein
+from equipy.graphs import fair_density_plot
+
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score, classification_report, roc_curve, auc, f1_score, confusion_matrix
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+import re
+from typing import Union, Optional
+
+from equipy.graphs import fair_arrow_plot, fair_multiple_arrow_plot
+
+from equipy.graphs import fair_density_plot
+import warnings
+
+
+np.random.seed(2024)
+```
+
+## Data
+
+::: justify
+
+The data used in this vignette comes from a French motor third-party liability insurance portfolio. The dataset, `freMPL1sub`, is part of the CASdatasets package in RStudio and contains details about contracts and clients obtained from a French insurance company, specifically related to a motor insurance portfolio.
+
+This dataset is a subset of several datasets, such as `freMTPL1`, `freMTPL2`, and others, all of which are available in the casdatasets package. The subset has been filtered to include only instances where the exposure is greater than 0.9, allowing for the effective application of classification trees for more precise analysis.
+
+:::
+
+## Dictionaries
+
+The list of the 18 variables from the `freMPL1sub` dataset is reported
+in @tbl-dict-freMPL1sub.
+
+::: justify
+
+| Attribute   | Type    | Description                                             |
+|-------------|---------|---------------------------------------------------------|
+| LicAge      | Numeric | The driving licence age, in months                      |
+| VehAge      | Numeric | Age of the vehicle in years                             |
+| sensitive   | Factor  | Gender of the driver                                    |
+| MariStat    | Factor  | Marital status of the driver                            |
+| SocioCateg  | Factor  | Socio-economic category of the driver                   |
+| VehUsage    | Factor  | Usage of the vehicle                                    |
+| DrivAge     | Numeric | Age of the driver in years                              |
+| HasKmLimit  | boolean | Indicator if there's a mileage limit                    |
+| BonusMalus  | Numeric | Bonus-malus coefficient                                 |
+| VehBody     | Factor  | Body type of the vehicle                                |
+| VehPrice    | Factor  | Price category of the vehicle                           |
+| VehEngine   | Factor  | Type of engine                                          |
+| VehEnergy   | Factor  | Type of fuel used (diesel or regular)                   |
+| VehMaxSpeed | Factor  | Maximum speed category of the vehicle                   |
+| VehClass    | Factor  | Vehicle class                                           |
+| y           | boolean | Response variable (if there is a claim)                 |
+| RiskVar     | Numeric | Risk variable                                           |
+| Garage      | Factor  | Type of garage used                                     |
+
+: Content of the `freMPL1sub` dataset {#tbl-dict-freMPL1sub
+.striped .hover}
+
+:::
+
+## Importation
+
+```{r}
+library(CASdatasets)
+data("freMPL1sub")
+```
+
+
+```{python importation-python}
+#| code-fold: true
+#| code-summary: "Code for importing our datasets on python environment"
+
+#freMPL1sub_equipy_path = 'data/freMPL1sub.csv'
+#pd.read_csv(freMPL1sub_equipy_path)
+
+freMPL1sub = r.freMPL1sub
+
+freMPL1sub['Age'] = '65-'
+freMPL1sub.loc[freMPL1sub['DrivAge'] >= 65, 'Age'] = '65+'
+freMPL1sub.drop('DrivAge', axis=1, inplace=True)
+```
+
+
+# Purpose {#sec-equipy-purpose}
+
+::: justify
+
+In the context of insurance, understanding the balance between "fair" and "unfair" discrimination is critical. One notable example is age-based discrimination, often seen as acceptable in insurance pricing. Younger drivers—despite being statistically more accident-prone—are typically charged lower premiums than their actual risk would justify. The extra costs are, instead, borne by older, more experienced drivers, who end up paying more than what their individual risk profile alone would suggest. This practice, while technically discriminatory, is accepted because it’s part of a generational balancing act: over time, younger drivers eventually mature and will shoulder the cost for future younger generations.
+
+This is known as acceptable discrimination in insurance, where premiums are adjusted based on factors like age and driving experience. However, other forms of discrimination, particularly those based on sensitive variables such as gender or ethnicity, are prohibited under laws like the **Anti-Discrimination Law of 2008** in France. Sensitive variables are protected by law, meaning they cannot be used as direct factors in pricing models, as this could reinforce social inequalities.
+
+The challenge arises when proxy variables—those that indirectly encode similar information—can still introduce bias. For example, while gender might be excluded, variables like vehicle type or occupation can act as proxies, unintentionally reintroducing discriminatory patterns. Therefore, insurers face the difficult task of balancing fairness and ensuring the economic viability of their models.
+
+The dilemma is clear when considering male and female drivers. If premiums for male drivers, who statistically have higher accident rates, are set too low, insurers may face financial loss. Conversely, if premiums are set too high for female drivers, who generally pose lower risk, it could result in unfair pricing and limit their access to affordable insurance. This highlights the importance of maintaining acceptable discrimination based on actual risk while avoiding bias that would be prohibited by law.
+
+To address these challenges, advanced mathematical tools like **Optimal Transport** and the **Wasserstein barycenter** can help. Rather than aligning premiums solely with the lower-risk group, such as older drivers, or the higher-risk group, such as younger drivers, which can skew fairness and financial stability, the Wasserstein barycenter offers a middle ground. It calculates a balanced distribution of risk between these groups, minimizing disparity without sacrificing economic viability. Additionally, the barycenter conserves the mean of the premiums after transformation, ensuring that the overall premium level remains financially viable for the insurer.
+
+Mathematically, given distributions $\mu_1, \mu_2, \dots, \mu_n$ corresponding to different demographic groups, the Wasserstein barycenter $\mu^*$ is defined as:
+
+$$
+\mu^* = \arg\min_{\mu} \sum_{i=1}^{n} \lambda_i W_2^2(\mu, \mu_i)
+$$
+
+where $W_2$ denotes the Wasserstein distance of order 2, and $\lambda_i$ are the weights associated with each distribution $\mu_i$.
+
+A key component in ensuring fairness is **strong demographic parity**. This principle requires that the probability distributions of model outcomes be the same across different protected groups. Mathematically, it demands that the distribution of scores for one group, say $m(X, S = A)$, must be equivalent to the distribution for another group, $m(X, S = B)$:
+
+$$
+m(X, S = A) \sim m(X, S = B)
+$$
+
+In this context, $m(X, S = A)$ represents the predicted scores for individuals in group $A$ (e.g., male), while $m(X, S = B)$ represents the predicted scores for individuals in group $B$ (e.g., female). The symbol $\sim$ indicates that the distributions of these predicted scores should be statistically similar or identical.
+
+This ensures that the model's outcomes do not systematically favor one group over another. For example, if group $A$ consistently receives lower premiums than group $B$ for similar risk profiles, the model would violate strong demographic parity. By requiring that these score distributions be the same, this method helps to eliminate any bias that might arise from group membership alone, ensuring that decisions are made based purely on risk-related features.
+
+Tools like the **`equipy` package** provide practical implementations of these concepts. By applying Wasserstein distances and adjusting model outputs, `equipy` ensures that sensitive variables like age and gender do not lead to biased pricing models. For instance, if a **Random Forest** model is used to predict claim occurrences, `equipy` can modify the model in a post-processing step to enforce fairness while maintaining predictive accuracy.
+
+Balancing fairness with economic sustainability is crucial, particularly when modeling high-risk groups like young drivers. Historical practices might justify lower premiums for them, but using **Optimal Transport** and the **Wasserstein barycenter** techniques ensures that premiums are equitable across demographics without compromising the financial health of the insurer. In this vignette, we will explore a theoretical case where fairness is enforced in pricing across both young and old drivers, as well as between male and female drivers. This demonstrates how fairness can be introduced in insurance pricing, ensuring compliance with ethical and legal standards while maintaining economic viability.
+
+Beyond legal compliance, fairness methods offer broader benefits. Ensuring transparent and equitable pricing enhances customer trust and aligns with ethical AI standards, as explored in sources like @sauce2023ai, which examines strategies for addressing proxy discrimination in AI-driven models. By applying these fairness principles, insurers can maintain compliance while fostering fairness in their decision-making processes.
+
+To summarize, **Wasserstein barycenters** and **Optimal Transport** provide innovative solutions to fairness challenges in insurance. They ensure that premiums reflect risk fairly while adhering to ethical and legal standards. As discussed in the Visualizations section, methods like **Fairness by Unawareness** and **Fairness through Awareness** will be explored to address fairness in predictive modeling.
+
+:::
+
+# Methods
+
+## Random Forest Model
+
+### Random Forest Overview
+
+Random Forest, as described in @breiman2001random, is a versatile machine learning technique that belongs to a class of ensemble learning methods. In this method, multiple decision trees are constructed during training, and their predictions are combined to produce a more accurate and stable model. Specifically, predictions are averaged for regression tasks and voted on for classification tasks.
+
+The key idea behind Random Forest is to build a "forest" of decision trees, where each tree is trained on a random subset of the data and a random subset of the features. This randomness makes the model more robust and less prone to overfitting, which is a common issue with individual decision trees.
+
+The process of building a Random Forest can be summarized in the following steps:
+
+1. **Bootstrap Sampling**: Multiple subsets of the original dataset are created using bootstrapping, which involves randomly selecting samples with replacement.
+2. **Random Feature Selection**: At each node of the tree, a random subset of features is selected, and the best feature from this subset is used to split the data.
+3. **Tree Construction**: Decision trees are constructed for each bootstrap sample, and these trees grow without pruning, resulting in very deep and complex structures.
+4. **Aggregation**: For regression tasks, predictions from all trees are averaged. For classification tasks, the most frequent prediction (mode) is selected.
+
+The Random Forest model can be mathematically represented as:
+
+$$
+\hat{y}_i = \frac{1}{T} \sum_{t=1}^{T} f_t(x_i)
+$$
+
+where $\hat{y}_i$ is the predicted value for the $i^{th}$ observation, $T$ is the total number of trees, and $f_t(x_i)$ represents the prediction of the $t^{th}$ tree.
+
+One of the key advantages of Random Forest is its ability to handle large datasets with high dimensionality and missing data. The random selection of features at each split ensures that the model doesn't rely too heavily on any single feature, reducing the risk of overfitting. Additionally, Random Forest provides a measure of **feature importance**, ranking the contribution of each feature to the model's predictive power. This is particularly useful for understanding which features are most influential in making predictions.
+
+In conclusion, Random Forest is widely appreciated for its high accuracy, robustness, and ease of use. It is highly effective for both regression and classification tasks and is especially valuable in situations with a large number of features or complex relationships between variables. For additional information, see @breiman2001random.
+
+
+## EquiPy {#sec-equipy-equipy}
+
+::: justify
+
+`equipy` is a Python package specifically designed to implement sequential fairness in machine learning models, particularly when managing multiple sensitive attributes. This advanced post-processing method leverages multi-marginal Wasserstein barycenters to achieve fairness across various sensitive features. By extending the concept of Strong Demographic Parity to scenarios involving multiple sensitive characteristics, `equipy` allows for a nuanced approach to balancing fairness and model performance.
+
+### Key Functionalities:
+
+- **Fairness Module**: The package's core functionality centers around the computation of fairness metrics using Wasserstein barycenters, particularly through the `_wasserstein.py` module. This method ensures equitable treatment across different sensitive attributes, allowing models to achieve approximate fairness in complex, multi-attribute settings.
+
+- **Graphing Utilities**: To facilitate the analysis and interpretation of fairness outcomes, `equipy` offers a suite of visual tools. These include `_arrow_plot.py` for directional fairness visualizations, `_density_plot.py` for examining the distributional impact of fairness adjustments, and `_waterfall_plot.py` for understanding the cumulative effects of fairness interventions.
+
+- **Metrics Module**: The package provides comprehensive evaluation tools, including `_fairness_metrics.py` for assessing fairness across sensitive attributes. These metrics enable a detailed examination of how fairness measures could influence predictive accuracy and other performance indicators.
+
+Developed in 2023 by François Hu, Philipp Ratz, Suzie Grondin, Agathe Fernandes Machado, and Arthur Charpentier, `equipy` is grounded in cutting-edge research, as presented in the paper "@charpentier2023mitigating: A Sequentially Fair Mechanism for Multiple Sensitive Attributes." This foundational research underpins the package’s approach to sequential fairness, making it a robust and theoretically sound tool for practitioners.
+
+For more detailed information about the package, visit the [equiPy website](https://equilibration.github.io/equipy/).
+
+
+:::
+
+# Estimation of the Random Forest {#sec-equipy-estimation}
+
+## Data preprocessing
+
+To prepare the data for modeling with RandomForest, we start by encoding the categorical variables. This is necessary because RandomForest requires numerical input. We use one-hot encoding to convert the categorical variables into binary columns. Additionally, we drop the first category of each encoded variable to avoid multicollinearity.
+```{python preprocessing}
+#| code-fold: true
+#| code-summary: "Data Preprocessing for RF Model"
+
+# Perform one-hot encoding for categorical variables to apply rf
+df_encoded = pd.get_dummies(freMPL1sub, columns=['VehAge', 'sensitive', 'MariStat', 'SocioCateg', 
+                                         'VehUsage', 'VehBody', 'VehPrice', 'VehEngine', 
+                                         'VehEnergy', 'VehMaxSpeed', 'VehClass',
+                                         'Garage', 'Age'], drop_first=True)
+                                         
+X = df_encoded.drop("y", axis=1)
+
+y = df_encoded["y"]
+
+```
+
+Next, we split the data into training, calibration, and test sets. The training set will be used to fit the model, the calibration set will be used for enforcing fairness with `equipy`, and the test set will be used to evaluate the model's performance and fairness.
+
+```{python split-data}
+#| code-fold: true
+#| code-summary: "Splitting Data into Training, Calibration, and Test Sets"
+
+# Splitting into two datasets
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.4, random_state = 42)
+
+# Split the temporary set into calibration and test sets
+X_calib, X_test, y_calib, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state = 42)
+```
+
+## Training the RandomForest Model
+
+```{python rf}
+#| code-fold: false
+#| code-summary: "Training the RF Model"
+  
+
+# Create a Random Forest classifier
+rf_classifier = RandomForestClassifier(n_estimators=100,
+                                       min_samples_leaf = 100,
+                                       random_state=42)
+
+# Fit the classifier to the training data
+rf_classifier.fit(X_train, y_train)
+
+# Get predicted scores of calibration and test sets
+scores_train = rf_classifier.predict_proba(X_train)[:, 1]
+scores_calib = rf_classifier.predict_proba(X_calib)[:, 1]
+scores_test = rf_classifier.predict_proba(X_test)[:, 1]
+```
+
+## Evaluating Model Performance with ROC Curve
+
+```{python}
+#| fig-cap: "Receiver Operating Characteristic (ROC) curve"
+#| label: "ROC-curve"
+#| code-fold: false
+#| code-summary: "Plotting the ROC Curve"
+#| fig-width: 8
+#| fig-height: 5
+
+# Compute ROC curve and area under the curve (AUC)
+y_true = np.concatenate((y_calib, y_test))
+scores = np.concatenate((scores_calib, scores_test))
+fpr, tpr, thresholds = roc_curve(y_true, scores, pos_label=1)
+roc_auc = auc(fpr, tpr)
+
+# Plot the ROC curve
+plt.figure(figsize=(8, 8))
+plt.plot(fpr, tpr, color = "#1E88E5", lw = 2, label = 'ROC curve (AUC = {:.2f})'.format(roc_auc))
+plt.plot([0, 1], [0, 1], color = "black", lw = 2, linestyle = '--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.legend(loc='lower right')
+
+plt.show()
+```
+
+## Finding the Optimal Threshold
+
+```{python}
+#| code-fold: true
+#| label: "optim-thres"
+#| code-summary: Code for the finding the optimal threshold
+
+# Define a range of thresholds to evaluate
+thresholds = np.arange(0.1, 1.0, 0.01)
+
+best_threshold = 0
+best_f1 = 0
+
+# Iterate through thresholds and calculate F1 score
+for threshold in thresholds:
+    #y_true = np.concatenate((y_calib, y_test))
+    #scores = np.concatenate((scores_calib, scores_test))
+    predicted_labels = (scores_train > threshold).astype(int)
+    y_train = y_train.astype(predicted_labels.dtype)
+    f1 = f1_score(y_train, predicted_labels)
+    
+    # Update optimal values if F1 score is higher
+    if f1 > best_f1:
+        best_f1 = f1
+        best_threshold = threshold
+
+
+# Define classes on predicted scores for each dataset
+threshold = best_threshold
+
+# Convert scores to binary class predictions
+y_pred_train = (scores_train > threshold).astype(int)
+y_pred_calib = (scores_calib > threshold).astype(int)
+y_pred_test = (scores_test > threshold).astype(int)
+
+```
+
+```{python}
+#| echo: false
+#| label: "text-output"
+
+print(f'The optimal threshold, which maximizes the F1 score, is found to be {best_threshold:.2f}.')
+
+print(f'The optimal F1 score obtained is {best_f1:.4f}.')
+```
+
+# Fairness with Equipy {#sec-equipy-estimation}
+
+## Data preparation
+
+::: callout-tip
+::: justify
+
+To facilitate the application of the `equiPy` package, we first rename the datasets and create the necessary objects. We store calibration and test data into dataframes and prepare true outcome values. Additionally , the `equiPy` package does not support calculating unfairness for true values of y because it only accommodates binary values (0/1). For calculating unfairness, we require real-valued numbers, such as scores of classifiers, rather than binary outcomes.
+
+:::
+:::
+```{python preprocessing-equipy}
+#| code-fold: true
+#| code-summary: "preprocessing for equipy application"
+
+df_calib = freMPL1sub.loc[X_calib.index]
+df_test = freMPL1sub.loc[X_test.index]
+
+df_calib.rename(columns={'sensitive': 'Gender'}, inplace=True)
+df_test.rename(columns={'sensitive': 'Gender'}, inplace=True)
+
+# The function will enforce fairness on Gender then Age [ 'Age', 'Gender'] will enforce fairness on Age then Gender but the result is theoretically the same.
+
+x_ssa_calib = df_calib[['Gender', 'Age']]
+x_ssa_test = df_test[['Gender', 'Age']]
+
+y_true_calib = np.array(y_calib)
+y_true_test = np.array(y_test)
+```
+
+
+## Enforcing Fairness Using Wasserstein Barycenters on Gender then Age
+
+We enforce fairness by creating an instance of the `MultiWasserstein` class, fitting it on the calibration set, and then transforming the test set to make it fair.
+
+```{python}
+#| code-fold: false
+#| label: "Wasserstein"
+
+# Create instance of Wasserstein class
+exact_wst = MultiWasserstein()
+
+# Fit EQF, ECDF, and weights on the calibration set
+exact_wst.fit(scores_calib, x_ssa_calib)
+
+# We apply those values to the test set to make it fair
+# The transform function returns the final fair y, after mitigating biases from the 2 sensitive atributes 
+# First sensitive atribute  : gender, Second : driver's age
+
+# Transform test set to make it fair
+y_final_fair = exact_wst.transform(scores_test, x_ssa_test)
+
+print("y_fair:", y_final_fair)  # returns the y_fair
+```
+
+## Evaluating Fairness and Performance Metrics
+  
+```{python}
+#| code-fold: false
+#| label: "perf-metric"
+
+# Define dictionaries to track unfairness and performance metrics
+# for different attribute permutations
+unfs_list = [{'Base model': 0, 'sens_var_1': 0, 'sens_var_2': 0},
+             {'Base model': 0, 'sens_var_2': 0, 'sens_var_1': 0}]
+perf_list = [{'Base model': 0, 'sens_var_1': 0, 'sens_var_2': 0},
+              {'Base model': 0, 'sens_var_2': 0, 'sens_var_1': 0}]
+
+# Calculate and print unfairness before and after mitigating biases
+unfairness_before = unfairness(scores_test, x_ssa_test)
+unfairness_after = unfairness(y_final_fair, x_ssa_test)
+
+
+# Retrieve fairness metrics for each step with sensitive attributes
+y_seq_fair = exact_wst.y_fair
+# It contains the output of the base model, then the output where Gender is fair,
+# and finally where Gender and Age are fair
+
+# Calculate and print unfairness for each model variant
+unfairness_base_model = unfairness(y_seq_fair["Base model"], x_ssa_test)
+unfs_list[0]['Base model'] = unfairness_base_model
+
+
+unfairness_gender = unfairness(y_seq_fair["Gender"], x_ssa_test)
+unfs_list[0]['sens_var_1'] = unfairness_gender
+
+unfairness_age = unfairness(y_seq_fair["Age"], x_ssa_test)
+unfs_list[0]['sens_var_2'] = unfairness_age
+
+
+# Evaluate performance metrics before and after bias mitigation
+y_true_test = y_true_test.astype(y_pred_test.dtype)
+accuracy_before = performance(y_true_test, y_pred_test, accuracy_score)
+f1_before = performance(y_true_test, y_pred_test, f1_score)
+
+
+# Set the threshold and convert final fair predictions to binary classes
+class_final_fair = (y_final_fair > best_threshold).astype(int)
+
+accuracy_after = performance(y_true_test, class_final_fair, accuracy_score)
+f1_after = performance(y_true_test, class_final_fair, f1_score)
+
+
+metric = f1_score
+class_base_model = (y_seq_fair["Base model"] > threshold).astype(int)
+
+perf_list[0]['Base model'] = performance(y_true_test, class_base_model, metric)
+
+class_sa_1 = (y_seq_fair["Gender"] > threshold).astype(int)
+perf_list[0]['sens_var_1'] = performance(y_true_test, class_sa_1, metric)
+
+class_sa_2 = (y_seq_fair["Age"] > threshold).astype(int)
+perf_list[0]['sens_var_2'] = performance(y_true_test, class_sa_2, metric)
+```
+Here are the outputs from the model under different fairness constraints.There is the output of the base model, output where `Gender` is fair, and finally output where `Gender` and `Age` are fair:
+```{python}
+#| echo: false
+#| label: "seq-fair"
+
+print("Sequentially fair outputs:")
+
+print(y_seq_fair)
+```
+
+The `unfairness`function computes the unfairness based on the Wasserstein distance. We can see a decrease in unfairness after enforcing fairness.
+```{python}
+#| echo: false
+#| label: "unfair"
+
+print(f"Unfairness before mitigation: {unfairness_before}")
+
+print(f"Unfairness after mitigating biases from gender: {unfairness_gender}")
+
+print(f"Unfairness after mitigating biases from gender and age: {unfairness_after}")
+
+```
+
+
+But the accuracy and F1 score does not necessarily decrease.
+
+```{python}
+#| echo: false
+#| label: "F1-acc"
+
+print(f"Accuracy before mitigation: {accuracy_before}")
+
+print(f"F1-score before mitigation: {f1_before}")
+
+print(f"Accuracy after mitigating biases from gender and age: {accuracy_after}")
+
+print(f"F1-score after mitigating biases from gender and age: {f1_after}")
+
+```
+
+
+## Same code but for a different order of sensitive attributes : Age then Gender
+
+
+```{python}
+#| code-fold: true
+#| code-summary: "Code for enforcing fairness on Age then Gender"
+#| label: "age-gender"
+
+# Rename datasets to facilitate the EquiPy package application
+# Creation of the objects useful for the package
+x_ssa_calib = df_calib[['Age','Gender']]
+x_ssa_test = df_test[['Age','Gender']]
+
+# True outcome values (0/1)
+y_true_calib = np.array(y_calib)
+y_true_test = np.array(y_test)
+
+# Predicted scores because EquiPy deals with real-valued outcomes
+#scores_calib
+#scores_test
+# Instance of Wasserstein class : exact fairness
+# Create instance of Wasserstein class (MSA)
+exact_wst = MultiWasserstein()
+
+# We calculate EQF, ECDF, weights on the calibration set
+exact_wst.fit(scores_calib, x_ssa_calib)
+
+# We apply those values to the test set to make it fair
+# The transform function returns the final fair y,
+# after mitigating biases from the 2 sensitive attributes 
+# First sensitive atribute  : gender, Second : driver's age
+y_final_fair = exact_wst.transform(scores_test, x_ssa_test)
+
+y_seq_fair = exact_wst.y_fair
+
+
+
+unfs_list[1]['Base model'] = unfairness(y_seq_fair["Base model"],
+                                        x_ssa_test)
+
+
+
+unfs_list[1]['sens_var_2'] = unfairness(y_seq_fair["Gender"],
+                                        x_ssa_test)
+
+
+unfs_list[1]['sens_var_1'] = unfairness(y_seq_fair["Age"],
+                                        x_ssa_test)
+
+# We can do the same with sequential fairness
+metric = f1_score
+
+# Calculate sequential accuracy
+y_true_test = y_true_test.astype(int)
+class_base_model = (y_seq_fair["Base model"] > threshold).astype(int)
+
+perf_list[1]['Base model'] = performance(y_true_test, class_base_model, metric)
+class_sa_1 = (y_seq_fair["Gender"] > threshold).astype(int)
+
+perf_list[1]['sens_var_2'] = performance(y_true_test, class_sa_1, metric)
+class_sa_2 = (y_seq_fair["Age"] > threshold).astype(int)
+
+perf_list[1]['sens_var_1'] = performance(y_true_test, class_sa_2, metric)
+
+```
+
+
+# Visualizations
+
+::: panel-tabset
+## Fair density Plot without Age and Gender
+```{python}
+#| code-fold: true
+#| output: false
+#| code-summary: "Same process but without gender and Age in the Base Model"
+#| label: "fair-density"
+
+df_encoded2 = pd.get_dummies(freMPL1sub, columns=['VehAge', 'MariStat', 'SocioCateg', 
+                                         'VehUsage', 'VehBody', 'VehPrice', 'VehEngine', 
+                                         'VehEnergy', 'VehMaxSpeed', 'VehClass', 'Garage'], drop_first=True)
+                                         
+X2 = df_encoded2.drop(["y","sensitive", "Age"], axis=1)
+
+y2 = df_encoded2["y"]
+
+# Splitting into two datasets
+X_train2, X_temp2, y_train2, y_temp2 = train_test_split(X2, y2, test_size=0.4, random_state = 42)
+
+# Split the temporary set into calibration and test sets
+X_calib2, X_test2, y_calib2, y_test2 = train_test_split(X_temp2, y_temp2, test_size=0.5, random_state = 42)
+
+# Create a Random Forest classifier
+rf_classifier2 = RandomForestClassifier(n_estimators=100, min_samples_leaf = 100, random_state=42)
+
+# Fit the classifier to the training data
+rf_classifier2.fit(X_train2, y_train2)
+
+# Get predicted scores of calibration and test sets
+scores_train2 = rf_classifier2.predict_proba(X_train2)[:, 1]
+scores_calib2 = rf_classifier2.predict_proba(X_calib2)[:, 1]
+scores_test2 = rf_classifier2.predict_proba(X_test2)[:, 1]
+
+best_threshold2 = 0
+best_f1_2 = 0
+
+# Iterate through thresholds and calculate F1 score
+for threshold in thresholds:
+    #y_true = np.concatenate((y_calib, y_test))
+    #scores = np.concatenate((scores_calib, scores_test))
+    predicted_labels = (scores_train > threshold).astype(int)
+    y_train = y_train.astype(predicted_labels.dtype)
+    f1 = f1_score(y_train, predicted_labels)
+    
+    # Update optimal values if F1 score is higher
+    if f1 > best_f1:
+        best_f1_2 = f1
+        best_threshold2 = threshold
+
+
+# Define classes on predicted scores for each dataset
+threshold2 = best_threshold2
+
+# Convert scores to binary class predictions
+y_pred_train2 = (scores_train2 > threshold2).astype(int)
+y_pred_calib2 = (scores_calib2 > threshold2).astype(int)
+y_pred_test2 = (scores_test2 > threshold2).astype(int)
+
+y_true_calib2 = np.array(y_calib2)
+y_true_test2 = np.array(y_test2)
+
+# Create instance of Wasserstein class
+exact_wst = MultiWasserstein()
+
+# Fit EQF, ECDF, and weights on the calibration set
+exact_wst.fit(scores_calib2, x_ssa_calib)
+
+# We apply those values to the test set to make it fair
+# The transform function returns the final fair y,
+# after mitigating biases from the 2 sensitive atributes 
+# First sensitive atributes  : gender, Second : driver's age
+
+y_final_fair2 = exact_wst.transform(scores_test2, x_ssa_test)
+y_seq_fair2 = exact_wst.y_fair
+
+```
+
+```{python}
+#| code-fold: false
+#| label: fair-density-plot-proxy
+#| code-summary: Fairness Density Plot with Proxy Influence
+#| fig-cap: "Visualization of fairness density without age and gender, showcasing the influence of the proxy variable using the EquiPy package."
+
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+density_plot_proxy = fair_density_plot(sensitive_features_calib = x_ssa_test,
+                     sensitive_features_test = x_ssa_test,
+                     y_calib = y_seq_fair2['Base model'],
+                     y_test = y_seq_fair2['Base model']
+                     )
+                  
+plt.show()
+```
+
+In this plot, we observe a significant disparity in distribution across different groups, even when sensitive attributes are excluded from the model. This disparity can be attributed to the influence of proxy variables, which indirectly encode the information of sensitive attributes. This observation underscores the inadequacy of merely removing sensitive attributes as a solution to fairness. `equipy` addresses this challenge by adjusting the underlying distribution, effectively mitigating discrimination that arises from proxy variables. This demonstrates `equipy`'s utility in enhancing fairness beyond the simplistic approach of omitting sensitive attributes, ensuring a more comprehensive approach to mitigating bias in machine learning models.
+
+
+## Fair density Plot with age and gender
+
+```{python}
+#| code-fold: false
+#| label: fair-density-plot
+#| code-summary: Fair Density Plot Visualization 
+#| fig-cap: "Visualization of fairness density using the EquiPy package."
+
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+
+density_plot_all = fair_density_plot(sensitive_features_calib = x_ssa_test,
+                   sensitive_features_test = x_ssa_test,
+                   y_calib = y_seq_fair['Base model'],
+                   y_test = y_seq_fair['Base model']
+                   )
+plt.show() 
+```
+
+## Fairness-Performance Arrow Plot
+
+```{python}
+#| code-fold: true
+#| code-summary: Custom Fairness-Performance Arrow Plot Function
+#| label: "fair-plot3"
+
+
+def fair_arrow_plot(unfs_dict: dict[str, np.ndarray],
+                    performance_dict: dict[str, np.ndarray],
+                    permutations: bool = False,
+                    base_model: bool = True,
+                    final_model: bool = True) -> plt.Axes:
+    """
+    Generates an arrow plot representing the fairness-performance combinations step by step (by sensitive attribute) to reach fairness.
+
+    Parameters
+    ----------
+    unfs_dict : dict
+        A dictionary containing unfairness values associated with the sequentially fair output datasets.
+    performance_dict : dict
+        A dictionary containing performance values associated with the sequentially fair output datasets.
+    permutations : bool, optional
+        If True, displays permutations of arrows based on input dictionaries. Defaults to False.
+    base_model : bool, optional
+        If True, includes the base model arrow. Defaults to True.
+    final_model : bool, optional
+        If True, includes the final model arrow. Defaults to True.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        arrows representing the fairness-performance combinations step by step (by sensitive attribute) to reach fairness.
+
+    Note
+    ----
+    - This function uses a global variable `ax` for plotting, ensuring compatibility with external code.
+    """
+
+    x = []
+    y = []
+    sens = [0]
+
+    for i, key in enumerate(unfs_dict.keys()):
+        x.append(unfs_dict[key])
+        if i != 0:
+            sens.append(int(''.join(re.findall(r'\d+', key))))
+    
+    if len(sens) > 2:
+        first_sens = sens[1]
+        double_sorted_sens = sorted(sens[1:3])
+    else:
+        first_label_not_used = True
+        double_label_not_used = True
+    
+    if first_sens not in first_current_sens:
+        first_current_sens.append(first_sens)
+        first_label_not_used = True
+    else:
+        first_label_not_used = False
+    
+    if double_sorted_sens not in double_current_sens:
+        double_current_sens.append(double_sorted_sens)
+        double_label_not_used = True
+    else:
+        double_label_not_used = False
+    
+    for key in performance_dict.keys():
+        y.append(performance_dict[key])
+
+    global ax
+
+    # Add axes limitations for each permutation
+    x_min.append(np.min(x))
+    x_max.append(np.max(x))
+    y_min.append(np.min(y))
+    y_max.append(np.max(y))
+
+    if not permutations:
+        fig, ax = plt.subplots()
+
+    line = ax.plot(x, y, linestyle="--", alpha=0.25, color="grey")[0]
+
+    for i in range(len(sens)):
+        if i > 0:
+            ax.arrow((x[i-1]+x[i])/2, (y[i-1]+y[i])/2, (x[i]-x[i-1])/10,
+                      (y[i]-y[i-1])/10, width = (np.max(y)-np.min(y))/70, 
+                      color ="grey")
+        if (i == 0) & (base_model):
+            line.axes.annotate(f"Base\nmodel", xytext=(
+                x[0]+np.min(x)/20, y[0]), xy=(x[0], y[0]), size=10)
+            ax.scatter(x[0], y[0], label="Base model", marker="^", 
+                       color="darkorchid", s=100)
+        elif (i == 1) & (first_label_not_used):
+            label = f"$A_{sens[i]}$-fair"
+            line.axes.annotate(label, xytext=(
+                x[i]+np.min(x)/20, y[i]), xy=(x[i], y[i]), size=10)
+            ax.scatter(x[i], y[i], label=label, marker="+", s=150)
+        elif (i == len(x)-1) & (final_model):
+            label = f"$A_{1}$" + r"$_:$" + f"$_{i}$-fair"
+            line.axes.annotate(label, xytext=(
+                x[i]+np.min(x)/20, y[i]), xy=(x[i], y[i]), size=10)
+            ax.scatter(x[i], y[i], label=label, marker="*", s=150,
+                       color="#d62728")
+            ax.set_xlim((np.min(x_min)-np.min(x_min)/10-np.max(x_max)/10, 
+                         np.max(x_max)+np.min(x_min)/10+np.max(x_max)/10))
+            ax.set_ylim((np.min(y_min)-np.min(y_min)/100-np.max(y_max)/100,
+                         np.max(y_max)+np.min(y_min)/100+np.max(y_max)/100))
+            print(x_min, x_max, y_min, y_max)
+            #print(np.min(x_min)-np.min(x_min)/10-np.max(x_max)/10, np.max(x_max)+np.min(x_min)/10+np.max(x_max)/10,
+            #np.min(y_min)-np.min(y_min)/100-np.max(y_max)/100, np.max(y_max)+np.min(y_min)/100+np.max(y_max)/100)
+        elif (i == 2) & (i < len(x)-1) & (double_label_not_used):
+            label = f"$A_{sens[1]}$" + r"$_,$" + f"$_{sens[i]}$-fair"
+            line.axes.annotate(label, xytext=(
+                x[i]+np.min(x)/20, y[i]), xy=(x[i], y[i]), size=10)
+            ax.scatter(x[i], y[i], label=label, marker="+", s=150)
+        elif (i!=0) & (i!=len(x)-1):
+            ax.scatter(x[i], y[i], marker="+", s=150, color="grey", alpha=0.4)
+    ax.set_xlabel("Unfairness")
+    ax.set_ylabel("Performance")
+    ax.set_title("Exact fairness")
+    ax.legend(loc="lower left")
+    return ax
+
+def _fair_customized_arrow_plot(unfs_list: list[dict[str, np.ndarray]],
+                                performance_list: list[dict[str, np.ndarray]]) -> plt.Axes:
+    """
+    Plot arrows representing the fairness-performance ccombinations step by step (by sensitive attribute) to reach fairness for all permutations
+    (order of sensitive variables for which fairness is calculated).
+
+    Parameters
+    ----------
+    unfs_list : list
+        A list of dictionaries containing unfairness values for each permutation of fair output datasets.
+    performance_list : list
+        A list of dictionaries containing performance values for each permutation of fair output datasets.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        arrows representing the fairness-performance combinations step by step (by sensitive attribute) to reach fairness for each combination.
+
+    Note
+    ----
+    This function uses a global variable `ax` for plotting, ensuring compatibility with external code.
+    """
+    global ax
+    global double_current_sens
+    double_current_sens = []
+    global first_current_sens
+    first_current_sens = []
+    # Define axes limitations
+    global x_min, x_max, y_min, y_max
+    x_min = []
+    x_max = []
+    y_min = []
+    y_max = []
+    fig, ax = plt.subplots()
+    for i in range(len(unfs_list)):
+        if i == 0:
+            fair_arrow_plot(unfs_list[i], performance_list[i],
+                            permutations=True, final_model=False)
+        elif i == len(unfs_list)-1:
+            fair_arrow_plot(unfs_list[i], performance_list[i],
+                            permutations=True, base_model=False)
+        else:
+            fair_arrow_plot(unfs_list[i], performance_list[i], permutations=True,
+                            base_model=False, final_model=False)
+    
+    return ax
+
+
+# by hand for the moment
+
+unfs_list[1]['sens_var_1'] = 0.010359319002628736
+perf_list[1]['sens_var_1'] = 0.24417009602194786
+
+```
+```{python}
+#| code-fold: false
+#| label: fair-arrow-plot
+#| fig-cap: "Fairness-performance combinations visualized step by step."
+
+_fair_customized_arrow_plot(unfs_list, perf_list)
+plt.show()
+
+```
+
+We observe that both performance and unfairness metrics remain consistent when transitioning from `gender` fairness to both `gender` and `Age` fairness, as well as from `Age` fairness to both `Age` and `gender` fairness. This consistency underscores that the order in which fairness criteria are applied does not impact the outcome, highlighting the robustness of the fairness adjustments regardless of the sequence in which sensitive attributes are considered.
+
+## Waterfall Plot
+
+```{python}
+#| code-fold: true
+#| code-summary: Waterfall Plot for Sequential Fairness Gains Function
+#| label: "waterfall"
+
+def _set_colors(substraction_list: list[float]) -> list[str]:
+    """
+    Assign colors to bars based on the values in the subtraction_list.
+
+    Parameters
+    ----------
+    subtraction_list : list
+        A list of numerical values representing the differences between two sets.
+
+    Returns
+    -------
+    list
+        A list of color codes corresponding to each value in subtraction_list.
+
+    Notes
+    -----
+    - The color 'tab:orange' is assigned to positive values,
+      'tab:green' to non-positive values, and 'tab:grey' to the first and last positions.
+    """
+
+    bar_colors = ['tab:grey']
+    for i in range(1, len(substraction_list)-1):
+        if substraction_list[i] > 0:
+            bar_colors.append('tab:orange')
+        else:
+            bar_colors.append('tab:green')
+    bar_colors.append('tab:grey')
+
+    return bar_colors
+
+
+def _add_bar_labels(values: list[float], pps: list[plt.bar], ax: plt.Axes) -> plt.Axes:
+    """
+    Add labels to the top of each bar in a bar plot.
+
+    Parameters
+    ----------
+    values : list
+        A list of numerical values representing the heights of the bars.
+    pps : list
+        A list of bar objects returned by the bar plot.
+    ax : matplotlib.axes.Axes
+        The Axes on which the bars are plotted.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        Text object representing the labels added to the top of each bar in the plot.
+    """
+
+    true_values = values + (values[-1],)
+
+    for i, p in enumerate(pps):
+        height = true_values[i]
+        ax.annotate('{}'.format(height),
+                    xy=(p.get_x() + p.get_width() / 2, height),
+                    xytext=(0, 3),
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+    return ax
+
+
+def _add_doted_points(ax: plt.Axes, values: np.ndarray) -> plt.Axes:
+    """
+    Add dotted lines at the top of each bar in a bar plot.
+
+    Parameters
+    ----------
+    ax : numpy.ndarray
+        The Axes on which the bars are plotted.
+
+    values : numpy.ndarray
+        An array of numerical values representing the heights of the bars.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        The dotted lines at the top of each bar in a bar plot
+
+    This function adds dotted lines at the top of each bar in a bar plot, corresponding to the height values.
+
+    Examples
+    --------
+    >>> import matplotlib.pyplot as plt
+    >>> fig, ax = plt.subplots()
+    >>> values = np.array([10, 15, 7, 12, 8])
+    >>> add_dotted_lines(ax, values)
+    >>> plt.show()
+    """
+    for i, v in enumerate(values):
+        ax.plot([i+0.25, i+1.25], [v, v],
+                linestyle='--', linewidth=1.5, c='grey')
+    return ax
+
+
+def _add_legend(pps: list[plt.bar], distance: Union[np.ndarray, list], hatch: bool = False) -> list[plt.bar]:
+    """
+    Add legend labels to the bar plot based on the distances.
+
+    Parameters
+    ----------
+    pps : List[plt.bar]
+        List of bar objects.
+    distance : np.ndarray or list
+        Array or list of numerical values representing distances.
+    hatch : bool, optional
+        If True, uses hatching for the legend labels. Defaults to False.
+
+    Returns
+    -------
+    List[plt.bar]
+        List of bar objects with legend labels added.
+    """
+    used_labels = set()
+    for i, bar in enumerate(pps):
+        if i == 0 or i == len(pps)-1:
+            continue
+
+        if hatch:
+            label = 'Net Loss (if exact)' if distance[i] < 0 else 'Net Gain (if exact)'
+        else:
+            label = 'Net Loss' if distance[i] < 0 else 'Net Gain'
+
+        if label not in used_labels:
+            bar.set_label(label)
+            used_labels.add(label)
+    return pps
+
+
+def _values_to_distance(values: list[float]) -> list[float]:
+    """
+    Convert a list of values to a list of distances between consecutive values.
+
+    Parameters
+    ----------
+    values : list
+        A list of numerical values.
+
+    Returns
+    -------
+    list
+        A list of distances between consecutive values.
+
+    Notes
+    -----
+    This function calculates the differences between consecutive values in the input list, returning a list
+    of distances. The last element in the list is the negation of the last value in the input list.
+    """
+    arr = np.array(values)
+    arr = arr[1:] - arr[:-1]
+    distance = list(arr) + [-values[-1]]
+    return distance
+
+
+def fair_waterfall_plot(unfs_exact: dict[str, np.ndarray], unfs_approx: Optional[dict[str, np.ndarray]] = None) -> plt.Axes:
+    """
+    Generate a waterfall plot illustrating the sequential fairness in a model.
+
+    Parameters
+    ----------
+    unfs_exact : dict
+        Dictionary containing fairness values for each step in the exact fairness scenario.
+    unfs_approx : dict, optional
+        Dictionary containing fairness values for each step in the approximate fairness scenario. Default is None.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        The Figure object representing the waterfall plot.
+
+    Notes
+    -----
+    The function creates a waterfall plot with bars representing the fairness values at each step.
+    If both exact and approximate fairness values are provided, bars are color-coded and labeled accordingly.
+    The legend is added to distinguish between different bars in the plot.
+    """
+
+    fig, ax = plt.subplots()
+
+    unfs_exact = {key: round(value, 4) for key, value in unfs_exact.items()}
+    if unfs_approx is not None:
+        unfs_approx = {key: round(value, 4) for key, value in unfs_approx.items()}
+
+    sens = [int(''.join(re.findall(r'\d+', key))) for key in list(unfs_exact.keys())[1:]]
+
+    labels = []
+    for i in range(len(list(unfs_exact.keys())[1:])):
+        if i == 0: 
+            labels.append(f"$A_{sens[i]}$-fair")
+        elif i == len(list(unfs_exact.keys())[1:])-1: 
+            labels.append(f"$A_{1}$" + r"$_:$" + f"$_{sens[i]}$-fair")
+        else:
+            labels.append(f"$A_{{{','.join(map(str, sens[0:i+1]))}}}$-fair")
+
+    leg = ('Base model',) + tuple(labels) + ('Final model',)
+    base_exact = list(unfs_exact.values())
+    values_exact = [0] + base_exact
+    distance_exact = _values_to_distance(values_exact)
+
+    if unfs_approx is not None:
+
+        base_approx = list(unfs_approx.values())
+        values_approx = [0] + base_approx
+        distance_approx = _values_to_distance(values_approx)
+
+        # waterfall for gray hashed color
+        direction = np.array(distance_exact) > 0
+
+        values_grey = np.zeros(len(values_exact))
+        values_grey[direction] = np.array(values_approx)[direction]
+        values_grey[~direction] = np.array(values_exact)[~direction]
+
+        distance_grey = np.zeros(len(values_exact))
+        distance_grey[direction] = np.array(
+            values_exact)[direction] - np.array(values_approx)[direction]
+        distance_grey[~direction] = np.array(
+            values_approx)[~direction] - np.array(values_exact)[~direction]
+
+        # waterfall for exact fairness
+        pps0 = ax.bar(leg, distance_exact, color='w', edgecolor=_set_colors(
+            distance_exact), bottom=values_exact, hatch='//')
+
+        _add_legend(pps0, distance_exact, hatch=True)
+
+        ax.bar(leg, distance_grey, color='w', edgecolor="grey",
+               bottom=values_grey, hatch='//', label='Remains')
+
+        # waterfall for approx. fairness
+        pps = ax.bar(leg, distance_approx, color=_set_colors(
+            distance_approx), edgecolor='k', bottom=values_approx, label='Baseline')
+        _add_legend(pps, distance_approx)
+
+    else:
+        # waterfall for exact fairness
+        pps = ax.bar(leg, distance_exact, color=_set_colors(
+            distance_exact), edgecolor='k', bottom=values_exact, label='Baseline')
+        _add_legend(pps, distance_exact)
+
+    fig.legend(loc='upper center', bbox_to_anchor=(
+        0.5, 0), ncol=3, fancybox=True)
+
+    _add_bar_labels(tuple(base_exact)
+                    if unfs_approx is None else tuple(base_approx), pps, ax)
+    _add_doted_points(ax, tuple(base_exact)
+                      if unfs_approx is None else tuple(base_approx))
+    ax.set_ylabel(f'Unfairness of the model')
+    #ax.set_ylim(0, 1.1)
+    ax.set_ylim(0,  np.max(list(unfs_exact.values()))+np.max(list(unfs_exact.values()))/10 if unfs_approx is None 
+                else np.max(list(unfs_exact.values(), unfs_approx.values()))+np.max(list(unfs_exact.values(), unfs_approx.values()))/10)
+    ax.set_title(
+        f'Sequential ({"exact" if unfs_approx is None else "approximate"}) fairness')
+    plt.show()
+    return ax
+
+```
+
+```{python}
+#| code-fold: false
+#| fig-cap: "Waterfall plot representing sequential gains in fairness."
+#| label: "waterfall-plot"
+
+fair_waterfall_plot(unfs_exact = unfs_list[0])
+```
+This graph illustrates the incremental gains in fairness achieved at each step of the process. Each successive step demonstrates how the applied adjustments contribute to reducing bias, showcasing the cumulative effect of the fairness interventions throughout the process.
+:::
+# References
+
+::: {#refs}
+:::
+
+# See also
+
+::: justify
+For additional datasets with similar occurrence structures, see 
+[`credit`](https://dutangc.github.io/CASdatasets/reference/credit.html)
+(import with `data("credit")`): German Credit dataset,
+or [`uslapseagent`](https://dutangc.github.io/CASdatasets/reference/uslapseagent.html):
+United States lapse dataset from tied-agent channel (import with `data("uslapseagent")`),
+:::

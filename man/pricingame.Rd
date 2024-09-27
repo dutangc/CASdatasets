@@ -249,7 +249,7 @@ data(pg17testyear4)
 }
 
 
-The bonus/malus system is compulsary in France, but we will only use it here as a possible feature. The coefficient is attached to the driver. It starts at 1 for young drivers (i.e. first year of insurance). Then, every year without claim, the bonus decreases by 5 percent until it reaches its minimum of 0.5. Without any claim, the bonus evolution would then be : 1 \eqn{->} 0.95 \eqn{->} 0.9 \eqn{->} 0.85 \eqn{->} 0.8 \eqn{->} 0.76 \eqn{->} 0.72 \eqn{->} 0.68 \eqn{->} 0.64 \eqn{->} 0.6 \eqn{->} 0.57 \eqn{->} 0.54 \eqn{->} 0.51 \eqn{->} 0.5.
+The bonus/malus system is compulsory in France, but we will only use it here as a possible feature. The coefficient is attached to the driver. It starts at 1 for young drivers (i.e. first year of insurance). Then, every year without claim, the bonus decreases by 5 percent until it reaches its minimum of 0.5. Without any claim, the bonus evolution would then be : 1 \eqn{->} 0.95 \eqn{->} 0.9 \eqn{->} 0.85 \eqn{->} 0.8 \eqn{->} 0.76 \eqn{->} 0.72 \eqn{->} 0.68 \eqn{->} 0.64 \eqn{->} 0.6 \eqn{->} 0.57 \eqn{->} 0.54 \eqn{->} 0.51 \eqn{->} 0.5.
 Every time the driver causes a claim (only certain types of claims are taken into account), the coefficient increases by 25 percent, with a maximum of 3.5. Thus, the range of bonus/malus coefficient extends from 0.5 to 3.5 in the datasets.
 
 }
