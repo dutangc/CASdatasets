@@ -1,13 +1,15 @@
 pandoc: 3.1.11
-pkgdown: 2.1.0
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
+  calibration_metrics_vignette: calibration_metrics_vignette.html
   CASdatasets: CASdatasets.html
   gam_rc_phileas_vignette: gam_rc_phileas_vignette.html
+  mortality_vignette: mortality_vignette.html
   poisson_vignette: poisson_vignette.html
   quasi_poisson_vignette_ausprivauto0405: quasi_poisson_vignette_ausprivauto0405.html
   triangle_aids_vignette: triangle_aids_vignette.html
   triangle_vignette: triangle_vignette.html
   zero_inflated_vignette_freMTPL: zero_inflated_vignette_freMTPL.html
   zero_inflated_vignette: zero_inflated_vignette.html
-last_built: 2024-09-17T13:49Z
+last_built: 2024-10-09T19:49Z

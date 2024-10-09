@@ -84,6 +84,8 @@ four test datasets used for the pricing game: each has 100,000 rows of new polic
     <li><a class="dropdown-item" href="../articles/zero_inflated_vignette_freMTPL.html">Frequency analysis with a Zero Inflated Regression of a French Motor Third Party Liability dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_vignette.html">Claims reserving of a French Motor Third Party Liability triangle dataset</a></li>
     <li><a class="dropdown-item" href="../articles/triangle_aids_vignette.html">Reserving exercice on reporting delays in AIDS Data</a></li>
+    <li><a class="dropdown-item" href="../articles/mortality_vignette.html">Mortality Table Analysis in Actuarial Science: A Study on French Mortality Data</a></li>
+    <li><a class="dropdown-item" href="../articles/calibration_metrics_vignette.html">Calibration Metrics for Random Forest and Generalized Linear Model Using French Insurance Data</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -475,7 +477,7 @@ four test datasets used for the pricing game: each has 100,000 rows of new polic
 
 
 
-</dl><p>The bonus/malus system is compulsary in France, but we will only use it here as a possible feature. The coefficient is attached to the driver. It starts at 1 for young drivers (i.e. first year of insurance). Then, every year without claim, the bonus decreases by 5 percent until it reaches its minimum of 0.5. Without any claim, the bonus evolution would then be : 1 \(-&gt;\) 0.95 \(-&gt;\) 0.9 \(-&gt;\) 0.85 \(-&gt;\) 0.8 \(-&gt;\) 0.76 \(-&gt;\) 0.72 \(-&gt;\) 0.68 \(-&gt;\) 0.64 \(-&gt;\) 0.6 \(-&gt;\) 0.57 \(-&gt;\) 0.54 \(-&gt;\) 0.51 \(-&gt;\) 0.5.
+</dl><p>The bonus/malus system is compulsory in France, but we will only use it here as a possible feature. The coefficient is attached to the driver. It starts at 1 for young drivers (i.e. first year of insurance). Then, every year without claim, the bonus decreases by 5 percent until it reaches its minimum of 0.5. Without any claim, the bonus evolution would then be : 1 \(-&gt;\) 0.95 \(-&gt;\) 0.9 \(-&gt;\) 0.85 \(-&gt;\) 0.8 \(-&gt;\) 0.76 \(-&gt;\) 0.72 \(-&gt;\) 0.68 \(-&gt;\) 0.64 \(-&gt;\) 0.6 \(-&gt;\) 0.57 \(-&gt;\) 0.54 \(-&gt;\) 0.51 \(-&gt;\) 0.5.
 Every time the driver causes a claim (only certain types of claims are taken into account), the coefficient increases by 25 percent, with a maximum of 3.5. Thus, the range of bonus/malus coefficient extends from 0.5 to 3.5 in the datasets.</p>
     </div>
     <div class="section level2">
@@ -523,7 +525,7 @@ Every time the driver causes a claim (only certain types of claims are taken int
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>

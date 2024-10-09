@@ -1,8 +1,10 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>/404.html</loc></url>
 <url><loc>/articles/CASdatasets.html</loc></url>
+<url><loc>/articles/calibration_metrics_vignette.html</loc></url>
 <url><loc>/articles/gam_rc_phileas_vignette.html</loc></url>
 <url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/mortality_vignette.html</loc></url>
 <url><loc>/articles/poisson_vignette.html</loc></url>
 <url><loc>/articles/quasi_poisson_vignette_ausprivauto0405.html</loc></url>
 <url><loc>/articles/triangle_aids_vignette.html</loc></url>
