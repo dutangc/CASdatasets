@@ -287,14 +287,11 @@ articles:
   contents:
    - triangle_vignette
    - triangle_aids_vignette
-- title: Life insurance -- use cases of mortality modeling
+- title: Other use cases
   navbar: ~
   contents:
    - mortality_vignette
-- title: Fairness analysis
-  navbar: ~
-  contents:
-   - insur_fair_vignette_rf
+   - calibration_metrics_vignette
 
 toc:
   number_sections: yes
