@@ -10,6 +10,7 @@ Current version for development.
 - New datasets have been added (see below).
 - Add quarto vignettes with detailed use cases thanks to Julien. One vignette use Python with the following packages equipy, pandas, numpy, sklearn, seaborn, matplotlib, typing.
 - The package has been uploaded on the [French research data repository](https://entrepot.recherche.data.gouv.fr) and obtained a DOI : [10.57745/P0KHAG](https://doi.org/10.57745/P0KHAG).
+- There is a new repository for the package at https://freakonometrics.github.io/CASdatasets/
 
 ## Datasets lists
 

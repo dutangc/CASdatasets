@@ -21,9 +21,9 @@ Please make sure that [xts](https://CRAN.R-project.org/package=xts), [zoo](https
 
 To get the current released version please visit one of the three servers
 
-- [UQAM](http://cas.uqam.ca/),
 - [CNRS](http://dutangc.perso.math.cnrs.fr/RRepository/),
-- [website](http://dutangc.free.fr/pub/RRepos/).
+- [freakonometrics](https://freakonometrics.github.io/CASdatasets/),
+- [free website](http://dutangc.free.fr/pub/RRepos/).
 
 Alternatively, you can use
 
@@ -31,8 +31,6 @@ Alternatively, you can use
 install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/", type="source")
 #or 
 install.packages("CASdatasets", repos = "http://dutangc.perso.math.cnrs.fr/RRepository/", type="source")
-#or
-install.packages("CASdatasets", repos = "http://cas.uqam.ca/pub/R/", type="source")
 library(CASdatasets)
 ```
 
