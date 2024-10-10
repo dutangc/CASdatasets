@@ -34,8 +34,7 @@ install.packages("CASdatasets", repos = "http://dutangc.perso.math.cnrs.fr/RRepo
 library(CASdatasets)
 ```
 
-To get the current development version from github, you may try (or 
-downloading the source file from this repository).
+To get the current development version from github, you may use
 
 ``` r
 install.packages("devtools")
