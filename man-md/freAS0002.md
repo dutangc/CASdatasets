@@ -14,7 +14,7 @@ The `freTGH05` (resp. `freTGF05`) table has been established based on 19 portfol
 
 `freHMD` is a subset of the French mortality dataset available on [https://mortality.org/](https://mortality.org/)
 
-in order to build the vignette. This dataset is not intended to be used directly. `freHMD` is an object of class `"demogdata"` from package `demography` by Hyndman (2023).
+in order to build the mortality vignette. This dataset is not intended to be used directly. `freHMD` is an object of class `"demogdata"` provided by the package `demography` by Hyndman (2023).
 
 ```r
 data(frePM6064)

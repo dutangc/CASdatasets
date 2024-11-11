@@ -1,8 +1,17 @@
+# CASdatasets 1.2-1
+
+Current version for development.
+
+List of **new datasets** is below
+
+- `freIRSA.rda`			2024/11/11	239B
+
+
 # CASdatasets 1.2-0
 
 ## Main info 
 
-Current version for development.
+Current released version.
 
 - **Remove dependency** on `sp` package as the package does not contain any geographical datasets. 
 - All **Geographical datasets** have been put in the extra directory `geodata/` of this repository.

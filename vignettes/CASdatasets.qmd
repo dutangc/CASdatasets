@@ -10,6 +10,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+ 
 This package contains aggregated and policy-level datasets. Below a list by country
 or region is given.
  
@@ -67,7 +68,7 @@ or region is given.
   
 -  European Union: 
     
-     - [`eutelematic13`](https://dutangc.github.io/CASdatasets/reference/eutelematic13.html): telematic insurance dataset.
+       - [`eutelematic13`](https://dutangc.github.io/CASdatasets/reference/eutelematic13.html): telematic insurance dataset.
      - [`eudirectlapse`](https://dutangc.github.io/CASdatasets/reference/eudirectlapse.html): non-life insurance lapse dataset.
      - [`euhealthinsurance`](https://dutangc.github.io/CASdatasets/reference/euhealthinsurance.html): European health insurance dataset.
      - [`euMTPL`](https://dutangc.github.io/CASdatasets/reference/euMTPL.html): European motor TPL insurance dataset.
@@ -79,6 +80,7 @@ or region is given.
      - [`freclaimset`](https://dutangc.github.io/CASdatasets/reference/freclaimset.html), [`freclaimset9207`](https://dutangc.github.io/CASdatasets/reference/freclaimset9207.html): French claim settlements.
      - [`frecomfire`](https://dutangc.github.io/CASdatasets/reference/frecomfire.html): French commercial fire losses.
      - [`freDisTables`](https://dutangc.github.io/CASdatasets/reference/fredistables.html): French disability tables.
+     - [`freIRSA`](https://dutangc.github.io/CASdatasets/reference/freIRSA.html): French IRSA convention.
      - [`fremarine`](https://dutangc.github.io/CASdatasets/reference/fremarine.html): French marine claim dataset (by policy).
      - [`freMortTables`](https://dutangc.github.io/CASdatasets/reference/fremorttables.html): French mortality tables.
      - [`fremotorclaim`](https://dutangc.github.io/CASdatasets/reference/fremotorclaim.html): French private motor claim datasets (by policy).

@@ -23,6 +23,7 @@ To get the current released version please visit one of the three servers
 
 - [CNRS](http://dutangc.perso.math.cnrs.fr/RRepository/),
 - [freakonometrics](https://freakonometrics.github.io/CASdatasets/),
+- [UQAM](https://cas.uqam.ca/),
 - [free website](http://dutangc.free.fr/pub/RRepos/).
 
 Alternatively, you can use
@@ -31,6 +32,8 @@ Alternatively, you can use
 install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/", type="source")
 #or 
 install.packages("CASdatasets", repos = "http://dutangc.perso.math.cnrs.fr/RRepository/", type="source")
+#or 
+install.packages("CASdatasets", repos = "https://cas.uqam.ca/pub/", type="source")
 library(CASdatasets)
 ```
 

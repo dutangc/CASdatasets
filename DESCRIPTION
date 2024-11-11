@@ -1,7 +1,7 @@
 Package: CASdatasets
 Type: Package
 Title: Insurance Datasets
-Version: 1.2-0
+Version: 1.2-1
 Authors@R: c(person("Christophe", "Dutang", role = c("aut", "cre"), email = "dutangc@gmail.com", comment = c(ORCID = "0000-0001-6732-1501")),
              person("Arthur", "Charpentier", role = c("aut"), comment = c(ORCID = "0000-0003-3654-6286")),
              person("Ewen", "Gallic", role = c("ctb"), comment = c(ORCID = "0000-0003-3740-2620")),
@@ -19,7 +19,7 @@ Suggests: sp, sf, knitr, kableExtra, quarto, rmarkdown,
   ggplot2, glmnet, locfit, MASS, mgcv, pscl, rainbow, ranger,
   RColorBrewer, splines, tidyr, tidyverse, wesanderson
 License: GPL (>= 2)
-URL: https://dutangc.github.io/CASdatasets/, http://dutangc.free.fr/pub/RRepos/, https://freakonometrics.github.io/CASdatasets/, http://dutangc.perso.math.cnrs.fr/RRepository/
+URL: https://dutangc.github.io/CASdatasets/, http://dutangc.free.fr/pub/RRepos/, https://freakonometrics.github.io/CASdatasets/, http://dutangc.perso.math.cnrs.fr/RRepository/, https://cas.uqam.ca/
 BugReports: https://github.com/dutangc/CASdatasets/issues
 NeedsCompilation: no
 VignetteBuilder: quarto
