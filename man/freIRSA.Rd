@@ -14,13 +14,7 @@ small claims (under the claim cap).
 }
 
 \usage{
-data(freMTPLfreq)
-data(freMTPLsev)
-
-data(freMTPL2freq)
-data(freMTPL2sev)
-
-
+data(freIRSA)
 }
 
 \format{

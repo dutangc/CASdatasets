@@ -68,7 +68,7 @@ or region is given.
   
 -  European Union: 
     
-       - [`eutelematic13`](https://dutangc.github.io/CASdatasets/reference/eutelematic13.html): telematic insurance dataset.
+     - [`eutelematic13`](https://dutangc.github.io/CASdatasets/reference/eutelematic13.html): telematic insurance dataset.
      - [`eudirectlapse`](https://dutangc.github.io/CASdatasets/reference/eudirectlapse.html): non-life insurance lapse dataset.
      - [`euhealthinsurance`](https://dutangc.github.io/CASdatasets/reference/euhealthinsurance.html): European health insurance dataset.
      - [`euMTPL`](https://dutangc.github.io/CASdatasets/reference/euMTPL.html): European motor TPL insurance dataset.
