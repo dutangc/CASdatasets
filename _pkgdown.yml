@@ -280,7 +280,7 @@ articles:
   contents:
    - poisson_vignette
    - quasi_poisson_vignette_ausprivauto0405
-   - gam_rc_phileas_vignette
+   - gam_rc_belgian_vignette
    - zero_inflated_vignette
    - zero_inflated_vignette_freMTPL
 - title: Non-life insurance -- use cases of claim reserving
