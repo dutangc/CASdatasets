@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   calibration_metrics_vignette: calibration_metrics_vignette.html
   CASdatasets: CASdatasets.html
-  gam_rc_phileas_vignette: gam_rc_phileas_vignette.html
+  gam_rc_belgian_vignette: gam_rc_belgian_vignette.html
   mortality_vignette: mortality_vignette.html
   poisson_vignette: poisson_vignette.html
   quasi_poisson_vignette_ausprivauto0405: quasi_poisson_vignette_ausprivauto0405.html
@@ -12,4 +12,4 @@ articles:
   triangle_vignette: triangle_vignette.html
   zero_inflated_vignette_freMTPL: zero_inflated_vignette_freMTPL.html
   zero_inflated_vignette: zero_inflated_vignette.html
-last_built: 2024-11-11T21:30Z
+last_built: 2024-11-22T07:13Z
