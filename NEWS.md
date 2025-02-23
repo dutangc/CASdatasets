@@ -6,6 +6,11 @@ List of **new datasets** is below
 
 - `freIRSA.rda`			2024/11/11	239B
 
+Updated **datasets**
+
+- `ausautoBI8999.rda`		2025/02/21	297.59kB
+
+Bug fix in CITATION file
 
 # CASdatasets 1.2-0
 
