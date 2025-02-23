@@ -68,7 +68,7 @@
       <h1>Frequency analysis of a Norwegian Motor Third Party Liability dataset</h1>
 
       <p class="author">Siharath Julien</p>
-      <p class="date">2024-11-01</p>
+      <p class="date">2025-02-01</p>
 
       <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/master/vignettes/zero_inflated_vignette.qmd" class="external-link"><code>vignettes/zero_inflated_vignette.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
@@ -348,19 +348,19 @@ Pearson residuals:
 Count model coefficients (negbin with log link):
                         Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)              -2.4734     0.2770   -8.93  &lt; 2e-16 ***
-Young                     0.1483     0.0528    2.81   0.0049 **
+Young                     0.1483     0.0528    2.81    0.005 **
 Male                     -0.6596     0.1249   -5.28  1.3e-07 ***
-DistLimit12000 km         0.0944     0.0824    1.15   0.2519
-DistLimit16000 km         0.1929     0.0908    2.13   0.0335 *
+DistLimit12000 km         0.0944     0.0824    1.15    0.252
+DistLimit16000 km         0.1929     0.0908    2.13    0.034 *
 DistLimit20000 km         0.4508     0.0761    5.92  3.2e-09 ***
 DistLimit25000-30000 km   0.5626     0.0732    7.69  1.5e-14 ***
 DistLimitno limit         0.7454     0.0682   10.94  &lt; 2e-16 ***
-GeoRegionLow+            -0.1212     0.3054   -0.40   0.6915
-GeoRegionMedium-         -0.0910     0.2429   -0.37   0.7080
-GeoRegionMedium+          0.0708     0.2286    0.31   0.7569
-GeoRegionHigh-           -0.0283     0.2397   -0.12   0.9061
-GeoRegionHigh+            0.2103     0.2363    0.89   0.3736
-Log(theta)               10.2954    54.3029    0.19   0.8496
+GeoRegionLow+            -0.1212     0.3054   -0.40    0.691
+GeoRegionMedium-         -0.0910     0.2429   -0.37    0.708
+GeoRegionMedium+          0.0708     0.2286    0.31    0.757
+GeoRegionHigh-           -0.0283     0.2397   -0.12    0.906
+GeoRegionHigh+            0.2103     0.2363    0.89    0.374
+Log(theta)               10.2957    88.5665    0.12    0.907
 
 Zero-inflation model coefficients (binomial with logit link):
                         Estimate Std. Error z value Pr(&gt;|z|)
@@ -368,19 +368,19 @@ Zero-inflation model coefficients (binomial with logit link):
 Young                      1.685      0.903    1.87   0.0620 .
 Male                      -2.187      0.750   -2.92   0.0035 **
 DistLimit12000 km         -1.260      1.746   -0.72   0.4705
-DistLimit16000 km        -17.753   2531.837   -0.01   0.9944
+DistLimit16000 km        -17.754   2533.350   -0.01   0.9944
 DistLimit20000 km         -0.031      0.881   -0.04   0.9719
 DistLimit25000-30000 km   -0.738      0.920   -0.80   0.4224
 DistLimitno limit         -0.706      0.774   -0.91   0.3617
-GeoRegionLow+              0.315      1.742    0.18   0.8564
-GeoRegionMedium-         -12.684    175.754   -0.07   0.9425
+GeoRegionLow+              0.315      1.742    0.18   0.8565
+GeoRegionMedium-         -12.684    175.812   -0.07   0.9425
 GeoRegionMedium+          -0.521      1.314   -0.40   0.6919
 GeoRegionHigh-            -3.876      3.356   -1.15   0.2481
 GeoRegionHigh+            -2.660      1.738   -1.53   0.1259
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Theta = 29594.892
+Theta = 29603.975
 Number of iterations in BFGS optimization: 111
 Log-likelihood: -1.83e+04 on 27 Df</code></pre>
 </div>
@@ -554,9 +554,9 @@ Table 2: Coefficients for the Count model
 <tr class="even">
 <td style="text-align: left;">Log(theta)</td>
 <td style="text-align: right;">10.30</td>
-<td style="text-align: right;">54.30</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">88.57</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.91</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -716,7 +716,7 @@ Table 3: Count Ratio and confidence intervals for the Count model
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
-<tfoot><tr class="even">
+<tfoot><tr class="odd">
 <td style="text-align: left; padding: 0; border: 0;">
 <sup></sup> Significance levels: *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05, . p &lt; 0.1</td>
 <td style="text-align: right;"></td>
@@ -813,7 +813,7 @@ Table 4: Coefficients for the Zero model
 <tr class="odd">
 <td style="text-align: left;">DistLimit16000 km</td>
 <td style="text-align: right;">-17.75</td>
-<td style="text-align: right;">2531.84</td>
+<td style="text-align: right;">2533.35</td>
 <td style="text-align: right;">-0.01</td>
 <td style="text-align: right;">0.99</td>
 <td style="text-align: left;"></td>
@@ -853,7 +853,7 @@ Table 4: Coefficients for the Zero model
 <tr class="even">
 <td style="text-align: left;">GeoRegionMedium-</td>
 <td style="text-align: right;">-12.68</td>
-<td style="text-align: right;">175.75</td>
+<td style="text-align: right;">175.81</td>
 <td style="text-align: right;">-0.07</td>
 <td style="text-align: right;">0.94</td>
 <td style="text-align: left;"></td>
@@ -883,7 +883,7 @@ Table 4: Coefficients for the Zero model
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
-<tfoot><tr class="even">
+<tfoot><tr class="odd">
 <td style="text-align: left; padding: 0; border: 0;">
 <sup></sup> Significance levels : *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</td>
 <td style="text-align: right;"></td>
@@ -1007,7 +1007,7 @@ Table 5: Count-Ratio and Confidence intervals for the Zero model
 <td style="text-align: left;">GeoRegionMedium-</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.2e+144</td>
+<td style="text-align: right;">1.4e+144</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
