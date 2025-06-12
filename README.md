@@ -29,9 +29,9 @@ To get the current released version please visit one of the three servers
 Alternatively, you can use
 
 ``` r
-install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/", type="source")
+install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/pub/", type="source")
 #or 
-install.packages("CASdatasets", repos = "http://dutangc.perso.math.cnrs.fr/RRepository/", type="source")
+install.packages("CASdatasets", repos = "https://dutangc.perso.math.cnrs.fr/RRepository/pub/", type="source")
 #or 
 install.packages("CASdatasets", repos = "https://cas.uqam.ca/pub/", type="source")
 library(CASdatasets)
