@@ -1,5 +1,12 @@
 # CASdatasets 1.2-1
 
+## Main info 
+
+- Bug fix in CITATION file
+- Remove duplicated rows in `freMPL*.rda` files (around 9995 rows for each file)
+
+## Datasets lists
+
 Current version for development.
 
 List of **new datasets** is below
@@ -9,8 +16,18 @@ List of **new datasets** is below
 Updated **datasets**
 
 - `ausautoBI8999.rda`		2025/02/21	297.59kB
+- `freMPL1.rda`			2026/04/10	306.14kB
+- `freMPL10.rda`			2026/04/10	277.65kB
+- `freMPL2.rda`			2026/04/10	519.94kB
+- `freMPL3.rda`			2026/04/10	293.15kB
+- `freMPL4.rda`			2026/04/10	368.05kB
+- `freMPL5.rda`			2026/04/10	199.96kB
+- `freMPL6.rda`			2026/04/10	377.15kB
+- `freMPL7.rda`			2026/04/10	319.2kB
+- `freMPL8.rda`			2026/04/10	283.25kB
+- `freMPL9.rda`			2026/04/10	186.36kB
 
-Bug fix in CITATION file
+
 
 # CASdatasets 1.2-0
 

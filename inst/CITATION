@@ -3,14 +3,14 @@ citHeader("To cite CASdatasets in publications use:")
 p1 <- person("Christophe", "Dutang", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6732-1501"))
 p2 <- person("Arthur", "Charpentier", role = c("aut"), comment = c(ORCID = "0000-0003-3654-6286"))
 
-year <- 2025
+year <- 2026
 note <- sprintf("R package version %s", meta$Version)
 
 
 bibentry(bibtype="Manual",
          title = "CASdatasets: Insurance datasets",
          author = c(p1, p2),
-	       year = year,
+         year = year,
          note = note,
          doi = "10.57745/P0KHAG",
          textVersion =
@@ -23,4 +23,5 @@ bibentry(bibtype = "Book",
          author = p2,
          publisher= "CRC press",
          url = "https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788",
-	       year = "2014")
+         year = "2014")
+

@@ -169,16 +169,55 @@ For the French career categories, see \url{https://fr.wikipedia.org/wiki/Profess
 # (1) load of data
 #
 data(freMPL1)
-data(freMPL1sub)
-data(freMPL2)
-data(freMPL3)
-data(freMPL4)
-data(freMPL5)
-data(freMPL6)
-data(freMPL7)
-data(freMPL8)
-data(freMPL9)
-data(freMPL10)
+
+# (2) some graphics about the risk category
+#
+barplot(tapply(freMPL1$ClaimInd, freMPL1$RiskVar, mean), xlab="RiskVar", ylab="ClaimInd")
+abline(h=mean( freMPL1$ClaimInd))
+
+freMPL1pos <- subset(freMPL1, ClaimAmount>0)
+barplot(tapply(freMPL1pos$ClaimAmount, freMPL1pos$RiskVar, mean), 
+        xlab="RiskVar", ylab="ClaimAmount")
+abline(h=mean(freMPL1pos$ClaimAmount))
+
+
+barplot(proportions(table(5*round(freMPL1$LicAge/60), freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(17), xlab="RiskVar", main="LicAge (year)", xlim=c(1, 30))
+legend("right", fill=rainbow(17), legend=sort(unique(5*round(freMPL1$LicAge/60))), cex=0.8)
+
+barplot(proportions(table(round(freMPL1$BonusMalus, -1), freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(16), xlab="RiskVar", main="BonusMalus", xlim=c(1, 30))
+legend("right", fill=rainbow(16), legend=sort(unique(round(freMPL1$BonusMalus, -1))), cex=0.8)
+
+barplot(proportions(table(substr(freMPL1$SocioCateg, 1, 4), freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(8), xlab="RiskVar", main="Social profesionnal category", xlim=c(1, 30))
+legend("right", fill=rainbow(8), legend=sort(unique(substr(freMPL1$SocioCateg, 1, 4))))
+
+
+
+barplot(proportions(table(freMPL1$VehAge, freMPL1$RiskVar), 2), beside = FALSE, col=rainbow(9), 
+        xlab="RiskVar", main="VehAge", ylim=c(0, 1), xlim=c(1, 30))
+legend("right", fill=rainbow(9), legend=sort(unique(freMPL1$VehAge)))
+
+barplot(proportions(table(freMPL1$VehBody, freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(9), xlab="RiskVar", main="VehBody", ylim=0:1, xlim=c(1, 30))
+legend("right", fill=rainbow(9), legend=sort(unique(freMPL1$VehBody)), cex=0.8)
+
+barplot(proportions(table(freMPL1$VehPrice, freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(27), xlab="RiskVar", main="VehPrice", xlim=c(1, 30))
+legend("right", fill=rainbow(27), legend=sort(unique(freMPL1$VehPrice)), cex=0.8)
+
+barplot(proportions(table(freMPL1$VehMaxSpeed, freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(10), xlab="RiskVar", main="VehMaxSpeed", xlim=c(1, 30))
+legend("right", fill=rainbow(10), legend=sort(unique(freMPL1$VehMaxSpeed)), cex=0.8)
+
+barplot(proportions(table(freMPL1$VehUsage, freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(4), xlab="RiskVar", main="VehUsage", xlim=c(1, 30))
+legend("right", fill=rainbow(4), legend=sort(unique(freMPL1$VehUsage)), cex=0.8)
+
+barplot(proportions(table(freMPL1$VehClass, freMPL1$RiskVar), 2), beside = FALSE, 
+        col=rainbow(6), xlab="RiskVar", main="VehClass", xlim=c(1, 27))
+legend("right", fill=rainbow(6), legend=sort(unique(freMPL1$VehClass)), cex=0.8)
 
 
 }
