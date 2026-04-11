@@ -68,7 +68,7 @@
       <h1>Frequency analysis of an Australian Motor Third Party Liability dataset</h1>
 
       <p class="author">Siharath Julien</p>
-      <p class="date">June, 2025</p>
+      <p class="date">April, 2026</p>
 
       <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/master/vignettes/quasi_poisson_vignette_ausprivauto0405.qmd" class="external-link"><code>vignettes/quasi_poisson_vignette_ausprivauto0405.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
@@ -274,14 +274,14 @@ Table 1: Content of the <code>CLAIMS</code> dataset: ausprivauto0405
 <section class="level2"><h3 id="introduction-to-quasi-poisson-regression">Introduction to Quasi-Poisson Regression<a class="anchor" aria-label="anchor" href="#introduction-to-quasi-poisson-regression"></a>
 </h3>
 <p>To model the frequency of insurance claims, we employ a Quasi-Poisson regression approach. The response variable, <code>ClaimNb</code>, represents the count of insurance claims and is assumed to follow a Quasi-Poisson distribution:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNb</mtext><mo>∼</mo><mtext mathvariant="normal">QuasiPoisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNb</mtext><mo>∼</mo><mtext mathvariant="normal">QuasiPoisson</mtext><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \text{ClaimNb} \sim \text{QuasiPoisson}(\lambda),
 </annotation></semantics></math></p>
 <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is the mean rate of claims. Unlike the standard Poisson regression, the Quasi-Poisson model is particularly useful when the data exhibits overdispersion—meaning the variance of <code>ClaimNb</code> is greater than the mean. This model adjusts for this overdispersion, ensuring that the estimates of variance are accurate, leading to more reliable inferences.</p>
 </section><section class="level2"><h3 id="model-specification">Model Specification<a class="anchor" aria-label="anchor" href="#model-specification"></a>
 </h3>
 <p>The Quasi-Poisson regression model relates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> to a set of predictor variables and an additional term accounting for exposure through a logarithmic link function. The logarithmic link function ensures that the predicted rate of claims is always positive, as required by the Quasi-Poisson distribution. More precisely, the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is expressed as a linear combination of the predictors:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DrivAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">VehAge</mtext><mo>+</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DrivAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">VehAge</mtext><mo>+</mo><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \log(\lambda) = \beta_0 + \beta_1 \times \text{DrivAge} + \beta_2 \times \text{VehAge} + \log(\text{Exposure}),
 </annotation></semantics></math></p>
 </section><section class="level2"><h3 id="explanation-of-the-model-components">Explanation of the Model Components<a class="anchor" aria-label="anchor" href="#explanation-of-the-model-components"></a>
@@ -294,12 +294,12 @@ Table 1: Content of the <code>CLAIMS</code> dataset: ausprivauto0405
 <li>
 <strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math></strong>: The coefficient for <code>VehAge</code>, indicating the change in the log expected number of claims for each one-unit increase in the vehicle’s age.</li>
 <li>
-<strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\log(\text{Exposure})</annotation></semantics></math></strong>: An offset term to adjust for varying levels of exposure across observations. This could represent differences in policy duration, the amount of coverage, or other factors that influence the level of risk exposure.</li>
+<strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\log(\text{Exposure})</annotation></semantics></math></strong>: An offset term to adjust for varying levels of exposure across observations. This could represent differences in policy duration, the amount of coverage, or other factors that influence the level of risk exposure.</li>
 </ul>
 <section class="level3"><h4 id="addressing-overdispersion">Addressing Overdispersion<a class="anchor" aria-label="anchor" href="#addressing-overdispersion"></a>
 </h4>
 <p>In many real-world datasets, especially in insurance claims data, the variance often exceeds the mean, leading to overdispersion. The Quasi-Poisson model accounts for this by introducing a dispersion parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>, which scales the variance:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Var</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ϕ</mi><mo>⋅</mo><mi>λ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Var</mtext><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ϕ</mi><mo>⋅</mo><mi>λ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \text{Var}(Y) = \phi \cdot \lambda,
 </annotation></semantics></math></p>
 <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\phi &gt; 1</annotation></semantics></math> indicates the presence of overdispersion. This adjustment makes the model more robust and ensures that standard errors and confidence intervals are correctly estimated.</p>
@@ -442,7 +442,7 @@ Number of Fisher Scoring iterations: 6</code></pre>
 Table 2: Coefficients
 </figcaption><div aria-describedby="tbl-poisson-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
@@ -566,7 +566,7 @@ Table 2: Coefficients
 Table 3: Count Ratio
 </figcaption><div aria-describedby="tbl-poisson-count-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">names</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">x</th>
@@ -659,7 +659,7 @@ Table 3: Count Ratio
 Table 4: Confidence intervals
 </figcaption><div aria-describedby="tbl-poisson-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">2.5 %</th>
@@ -845,7 +845,7 @@ Figure 3: Count ratio and confidence interval of vehicle Age
 </div>
 </section><section class="section level2"><h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-agresti" class="csl-entry" role="listitem">
 Agresti, Alan. 2013. <em>Categorical Data Analysis, 3rd Edition</em>.
 </div>
@@ -951,7 +951,7 @@ Charpentier, Arthur. 2014. <em>Computational Actuarial Science with <span>R</spa
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

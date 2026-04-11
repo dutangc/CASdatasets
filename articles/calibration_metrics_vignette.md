@@ -1,0 +1,570 @@
+# Calibration Metrics for Random Forest and Generalized Linear Model Using French Insurance Data
+
+## Introduction
+
+Session Settings
+
+``` r
+# Graphs----
+face_text='plain'
+face_title='plain'
+size_title = 14
+size_text = 11
+legend_size = 11
+
+global_theme <- function() {
+  theme_minimal() %+replace%
+    theme(
+      text = element_text(size = size_text, face = face_text),
+      legend.position = "bottom",
+      legend.direction = "horizontal", 
+      legend.box = "vertical",
+      legend.key = element_blank(),
+      legend.text = element_text(size = legend_size),
+      axis.text = element_text(size = size_text, face = face_text), 
+      plot.title = element_text(
+        size = size_title, 
+        hjust = 0.5
+      ),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+}
+
+# Outputs
+options("digits" = 2)
+```
+
+> **In Brief**
+>
+> This vignette presents a calibration analysis of predictive models
+> using the Brier score, Expected Calibration Error and reliability
+> diagrams. We will focus on two models: Generalized Linear Model (GLM)
+> and Random Forest, applied to the `freMTPLfreq` dataset from
+> CASdatasets. Our goal is to evaluate how well these models are
+> calibrated by comparing the predicted probabilities against actual
+> outcomes in an insurance dataset.
+
+### Required Packages
+
+``` r
+# R package required to run Python code in a Quarto document
+
+required_R_libraries <- c(
+  "CASdatasets",
+  "tidyverse",
+  "ranger",
+  "caret",
+  "locfit"
+)
+invisible(lapply(required_R_libraries, library, character.only = TRUE))
+```
+
+### Data
+
+The data used in this vignette comes from a French motor third-party
+liability insurance portfolio. The dataset, `freMPL1sub`, is part of the
+CASdatasets package in RStudio and contains details about contracts and
+clients obtained from a French insurance company, specifically related
+to a motor insurance portfolio.
+
+This dataset is a subset of several datasets, such as `freMTPL1`,
+`freMTPL2`, and others, all of which are available in the casdatasets
+package. The subset has been filtered to include only instances where
+the exposure is greater than 0.9, allowing for the effective application
+of classification trees for more precise analysis.
+
+### Dictionaries
+
+The list of the 18 variables from the `freMPL1sub` dataset is reported
+in [Table 1](#tbl-dict-freMPL1sub).
+
+| Attribute   | Type    | Description                             |
+|-------------|---------|-----------------------------------------|
+| LicAge      | Numeric | The driving licence age, in months      |
+| VehAge      | Numeric | Age of the vehicle in years             |
+| sensitive   | Factor  | Gender of the driver                    |
+| MariStat    | Factor  | Marital status of the driver            |
+| SocioCateg  | Factor  | Socio-economic category of the driver   |
+| VehUsage    | Factor  | Usage of the vehicle                    |
+| DrivAge     | Numeric | Age of the driver in years              |
+| HasKmLimit  | boolean | Indicator if there’s a mileage limit    |
+| BonusMalus  | Numeric | Bonus-malus coefficient                 |
+| VehBody     | Factor  | Body type of the vehicle                |
+| VehPrice    | Factor  | Price category of the vehicle           |
+| VehEngine   | Factor  | Type of engine                          |
+| VehEnergy   | Factor  | Type of fuel used (diesel or regular)   |
+| VehMaxSpeed | Factor  | Maximum speed category of the vehicle   |
+| VehClass    | Factor  | Vehicle class                           |
+| y           | boolean | Response variable (if there is a claim) |
+| RiskVar     | Numeric | Risk variable                           |
+| Garage      | Factor  | Type of garage used                     |
+
+Table 1: Content of the `freMPL1sub` dataset
+
+### Importation
+
+Code for importing the dataset
+
+``` r
+data("freMPL1sub")
+
+CONTRACTS <- freMPL1sub
+
+# Create factors
+CONTRACTS.f <- 
+  CONTRACTS |> 
+  mutate(
+    DrivAge = cut(DrivAge, c(17, 22, 26, 42, 74, Inf))
+  )
+```
+
+## Purpose
+
+In insurance modeling, the accuracy of predicted probabilities is
+essential for effective decision-making. Calibration is a technique used
+to measure how well these predicted probabilities align with actual
+outcomes. Perfect calibration occurs when the predicted probability of
+an event matches the observed frequency of that event.
+
+Mathematically, perfect calibration can be described as:
+
+$${\mathbb{P}}(Y = 1|\widehat{p} = p) = p$$
+
+This equation implies that for a given predicted probability $p$, the
+actual probability of the event $Y = 1$ should also be $p$. In other
+words, if a model predicts a 30% probability of an event, that event
+should occur 30% of the time when the predicted probability is 30%.
+
+In the context of insurance, achieving perfect calibration is beneficial
+for pricing policies effectively. Accurately calibrated models ensure
+that the premiums set for different risk categories reflect the true
+probabilities of claims occurring. For instance, if a model predicts a
+60% chance of claims for a specific group, but the actual claim rate is
+significantly lower, it may lead to overpricing, driving away potential
+customers. Conversely, if the predicted probability is too low, insurers
+may underprice their products, risking financial losses when claims
+exceed expectations.
+
+By ensuring that predicted probabilities are well-calibrated, insurers
+can make more informed pricing decisions, leading to a more competitive
+and sustainable pricing strategy. This not only enhances profitability
+but also helps maintain trust with policyholders, as fair pricing
+reflects accurate assessments of risk.
+
+In this vignette, we evaluate the calibration of two models commonly
+applied in insurance risk prediction: a Generalized Linear Model (GLM)
+and a Random Forest. We aim to assess how accurately these models
+predict the likelihood of insurance claims using the following methods:
+
+- **Brier Score**: This metric evaluates the accuracy of probabilistic
+  predictions by measuring the average squared difference between
+  predicted probabilities and actual outcomes. A lower Brier score
+  indicates better model performance
+  ([**brier1950verification?**](#ref-brier1950verification)).
+
+- **Expected Calibration Error (ECE)**: ECE is a metric that quantifies
+  the average deviation between predicted probabilities and actual
+  outcomes across all instances. It is calculated by taking the weighted
+  average of the absolute differences between predicted probabilities
+  and observed frequencies, across all probability bins. The ECE
+  provides a summary measure of calibration that is particularly useful
+  when comparing different models. A lower ECE indicates better
+  calibration, signifying that the predicted probabilities are closer to
+  the actual event rates.
+
+- **Reliability Diagrams**: Reliability Diagrams with Locfit Smoothing:
+  These diagrams visually represent model calibration by plotting
+  predicted probabilities against observed frequencies
+  ([**degroot1983comparison?**](#ref-degroot1983comparison)). A
+  perfectly calibrated model will have points lying along the diagonal,
+  indicating that predicted probabilities match actual outcomes. Any
+  deviations from this line show whether the model overestimates or
+  underestimates probabilities.
+
+To generate these reliability diagrams, we apply locfit smoothing
+([**loader1999local?**](#ref-loader1999local)). Locfit is a
+non-parametric technique that produces flexible, locally weighted
+regression curves, smoothing out noise in the data and providing a
+refined calibration curve. By using locfit, we ensure that random
+fluctuations in the data do not obscure the true calibration
+performance, offering a clearer representation of how well the models
+align predicted probabilities with actual outcomes.
+
+This vignette shows how calibration assesses whether predicted
+probabilities match actual outcomes, identifying if a model consistently
+overestimates or underestimates risk, which ultimately influences
+prediction-based decision-making.
+
+For an exploration of the limitations of calibration metrics, refer to
+([**fernandes2024probabilistic?**](#ref-fernandes2024probabilistic)),
+which highlights the necessity for recalibration methods discussed in
+([**machado2024uncertainty?**](#ref-machado2024uncertainty)).
+
+## Methods
+
+### Random Forest Model
+
+Random Forest, as described in Breiman ([2001](#ref-breiman2001random)),
+is a versatile machine learning technique that belongs to a class of
+ensemble learning methods. In this method, multiple decision trees are
+constructed during training, and their predictions are combined to
+produce a more accurate and stable model. Specifically, predictions are
+averaged for regression tasks and voted on for classification tasks.
+
+The key idea behind Random Forest is to build a “forest” of decision
+trees, where each tree is trained on a random subset of the data and a
+random subset of the features. This randomness makes the model more
+robust and less prone to overfitting, which is a common issue with
+individual decision trees.
+
+The process of building a Random Forest can be summarized in the
+following steps:
+
+1.  **Bootstrap Sampling**: Multiple subsets of the original dataset are
+    created using bootstrapping, which involves randomly selecting
+    samples with replacement.
+2.  **Random Feature Selection**: At each node of the tree, a random
+    subset of features is selected, and the best feature from this
+    subset is used to split the data.
+3.  **Tree Construction**: Decision trees are constructed for each
+    bootstrap sample, and these trees grow without pruning, resulting in
+    very deep and complex structures.
+4.  **Aggregation**: For regression tasks, predictions from all trees
+    are averaged. For classification tasks, the most frequent prediction
+    (mode) is selected.
+
+The Random Forest model can be mathematically represented as:
+
+$${\widehat{y}}_{i} = \frac{1}{T}\sum\limits_{t = 1}^{T}f_{t}(x_{i})$$
+
+where ${\widehat{y}}_{i}$ is the predicted value for the $i^{th}$
+observation, $T$ is the total number of trees, and $f_{t}(x_{i})$
+represents the prediction of the $t^{th}$ tree.
+
+One of the key advantages of Random Forest is its ability to handle
+large datasets with high dimensionality and missing data. The random
+selection of features at each split ensures that the model doesn’t rely
+too heavily on any single feature, reducing the risk of overfitting.
+Additionally, Random Forest provides a measure of **feature
+importance**, ranking the contribution of each feature to the model’s
+predictive power. This is particularly useful for understanding which
+features are most influential in making predictions.
+
+In conclusion, Random Forest is widely appreciated for its high
+accuracy, robustness, and ease of use. It is highly effective for both
+regression and classification tasks and is especially valuable in
+situations with a large number of features or complex relationships
+between variables. For additional information, see Breiman
+([2001](#ref-breiman2001random)).
+
+### Generalized Linear Model (GLM)
+
+A Generalized Linear Model (GLM), first formalized by
+([**nelder1972generalized?**](#ref-nelder1972generalized)), extends the
+linear model to allow for non-normal response variables. GLMs are widely
+used in insurance for modeling claims data, where the response variable
+might follow distributions such as Poisson or binomial.
+
+GLMs consist of three main components, each playing a critical role in
+how the model relates the predictor variables to the response variable:
+
+1.  **Random Component**: This specifies the probability distribution of
+    the response variable. In GLMs, the response variable $y_{i}$ is not
+    assumed to be normally distributed, as it is in linear regression.
+    Instead, the response can follow a variety of distributions from the
+    exponential family, such as Poisson, binomial, or gamma. The choice
+    of distribution depends on the nature of the outcome (e.g., count
+    data, binary outcomes).
+
+2.  **Systematic Component**: This represents the linear predictor,
+    which is a linear combination of the explanatory variables
+    (predictors). Formally, it is expressed as:
+
+$$\eta_{i} = x_{i}^{T}\beta$$
+
+where $x_{i}$ is a vector of the explanatory variables for observation
+$i$, and $\beta$ is a vector of coefficients. The linear predictor
+$x_{i}^{T}\beta$ is the part of the model that combines the covariates
+to explain the variation in the response variable. This is similar to
+how a linear regression model operates but in the GLM, the connection
+between the linear predictor and the response is mediated by the link
+function.
+
+3.  **Link Function**: The link function $g(\cdot)$ provides the bridge
+    between the linear predictor and the mean of the response variable,
+    ${\mathbb{E}}(y_{i}|x_{i})$. It transforms the expected value of the
+    response so that it can be modeled as a linear function of the
+    predictors. The choice of link function depends on the distribution
+    of the response. For example, a log link function is commonly used
+    for count data (e.g., Poisson regression), and a logit link function
+    is often used for binary outcomes (e.g., logistic regression).
+
+The GLM model can be expressed as:
+
+$$g({\mathbb{E}}(y_{i}|x_{i})) = x_{i}^{T}\beta$$
+
+where $g(\cdot)$ is the link function, $x_{i}^{T}\beta$ is the linear
+predictor, and ${\mathbb{E}}(y_{i}|x_{i})$ is the expected outcome for
+observation $i$.
+
+### Extended Calibration Error (ECE)
+
+Extended Calibration Error (ECE) is a metric used to evaluate the
+calibration of probabilistic predictions, especially in the context of
+insurance claims modeling. It quantifies the discrepancy between
+predicted probabilities and observed outcomes, providing insights into
+the reliability of a predictive model. ECE is particularly useful for
+assessing models that output probabilities, as it highlights potential
+biases in the predicted probabilities.
+
+1.  **Definition**: ECE is defined as the weighted average of the
+    absolute differences between predicted probabilities and observed
+    frequencies of events. Formally, it is expressed as:
+
+    $$\text{ECE} = \sum\limits_{b = 1}^{B}\frac{n_{b}}{n}\left| \text{P}_{\text{avg},b} - \text{O}_{\text{avg},b} \right|$$
+
+    where $B$ is the number of bins, $n_{b}$ is the number of
+    observations in bin $b$, $\text{P}_{\text{avg},b}$ is the average
+    predicted probability in bin $b$, $\text{O}_{\text{avg},b}$ is the
+    observed frequency of events in bin $b$, and $n$ is the total number
+    of observations.
+
+2.  **Interpretation**: ECE ranged provides from 0 to 1, it is a summary
+    of how well predicted probabilities match the actual observed
+    outcomes across different probability ranges. An ECE of zero
+    signifies perfect calibration.
+
+### Brier Score
+
+The Brier Score is a well-known metric for assessing the accuracy of
+probabilistic predictions. It is particularly useful in the insurance
+domain for evaluating the predictive performance of models that output
+probabilities of events, such as claim occurrences.
+
+1.  **Definition**: The Brier Score is defined as the mean squared
+    difference between predicted probabilities and the actual binary
+    outcomes. It can be expressed mathematically as:
+
+    $$\text{Brier Score} = \frac{1}{N}\sum\limits_{i = 1}^{N}(f_{i} - o_{i})^{2}$$
+
+    where $N$ is the number of observations, $f_{i}$ is the predicted
+    probability of the event for observation $i$, and $o_{i}$ is the
+    actual outcome (1 if the event occurred, 0 otherwise).
+
+2.  **Interpretation**: The Brier score ranges from 0 to 1 it measures
+    the mean squared difference between predicted probabilities and
+    actual outcomes. A lower Brier score indicates better calibration.
+
+### Reliability Diagram with Locfit Smoothing
+
+The Reliability Diagram is a graphical representation used to assess the
+calibration of probabilistic predictions visually. It plots the
+predicted probabilities against the observed frequencies of events,
+providing insights into how well the model calibrates its probability
+outputs.
+
+1.  **Construction**: To construct a Reliability Diagram, predicted
+    probabilities are binned, and the average predicted probability and
+    observed frequency are calculated for each bin. This is typically
+    plotted as a scatter plot of predicted probabilities versus observed
+    proportions.
+
+2.  **Locfit Smoothing**: To enhance the visual interpretation of the
+    Reliability Diagram, Locfit smoothing can be applied. Locfit is a
+    local regression method that fits a smooth curve to the binned data,
+    making it easier to identify trends and deviations from perfect
+    calibration (the 45-degree line).
+
+    $$\text{Locfit}({\widehat{p}}_{b}) = \sum\limits_{j = 1}^{B}w_{ij}y_{j}$$
+
+    where $w_{ij}$ are the weights based on the distances of the
+    observations to the target bin, and $y_{j}$ represents the observed
+    outcomes.
+
+3.  **Interpretation**: In the Reliability Diagram, points lying on the
+    diagonal line indicate perfect calibration. Deviations above this
+    line suggest overconfidence (predicted probabilities are too high),
+    while points below indicate underconfidence (predicted probabilities
+    are too low). The Locfit curve can help to visualize the overall
+    calibration trend and highlight areas needing improvement.
+
+## Calibration Evaluation
+
+#### Data preprocessing
+
+We split the data into training and calibration sets. The training set
+is utilized to fit the models, while the calibration set is used for the
+calibration process.
+
+Splitting Data into Training and Calibration Sets
+
+``` r
+set.seed(23)
+
+trainIndex <- createDataPartition(CONTRACTS.f$y, p = 0.5, 
+                                  list = FALSE, 
+                                  times = 1)
+
+dataTrain <- CONTRACTS.f[trainIndex, ]  # Training set
+dataCalibration <- CONTRACTS.f[-trainIndex, ]  # Calibration set
+
+dataTrain$y <- as.numeric(as.character(dataTrain$y))
+
+dataCalibration$y <- as.numeric(as.character(dataCalibration$y))
+```
+
+#### Training the RandomForest Model
+
+``` r
+rf_model <- ranger(y ~.,
+                   num.trees = 500,   # Number of trees
+                   mtry = 2,          # Number of features to try at each split
+                   min.node.size = 1, # Minimum size of terminal nodes
+                   importance = 'impurity', 
+                   data = dataTrain,
+                   write.forest = TRUE)
+```
+
+#### Training the GLM Model
+
+``` r
+glm_model <- glm(y ~., data = dataTrain, family = binomial)
+```
+
+### Calibration Metrics
+
+- [Brier Score](#tabset-1-1)
+- [ECE](#tabset-1-2)
+
+&nbsp;
+
+- ``` r
+  #
+  # Make predictions for both models
+  dataCalibration$rf_pred_prob <- predict(rf_model, dataCalibration)$predictions
+  dataCalibration$glm_pred_prob <- predict(glm_model, dataCalibration,type = "response")
+
+  # Calculate Brier Score for Random Forest model
+  brier_rf <- mean((dataCalibration$rf_pred_prob - dataCalibration$y)^2)
+
+  # Calculate Brier Score for GLM model
+  brier_glm <- mean((dataCalibration$glm_pred_prob - dataCalibration$y)^2)
+  ```
+
+  The brier score for the random forest model is 0.07  
+  The brier score for the glm model is 0.08
+
+``` r
+# Function to calculate ECE
+calculate_ece <- function(predictions, actuals, n_bins = 10) {
+  # Create bins
+  bins <- seq(0, 1, length.out = n_bins + 1)
+  bin_means <- numeric(n_bins)
+  bin_obs <- numeric(n_bins)
+  bin_counts <- numeric(n_bins)
+  
+  for (i in 1:n_bins) {
+    # Find indices of predictions in the current bin
+    in_bin <- predictions >= bins[i] & predictions < bins[i + 1]
+    bin_counts[i] <- sum(in_bin)
+    
+    # Avoid division by zero
+    if (bin_counts[i] > 0) {
+      bin_means[i] <- mean(predictions[in_bin], na.rm = TRUE)
+      bin_obs[i] <- mean(actuals[in_bin], na.rm = TRUE)
+    }
+  }
+  
+  # Calculate ECE
+  ece <- sum(bin_counts / sum(bin_counts) * abs(bin_means - bin_obs), na.rm = TRUE)
+  return(ece)
+}
+
+
+# Calculate ECE for GLM model
+ece_glm <- calculate_ece(dataCalibration$glm_pred_prob, dataCalibration$y)
+ece_rf <- calculate_ece(dataCalibration$rf_pred_prob, dataCalibration$y)
+```
+
+The ECE for the random forest model is 0.03  
+The ECE for the glm model is 0.01
+
+## Visualizations
+
+- [Reliability Diagram for the Random Forest](#tabset-2-1)
+- [Reliability Diagram for the GLM Model](#tabset-2-2)
+
+&nbsp;
+
+- Code for the reliability diagram function
+  ``` r
+  # Function to create a reliability diagram with locfit smoothing
+
+  create_reliability_diagram <- function(data, pred_col, obs_col, n_bins = 10) {
+    # Create bins for predicted probabilities
+    data$bin <- cut(data[[pred_col]], breaks = seq(0, 1,
+                                                   length.out = n_bins + 1),
+                                                   include.lowest = TRUE)
+    
+    # Calculate mean predicted and actual probabilities per bin
+    bin_summary <- data %>%
+      group_by(bin) %>%
+      summarise(
+        mean_pred_prob = mean(get(pred_col)),
+        mean_obs_prob = mean(get(obs_col)),
+        n = n(),
+        .groups = 'drop'
+      )
+    
+    # Use locfit to smooth the observed probabilities based on predicted probabilities
+    fit_locfit <- locfit(mean_obs_prob ~ mean_pred_prob,
+                         data = bin_summary,
+                         weights = bin_summary$n)
+    
+    # Generate smoothed probabilities for plotting
+    smooth_obs_prob <- predict(fit_locfit, newdata = bin_summary$mean_pred_prob)
+    
+    # Plot the reliability diagram
+    ggplot(bin_summary, aes(x = mean_pred_prob)) +
+      geom_point(aes(y = mean_obs_prob), color = "#1E88E5", size = 3) +
+      geom_line(aes(y = smooth_obs_prob), color = "red", linewidth = 1) +
+      geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "gray") +  # 45-degree reference line
+      labs(
+        title = "Reliability Diagram with Locfit Smoothing",
+        x = "Mean Predicted Probability",
+        y = "Mean Observed Probability"
+      ) +
+      global_theme() + 
+      coord_fixed(ratio = 1) +
+      xlim(0, 1) +
+      ylim(0, 1)
+  }
+  ```
+
+  ``` r
+  p <- create_reliability_diagram(dataCalibration, "rf_pred_prob", "y", n_bins = 10)
+  print(p)
+  ```
+
+  ![](calibration_metrics_vignette_files/figure-html/reliability-rf-1.png)
+
+``` r
+p <- create_reliability_diagram(dataCalibration, "glm_pred_prob", "y", n_bins = 15)
+
+print(p)
+```
+
+![](calibration_metrics_vignette_files/figure-html/reliability-glm-1.png)
+
+## References
+
+Breiman, Leo. 2001. “Random Forests.” *Machine Learning* 45: 5–32.
+
+## See also
+
+For additional datasets with similar occurrence structures, see
+[`credit`](https://dutangc.github.io/CASdatasets/reference/credit.html)
+(import with `data("credit")`): German Credit dataset, or
+[`uslapseagent`](https://dutangc.github.io/CASdatasets/reference/uslapseagent.html):
+United States lapse dataset from tied-agent channel (import with
+`data("uslapseagent")`),

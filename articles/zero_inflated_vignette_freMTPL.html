@@ -68,7 +68,7 @@
       <h1>Frequency analysis with a Zero Inflated Regression of a French Motor Third Party Liability dataset</h1>
 
       <p class="author">Siharath Julien</p>
-      <p class="date">2025-06-01</p>
+      <p class="date">2026-04-01</p>
 
       <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/master/vignettes/zero_inflated_vignette_freMTPL.qmd" class="external-link"><code>vignettes/zero_inflated_vignette_freMTPL.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
@@ -301,18 +301,18 @@ Table 1: Content of the <code>freMPL6</code> dataset
 </h3>
 <div class="justify">
 <p>To model the frequency of insurance claims, we utilize a Zero-Inflated Negative Binomial (ZINB) Regression approach for the response variable <code>ClaimNbResp</code>, which represents the count of insurance claims and is typically assumed to follow a Poisson distribution:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNbResp</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNbResp</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \text{ClaimNbResp} \sim \text{Poisson}(\mu),
 </annotation></semantics></math></p>
 <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> represents the mean rate of claims. The ZINB approach is particularly well-suited for handling overdispersed data with excess zeros, offering a flexible, nonlinear modeling framework. Specifically, we express the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> as a linear combination of predictor variables, along with an adjustment for exposure:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DrivAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">Gender</mtext><mo>+</mo><msub><mi>β</mi><mn>3</mn></msub><mo>×</mo><mtext mathvariant="normal">LicAge</mtext><mo>+</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DrivAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">Gender</mtext><mo>+</mo><msub><mi>β</mi><mn>3</mn></msub><mo>×</mo><mtext mathvariant="normal">LicAge</mtext><mo>+</mo></mrow><annotation encoding="application/x-tex">
 \log(\mu) = \beta_0 + \beta_1 \times \text{DrivAge} + \beta_2 \times \text{Gender} + \beta_3 \times \text{LicAge} +
-</annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>4</mn></msub><mo>×</mo><mtext mathvariant="normal">BonusMalus</mtext><mo>+</mo><msub><mi>β</mi><mn>5</mn></msub><mo>×</mo><mtext mathvariant="normal">VehUsage</mtext><mo>+</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+</annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>4</mn></msub><mo>×</mo><mtext mathvariant="normal">BonusMalus</mtext><mo>+</mo><msub><mi>β</mi><mn>5</mn></msub><mo>×</mo><mtext mathvariant="normal">VehUsage</mtext><mo>+</mo><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \beta_4 \times \text{BonusMalus} + \beta_5 \times \text{VehUsage} + \log(\text{Exposure}),
 </annotation></semantics></math></p>
-<p>where <code>DrivAge</code> denotes the driver’s age, <code>Gender</code> is a binary variable indicating the driver’s gender, <code>LicAge</code> represents the age of the driving license, <code>BonusMalus</code> captures the driver’s bonus-malus score, <code>VehUsage</code> reflects the type of vehicle usage, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\log(\text{Exposure})</annotation></semantics></math> adjusts for the exposure variable. The coefficients <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo>,</mo><msub><mi>β</mi><mn>1</mn></msub><mo>,</mo><msub><mi>β</mi><mn>2</mn></msub><mo>,</mo><msub><mi>β</mi><mn>3</mn></msub><mo>,</mo><msub><mi>β</mi><mn>4</mn></msub><mo>,</mo><msub><mi>β</mi><mn>5</mn></msub></mrow><annotation encoding="application/x-tex">\beta_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5</annotation></semantics></math> are parameters to be estimated through the regression process.</p>
+<p>where <code>DrivAge</code> denotes the driver’s age, <code>Gender</code> is a binary variable indicating the driver’s gender, <code>LicAge</code> represents the age of the driving license, <code>BonusMalus</code> captures the driver’s bonus-malus score, <code>VehUsage</code> reflects the type of vehicle usage, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">Exposure</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\log(\text{Exposure})</annotation></semantics></math> adjusts for the exposure variable. The coefficients <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo>,</mo><msub><mi>β</mi><mn>1</mn></msub><mo>,</mo><msub><mi>β</mi><mn>2</mn></msub><mo>,</mo><msub><mi>β</mi><mn>3</mn></msub><mo>,</mo><msub><mi>β</mi><mn>4</mn></msub><mo>,</mo><msub><mi>β</mi><mn>5</mn></msub></mrow><annotation encoding="application/x-tex">\beta_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5</annotation></semantics></math> are parameters to be estimated through the regression process.</p>
 <p>In addition to the count component, the zero-inflation part of the model accounts for the probability of excess zeros via a logistic regression model:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Logit</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">zero</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>Z</mi><mi>γ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Logit</mtext><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">zero</mtext><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Z</mi><mi>γ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \text{Logit}(P(\text{zero})) = Z\gamma,
 </annotation></semantics></math></p>
 <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math> represents the matrix of covariates for the zero-inflation model, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math> is the vector of coefficients associated with these covariates.</p>
@@ -331,7 +331,7 @@ Table 1: Content of the <code>freMPL6</code> dataset
 </div>
 </blockquote>
 </div>
-<p>The estimated <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> parameter, which represents the mean of claims, is 0.27.</p>
+<p>The estimated <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> parameter, which represents the mean of claims, is 0.28.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span> </span>
@@ -402,38 +402,38 @@ zeroinfl(formula = freg, data = freMPL6, dist = "poisson")
 
 Pearson residuals:
    Min     1Q Median     3Q    Max
--3.647 -0.469 -0.387 -0.199 43.154
+-3.540 -0.467 -0.385 -0.205 49.895
 
 Count model coefficients (poisson with log link):
                                 Estimate Std. Error z value Pr(&gt;|z|)
-(Intercept)                    -3.963510   0.090390  -43.85  &lt; 2e-16 ***
-DrivAgefactor25-40             -0.586757   0.064947   -9.03  &lt; 2e-16 ***
-DrivAgefactor40-60             -0.263728   0.075345   -3.50  0.00046 ***
-DrivAgefactor50-70             -0.253096   0.093989   -2.69  0.00708 **
-DrivAgefactor70+               -0.217151   0.106506   -2.04  0.04146 *
-LicAge                          0.001951   0.000145   13.47  &lt; 2e-16 ***
-GenderMale                     -0.068416   0.024663   -2.77  0.00554 **
-BonusMalus                      0.029305   0.000507   57.78  &lt; 2e-16 ***
-MariStatOther                   0.180236   0.028675    6.29  3.3e-10 ***
-VehUsagePrivate+trip to office  0.175531   0.029457    5.96  2.5e-09 ***
-VehUsageProfessional            0.373158   0.032901   11.34  &lt; 2e-16 ***
-VehUsageProfessional run        0.562056   0.059676    9.42  &lt; 2e-16 ***
+(Intercept)                    -3.959372   0.101641  -38.95  &lt; 2e-16 ***
+DrivAgefactor25-40             -0.571843   0.071161   -8.04  9.3e-16 ***
+DrivAgefactor40-60             -0.250608   0.083906   -2.99   0.0028 **
+DrivAgefactor50-70             -0.278896   0.105990   -2.63   0.0085 **
+DrivAgefactor70+               -0.218682   0.119502   -1.83   0.0673 .
+LicAge                          0.002107   0.000168   12.56  &lt; 2e-16 ***
+GenderMale                     -0.082151   0.028257   -2.91   0.0036 **
+BonusMalus                      0.028854   0.000582   49.56  &lt; 2e-16 ***
+MariStatOther                   0.160262   0.032868    4.88  1.1e-06 ***
+VehUsagePrivate+trip to office  0.195580   0.033319    5.87  4.4e-09 ***
+VehUsageProfessional            0.385543   0.037311   10.33  &lt; 2e-16 ***
+VehUsageProfessional run        0.565935   0.069797    8.11  5.1e-16 ***
 
 Zero-inflation model coefficients (binomial with logit link):
                     Estimate Std. Error z value Pr(&gt;|z|)
-(Intercept)         3.28e+01   2.01e+00   16.26  &lt; 2e-16 ***
-GenderMale          1.46e-01   9.70e-02    1.51  0.13102
-DrivAgefactor25-40 -1.43e+01   9.39e-01  -15.19  &lt; 2e-16 ***
-DrivAgefactor40-60 -1.58e+01   9.41e-01  -16.82  &lt; 2e-16 ***
-DrivAgefactor50-70 -1.60e+01   9.69e-01  -16.54  &lt; 2e-16 ***
-DrivAgefactor70+   -1.62e+01   9.90e-01  -16.37  &lt; 2e-16 ***
-BonusMalus         -3.68e-01   2.23e-02  -16.47  &lt; 2e-16 ***
-LicAge              2.17e-03   6.36e-04    3.41  0.00066 ***
+(Intercept)         3.37e+01   2.22e+00   15.18   &lt;2e-16 ***
+GenderMale          8.93e-02   1.04e-01    0.86   0.3913
+DrivAgefactor25-40 -1.48e+01   1.02e+00  -14.45   &lt;2e-16 ***
+DrivAgefactor40-60 -1.61e+01   1.03e+00  -15.66   &lt;2e-16 ***
+DrivAgefactor50-70 -1.63e+01   1.06e+00  -15.45   &lt;2e-16 ***
+DrivAgefactor70+   -1.65e+01   1.08e+00  -15.31   &lt;2e-16 ***
+BonusMalus         -3.76e-01   2.46e-02  -15.27   &lt;2e-16 ***
+LicAge              1.97e-03   6.88e-04    2.86   0.0043 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Number of iterations in BFGS optimization: 39
-Log-likelihood: -2.52e+04 on 20 Df</code></pre>
+Number of iterations in BFGS optimization: 42
+Log-likelihood: -1.93e+04 on 20 Df</code></pre>
 </div>
 </div>
 <div class="justify">
@@ -485,7 +485,7 @@ Log-likelihood: -2.52e+04 on 20 Df</code></pre>
 Table 2: Coefficients for the Count model
 </figcaption><div aria-describedby="tbl-zi-coef-count-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
@@ -498,96 +498,96 @@ Table 2: Coefficients for the Count model
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
 <td style="text-align: right;">-3.96</td>
-<td style="text-align: right;">0.09</td>
-<td style="text-align: right;">-43.9</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">-39.0</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor25-40</td>
-<td style="text-align: right;">-0.59</td>
-<td style="text-align: right;">0.06</td>
-<td style="text-align: right;">-9.0</td>
+<td style="text-align: right;">-0.57</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">-8.0</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DrivAgefactor40-60</td>
-<td style="text-align: right;">-0.26</td>
+<td style="text-align: right;">-0.25</td>
 <td style="text-align: right;">0.08</td>
-<td style="text-align: right;">-3.5</td>
+<td style="text-align: right;">-3.0</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: left;">***</td>
+<td style="text-align: left;">**</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor50-70</td>
-<td style="text-align: right;">-0.25</td>
-<td style="text-align: right;">0.09</td>
-<td style="text-align: right;">-2.7</td>
+<td style="text-align: right;">-0.28</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">-2.6</td>
 <td style="text-align: right;">0.01</td>
 <td style="text-align: left;">**</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DrivAgefactor70+</td>
 <td style="text-align: right;">-0.22</td>
-<td style="text-align: right;">0.11</td>
-<td style="text-align: right;">-2.0</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: left;">*</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">-1.8</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: left;">.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">LicAge</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">13.5</td>
+<td style="text-align: right;">12.6</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">GenderMale</td>
-<td style="text-align: right;">-0.07</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">-2.8</td>
-<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">-0.08</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">-2.9</td>
+<td style="text-align: right;">0.00</td>
 <td style="text-align: left;">**</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">BonusMalus</td>
 <td style="text-align: right;">0.03</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">57.8</td>
+<td style="text-align: right;">49.6</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MariStatOther</td>
-<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
 <td style="text-align: right;">0.03</td>
-<td style="text-align: right;">6.3</td>
+<td style="text-align: right;">4.9</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">VehUsagePrivate+trip to office</td>
-<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.20</td>
 <td style="text-align: right;">0.03</td>
-<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">5.9</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">VehUsageProfessional</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">0.03</td>
-<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">10.3</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">VehUsageProfessional run</td>
-<td style="text-align: right;">0.56</td>
-<td style="text-align: right;">0.06</td>
-<td style="text-align: right;">9.4</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">8.1</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
@@ -647,7 +647,7 @@ Table 2: Coefficients for the Count model
 Table 3: Count Ratio and confidence intervals for the Count model
 </figcaption><div aria-describedby="tbl-zi-odds-ratio-ci-count-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">count_ratio</th>
@@ -660,29 +660,29 @@ Table 3: Count Ratio and confidence intervals for the Count model
 <td style="text-align: left;">DrivAgefactor25-40</td>
 <td style="text-align: right;">0.56</td>
 <td style="text-align: right;">0.49</td>
-<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.65</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor40-60</td>
-<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.78</td>
 <td style="text-align: right;">0.66</td>
-<td style="text-align: right;">0.89</td>
-<td style="text-align: left;">***</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: left;">**</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DrivAgefactor50-70</td>
-<td style="text-align: right;">0.78</td>
-<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.76</td>
+<td style="text-align: right;">0.61</td>
 <td style="text-align: right;">0.93</td>
 <td style="text-align: left;">**</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor70+</td>
 <td style="text-align: right;">0.80</td>
-<td style="text-align: right;">0.65</td>
-<td style="text-align: right;">0.99</td>
-<td style="text-align: left;">*</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">1.02</td>
+<td style="text-align: left;">.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">LicAge</td>
@@ -693,9 +693,9 @@ Table 3: Count Ratio and confidence intervals for the Count model
 </tr>
 <tr class="even">
 <td style="text-align: left;">GenderMale</td>
-<td style="text-align: right;">0.93</td>
-<td style="text-align: right;">0.89</td>
-<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.97</td>
 <td style="text-align: left;">**</td>
 </tr>
 <tr class="odd">
@@ -707,30 +707,30 @@ Table 3: Count Ratio and confidence intervals for the Count model
 </tr>
 <tr class="even">
 <td style="text-align: left;">MariStatOther</td>
-<td style="text-align: right;">1.20</td>
-<td style="text-align: right;">1.13</td>
-<td style="text-align: right;">1.27</td>
+<td style="text-align: right;">1.17</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.25</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">VehUsagePrivate+trip to office</td>
-<td style="text-align: right;">1.19</td>
-<td style="text-align: right;">1.13</td>
-<td style="text-align: right;">1.26</td>
+<td style="text-align: right;">1.22</td>
+<td style="text-align: right;">1.14</td>
+<td style="text-align: right;">1.30</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">VehUsageProfessional</td>
-<td style="text-align: right;">1.45</td>
-<td style="text-align: right;">1.36</td>
-<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">1.47</td>
+<td style="text-align: right;">1.37</td>
+<td style="text-align: right;">1.58</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">VehUsageProfessional run</td>
-<td style="text-align: right;">1.75</td>
-<td style="text-align: right;">1.56</td>
-<td style="text-align: right;">1.97</td>
+<td style="text-align: right;">1.76</td>
+<td style="text-align: right;">1.54</td>
+<td style="text-align: right;">2.02</td>
 <td style="text-align: left;">***</td>
 </tr>
 </tbody>
@@ -749,7 +749,7 @@ Table 3: Count Ratio and confidence intervals for the Count model
 </div>
 </div>
 <div class="justify">
-<p>Each count ratio reflects the change in the odds of making a responsible claim (<code>ClaimNbResp</code>) associated with a one-unit increase in the predictor variable, relative to the reference category. For example, a count ratio of 0.56 for drivers aged 25-40 indicates that the odds of making a responsible claim for this age group are approximately -44% lower compared to the reference category, which consists of drivers younger than 25. Similarly, for drivers aged 40-60, the odds decrease by -23% relative to the reference category.</p>
+<p>Each count ratio reflects the change in the odds of making a responsible claim (<code>ClaimNbResp</code>) associated with a one-unit increase in the predictor variable, relative to the reference category. For example, a count ratio of 0.56 for drivers aged 25-40 indicates that the odds of making a responsible claim for this age group are approximately -44% lower compared to the reference category, which consists of drivers younger than 25. Similarly, for drivers aged 40-60, the odds decrease by -22% relative to the reference category.</p>
 <p>However, as drivers age beyond 60, the data suggests that the likelihood of making a responsible claim increases. This pattern indicates that while middle-aged drivers (25-60) have lower odds of making a responsible claim compared to younger drivers, the odds begin to rise in older age groups, suggesting an increased risk of responsible claims as age advances.</p>
 </div>
 </div>
@@ -788,7 +788,7 @@ Table 3: Count Ratio and confidence intervals for the Count model
 Table 4: Coefficients for the Zero model
 </figcaption><div aria-describedby="tbl-zi-coef-zero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
@@ -800,57 +800,57 @@ Table 4: Coefficients for the Zero model
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">32.76</td>
-<td style="text-align: right;">2.01</td>
-<td style="text-align: right;">16.3</td>
+<td style="text-align: right;">33.65</td>
+<td style="text-align: right;">2.22</td>
+<td style="text-align: right;">15.18</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">GenderMale</td>
-<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.09</td>
 <td style="text-align: right;">0.10</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.86</td>
+<td style="text-align: right;">0.39</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DrivAgefactor25-40</td>
-<td style="text-align: right;">-14.27</td>
-<td style="text-align: right;">0.94</td>
-<td style="text-align: right;">-15.2</td>
+<td style="text-align: right;">-14.79</td>
+<td style="text-align: right;">1.02</td>
+<td style="text-align: right;">-14.45</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor40-60</td>
-<td style="text-align: right;">-15.83</td>
-<td style="text-align: right;">0.94</td>
-<td style="text-align: right;">-16.8</td>
+<td style="text-align: right;">-16.10</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">-15.66</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DrivAgefactor50-70</td>
-<td style="text-align: right;">-16.03</td>
-<td style="text-align: right;">0.97</td>
-<td style="text-align: right;">-16.5</td>
+<td style="text-align: right;">-16.34</td>
+<td style="text-align: right;">1.06</td>
+<td style="text-align: right;">-15.45</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor70+</td>
-<td style="text-align: right;">-16.21</td>
-<td style="text-align: right;">0.99</td>
-<td style="text-align: right;">-16.4</td>
+<td style="text-align: right;">-16.49</td>
+<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">-15.31</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">BonusMalus</td>
-<td style="text-align: right;">-0.37</td>
+<td style="text-align: right;">-0.38</td>
 <td style="text-align: right;">0.02</td>
-<td style="text-align: right;">-16.5</td>
+<td style="text-align: right;">-15.27</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: left;">***</td>
 </tr>
@@ -858,9 +858,9 @@ Table 4: Coefficients for the Zero model
 <td style="text-align: left;">LicAge</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">2.86</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: left;">***</td>
+<td style="text-align: left;">**</td>
 </tr>
 </tbody>
 <tfoot><tr class="odd">
@@ -918,7 +918,7 @@ Table 4: Coefficients for the Zero model
 Table 5: Count-Ratio and Confidence intervals for the Zero model
 </figcaption><div aria-describedby="tbl-zi-odds-ratio-ci-zero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">count_ratio</th>
@@ -929,16 +929,16 @@ Table 5: Count-Ratio and Confidence intervals for the Zero model
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">GenderMale</td>
-<td style="text-align: right;">1.16</td>
-<td style="text-align: right;">3.3e+12</td>
-<td style="text-align: right;">8.8e+15</td>
+<td style="text-align: right;">1.09</td>
+<td style="text-align: right;">5.4e+12</td>
+<td style="text-align: right;">3.2e+16</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DrivAgefactor25-40</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">9.6e-01</td>
-<td style="text-align: right;">1.4e+00</td>
+<td style="text-align: right;">8.9e-01</td>
+<td style="text-align: right;">1.3e+00</td>
 <td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
@@ -972,9 +972,9 @@ Table 5: Count-Ratio and Confidence intervals for the Zero model
 <tr class="odd">
 <td style="text-align: left;">LicAge</td>
 <td style="text-align: right;">1.00</td>
-<td style="text-align: right;">6.6e-01</td>
+<td style="text-align: right;">6.5e-01</td>
 <td style="text-align: right;">7.2e-01</td>
-<td style="text-align: left;">***</td>
+<td style="text-align: left;">**</td>
 </tr>
 </tbody>
 <tfoot><tr class="odd">
@@ -1198,7 +1198,7 @@ Figure 5: Age impact on Claim Non-Declaration
 </div>
 </section><section class="section level2"><h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-agresti" class="csl-entry" role="listitem">
 Agresti, Alan. 2013. <em>Categorical Data Analysis, 3rd Edition</em>.
 </div>
@@ -1304,7 +1304,7 @@ Charpentier, Arthur. 2014. <em>Computational Actuarial Science with <span>R</spa
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

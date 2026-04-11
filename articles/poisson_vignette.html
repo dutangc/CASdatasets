@@ -68,7 +68,7 @@
       <h1>Frequency analysis of a French Motor Third Party Liability dataset</h1>
 
       <p class="author">Julien Siharath</p>
-      <p class="date">June, 2025</p>
+      <p class="date">April, 2026</p>
 
       <small class="dont-index">Source: <a href="https://github.com/dutangc/CASdatasets/blob/master/vignettes/poisson_vignette.qmd" class="external-link"><code>vignettes/poisson_vignette.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
@@ -310,11 +310,11 @@ Table 2: Content of the <code>freMTPLsev</code> dataset: CLAIMS
 <div class="justify">
 <p>In this analysis, we will explore the relationship between the response variable <code>ClaimNb</code> and the explanatory variables <code>DriverAge</code> and <code>Density</code>. This modeling framework aligns with the principles outlined by <span class="citation" data-cites="agresti">Agresti (<a href="#ref-agresti" role="doc-biblioref">2013</a>)</span>, a prominent figure in statistical methodology, who emphasizes the significance of considering multiple explanatory factors in regression analysis.</p>
 <p>To model the frequency of insurance claims, we employ a Poisson regression approach. The response variable in our model, denoted as <code>ClaimNb</code>, represents the count of insurance claims and is assumed to follow a Poisson distribution:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNb</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ClaimNb</mtext><mo>∼</mo><mtext mathvariant="normal">Poisson</mtext><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \text{ClaimNb} \sim \text{Poisson}(\lambda),
 </annotation></semantics></math></p>
 <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is the mean rate of claims. The Poisson regression model relates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> to a set of predictor variables through a logarithmic link function. This link function ensures that the predicted rate of claims is always positive, as required by the Poisson distribution. More precisely, we express the natural logarithm of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> as a linear combination of the predictors:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DriverAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">Density</mtext><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>×</mo><mtext mathvariant="normal">DriverAge</mtext><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>×</mo><mtext mathvariant="normal">Density</mtext><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \log{(\lambda)} = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density},
 </annotation></semantics></math></p>
 <p>where <code>DriverAge</code> represents the age of the driver, <code>Density</code> indicates the population density of the city in which the driver resides, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\beta_0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math> are the regression coefficients that need to be estimated.</p>
@@ -466,7 +466,7 @@ dispersion
 Table 3: Coefficients
 </figcaption><div aria-describedby="tbl-poisson-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
@@ -590,7 +590,7 @@ Table 3: Coefficients
 Table 4: Count Ratio
 </figcaption><div aria-describedby="tbl-poisson-count-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">names</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">x</th>
@@ -683,7 +683,7 @@ Table 4: Count Ratio
 Table 5: Confidence intervals
 </figcaption><div aria-describedby="tbl-poisson-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table do-not-create-environment cell caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table cell caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">2.5 %</th>
@@ -869,7 +869,7 @@ Figure 3: count ratio and confidence interval of Density
 </div>
 </section><section class="section level2"><h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-agresti" class="csl-entry" role="listitem">
 Agresti, Alan. 2013. <em>Categorical Data Analysis, 3rd Edition</em>.
 </div>
@@ -975,7 +975,7 @@ Charpentier, Arthur. 2014. <em>Computational Actuarial Science with <span>R</spa
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
