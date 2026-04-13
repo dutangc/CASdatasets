@@ -1,0 +1,383 @@
+---
+title: "CASdatasets usage in research articles and books"
+date: '`r Sys.Date()`'
+date-format: "MMMM, YYYY"
+author: "Christophe Dutang"
+categories: [Claim severity, Claim frequency, Risk measure, Pricing, Extreme value analysis, Multivariate and copula models, Bayesian analysis]
+vignette: >
+  %\VignetteIndexEntry{CASdatasets usage}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+This vignette lists the published papers or books using datasets of `CASdatasets` package.
+
+
+
+# General usage and/or review papers
+
+
+<p>Mashrur A, Luo W, Zaidi NA, Robles-Kelly A (2020).
+&ldquo;Machine learning for financial risk management: a survey.&rdquo;
+<em>Ieee Access</em>, <b>8</b>, 203203&ndash;203223. 
+</p>
+
+<p>Embrechts P, Wüthrich MV (2022).
+&ldquo;Recent challenges in actuarial science.&rdquo;
+<em>Annual Review of Statistics and Its Application</em>, <b>9</b>, 119&ndash;140. 
+</p>
+
+<p>Wüthrich MV, Merz M (2023).
+<em>Statistical foundations of actuarial learning and its applications</em>.
+Springer Nature. 
+</p>
+
+# Claim severity modeling
+
+
+<p>Qazvini M (2019).
+&ldquo;On the validation of claims with excess zeros in liability insurance: A comparative study.&rdquo;
+<em>Risks</em>, <b>7</b>(3), 71. 
+</p>
+
+<p>Punzo A (2019).
+&ldquo;A new look at the inverse Gaussian distribution with applications to insurance and economic data.&rdquo;
+<em>Journal of Applied Statistics</em>, <b>46</b>(7), 1260&ndash;1287. 
+</p>
+
+<p>Počuča N, Jevtić P, McNicholas PD, Miljkovic T (2020).
+&ldquo;Modeling frequency and severity of claims with the zero-inflated generalized cluster-weighted models.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, <b>94</b>, 79&ndash;93. 
+</p>
+
+<p>Raschke M (2020).
+&ldquo;Alternative modelling and inference methods for claim size distributions.&rdquo;
+<em>Annals of Actuarial Science</em>, <b>14</b>(1), 1&ndash;19. 
+</p>
+
+<p>Bakar SA, Nadarajah S (2021).
+&ldquo;Composite models with underlying folded distributions.&rdquo;
+<em>Journal of Computational and Applied Mathematics</em>, <b>390</b>, 113351. 
+</p>
+
+<p>Meraou MA, Al-Kandari NM, Raqab MZ, Kundu D (2022).
+&ldquo;Analysis of skewed data by using compound Poisson exponential distribution with applications to insurance claims.&rdquo;
+<em>Journal of Statistical Computation and Simulation</em>, <b>92</b>(5), 928&ndash;956. 
+</p>
+
+<p>Chaturvedi A, Bapat SR, Joshi N (2022).
+&ldquo;Sequential estimation of an inverse Gaussian mean with known coefficient of variation.&rdquo;
+<em>Sankhya B</em>, <b>84</b>(1), 402&ndash;420. 
+</p>
+
+<p>Ghaddab S, Kacem M, de Peretti C, Belkacem L (2023).
+&ldquo;Extreme severity modeling using a GLM-GPD combination: application to an excess of loss reinsurance treaty.&rdquo;
+<em>Empirical Economics</em>, <b>65</b>(3), 1105&ndash;1127. 
+</p>
+
+<p>Tomarchio SD, Punzo A, Ferreira JT, Bekker A (2024).
+&ldquo;Mode mixture of unimodal distributions for insurance loss data.&rdquo;
+<em>Annals of Operations Research</em>, 1&ndash;19. 
+</p>
+
+<p>Möstel L, Fischer M, Pfeuffer M (2024).
+&ldquo;Composite Tukey-type distributions with application to operational risk management.&rdquo;
+<em>Journal of Operational Risk</em>. 
+</p>
+
+<p>Alsuhabi H (2024).
+&ldquo;The new Topp-Leone exponentied exponential model for modeling financial data.&rdquo;
+<em>Mathematical Modelling and Control</em>, <b>4</b>(1), 44. 
+</p>
+
+<p>Chevalier D, Côté M (2025).
+&ldquo;From point to probabilistic gradient boosting for claim frequency and severity prediction.&rdquo;
+<em>European Actuarial Journal</em>, <b>15</b>(3), 707&ndash;752. 
+</p>
+
+<p>Holvoet F, Antonio K, Henckaerts R (2025).
+&ldquo;Neural networks for insurance pricing with frequency and severity data: a benchmark study from data preprocessing to technical tariff.&rdquo;
+<em>North American Actuarial Journal</em>, <b>29</b>(3), 519&ndash;562. 
+</p>
+
+<p>Pittarello G, Hiabu M, Villegas AM (2026).
+&ldquo;Replicating and extending chain-ladder via an age&ndash;period&ndash;cohort structure on the claim development in a run-off triangle.&rdquo;
+<em>North American Actuarial Journal</em>, <b>30</b>(1), 1&ndash;31. 
+</p>
+
+# Claim frequency modeling
+
+
+<p>Počuča N, Jevtić P, McNicholas PD, Miljkovic T (2020).
+&ldquo;Modeling frequency and severity of claims with the zero-inflated generalized cluster-weighted models.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, <b>94</b>, 79&ndash;93. 
+</p>
+
+<p>Delong Ł, Lindholm M, Wüthrich MV (2021).
+&ldquo;Making Tweedie's compound Poisson model more accessible.&rdquo;
+<em>European Actuarial Journal</em>, <b>11</b>(1), 185&ndash;226.
+<a href="https://doi.org/10.1007/s13385-021-00264-3">doi:10.1007/s13385-021-00264-3</a>, <a href="https://doi.org/10.1007/s13385-021-00264-3">https://doi.org/10.1007/s13385-021-00264-3</a>. 
+</p>
+
+<p>Meraou MA, Al-Kandari NM, Raqab MZ, Kundu D (2022).
+&ldquo;Analysis of skewed data by using compound Poisson exponential distribution with applications to insurance claims.&rdquo;
+<em>Journal of Statistical Computation and Simulation</em>, <b>92</b>(5), 928&ndash;956. 
+</p>
+
+<p>Merupula J, Vaidyanathan VS, Chesneau C (2023).
+&ldquo;Prediction Interval for Compound Conway&ndash;Maxwell&ndash;Poisson Regression Model with Application to Vehicle Insurance Claim Data.&rdquo;
+<em>Mathematical and Computational Applications</em>, <b>28</b>(2), 39.
+<a href="https://doi.org/10.3390/mca28020039">doi:10.3390/mca28020039</a>, <a href="https://doi.org/10.3390/mca28020039">https://doi.org/10.3390/mca28020039</a>. 
+</p>
+
+<p>Willame G, Trufin J, Denuit M (2024).
+&ldquo;Boosted Poisson regression trees: a guide to the BT package in R.&rdquo;
+<em>Annals of Actuarial Science</em>, <b>18</b>(3), 605&ndash;625. 
+</p>
+
+<p>Liu Y, Li W, Zhang X (2025).
+&ldquo;A marginalized zero-truncated Poisson regression model and its model averaging prediction: Y. Liu et al.&rdquo;
+<em>Communications in Mathematics and Statistics</em>, <b>13</b>(3), 527&ndash;570. 
+</p>
+
+<p>Holvoet F, Antonio K, Henckaerts R (2025).
+&ldquo;Neural networks for insurance pricing with frequency and severity data: a benchmark study from data preprocessing to technical tariff.&rdquo;
+<em>North American Actuarial Journal</em>, <b>29</b>(3), 519&ndash;562. 
+</p>
+
+<p>Chevalier D, Côté M (2025).
+&ldquo;From point to probabilistic gradient boosting for claim frequency and severity prediction.&rdquo;
+<em>European Actuarial Journal</em>, <b>15</b>(3), 707&ndash;752. 
+</p>
+
+<p>Meraou MA, Raqab MZ, Almathkour FB (2025).
+&ldquo;Analyzing insurance data with an alpha power transformed exponential Poisson model.&rdquo;
+<em>Annals of Data Science</em>, <b>12</b>(3), 991&ndash;1011. 
+</p>
+
+# Risk measure
+
+
+<p>Abubakari AG (2022).
+&ldquo;Actuarial measures, regression, and applications of exponentiated Fréchet loss distribution.&rdquo;
+<em>International Journal of Mathematics and Mathematical Sciences</em>, <b>2022</b>(1), 3155188. 
+</p>
+
+<p>Staino A, Russo E, Costabile M, Leccadito A (2023).
+&ldquo;Minimum capital requirement and portfolio allocation for non-life insurance: a semiparametric model with Conditional Value-at-Risk (CVaR) constraint: A. Staino et al.&rdquo;
+<em>Computational Management Science</em>, <b>20</b>(1), 12. 
+</p>
+
+<p>Guan Y, Jiao Z, Wang R (2024).
+&ldquo;A reverse ES (CVaR) optimization formula.&rdquo;
+<em>North American Actuarial Journal</em>, <b>28</b>(3), 611&ndash;625. 
+</p>
+
+<p>Bin-Nun AY, Lizarazo C, Panasci A, Madden S, Tebbens RJD (2024).
+&ldquo;What do surrogate safety metrics measure? Understanding driving safety as a continuum.&rdquo;
+<em>Accident Analysis &amp; Prevention</em>, <b>195</b>, 107245. 
+</p>
+
+# Pricing insurance
+
+
+<p>Delong Ł, Lindholm M, Wüthrich MV (2021).
+&ldquo;Making Tweedie's compound Poisson model more accessible.&rdquo;
+<em>European Actuarial Journal</em>, <b>11</b>(1), 185&ndash;226.
+<a href="https://doi.org/10.1007/s13385-021-00264-3">doi:10.1007/s13385-021-00264-3</a>, <a href="https://doi.org/10.1007/s13385-021-00264-3">https://doi.org/10.1007/s13385-021-00264-3</a>. 
+</p>
+
+<p>Meraou MA, Al-Kandari NM, Raqab MZ, Kundu D (2022).
+&ldquo;Analysis of skewed data by using compound Poisson exponential distribution with applications to insurance claims.&rdquo;
+<em>Journal of Statistical Computation and Simulation</em>, <b>92</b>(5), 928&ndash;956. 
+</p>
+
+<p>Meraou MA, Al-Kandari NM, Raqab MZ (2022).
+&ldquo;Univariate and bivariate compound models based on random sum of variates with application to the insurance losses data.&rdquo;
+<em>Journal of Statistical Theory and Practice</em>, <b>16</b>(4), 56. 
+</p>
+
+<p>Lindholm M, Lindskog F, Palmquist J (2023).
+&ldquo;Local bias adjustment, duration-weighted probabilities, and automatic construction of tariff cells.&rdquo;
+<em>Scandinavian Actuarial Journal</em>, <b>2023</b>(10), 946&ndash;973. 
+</p>
+
+<p>Xin X, Huang F (2024).
+&ldquo;Antidiscrimination insurance pricing: Regulations, fairness criteria, and models.&rdquo;
+<em>North American Actuarial Journal</em>, <b>28</b>(2), 285&ndash;319. 
+</p>
+
+<p>Lindholm M, Nazar T (2024).
+&ldquo;On duration effects in non-life insurance pricing.&rdquo;
+<em>European Actuarial Journal</em>, <b>14</b>(3), 809&ndash;832. 
+</p>
+
+<p>Brauer A (2024).
+&ldquo;Enhancing actuarial non-life pricing models via transformers.&rdquo;
+<em>European Actuarial Journal</em>, <b>14</b>(3), 991&ndash;1012. 
+</p>
+
+<p>Lindholm M, Palmquist J (2024).
+&ldquo;Black-box guided generalised linear model building with non-life pricing applications.&rdquo;
+<em>Annals of Actuarial Science</em>, <b>18</b>(3), 675&ndash;691. 
+</p>
+
+<p>Wang R, Shi H, Cao J (2025).
+&ldquo;A Nested GLM Framework with Neural Network Encoding and Spatially Constrained Clustering in Non-Life Insurance Ratemaking.&rdquo;
+<em>North American Actuarial Journal</em>, <b>29</b>(3), 645&ndash;661. 
+</p>
+
+<p>Holvoet F, Antonio K, Henckaerts R (2025).
+&ldquo;Neural networks for insurance pricing with frequency and severity data: a benchmark study from data preprocessing to technical tariff.&rdquo;
+<em>North American Actuarial Journal</em>, <b>29</b>(3), 519&ndash;562. 
+</p>
+
+# Extreme value analysis
+
+
+<p>Girard S, Stupfler G, Usseglio-Carleve A (2022).
+&ldquo;On automatic bias reduction for extreme expectile estimation.&rdquo;
+<em>Statistics and Computing</em>, <b>32</b>(4), 64. 
+</p>
+
+<p>Meng J, Chan K (2022).
+&ldquo;Penalized quasi-likelihood estimation of generalized Pareto regression&ndash;consistent identification of risk factors for extreme losses.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, <b>104</b>, 60&ndash;75. 
+</p>
+
+<p>Allouche M, El Methni J, Girard S (2023).
+&ldquo;A refined Weissman estimator for extreme quantiles.&rdquo;
+<em>Extremes</em>, <b>26</b>(3), 545&ndash;572. 
+</p>
+
+<p>Stupfler G, Usseglio-Carleve A (2023).
+&ldquo;Composite bias-reduced L p-quantile-based estimators of extreme quantiles and expectiles.&rdquo;
+<em>Canadian Journal of Statistics</em>, <b>51</b>(2), 704&ndash;742. 
+</p>
+
+# Multivariate and copula models
+
+
+<p>Hoang Q, Khandelwal P, Ghosh S (2019).
+&ldquo;Robust predictive model using copulas.&rdquo;
+<em>Data-Enabled Discovery and Applications</em>, <b>3</b>(1), 8. 
+</p>
+
+<p>Syed Yusoff Alhabshi SF, Zamzuri ZH, Mohd Ramli SN (2021).
+&ldquo;Monte carlo simulation of the moments of a copula-dependent risk process with weibull interwaiting time.&rdquo;
+<em>Risks</em>, <b>9</b>(6), 109. 
+</p>
+
+<p>Deresa NW, Van Keilegom I, Antonio K (2022).
+&ldquo;Copula-based inference for bivariate survival data with left truncation and dependent censoring.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, <b>107</b>, 1&ndash;21. 
+</p>
+
+<p>Meraou MA, Al-Kandari NM, Raqab MZ (2022).
+&ldquo;Univariate and bivariate compound models based on random sum of variates with application to the insurance losses data.&rdquo;
+<em>Journal of Statistical Theory and Practice</em>, <b>16</b>(4), 56. 
+</p>
+
+<p>Brouste A, Dutang C, Hovsepyan L, Rohmer T (2026).
+&ldquo;Fast inference in copula models with categorical explanatory variables using the one-step procedure.&rdquo;
+<em>Computational Statistics</em>, <b>41</b>(1), 23. 
+</p>
+
+# Bayesian analysis
+
+
+<p>Goffard P, Laub PJ (2021).
+&ldquo;Approximate Bayesian Computations to fit and compare insurance loss models.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, <b>100</b>, 350&ndash;371. 
+</p>
+
+<p>Ungolo F, van den Heuvel ER (2024).
+&ldquo;A Dirichlet process mixture regression model for the analysis of competing risk events.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, <b>116</b>, 95&ndash;113. 
+</p>
+
+# Other topics
+
+
+<p>Miljkovic T, Fernández D (2018).
+&ldquo;On two mixture-based clustering approaches used in modeling an insurance portfolio.&rdquo;
+<em>Risks</em>, <b>6</b>(2), 57. 
+</p>
+
+<p>Richman R, Wüthrich MV (2020).
+&ldquo;Nagging predictors.&rdquo;
+<em>Risks</em>, <b>8</b>(3), 83. 
+</p>
+
+<p>Majeed A (2020).
+&ldquo;Accelerated failure time models: An application in insurance attrition.&rdquo;
+<em>The Journal of Risk Management and Insurance</em>. 
+</p>
+
+<p>Tseung SC, Badescu AL, Fung TC, Lin XS (2021).
+&ldquo;LRMoE.jl: a software package for insurance loss modelling using mixture of experts regression model.&rdquo;
+<em>Annals of Actuarial Science</em>, <b>15</b>(2), 419&ndash;440. 
+</p>
+
+<p>Henckaerts R, Antonio K, Côté M (2022).
+&ldquo;When stakes are high: Balancing accuracy and transparency with Model-Agnostic Interpretable Data-driven suRRogates.&rdquo;
+<em>Expert Systems with Applications</em>, <b>202</b>, 117230. 
+</p>
+
+<p>Shi P, Shi K (2023).
+&ldquo;Non-life insurance risk classification using categorical embedding.&rdquo;
+<em>North American Actuarial Journal</em>, <b>27</b>(3), 579&ndash;601. 
+</p>
+
+<p>Avanzi B, Taylor G, Wang M (2023).
+&ldquo;SPLICE: a synthetic paid loss and incurred cost experience simulator.&rdquo;
+<em>Annals of Actuarial Science</em>, <b>17</b>(1), 7&ndash;35. 
+</p>
+
+<p>Ponnet J, Raymaekers J, Verdonck T (2023).
+&ldquo;Fast thresholded concordance probability for evolutionary optimization.&rdquo;
+<em>Swarm and Evolutionary Computation</em>, <b>78</b>, 101260. 
+</p>
+
+<p>Richman R, Wüthrich MV (2023).
+&ldquo;LocalGLMnet: interpretable deep learning for tabular data.&rdquo;
+<em>Scandinavian Actuarial Journal</em>, <b>2023</b>(1), 71&ndash;95. 
+</p>
+
+<p>Brouste A, Dutang C, Rohmer T (2024).
+&ldquo;A closed-form alternative estimator for GLM with categorical explanatory variables.&rdquo;
+<em>Communications in Statistics-Simulation and Computation</em>, <b>53</b>(5), 2444&ndash;2460. 
+</p>
+
+<p>Bladt M, Gardner CB (2024).
+&ldquo;Joint discrete and continuous matrix distribution modeling.&rdquo;
+<em>Stochastic Models</em>, <b>40</b>(1), 1&ndash;37. 
+</p>
+
+<p>Wüthrich MV, Ziegel J (2024).
+&ldquo;Isotonic recalibration under a low signal-to-noise ratio.&rdquo;
+<em>Scandinavian Actuarial Journal</em>, <b>2024</b>(3), 279&ndash;299. 
+</p>
+
+<p>Aljohani HM (2024).
+&ldquo;Statistical inference for a novel distribution using ranked set sampling with applications.&rdquo;
+<em>Heliyon</em>, <b>10</b>(5). 
+</p>
+
+<p>Lim D, Neufeld A, Sabanis S, Zhang Y (2025).
+&ldquo;Langevin dynamics based algorithm e-TH $ǎrepsilon$ O POULA for stochastic optimization problems with discontinuous stochastic gradient.&rdquo;
+<em>Mathematics of Operations Research</em>, <b>50</b>(3), 2333&ndash;2374. 
+</p>
+
+<p>Miljkovic T, Wang P (2025).
+&ldquo;A dimension reduction assisted credit scoring method for big data with categorical features.&rdquo;
+<em>Financial Innovation</em>, <b>11</b>(1), 29. 
+</p>
+
+<p>Avanzi B, Dong E, Laub PJ, Wong B (2026).
+&ldquo;Distributional refinement network: Distributional forecasting via deep learning.&rdquo;
+<em>Insurance: Mathematics and Economics</em>, 103246. 
+</p>
+
+
