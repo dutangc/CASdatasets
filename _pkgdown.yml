@@ -4,7 +4,7 @@ template:
 
 navbar:
   structure:
-    left:  [intro, reference, articles, tutorials, usage, news]
+    left:  [intro, reference, articles, tutorials, news]
     right: [search, github]
 
 reference:
@@ -293,12 +293,6 @@ articles:
   contents:
    - mortality_vignette
    - calibration_metrics_vignette
-
-usage:
-- title: CASdatasets usage
-  navbar: ~
-  contents:
-   - usage_vignette
 
 toc:
   number_sections: yes
