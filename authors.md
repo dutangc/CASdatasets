@@ -18,7 +18,8 @@
 Source:
 [`inst/CITATION`](https://github.com/dutangc/CASdatasets/blob/master/inst/CITATION)
 
-C. Dutang and A. Charpentier (2026), CASdatasets: Insurance datasets.
+C. Dutang and A. Charpentier (2026), CASdatasets: Insurance datasets,
+DOI: 10.57745/P0KHAG.
 
     @Manual{,
       title = {CASdatasets: Insurance datasets},
@@ -28,9 +29,8 @@ C. Dutang and A. Charpentier (2026), CASdatasets: Insurance datasets.
       doi = {10.57745/P0KHAG},
     }
 
-Charpentier A (2014). *Computational actuarial science with R*. CRC
+A. Charpentier (2014), Computational actuarial science with R, CRC
 press.
-<https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788>.
 
     @Book{,
       title = {Computational actuarial science with {R}},
