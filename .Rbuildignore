@@ -8,3 +8,5 @@ geodata/
 man-md/
 share/
 web-index-page/
+^doc$
+^Meta$
