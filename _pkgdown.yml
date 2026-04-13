@@ -275,7 +275,7 @@ reference:
    - PnCdemand
 
 articles:
-- title: Non-life insurance -- use cases of claim frequency modeling
+- title: Vignettes
   navbar: ~
   contents:
    - poisson_vignette
@@ -283,16 +283,11 @@ articles:
    - gam_rc_belgian_vignette
    - zero_inflated_vignette
    - zero_inflated_vignette_freMTPL
-- title: Non-life insurance -- use cases of claim reserving
-  navbar: ~
-  contents:
    - triangle_vignette
    - triangle_aids_vignette
-- title: Other use cases
-  navbar: ~
-  contents:
    - mortality_vignette
    - calibration_metrics_vignette
+   - usage_vignette
 
 toc:
   number_sections: yes

@@ -2,7 +2,7 @@
 title: "Frequency analysis of an Australian Motor Third Party Liability dataset"
 date: '`r Sys.Date()`'
 date-format: "MMMM, YYYY"
-author: "Siharath Julien"
+author: "Julien Siharath"
 chapters:
   - Introduction
   - Models
