@@ -298,7 +298,7 @@ usage:
 - title: CASdatasets usage
   navbar: ~
   contents:
-   - usage
+   - usage_vignette
 
 toc:
   number_sections: yes
