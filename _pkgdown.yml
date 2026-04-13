@@ -276,7 +276,6 @@ reference:
 
 articles:
 - title: Vignettes
-  navbar: ~
   contents:
    - poisson_vignette
    - quasi_poisson_vignette_ausprivauto0405
