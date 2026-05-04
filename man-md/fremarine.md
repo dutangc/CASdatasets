@@ -1,5 +1,7 @@
 # Some French marine losses
 
+## Description
+
 The univariate dataset was collected by a French private insurer and comprise 1,274 marine losses between the January 2003 and June 2006. The status of the claim (settled or opened) is determined at the end of June 2006.
 
 ```r

@@ -1,6 +1,8 @@
 # French private motor, third party liability or disability triangles
 
-Datasets `fretri1auto9605`, `fretri2auto9605` and `fretri3auto9605` contain claim triangles of motor policies from a French non-life insurer between 1996 and 2005. Dataset `fretri4auto9403` contains a claim triangle of motor policies from a French non-life insurer between 1994 and 2003. Note that the accident year 1994 corresponds to all of years before 1994 (included).
+## Description
+
+ Datasets `fretri1auto9605`, `fretri2auto9605` and `fretri3auto9605` contain claim triangles of motor policies from a French non-life insurer between 1996 and 2005. Dataset `fretri4auto9403` contains a claim triangle of motor policies from a French non-life insurer between 1994 and 2003. Note that the accident year 1994 corresponds to all of years before 1994 (included).
 
 For each dataset, the variable `fretri1auto---` is a list of 3 elements for the damage guarantee, the body guarantee and the total. Each element is also a list of two elements with paid claims and incurred claim amounts. Note that claim amounts are cumulated.
 

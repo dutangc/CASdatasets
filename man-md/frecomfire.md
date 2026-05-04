@@ -1,5 +1,7 @@
 # French commercial fire losses
 
+## Description
+
 The univariate dataset was collected at FFSA and comprise 9613 commercial fire losses over the period 1982 to 1996.
 
 ```r

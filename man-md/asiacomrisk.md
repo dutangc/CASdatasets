@@ -1,5 +1,7 @@
 # Large commercial risks in Asia-Pacific
 
+## Description
+
 A completed project by the Insurance Risk and Finance Research Centre (www.IRFRC.com) has assembled a unique dataset from Large Commercial Risk losses in Asia-Pacific (APAC) covering the period 2000-2013. The data was generously contributed by one global reinsurance company and two large Lloyd's syndicates in London. This dataset is the result of the project co-lead by Dr Milidonis (IRFRC and University of Cyprus) and Enrico Biffis (Imperial College Business School), which can be referred to as the IRFRC LCR Dataset.
 
 As expected, the dataset is fully anonymised, as the LCR losses are aggregated along a few dimensions. First, data is categorised based on the World Bank's economic development classification. This means that losses either come from developed or developing countries. The second dimension used to aggregate the data is the time period covered. Data is grouped into (at least) two time-periods: the period before and after the 2008 crisis.
@@ -26,7 +28,7 @@ data(asiacomrisk)
 
 ## References
 
-Benedetti, D., Biffis, E., and Milidonis, A. (2015a). **Large Commercial Risks (LCR) in Insurance: Focus on Asia-Pacific**, Insurance Risk and Finance Research Centre Technical report.
+ Benedetti, D., Biffis, E., and Milidonis, A. (2015a). **Large Commercial Risks (LCR) in Insurance: Focus on Asia-Pacific**, Insurance Risk and Finance Research Centre Technical report.
 
 Benedetti, D., Biffis, E., and Milidonis, A. (2015b). **Large Commercial Exposures and Tail Risk: Evidence from the Asia-Pacific Property and Casualty Insurance Market**, Working paper.
 

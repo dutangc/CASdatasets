@@ -1,6 +1,8 @@
 # Normalized Hurricane Damages
 
-Normalized Hurricane Damages in the United States: 1900-2005 was studied in Pielke et al. (2008). Weinkle et al. (2018) provides a major update to the leading dataset on normalized US hurricane losses in the continental United States from 1900 to 2017. Over this period, 197 hurricanes resulted in 206 landfalls with about US$2 trillion in normalized (2018) damage, or just under US$17 billion annually.
+## Description
+
+ Normalized Hurricane Damages in the United States: 1900-2005 was studied in Pielke et al. (2008). Weinkle et al. (2018) provides a major update to the leading dataset on normalized US hurricane losses in the continental United States from 1900 to 2017. Over this period, 197 hurricanes resulted in 206 landfalls with about US$2 trillion in normalized (2018) damage, or just under US$17 billion annually.
 
 Grinsted et al. (2018) develop a record of normalized damage since 1900 based on an equivalent area of total destruction (ATD). Their record of normalized damage, framed in terms of an equivalent area of total destruction, is a more reliable measure for climate-related changes in extreme weather, and can be used for better risk assessments on hurricane disasters.
 
@@ -28,11 +30,13 @@ data(ushu18NCEI)
 - **`Normalized PL 2018`**: Normalized PL18 damages (2018 USD).
 - **`Normalized CL 2018`**: Normalized CL18 damages (2018 USD).
 
+
 `ushu17annualloss` is a data frame of 2 columns and 106 rows:
 
 - **`Year`**: Year
 - **`PL18 Sum for Year`**: Aggregate of PL18 over a year
 - **`CL18 Sum for Year`**: Aggregate of CL18 over a year
+
 
 `ushu17inflation` is a data frame of 9 columns and 106 rows:
 
@@ -46,6 +50,7 @@ data(ushu18NCEI)
 - **`Real.Wealth.Per.Capita.Multiplier`**: Real wealth per capita multiplier.
 - **`Real.Wealth.Per.Housing.Unit`**: Real wealth per housing unit.
 - **`Real.Wealth.Per.Housing.Unit.Multiplier`**: Real wealth per housing multiplier.
+
 
 `ushu17population` is a data frame of 12 columns and 217 rows:
 
@@ -61,6 +66,7 @@ data(ushu18NCEI)
 - **`Housing Units Multiplier`**: Housing units multiplier.
 - **`Population`**: Total US population.
 - **`Housing Units`**: Total US housing units.
+
 
 `ushu18ICAT`, `ushu18W`, `ushu18NCEI` are data frames
 with most of the following columns:
@@ -84,7 +90,7 @@ with most of the following columns:
 
 ## References
 
-Pielke, Gratz, Landsea, Collins, Saunders, and Musulin (2008), **Normalized Hurricane Damages in the United States: 1900-2005**, Natural Hazards Review, Volume 9, Issue 1, pp. 29-42.
+ Pielke, Gratz, Landsea, Collins, Saunders, and Musulin (2008), **Normalized Hurricane Damages in the United States: 1900-2005**, Natural Hazards Review, Volume 9, Issue 1, pp. 29-42.
 
 Weinkle, J., Landsea, C., Collins, D., Musulin, R., Crompton, R. P., Klotzbach, P. J., Pielke Jr, R. (2018) **Normalized hurricane damage in the continental United States 1900-2017**, Nature sustainability, 1(12), 808-813.
 

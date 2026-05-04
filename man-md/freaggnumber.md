@@ -1,5 +1,7 @@
 # French aggregate claim numbers
 
+## Description
+
 The dataset consists of 12513 classes for which we have the driver age, the age of driving licence, the vehicule age, the exposure and the claim number.
 
 ```r

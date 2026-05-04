@@ -1,5 +1,7 @@
 # UK Car Insurance Claims for 1975
 
+## Description
+
 The data give the average claims for damage to the owner's car for privately owned and comprehensively insured vehicles in Britain in 1975. Averages are given in pounds sterling adjusted for inflation. The datasets contains 128 observations.
 
 ```r

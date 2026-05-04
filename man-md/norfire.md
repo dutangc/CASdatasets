@@ -1,5 +1,7 @@
 # Norwegian fire insurance dataset
 
+## Description
+
 This dataset comprises 9181 fire losses over the period 1972 to 1992 from an unknown Norwegian company. A priority of 500 thousands of Norwegian Krone (NKR) was applied to get this dataset.
 
 ```r
@@ -16,7 +18,7 @@ data(norfire)
 
 ## References
 
-Beirlant, Teugels and Vynckier (1996), **Practical Analysis of Extreme Values**, Leuven University Press, [https://www.jstor.org/stable/2236602](https://www.jstor.org/stable/2236602).
+ Beirlant, Teugels and Vynckier (1996), **Practical Analysis of Extreme Values**, Leuven University Press, [https://www.jstor.org/stable/2236602](https://www.jstor.org/stable/2236602).
 
 Beirlant, Matthys and Diercks (2001), **Heavy-tailed distributions and rating**, ASTIN Bulletin, Vol. 31, Issue 1, .
 

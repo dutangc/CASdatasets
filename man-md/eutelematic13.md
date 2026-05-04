@@ -1,6 +1,8 @@
 # European telematic insurance dataset
 
-This dataset is based on a real dataset acquired from a European-based insurer. The observation period was for the year 2013, with over 766,746 policies being observed, for which the dataset drawn is pre-engineered for training a statistical model for predictive purposes.
+## Description
+
+ This dataset is based on a real dataset acquired from a European-based insurer. The observation period was for the year 2013, with over 766,746 policies being observed, for which the dataset drawn is pre-engineered for training a statistical model for predictive purposes.
 
 ```r
 data(eutelematic13)

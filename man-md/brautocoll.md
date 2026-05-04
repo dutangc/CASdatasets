@@ -1,5 +1,7 @@
 # Brazilian Automobile Collision Claims
 
+## Description
+
 Dataset of car traffic collisions that occurred in February 2011, in Belo Horizonte, a Brazilian city. A record consists of date, day, hour, locations (long, lat) and severity for a given collision.
 
 ```r
@@ -20,4 +22,4 @@ data(brautocoll)
 
 ## References
 
-Charpentier, A. (2014). **Computational Actuarial Science with R**. CRC Press.
+ Charpentier, A. (2014). **Computational Actuarial Science with R**. CRC Press.

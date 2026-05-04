@@ -1,5 +1,7 @@
 # UK Automobile Collision Claims
 
+## Description
+
 The data give the average claims and claim counts for insured vehicles in UK. Averages are given in pounds sterling adjusted for inflation. The datasets contains 32 observations.
 
 ```r

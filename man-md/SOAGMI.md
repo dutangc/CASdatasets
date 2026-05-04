@@ -1,5 +1,7 @@
 # SOA Group Medical Insurance claim dataset
 
+## Description
+
 The dataset was collected by SOA for a group medical insurance and contains records of all the claim amounts exceeding 25,000 USD over the period 1991 and is available at [https://www.soa.org](https://www.soa.org). There is no truncation due to maximum benefits.
 
 ```r
@@ -15,7 +17,7 @@ data(SOAGMI)
 
 ## References
 
-Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004) **Statistics of Extremes: Theory and Applications.**, Chichester, England: John Wiley and Sons, .
+ Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004) **Statistics of Extremes: Theory and Applications.**, Chichester, England: John Wiley and Sons, .
 
 Grazier and G'Sell (1997), **Group Medical Insurance Large Claims Database and Collection**, SOA Monograph M-HB97-1, Society of Actuaries, Schaumburg.
 

@@ -77,6 +77,7 @@ or region is given.
 		\item{\code{\link{frebiloss}}: French business interruption losses.}
 		\item{\code{\link{freclaimset}}, \code{\link{freclaimset9207}}: French claim settlements.}
 		\item{\code{\link{frecomfire}}: French commercial fire losses.}
+		\item{\code{\link{freDemography}}: datasets of the French demography.}
 		\item{\code{\link{freDisTables}}: French disability tables.}
 		\item{\code{\link{freIRSA}}: French IRSA convention.}
     \item{\code{\link{fremarine}}: French marine claim dataset (by policy).}

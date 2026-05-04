@@ -1,6 +1,8 @@
 # Automobile bodily injury claim dataset in Australia
 
-This data set contains information on 22036 settled personal injury insurance claims in Australia. These claims arose from accidents occurring from July 1989 through to January 1999. Claims settled with zero payment are not included.
+## Description
+
+ This data set contains information on 22036 settled personal injury insurance claims in Australia. These claims arose from accidents occurring from July 1989 through to January 1999. Claims settled with zero payment are not included.
 
 ```r
 data(ausautoBI8999)
@@ -20,4 +22,4 @@ data(ausautoBI8999)
 
 ## References
 
-P. De Jong and G.Z. Heller (2008), **Generalized linear models for insurance data**, Cambridge University Press, .
+ P. De Jong and G.Z. Heller (2008), **Generalized linear models for insurance data**, Cambridge University Press, .

@@ -1,5 +1,7 @@
 # AON Re Belgian dataset
 
+## Description
+
 The dataset was collected by the reinsurance broker AON Re Belgium and comprise 1,823 fire losses for which the building type and the sum insured are available.
 
 ```r

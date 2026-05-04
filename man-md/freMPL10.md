@@ -1,6 +1,8 @@
 # French Motor Personal Line datasets
 
-This collection of ten datasets comes from a private motor French insurer. Each dataset includes risk features, claim amount and claim history of around 30,000 policies for year 2004.
+## Description
+
+ This collection of ten datasets comes from a private motor French insurer. Each dataset includes risk features, claim amount and claim history of around 30,000 policies for year 2004.
 
 ```r
 data(freMPL1)
@@ -18,7 +20,7 @@ data(freMPL10)
 
 ## Format
 
-For this collection of dataset, possible variables are given below. `freMPL1-10` contains claim severity and frequency information. The following tabular gives the list of variables by file. `freMPL1sub` is a subset of `freMPL1` with exposure closed to 1: rownames of `freMPL1sub` are extracted rownames of `freMPL1`.
+ For this collection of dataset, possible variables are given below. `freMPL1-10` contains claim severity and frequency information. The following tabular gives the list of variables by file. `freMPL1sub` is a subset of `freMPL1` with exposure closed to 1: rownames of `freMPL1sub` are extracted rownames of `freMPL1`.
 
 ||||||||||||
 |--:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -68,9 +70,7 @@ The comprehensive list of the variables (over all datasets) is given below, yet 
 - **`HasKmLimit`**: A numeric, 1 if there is a km limit for the policy, 0 otherwise.
 - **`BonusMalus`**: A numeric for the bonus/malus, between 50 and 350: <100 means bonus, >100 means malus in France.
 - **`VehAge`**: The vehicle age, in years.
-- **`VehUsage`**: The vehicle usage among `"Private"`, `"Private+trip to office"`
-       
-        `"Professional"`, `"Professional run"`.
+- **`VehUsage`**: The vehicle usage among `"Private"`, `"Private+trip to office"` `"Professional"`, `"Professional run"`.
 - **`VehBody`**: The vehicle body, among `"bus"`, `"cabriolet"`, `"coupe"`, `"microvan"`, `"other microvan"`, `"sedan"`, `"sport utility vehicle"`, `"station wagon"`, `"van"`.
 - **`VehPrice`**: The category of the vehicle price from `"A"` (cheapest) to `"Z"` (most expensive).
 - **`VehEngine`**: The vehicle engine, among `"carburation"`, `"direct injection overpowered"`, `"electric"`, `"GPL"`, `"injection"`, `"injection overpowered"`.

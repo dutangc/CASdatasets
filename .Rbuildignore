@@ -10,3 +10,5 @@ share/
 web-index-page/
 ^doc$
 ^Meta$
+^\.positai$
+^\.claude$

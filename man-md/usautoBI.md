@@ -1,6 +1,8 @@
 # Automobile bodily injury claim dataset
 
-This dataset contains automobile injury claims collected in 2002 by the Insurance Research Council (part of AICPCU and IIA). There are 1,340 records with demographic information, in addition to the claim amount.
+## Description
+
+ This dataset contains automobile injury claims collected in 2002 by the Insurance Research Council (part of AICPCU and IIA). There are 1,340 records with demographic information, in addition to the claim amount.
 
 ```r
 data(usautoBI)
@@ -21,6 +23,6 @@ data(usautoBI)
 
 ## References
 
-Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
+ Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
 
  

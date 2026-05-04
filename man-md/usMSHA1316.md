@@ -1,5 +1,7 @@
 # U.S. Mine Safety and Health Administration claim datasets
 
+## Description
+
 `usMSHA1316` is a data set from the U.S. Mine Safety and Health Administration from 2013 to 2016. The data set was used in the Predictive Analytics exam administered by the Society of Actuaries in December 2018. This data set contains 53,746 observations described by 20 variables, including compositional variables.
 
 ```r
@@ -32,6 +34,6 @@ data(usMSHA1316)
 
 ## References
 
-Gan, Guojun, and Emiliano A. Valdez. 2024. **Compositional Data Regression in Insurance with Exponential Family PCA**, Variance 17 (1), [https://variancejournal.org/article/116404-compositional-data-regression-in-insurance-with-exponential-family-pca](https://variancejournal.org/article/116404-compositional-data-regression-in-insurance-with-exponential-family-pca), of the arxiv version.
+ Gan, Guojun, and Emiliano A. Valdez. 2024. **Compositional Data Regression in Insurance with Exponential Family PCA**, Variance 17 (1), [https://variancejournal.org/article/116404-compositional-data-regression-in-insurance-with-exponential-family-pca](https://variancejournal.org/article/116404-compositional-data-regression-in-insurance-with-exponential-family-pca), of the arxiv version.
 
  

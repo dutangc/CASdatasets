@@ -1,6 +1,8 @@
 # European motor TPL insurance
 
-The `euMTPL` compiles three years of experience from a European MTPL (Motor Third Party Liability) portfolio, including frequency and severity values for different types of losses. The data was collected during the first decade of the 21st century.
+## Description
+
+ The `euMTPL` compiles three years of experience from a European MTPL (Motor Third Party Liability) portfolio, including frequency and severity values for different types of losses. The data was collected during the first decade of the 21st century.
 
 ```r
 data(euMTPL)

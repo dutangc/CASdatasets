@@ -1,10 +1,12 @@
 # Australian Market - non-life insurance (Glossary)
 
+## Description
+
 Financial performance and financial position of insurers operating in Australia between 2005 and 2010 (Glossary).
 
 ## Details
 
-Glossary notes:
+ Glossary notes:
 
  * Capital base is the amount of eligible capital held by an insurer to provide a buffer against losses that have not been anticipated and, in the event of problems, enable the insurer to continue operating while those problems are addressed or resolved. For locally incorporated insurers it is the sum of tier 1 capital (net of deductions) and tier 2 capital . Capital base for branch insurers is derived from net assets inside Australia.
  * Captive insurer is a company within a group of related companies performing the function of insurer to that group.

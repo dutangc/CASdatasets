@@ -1,6 +1,8 @@
 # Automobile claim datasets in Australia
 
-Third party insurance is a compulsory insurance for vehicle owners in Australia. It insures vehicle owners against injury caused to other drivers, passengers or pedestrians, as a result of an accident.
+## Description
+
+ Third party insurance is a compulsory insurance for vehicle owners in Australia. It insures vehicle owners against injury caused to other drivers, passengers or pedestrians, as a result of an accident.
 
 The `ausprivauto0405` dataset is based on one-year vehicle insurance policies taken out in 2004 or 2005. There are 67856 policies, of which 4624 had at least one claim.
 
@@ -28,6 +30,7 @@ data(ausprivauto0405)
 - **`ClaimNb`**: The number of claims.
 - **`ClaimAmount`**: The sum of claim payments.
 
+
 `ausMTPL8486` is a data frame of 7 columns and 176 rows:
 
 - **`LocalGov`**: The local government area.
@@ -37,6 +40,7 @@ data(ausprivauto0405)
 - **`KillInjNb`**: The number of killed or injured.
 - **`Pop`**: The population size.
 - **`PopDens`**: The population density.
+
 
 `ausprivauto0405` is a data frame of 6 columns and 120,000 rows:
 
@@ -50,6 +54,6 @@ data(ausprivauto0405)
 
 ## References
 
-P. De Jong and G.Z. Heller (2008), **Generalized linear models for insurance data**, Cambridge University Press, .
+ P. De Jong and G.Z. Heller (2008), **Generalized linear models for insurance data**, Cambridge University Press, .
 
  

@@ -1,10 +1,12 @@
 # French Motor Third-Part Liability datasets used for 100 percent Data Science game
 
+## Description
+
 `pg15training`, `pg15pricing` are the two datasets used for the 2015 pricing game of the French institute of Actuaries organized on November 5, 2015. `pg15training` contains 100,000 TPL policies for private motor insurance used to fit the models, whereas `pg15pricing` contains 36,311 policies of the same guarantee for which the premium is computed. Each record has been observed at most one year and contains risk features of the policyholder and the insured vehicle. For confidentiality reasons, most categorical levels have unknown meaning.
 
-`pg16trainpol`, `pg16trainclaim`, `pg16test`
 
-are the three datasets used for the 2016 pricing game of the French institute of Actuaries organized on November 8, 2016. `pg16trainpol` contains 87,228 policies for private motor insurance and `pg16trainclaim` contains 4,568 claims of those 87,228 TPL policies. Policies are guaranteed for all kinds of material damages, but not bodily injuries. Both datasets are used to fit the models, whereas `pg16test` is used for training. For confidentiality reasons, most categorical levels have unknown meaning.
+`pg16trainpol`, `pg16trainclaim`, `pg16test` are the three datasets used for the 2016 pricing game of the French institute of Actuaries organized on November 8, 2016. `pg16trainpol` contains 87,228 policies for private motor insurance and `pg16trainclaim` contains 4,568 claims of those 87,228 TPL policies. Policies are guaranteed for all kinds of material damages, but not bodily injuries. Both datasets are used to fit the models, whereas `pg16test` is used for training. For confidentiality reasons, most categorical levels have unknown meaning.
+
 
 `pg17trainpol`, `pg17trainclaim` are the two training datasets used for the 2017 pricing game of the French institute of Actuaries organized on November 16, 2017. `pg17trainpol` contains 100,000 policies for private motor insurance and `pg17trainclaim` contains 14,243 claims of those 100,00 TPL policies. These training sets correspond to year `t=0`. `pg17testyear1`, `pg17testyear2`, `pg17testyear3`, `pg17testyear4` are the four test datasets used for the pricing game: each has 100,000 rows of new policies (drivers willing to purchase insurance for Year `t` with `t=1,2,3,4`).
 
@@ -49,6 +51,7 @@ data(pg17testyear4)
 - **`Indtppd`**: The total cost of third-party material claims (euro).
 - **`Indtpbi`**: The total cost of third-party bodily injury claims (euro).
 
+
 `pg16trainpol, pg16trainclaim, pg16test` are dataframes with the following columns:
 
 - **`Year`**: The coverage year.
@@ -77,14 +80,13 @@ data(pg17testyear4)
 - **`CompRate`**: The rate of compensation (in percent).
 - **`SettlYear`**: The settlement year.
 
+
 `pg17***` are dataframes with the following columns:
 
 
 - **`id_client`**: The client identification number: a string of the form `Annnnnnnn` (`A` followed by an 8-digit number). First client ID is `A00000001` and last is `A00091488`.
 - **`id_vehicle`**: The vehicle identification number: a string of the form `Vnn` (a `V` followed by a 2-digit number). First vehicle is always numbered V01. If a client has multiple vehicles, then the numeration increases by 1. There is no particular ordering in the vehicles, so their rank should not represent anything valuable.
-- **`id_policy`**: The policy identification number, a string of the form `Annnnnnnn-Vnn` resulting from appending `id_client`
-       
-       and `id_vehicle`.
+- **`id_policy`**: The policy identification number, a string of the form `Annnnnnnn-Vnn` resulting from appending `id_client` and `id_vehicle`.
 - **`id_year`**: The year of coverage, Year ID begins at `"Year 0"` and ends at `"Year 4"`.
 - **`pol_bonus`**: The policy bonus (French no-claim discount): `0.5` means a 30 percent bonus while `1.2` means a 20 percent malus; see details below.
 - **`pol_coverage`**: The coverage category: The coverage are of 4 types : Mini, Median1, Median2 and Maxi, in this order. As you can guess, Mini policies covers only Third Party Liability claims, whereas Maxi policies covers all claims, including Damage, Theft, Windshield Breaking, Assistance, etc.
@@ -92,9 +94,7 @@ data(pg17testyear4)
 - **`pol_sit_duration`**: The policy current endorsement duration: Situation duration represent how old the current policy caracteristics are. It can be different from pol duration, because the same insurance policy could have evolved in the past (e.g. by changing coverage, or vehicle, or drivers, `...`).
 - **`pol_pay_freq`**: The payment frequency: The price of the insurance coverage can be paid annually, bi-annually, quarterly or monthly.
 - **`pol_payd`**: A dummy indicating pay as you drive: a string with Yes or No, which indicates whether our client has subscribed a mileage-based policy or not. In those early ages of Year 0, Pay As You Drive was not that current, so they represent a minority in the portfolio.
-- **`pol_usage`**: The policy usage: it describes what usage the driver makes from his vehicle, most of time. There are 4 possible values : `"WorkPrivate"` which is the most common, `"Retired"`
-       
-       which is presumed to be aimed at retired people (who also are presumed driving less kilometers), `"Professional"` which denotes a professional usage of the vehicle, and `"AllTrips"` which is quite similar to Professional (including pro tours). As for the coverage, it would be very surprising that this variable had no effect on frequency.
+- **`pol_usage`**: The policy usage: it describes what usage the driver makes from his vehicle, most of time. There are 4 possible values : `"WorkPrivate"` which is the most common, `"Retired"` which is presumed to be aimed at retired people (who also are presumed driving less kilometers), `"Professional"` which denotes a professional usage of the vehicle, and `"AllTrips"` which is quite similar to Professional (including pro tours). As for the coverage, it would be very surprising that this variable had no effect on frequency.
 - **`pol_insee_code`**: The INSEE code of the French city/municipality where the policyholder lives: it is a 5-digits alphanumeric code used by the French National Institute for Statistics and Economic Studies (hence INSEE) to identify "communes" and departments in France. There are about 36,000 "communes" in France, but not every one of them is present in the dataset (there are only 18,000 of them). The first 2 digits of insee code identifies the department (they are 96, not including overseas departments). The insee code or department code can be used to possibly merge external data to the datasets: population density, OSM data, etc.
 - **`drv_drv2`**: A character string indicating if there is a secondary driver: there is always a first driver, which characteristics (age, sex, licence) are provided, but a secondary driver is optional, and is present 1 time out of 3.
 - **`drv_age1,drv_age2`**: The driver age of the ith driver: it is expressed in years counted from the beginning of the considered year. Then, `drv_age1` increases by 1 every year, like in real world... Legal age to drive is 18, so you shouldn't find any age below that limit. Due to the fact that the database is built on existing situations before Year 0, in fact the minimum age is 19 in Year 0 dataset. On the other side, you'll also find quite old drivers.
@@ -106,9 +106,7 @@ data(pg17testyear4)
 - **`vh_fuel`**: The vehicle fuel type: with mainly two values `"Diesel"` and `"Gasoline"`. Very few Hybrid vehicles can also be found, but, 6 years ago, the hybrid market was still at its beginning.
 - **`vh_make`**: The vehicle carmaker. As the database is built from a French insurance, the three major brands are Renault, Peugeot and Citroen.
 - **`vh_model`**: The vehicle model. As a subdivision of the carmake, vehicle is identified by its model name.
-- **`vh_sale_begin,vh_sale_end`**: `vh_sale_begin` and `vh_sale_end`
-       
-       are the dates (in fact: ages) from the beginning of the current year of the beginning and the end of marketing years of the vehicle. This could for instance identify policies that covers very new vehicles or second-hand ones.
+- **`vh_sale_begin,vh_sale_end`**: `vh_sale_begin` and `vh_sale_end` are the dates (in fact: ages) from the beginning of the current year of the beginning and the end of marketing years of the vehicle. This could for instance identify policies that covers very new vehicles or second-hand ones.
 - **`vh_speed`**: The vehicle maximum speed (km/h), as stated by the manufacturer.
 - **`vh_type`**: The vehicle type, either `"Tourism"` or `"Commercial"`. There are more `"Commercial"` types for `"Professional"` policy usage than for `"WorkPrivate"`.
 - **`vh_value`**: The vehicle's value (replacement value) is expressed in euros, without inflation so it should be stable from a year to another.

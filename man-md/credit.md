@@ -1,6 +1,8 @@
 # German Credit dataset
 
-This dataset contains information of 1,000 credit records. It is a consumer credit files, called the German Credit dataset in Tuff'ery (2011) and Nisbet et al. (2011). New applicants for credit and loans can be evaluated as good or bad payers using 21 explanatory variables.
+## Description
+
+ This dataset contains information of 1,000 credit records. It is a consumer credit files, called the German Credit dataset in Tuff'ery (2011) and Nisbet et al. (2011). New applicants for credit and loans can be evaluated as good or bad payers using 21 explanatory variables.
 
 ```r
 data(credit)
@@ -34,7 +36,7 @@ data(credit)
 
 ## References
 
-Fahrmeir, L. and Tutz, G. (1994), **Multivariate Statistical Modelling Based on Generalized Linear Models**, Springer, .
+ Fahrmeir, L. and Tutz, G. (1994), **Multivariate Statistical Modelling Based on Generalized Linear Models**, Springer, .
 
 Nisbet, R., Elder, J. and Miner, G. (2011), **Handbook of Statistical Analysis and Data Mining Applications**, Academic Press, .
 

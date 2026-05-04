@@ -1,8 +1,8 @@
 # European surrender dataset from the direct channel
 
-The `eusavingULnoPS` dataset is based on unit-linked saving products with no profit sharing sold in an unknown European country. Those insurance policies are observed between 1999 and 2008: entries and exits are possible. `eusavingULnoPSperYr/perQtr/perMth` are repeated version per year, per quarter or per month of `eusavingULnoPS`
+## Description
 
-such that a policy is repeated per time interval as long as it stays in-force.
+ The `eusavingULnoPS` dataset is based on unit-linked saving products with no profit sharing sold in an unknown European country. Those insurance policies are observed between 1999 and 2008: entries and exits are possible. `eusavingULnoPSperYr/perQtr/perMth` are repeated version per year, per quarter or per month of `eusavingULnoPS` such that a policy is repeated per time interval as long as it stays in-force.
 
 ```r
 data(eusavingULnoPSperYr)

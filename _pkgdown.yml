@@ -159,6 +159,8 @@ reference:
    - freprojqxINSEE
    - freptfpermdis
    - freptftempdis
+   - freRegion7526
+   - freRegionOld7526
    - freT2Ddis10
    - freT2Ddisprob10
    - freT2Pdis10

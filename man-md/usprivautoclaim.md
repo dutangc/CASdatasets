@@ -1,6 +1,8 @@
 # US Private Auto Claims
 
-This dataset contains claim amounts for private motor insurance from a US property and casualty insurer. Claims that were not closed by the year end are excluded. A risk classification is available and is based on driver and vehicle characteristics.
+## Description
+
+ This dataset contains claim amounts for private motor insurance from a US property and casualty insurer. Claims that were not closed by the year end are excluded. A risk classification is available and is based on driver and vehicle characteristics.
 
 ```r
 data(usprivautoclaim)
@@ -18,7 +20,7 @@ data(usprivautoclaim)
 
 ## References
 
-Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
+ Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
 
 Hallin and Ingenbleek (1983), **The Swedish automobile portfolio in 1977. A statistical study**, Scandinavian Actuarial Journal, 49-64, .
 

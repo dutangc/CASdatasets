@@ -1,5 +1,7 @@
 # Belgian motor third-part liability dataset
 
+## Description
+
 The dataset `beMTPL` was collected by an unknown Belgium insurer. It consists of 70 791 claims for private motor insurance.
 
 ```r

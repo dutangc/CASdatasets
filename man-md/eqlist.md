@@ -1,6 +1,8 @@
 # Earthquake list
 
-This dataset contains a list of all earthquakes of magnitude greater than 6 between 1900 and 2024.
+## Description
+
+ This dataset contains a list of all earthquakes of magnitude greater than 6 between 1900 and 2024.
 
 ```r
 data(eqlist)
@@ -44,7 +46,7 @@ Below are the descriptions of the methods used to calculate the magnitude of sie
 
 ## References
 
-Young, J.B., Presgrave, B.W., Aichele, H., Wiens, D.A. and Flinn, E.A. (1996), **The Flinn-Engdahl Regionalisation Scheme: the 1995 revision**, Physics of the Earth and Planetary Interiors, v. 96, p. 223-297, .
+ Young, J.B., Presgrave, B.W., Aichele, H., Wiens, D.A. and Flinn, E.A. (1996), **The Flinn-Engdahl Regionalisation Scheme: the 1995 revision**, Physics of the Earth and Planetary Interiors, v. 96, p. 223-297, .
 
 Flinn, E.A., Engdahl, E.R. and Hill, A.R. (1974), **Seismic and geographical regionalization**, Bulletin of the Seismological Society of America, vol. 64, p. 771-993, .
 

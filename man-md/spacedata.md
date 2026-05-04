@@ -1,6 +1,8 @@
 # Space dataset
 
-This dataset contains 1,698 observations of satelites between 1956 and 2013 where the study focuses failure and success once the satelite has reached its targeted orbit. Failures during the launching step or the testing step are not considered.
+## Description
+
+ This dataset contains 1,698 observations of satelites between 1956 and 2013 where the study focuses failure and success once the satelite has reached its targeted orbit. Failures during the launching step or the testing step are not considered.
 
 ```r
 data(spacedata)
@@ -29,7 +31,7 @@ data(spacedata)
 
 ## Details
 
-The satelite orbit is an acronym given by
+ The satelite orbit is an acronym given by
 
 - **`EO`**: Elliptical Orbit.
 - **`G`**: Geostationary.
@@ -57,6 +59,6 @@ total losses with the following definitions:
 
 ## References
 
-Guelou, S. (2013). **Risques spatiaux: modelisation de la fiabilite des satellites en orbite.**, EURo Institut d'Actuariat master thesis, University of Brest, France.
+ Guelou, S. (2013). **Risques spatiaux: modelisation de la fiabilite des satellites en orbite.**, EURo Institut d'Actuariat master thesis, University of Brest, France.
 
 Gauche, J.F. (2012). **Space risks.**, Centre d'Etudes Actuarielles master thesis, Paris, France.

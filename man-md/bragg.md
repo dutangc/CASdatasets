@@ -1,5 +1,7 @@
 # Descriptive statistics of aggregate claims and premiums for the 41 Brazilian regions
 
+## Description
+
 The datasets `braggclaim` and `braggprem` are descriptive statistics of the premium/claim per region and type of insurance coverage. Therefore, for each region, there are five rows, one for each type of insurance coverage, i.e. 405 row in total.
 
 ```r
@@ -19,6 +21,7 @@ data(braggprem)
 - **SumInsAvg**: A numeric for the average of sum insured.
 - **StateAb**: A character string for the abbreviated state name.
 
+
 `braggclaim` contains 6 columns:
 
 - **RegionNb**: A numeric for the region number.
@@ -30,4 +33,4 @@ data(braggprem)
 
 ## References
 
-Charpentier, A. (2014). **Computational Actuarial Science with R**. CRC Press.
+ Charpentier, A. (2014). **Computational Actuarial Science with R**. CRC Press.

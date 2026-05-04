@@ -1,6 +1,8 @@
 # European health insurance
 
-The `euhealthinsurance` compiles data coming from a health group collective fund that covers different kind of health perils to the members. Available data are: gender, age at inception of coverage, role in the policy, number and agggregate amount.
+## Description
+
+ The `euhealthinsurance` compiles data coming from a health group collective fund that covers different kind of health perils to the members. Available data are: gender, age at inception of coverage, role in the policy, number and agggregate amount.
 
 ```r
 data(euhealthinsurance)

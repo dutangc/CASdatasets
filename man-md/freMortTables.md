@@ -1,6 +1,8 @@
 # French Mortality Tables
 
-The `frePM6064` (resp. `frePF6064`) table has been established on INSEE observations collected between 1960 and 1964 in the French male population (resp. the French female population).
+## Description
+
+ The `frePM6064` (resp. `frePF6064`) table has been established on INSEE observations collected between 1960 and 1964 in the French male population (resp. the French female population).
 
 The `freTD7377` (resp. `freTV7377`) table has been established on INSEE observations collected between 1973 and 1977 in the French male population (resp. the French female population). The table was officially approved by the August 22 act in 1986 and applies to life insurance.
 
@@ -10,9 +12,7 @@ The `freTPRV93` table is exctracted from the floor table for pricing life annuit
 
 The `freTH0002` (resp. `freTF0002`) table has been established on INSEE observations collected in the French male population (resp. the French female population). The table was officially approved by the December 20 act in 2005 and applies to life insurance other than life annuities in conjuction with the table of age shifts `freAS0002`, JO (2005, 2006a, 2006b, 2006c).
 
-The `freTGH05` (resp. `freTGF05`) table has been established based on 19 portfolios (16 from FFSA and 3 from CTIP) in the French male population (resp. the French female population) between 1993 and 2005. The underlying prospective INSEE table has been built on the basis of mortality tables between 1962 and 2000. The table was officially approved by the August 1 act in 2006. The `freTPG93full` table has been built for comparison with TGH05 and TGF05.
-
-`freHMD` is a subset of the French mortality dataset available on [https://mortality.org/](https://mortality.org/)
+The `freTGH05` (resp. `freTGF05`) table has been established based on 19 portfolios (16 from FFSA and 3 from CTIP) in the French male population (resp. the French female population) between 1993 and 2005. The underlying prospective INSEE table has been built on the basis of mortality tables between 1962 and 2000. The table was officially approved by the August 1 act in 2006. The `freTPG93full` table has been built for comparison with TGH05 and TGF05. `freHMD` is a subset of the French mortality dataset available on [https://mortality.org/](https://mortality.org/)
 
 in order to build the mortality vignette. This dataset is not intended to be used directly. `freHMD` is an object of class `"demogdata"` provided by the package `demography` by Hyndman (2023).
 
@@ -44,35 +44,34 @@ data(freHMD)
 `frePM6064`, `frePF6064`, `freTD7377`, `freTV7377`, `freTD8890`, `freTV8890`, `freTPRV93`, `freTF0002` and `freTH0002` contain 2 columns:
 
 - **`x`**: The age `x`.
-- **`lx`**: The number of people still alive at `x`
-       
-       among the initial 100,000 referenced people.
+- **`lx`**: The number of people still alive at `x` among the initial 100,000 referenced people.
 
+ 
 `freAS0002` contains 6 columns:
 
 - **`LowerAgeF`, `LowerAgeH`**: The lower bound of the age class.
 - **`UpperAgeF`, `UpperAgeH`**: The upper bound of the age class.
 - **`ShiftF`, `ShiftH`**: The value to shift.
 
+ 
 `freTGH05` and `freTGF05` contain 107 columns:
 
 
 - **`x`**: The age `x`.
-- **`lx1900`, ..., `lx2005`**: The number of people still alive at `x`
-       
-       among the referenced people in year 1900 (etc.. 2005).
+- **`lx1900`, ..., `lx2005`**: The number of people still alive at `x` among the referenced people in year 1900 (etc.. 2005).
 
+ 
 `freTPG93full` contains 95 columns:
 
 
 - **`x`**: The age.
-- **`lx1900`, ..., `lx1993`**: The number of people still alive at `x`
-       
-       among the referenced people in year 1900 (etc.. 1993).
+- **`lx1900`, ..., `lx1993`**: The number of people still alive at `x` among the referenced people in year 1900 (etc.. 1993).
+
+ 
 
 ## References
 
-FFSA (2005), **Demande de donnees relatives aux populations d'assures**, Document de travail FFSA.
+ FFSA (2005), **Demande de donnees relatives aux populations d'assures**, Document de travail FFSA.
 
 IA (2006), **Notice d'utilisation des tables de mortalite TH0002 and TF0002**, Note methodologique de l'Institut des Actuaires.
 

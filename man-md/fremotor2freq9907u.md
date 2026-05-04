@@ -1,16 +1,12 @@
 # French claims for private motor
 
-Datasets `fremotor1freq0304a/b/c`, `fremotor1sev0304a/b/c`, `fremotor1prem0304a/b/c`
+## Description
 
-are nine datasets from the same database of an unknown private motor portfolio observed between January 2003 and December 2004, respectively claim frequency databases, claim severity databases and premium databases. The last letter `a`, `b` or `c` distinguishes the random sampling for a given dataset series. Note that some records are common between resampling versions.
+ Datasets `fremotor1freq0304a/b/c`, `fremotor1sev0304a/b/c`, `fremotor1prem0304a/b/c` are nine datasets from the same database of an unknown private motor portfolio observed between January 2003 and December 2004, respectively claim frequency databases, claim severity databases and premium databases. The last letter `a`, `b` or `c` distinguishes the random sampling for a given dataset series. Note that some records are common between resampling versions.
 
 Datasets `fremotor1freq0304a/b/c` consist of 64,234 records with explanatory variables for policies (possibly with mutiple vehicles insured under the same policy number). Datasets `fremotor1prem0304a/b/c` consist of 51,949 records of claim numbers (by policy) in 2003 and 2004. Datasets `fremotor1sev0304a/b/c` consist of 9,246 records of ClaimAmount, their occurence date, the corresponding guarantee, in 2003 and 2004.
 
-Datasets `fremotor2sev9907`, `fremotor3sev9907`, `fremotor4sev9907`, and `fremotor2freq9907u`, `fremotor3freq9907u`, `fremotor4freq9907u`, `fremotor2freq9907b`, `fremotor3freq9907b`, `fremotor4freq9907b`
-
-are claim severities and claim frequencies coming from the same database for a private motor portfolio observed between 1999 and 2007. For size reason, the database has been splitted into three parts `fremotor2***9907`, `fremotor3***9907`, `fremotor4***9907`. Furthermore, the claim frequencies are available on two different formats : longitudinal unbalanced data and longitudinal balanced data, respectively `fremotor2freq9907u`
-
-and `fremotor2freq9907b`. The policy number is only available for claim frequencies: it is impossible to match claim severities and claim frequencies.
+Datasets `fremotor2sev9907`, `fremotor3sev9907`, `fremotor4sev9907`, and `fremotor2freq9907u`, `fremotor3freq9907u`, `fremotor4freq9907u`, `fremotor2freq9907b`, `fremotor3freq9907b`, `fremotor4freq9907b` are claim severities and claim frequencies coming from the same database for a private motor portfolio observed between 1999 and 2007. For size reason, the database has been splitted into three parts `fremotor2***9907`, `fremotor3***9907`, `fremotor4***9907`. Furthermore, the claim frequencies are available on two different formats : longitudinal unbalanced data and longitudinal balanced data, respectively `fremotor2freq9907u` and `fremotor2freq9907b`. The policy number is only available for claim frequencies: it is impossible to match claim severities and claim frequencies.
 
 ```r
 data(fremotor1prem0304a)
@@ -73,6 +69,7 @@ data(fremotor4freq9907b)
 - **`PremTot`**: The total premium (annual basis).
 - **`Year`**: Numeric for the year.
 
+
 `fremotor1freq0304a/b/c` contain 6 columns:
 
 - **`IDpol`**: The policy ID.
@@ -84,6 +81,7 @@ data(fremotor4freq9907b)
 - **`TPL`**: The claim number for the TPL guarantee.
 - **`Windscreen`**: The claim number for the Windscreen guarantee.
 
+ 
 `fremotor1sev0304a/b/c` contain 6 columns:
 
 
@@ -93,6 +91,7 @@ data(fremotor4freq9907b)
 - **`IDclaim`**: The claim ID.
 - **`Guarantee`**: The corresponding guarantee of the claim.
 
+
 `fremotor2sev9907`,
 `fremotor3sev9907`,
 `fremotor4sev9907` contains 3 columns:
@@ -101,6 +100,7 @@ data(fremotor4freq9907b)
 - **`Year`**: The occurence year.
 - **`NbClaim`**: The number of claims aggregated, mostly 1.
 - **`ClaimAmount`**: The aggregate charge (i.e. expected claim amount).
+
 
 `fremotor2freq9907u`,
 `fremotor3freq9907u`,
@@ -114,6 +114,7 @@ data(fremotor4freq9907b)
 - **`NbYear`**: The number of years under exposure.
 - **`NbClaimXXXX`**: The number of claims for year `XXXX`.
 - **`ExpoXXXX`**: The exposure for year `XXXX`.
+
 
 `fremotor2freq9907b`,
 `fremotor3freq9907b`,

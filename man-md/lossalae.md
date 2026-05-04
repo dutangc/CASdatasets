@@ -1,5 +1,7 @@
 # General Liability Claims
 
+## Description
+
 The `lossalae` is a data frame of 1500 rows and 2 columns containing 1,500 general liability claims randomly chosen from late settlement lags and were provided by Insurance Services Office, Inc. Each claim consists of an indemnity payment (the loss, X1) and an allocated loss adjustment expense (ALAE). ALAE are types of insurance company expenses that are specifically attributable to the settlement of individual claims such as lawyers' fees and claims investigation expenses. The dataset also has an attribute called `capped`, which gives the row names of the indemnity payments that were capped at their policy limit. This dataset comes from the `evd` package.
 
 The `lossalaefull` is a data frame of 1500 rows and 4 columns containing additional information compared to `lossalae`: the limit of the policy is available.

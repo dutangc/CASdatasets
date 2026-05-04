@@ -1,6 +1,8 @@
 # Massachusetts Automobile bodily injury claim datasets
 
-The dataset `usmassBI` contains automobile bodily injury claims collected in 2001 in Massachusetts, and studied in Frees (2010) and Rempala and Derrig (2005). There are 348 records with demographic information, in addition to the claim amount. Claims that are closed by year end are excluded. Potential fraudulent claims are from provider=A.
+## Description
+
+ The dataset `usmassBI` contains automobile bodily injury claims collected in 2001 in Massachusetts, and studied in Frees (2010) and Rempala and Derrig (2005). There are 348 records with demographic information, in addition to the claim amount. Claims that are closed by year end are excluded. Potential fraudulent claims are from provider=A.
 
 The dataset `usmassBI2` contains automobile bodily injury claims collected between 1993 and 1998 in Massachusetts, and studied in Frees and Wang (2005). This is a sample of 29 Massachusetts towns described in Frees (2003). Claim amounts have been rescaled to adjust for the effects of inflation: all claims are in 1991 dollars, using the Consumer Price Index (CPI) for the rescaling factor.
 
@@ -18,6 +20,7 @@ data(usmassBI2)
 - **`providerA`**: Binary variable indicating the presence of `"Other"` provider.
 - **`logclaims`**: Logarithm of claim amount.
 
+
 `usmassBI2` is a data frame of 5 columns and 174 rows:
 
 - **`TOWNCODE`**: The index of Massachusetts towns.
@@ -28,7 +31,7 @@ data(usmassBI2)
 
 ## References
 
-Frees, E.W. (2003), **Multivariate Credibility for Aggregate Loss Models**, North American Actuarial Journal 7(1), 13-37, .
+ Frees, E.W. (2003), **Multivariate Credibility for Aggregate Loss Models**, North American Actuarial Journal 7(1), 13-37, .
 
 Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
 

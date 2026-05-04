@@ -1,13 +1,11 @@
 # French IRSA claim amount convention
 
+## Description
+
 `freIRSA` contains the fixed claim amount used in the French convention called convention d'indemnisation directe de l'assure et de recours entre societes d'assurance automobile which sets the claim amount used between insurers for small claims (under the claim cap).
 
 ```r
-data(freMTPLfreq)
-data(freMTPLsev)
-
-data(freMTPL2freq)
-data(freMTPL2sev)
+data(freIRSA)
 ```
 
 ## Format

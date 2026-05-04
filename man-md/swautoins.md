@@ -1,6 +1,8 @@
 # Swedish Motor Insurance dataset
 
-This dataset contains motor insurance data collected in 1977 in Sweden by the Swedish Committee on the Analysis of Risk Premium. Records contains individuals characteristics in addition to claim counts and severities.
+## Description
+
+ This dataset contains motor insurance data collected in 1977 in Sweden by the Swedish Committee on the Analysis of Risk Premium. Records contains individuals characteristics in addition to claim counts and severities.
 
 ```r
 data(swautoins)
@@ -20,7 +22,7 @@ data(swautoins)
 
 ## References
 
-Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
+ Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
 
 Hallin and Ingenbleek (1983), **The Swedish automobile portfolio in 1977. A statistical study**, Scandinavian Actuarial Journal, 49-64, .
 

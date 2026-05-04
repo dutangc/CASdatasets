@@ -1,5 +1,7 @@
 # Switzerland general liability triangles
 
+## Description
+
 `swtri1auto` is a named list of two triangles : the incurred (cumulative) amounts and the paid (cumulative) amounts.
 
 ```r
@@ -12,7 +14,7 @@ data(swtri1auto)
 
 ## References
 
-Dahms, R. (2008), **A Loss Reserving Method for Incomplete Claim Data**, Bulletin of the Swiss Association of Actuaries, pp. 127-148.
+ Dahms, R. (2008), **A Loss Reserving Method for Incomplete Claim Data**, Bulletin of the Swiss Association of Actuaries, pp. 127-148.
 
 Dahms, R., Merz, M., Wuethrich, M.V. (2009), **Claims development result for combined claims incurred and claims paid data**. Bulletin Francais d'Actuariat 9 (18), 5-39.
 

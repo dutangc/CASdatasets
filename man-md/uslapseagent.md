@@ -1,6 +1,8 @@
 # United States lapse dataset from tied-agent channel
 
-The `uslapseagent` portfolio contains detailed information on the 29,317 Whole Life policies, all sold from the tied-agent channel between January 1995 and December 2008.
+## Description
+
+ The `uslapseagent` portfolio contains detailed information on the 29,317 Whole Life policies, all sold from the tied-agent channel between January 1995 and December 2008.
 
 For each policy, we know the issuance date, the gender of the policyholder, the age category, etc`...`~Unfortunately, some variables are rather uninformative.
 
@@ -30,4 +32,4 @@ data(uslapseagent)
 
 ## References
 
-Milhaud, X., Dutang, C. (2018), **Lapse tables for lapse risk management in insurance: a competing risk approach**. European Actuarial Journal, 8 (1), 97-126, .
+ Milhaud, X., Dutang, C. (2018), **Lapse tables for lapse risk management in insurance: a competing risk approach**. European Actuarial Journal, 8 (1), 97-126, .

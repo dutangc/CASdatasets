@@ -1,6 +1,8 @@
 # US expense dataset
 
-This dataset is originally from the National Association of Insurance Commissioners and was examined by Frees (2011). This dataset contains financial statements based on 2005 annual reports for all the property and casualty insurance companies in United States. The annual reports are financial statements that use statutory accounting principles.
+## Description
+
+ This dataset is originally from the National Association of Insurance Commissioners and was examined by Frees (2011). This dataset contains financial statements based on 2005 annual reports for all the property and casualty insurance companies in United States. The annual reports are financial statements that use statutory accounting principles.
 
 ```r
 data(usexpense)
@@ -28,4 +30,4 @@ data(usexpense)
 
 ## References
 
-Frees, E.W. (2011). **Regression Modeling with Actuarial and Financial Applications**, Cambridge University Press, .
+ Frees, E.W. (2011). **Regression Modeling with Actuarial and Financial Applications**, Cambridge University Press, .

@@ -1,6 +1,8 @@
 # a Belgian motor third-part liability dataset
 
-The portfolio contains 163,212 unique policyholders, each observed during a period of exposure-to-risk expressed as the fraction of the year during which the policyholder was exposed to the risk of filing a claim. Claim information is known in the form of the number of claims filed and the total amount claimed (in euro) by a policyholder during the period of exposure. The data set lists five categorical, four continuous and two spatial risk factors, each of them informing about specific characteristics of the policy or the policyholder. A detailed discussion on the distribution of all variables is available in Henckaerts et al. (2018) and some code examples is available at [https://github.com/henckr/treeML](https://github.com/henckr/treeML).
+## Description
+
+ The portfolio contains 163,212 unique policyholders, each observed during a period of exposure-to-risk expressed as the fraction of the year during which the policyholder was exposed to the risk of filing a claim. Claim information is known in the form of the number of claims filed and the total amount claimed (in euro) by a policyholder during the period of exposure. The data set lists five categorical, four continuous and two spatial risk factors, each of them informing about specific characteristics of the policy or the policyholder. A detailed discussion on the distribution of all variables is available in Henckaerts et al. (2018) and some code examples is available at [https://github.com/henckr/treeML](https://github.com/henckr/treeML).
 
 ```r
 data(beMTPL97)
@@ -31,7 +33,7 @@ data(beMTPL97)
 
 ## References
 
-Lemaire (1995). **Bonus-malus systems in automobile insurance**, Springer, New York, 1995,
+ Lemaire (1995). **Bonus-malus systems in automobile insurance**, Springer, New York, 1995,
 
 Denuit and Lang (2004), **Non-life rate-making with Bayesian GAMs**, Insurance: Mathematics and Economics, 35(3):627–647,
 
@@ -42,3 +44,5 @@ Klein et al. (2014) **Nonlife ratemaking and risk management with Bayesian gener
 Henckaerts et al. (2018). **A data driven binning strategy for the construction of insurance tariff classes**, Scandinavian Actuarial Journal, 2018(8):681–705,
 
 Frees, Carriere and Valdez (1995), **Annuity valuation with dependent mortality**, Actuarial Research Clearing House 1995, Vol. 2, .
+
+ 

@@ -1,5 +1,7 @@
 # Motor Vehicle Traffic Accident: A consolidated database of police-reported motor vehicle traffic accidents in the United States for actuarial applications
 
+## Description
+
 `usMVTA` dataset contains a sample of 1 583 520 people involved in 20 years of fatal and non-fatal accidents. The dataset is a representative sample of motor vehicle traffic accidents from the United States of America during the period 2001 to 2020. The dataset is derived from the publicly available data collected by an agency of the U.S. Department of Transportation called the National Highway Traffic Safety Administration (see NHTSA(2022)). There are 49 available variables in the dataset. All variables are denoted below, refer to Iturria et al.(2021a). This dataset is available on Zenodo, see Iturria et al.(2021b).
 
 ```r
@@ -43,9 +45,7 @@ data(usMVTA)
 - **`WEIGHT`**: Case weight, this data element is used to produce national estimates from the data.
 - **`NUM_VEH`**: Denotes the number of vehicles involved in the MVTA.
 - **`MAX_SEV`**: The maximum severity variable is the highest injury severity of all the people involved in the same MVTA. A character string: `'Minor Injury'`, `'No Injury'`, `'Possible Injury'`, `'Serious Injury'`.
-- **`MAKEMODEL`**: An integer is created as a concatenation of `MODEL` and `MAKE`
-       
-       of the vehicle.
+- **`MAKEMODEL`**: An integer is created as a concatenation of `MODEL` and `MAKE` of the vehicle.
 - **`COUNTYNAME`**: Reflects the location of the accident. Derived from driver's zip code if unavailable and possible. A character string from `'Abbeville'`, `'Acadia'`,... to `'Yuma'`, `'Zavala'`.
 - **`STATENAME`**: Reflects the location of the accident. Derived from driver's zip code if unavailable. A character string from `'Alabama'`, `'Alaska'`,... to `'Wisconsin'`, `'Wyoming'`.
 - **`SEG`**: Socio-economic groups. An integer ranges (1, 10).
@@ -64,7 +64,7 @@ data(usMVTA)
 
 ## References
 
-Iturria, A., Andres, C., Hardy, M. and Marriott, P., (2021a) **A Consolidated Database of Police-Reported Motor Vehicle Traffic Accidents in the United States for Actuarial Applications**, 2021. Available at
+ Iturria, A., Andres, C., Hardy, M. and Marriott, P., (2021a) **A Consolidated Database of Police-Reported Motor Vehicle Traffic Accidents in the United States for Actuarial Applications**, 2021. Available at
 
 Iturria, A., Hardy, M. and Marriott, P., (2021b) **A consolidated database of police-reported motor vehicle traffic accidents in the United States for actuarial applications**, 2021 (3.1.0), Zenodo.
 

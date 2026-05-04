@@ -1,5 +1,7 @@
 # French business interruption losses
 
+## Description
+
 The univariate dataset was collected at FFSA and comprise 2387 business interruption losses over the period 1985 to 2000 (for losses above 100,000 French Francs).
 
 ```r
@@ -21,4 +23,4 @@ data(frebiloss)
 
 ## References
 
-Dataset used in Zajdenweber (1996). **Extreme values in business interruption insurance**, Journal of Risk and Insurance, 1, 95-110, .
+ Dataset used in Zajdenweber (1996). **Extreme values in business interruption insurance**, Journal of Risk and Insurance, 1, 95-110, .

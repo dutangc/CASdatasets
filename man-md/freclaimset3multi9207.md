@@ -1,12 +1,8 @@
 # French individual claim settlements
 
-`freclaimset3multi9207`, `freclaimset3fire9207` and `freclaimset3dam9207`
+## Description
 
-comes from the same dataset of 282,000 claims of property and casualty policies of a French unknown insurer for commercial insurance between 1992 and 2007.
-
-`freclaimset3fire9207` and `freclaimset3dam9207` consist of randomized claims settlements of the fire/damage guarantees only. 58,056 claims are listed in the dataset for which both paid and incurred (F/F) amounts (EUR) are available.
-
-`freclaimset3multi9207` contains aggregate claim amounts by guarantee type and period of some property-casualty commercial lines in France between 1992 and 2007. A 3-day period has been used to perform the aggregation process, see variable `Occur`, the first day of occurrence period. The guarantee type is structured as
+`freclaimset3multi9207`, `freclaimset3fire9207` and `freclaimset3dam9207` comes from the same dataset of 282,000 claims of property and casualty policies of a French unknown insurer for commercial insurance between 1992 and 2007. `freclaimset3fire9207` and `freclaimset3dam9207` consist of randomized claims settlements of the fire/damage guarantees only. 58,056 claims are listed in the dataset for which both paid and incurred (F/F) amounts (EUR) are available. `freclaimset3multi9207` contains aggregate claim amounts by guarantee type and period of some property-casualty commercial lines in France between 1992 and 2007. A 3-day period has been used to perform the aggregation process, see variable `Occur`, the first day of occurrence period. The guarantee type is structured as
 
  * `HSS=Hail, storm, snow`: claims from natural disaster: hail, storm, snow, generally known as Tempete-Grele-Neige in France.
  * `TPL=Third-part liability`: claims from third-part liabilities (both material and bodily injuries).
@@ -34,7 +30,7 @@ data(freclaimset3multi9207)
 
 ## Format
 
-`freclaimset3fire9207` and `freclaimset3dam9207` are data frames with 37 columns:
+ `freclaimset3fire9207` and `freclaimset3dam9207` are data frames with 37 columns:
 
 - **`NbEmployee`**: The category of employee number.
 - **`NbSite`**: The category of site number.
@@ -43,6 +39,7 @@ data(freclaimset3multi9207)
 - **`inc_Y15-inc_Y0`**: `inc_Yj` is the incurred amount of the claim at the end of year 2007-j, i.e. `inc_Y0` is the latest estimate and `inc_Y15` is the oldest estimate.
 - **`paid_Y15-paid_Y0`**: `paid_Yj` is the paid amount of the claim at the end of year 2007-j, i.e. `paid_Y0` is the latest estimate and `paid_Y15` is the oldest estimate.
 - **`OccurDate`**: The occurence date. Note that `paid_Yj/inc_Yj` is never empty (i.e. `NA`) even if the claim did occur after the year 2007-j.
+
 
 `freclaimset3multi9207` contains aggregate claim amounts by guarantee type and period of some property-casualty commercial lines in France between 1992 and 2007. A 3-day period has been used to perform the aggregation process, see variable `Occur`, the first day of occurrence period. The guarantee type is structured as
 

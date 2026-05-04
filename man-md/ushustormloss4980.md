@@ -1,6 +1,8 @@
 # Normalized Hurricane Damages in US between 1949 and 1980
 
-Normalized Hurricane Damages in the United States due to single hurricanes. They applied to the period from 1949 and 1980 and are adjusted for inflation. Originally, the dataset was compiled by the American Insurance Association and is also reported in Beirlant, Teugels and Vynckier (1996).
+## Description
+
+ Normalized Hurricane Damages in the United States due to single hurricanes. They applied to the period from 1949 and 1980 and are adjusted for inflation. Originally, the dataset was compiled by the American Insurance Association and is also reported in Beirlant, Teugels and Vynckier (1996).
 
 ```r
 data(ushustormloss4980)

@@ -1,6 +1,8 @@
 # Singapore Automobile claim count dataset
 
-This dataset contains automobile injury claim number collected in 1993 in Singapore by the General Insurance Association of Singapore. Records contains individuals characteristics in addition to claim counts.
+## Description
+
+ This dataset contains automobile injury claim number collected in 1993 in Singapore by the General Insurance Association of Singapore. Records contains individuals characteristics in addition to claim counts.
 
 ```r
 data(sgautonb)
@@ -28,7 +30,7 @@ data(sgautonb)
 
 ## References
 
-Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
+ Frees, E.W. (2010), **Regression modelling with actuarial and financial applications**, Cambridge University Press, .
 
 Frees, E.W., and E. Valdez (2008). **Hierarchical insurance claims modeling**, Journal of the American Statistical Association 103, 1457-1469, .
 

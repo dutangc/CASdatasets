@@ -1,6 +1,8 @@
 # Davis dataset
 
-This dataset contains information of 200 individuals.
+## Description
+
+ This dataset contains information of 200 individuals.
 
 ```r
 data(Davis)
@@ -18,6 +20,6 @@ data(Davis)
 
 ## References
 
-Davis (1990) **Body image and weight preoccupation: A comparison between exercising and non-exercising women**, Appetite, 15, 13-21, .
+ Davis (1990) **Body image and weight preoccupation: A comparison between exercising and non-exercising women**, Appetite, 15, 13-21, .
 
  

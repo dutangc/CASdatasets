@@ -1,5 +1,7 @@
 # Norwegian fire insurance dataset
 
+## Description
+
 This dataset comprises 183,999 observations of automobile insurance policies losses over a one-year period.
 
 ```r

@@ -11,11 +11,14 @@ Current version for development.
 
 List of **new datasets** is below
 
-- `freIRSA.rda`			2024/11/11	239B
+- `freRegion7526.rda`		2026/05/04	3.35kB
+- `freRegionOld7526.rda`		2026/05/04	5.2kB
+
 
 Updated **datasets**
 
 - `ausautoBI8999.rda`		2025/02/21	297.59kB
+- `freIRSA.rda`			2026/05/04	0.26kB
 - `freMPL1.rda`			2026/04/10	306.14kB
 - `freMPL10.rda`			2026/04/10	277.65kB
 - `freMPL2.rda`			2026/04/10	519.94kB
