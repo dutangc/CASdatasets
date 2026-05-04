@@ -2,18 +2,17 @@
 
 ## Main info 
 
+Current version for development. release for university year 2025/2026.
+
 - Bug fix in CITATION file
 - Remove duplicated rows in `freMPL*.rda` files (around 9995 rows for each file)
 
 ## Datasets lists
 
-Current version for development.
-
 List of **new datasets** is below
 
 - `freRegion7526.rda`		2026/05/04	3.35kB
 - `freRegionOld7526.rda`		2026/05/04	5.2kB
-
 
 Updated **datasets**
 
@@ -30,13 +29,11 @@ Updated **datasets**
 - `freMPL8.rda`			2026/04/10	283.25kB
 - `freMPL9.rda`			2026/04/10	186.36kB
 
-
-
 # CASdatasets 1.2-0
 
 ## Main info 
 
-Current released version.
+Current released version. release for university year 2023/2024.
 
 - **Remove dependency** on `sp` package as the package does not contain any geographical datasets. 
 - All **Geographical datasets** have been put in the extra directory `geodata/` of this repository.
