@@ -37,6 +37,7 @@ introduction*, Society of Actuaries Working Paper, Schaumburg, Illinois.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(usmedclaim)

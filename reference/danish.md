@@ -70,6 +70,7 @@ Davison, A. C. (2003) *Statistical Models*. Cambridge University Press,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(danishuni)

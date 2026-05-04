@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -58,6 +59,7 @@ options("digits" = 2)
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "tidyverse",
   "CASdatasets",
@@ -87,28 +89,28 @@ behavior of policyholders within this segment of the insurance market.
 The list of the 20 variables from the `freMPL6` dataset is reported in
 [Table 1](#tbl-dict-frempl).
 
-| Attribute         | Type    | Description                                                                                         |
-|-------------------|---------|-----------------------------------------------------------------------------------------------------|
-| Exposure          | Numeric | The exposure, in years                                                                              |
-| LicAge            | Numeric | The driving license age, in months                                                                  |
-| RecordBeg         | Date    | Beginning date of record                                                                            |
-| RecordEnd         | Date    | End date of record                                                                                  |
-| Gender            | Factor  | Gender of the driver, either “Male” or “Female”                                                     |
-| MariStat          | Factor  | Marital status of the driver, either “Alone” or “Other”                                             |
-| SocioCateg        | Factor  | Socio-economic category of the driver, known as CSP in France, between “CSP1” and “CSP99”           |
-| VehUsage          | Factor  | Usage of the vehicle, among “Private”, “Private+trip to office”, “Professional”, “Professional run” |
-| DrivAge           | Numeric | Age of the driver, in years                                                                         |
-| HasKmLimit        | Boolean | Indicator if there’s a mileage limit for the policy, 1 if yes, 0 otherwise                          |
-| ClaimAmount       | Numeric | Total claim amount of the guarantee                                                                 |
-| ClaimNbResp       | Numeric | Number of responsible claims in the 4 preceding years                                               |
-| ClaimNbNonResp    | Numeric | Number of non-responsible claims in the 4 preceding years                                           |
-| ClaimNbParking    | Numeric | Number of parking claims in the 4 preceding years                                                   |
-| ClaimNbFireTheft  | Numeric | Number of fire-theft claims in the 4 preceding years                                                |
-| ClaimNbWindscreen | Numeric | Number of windscreen claims in the 4 preceding years                                                |
-| OutUseNb          | Numeric | Number of out-of-use instances in the 4 preceding years                                             |
-| RiskArea          | Numeric | Unknown risk area, between 1 and 13, possibly ordered                                               |
-| BonusMalus        | Numeric | Bonus-malus coefficient, between 50 and 350: \<100 means bonus, \>100 means malus in France         |
-| ClaimInd          | Boolean | Claim indicator of the guarantee (this is not the claim number)                                     |
+| Attribute | Type | Description |
+|----|----|----|
+| Exposure | Numeric | The exposure, in years |
+| LicAge | Numeric | The driving license age, in months |
+| RecordBeg | Date | Beginning date of record |
+| RecordEnd | Date | End date of record |
+| Gender | Factor | Gender of the driver, either “Male” or “Female” |
+| MariStat | Factor | Marital status of the driver, either “Alone” or “Other” |
+| SocioCateg | Factor | Socio-economic category of the driver, known as CSP in France, between “CSP1” and “CSP99” |
+| VehUsage | Factor | Usage of the vehicle, among “Private”, “Private+trip to office”, “Professional”, “Professional run” |
+| DrivAge | Numeric | Age of the driver, in years |
+| HasKmLimit | Boolean | Indicator if there’s a mileage limit for the policy, 1 if yes, 0 otherwise |
+| ClaimAmount | Numeric | Total claim amount of the guarantee |
+| ClaimNbResp | Numeric | Number of responsible claims in the 4 preceding years |
+| ClaimNbNonResp | Numeric | Number of non-responsible claims in the 4 preceding years |
+| ClaimNbParking | Numeric | Number of parking claims in the 4 preceding years |
+| ClaimNbFireTheft | Numeric | Number of fire-theft claims in the 4 preceding years |
+| ClaimNbWindscreen | Numeric | Number of windscreen claims in the 4 preceding years |
+| OutUseNb | Numeric | Number of out-of-use instances in the 4 preceding years |
+| RiskArea | Numeric | Unknown risk area, between 1 and 13, possibly ordered |
+| BonusMalus | Numeric | Bonus-malus coefficient, between 50 and 350: \<100 means bonus, \>100 means malus in France |
+| ClaimInd | Boolean | Claim indicator of the guarantee (this is not the claim number) |
 
 Table 1: Content of the `freMPL6` dataset
 
@@ -117,6 +119,7 @@ Table 1: Content of the `freMPL6` dataset
 code for importing our datasets
 
 ``` r
+
 data("freMPL6")
 
 freMPL6$DrivAgefactor <- cut(freMPL6$DrivAge,
@@ -178,37 +181,45 @@ Negative Binomial (ZINB) Regression approach for the response variable
 `ClaimNbResp`, which represents the count of insurance claims and is
 typically assumed to follow a Poisson distribution:
 
-$$\text{ClaimNbResp} \sim \text{Poisson}(\mu),$$
+``` math
+\text{ClaimNbResp} \sim \text{Poisson}(\mu),
+```
 
-where $\mu$ represents the mean rate of claims. The ZINB approach is
+where $`\mu`$ represents the mean rate of claims. The ZINB approach is
 particularly well-suited for handling overdispersed data with excess
 zeros, offering a flexible, nonlinear modeling framework. Specifically,
-we express the natural logarithm of $\mu$ as a linear combination of
+we express the natural logarithm of $`\mu`$ as a linear combination of
 predictor variables, along with an adjustment for exposure:
 
-$${\log}(\mu) = \beta_{0} + \beta_{1} \times \text{DrivAge} + \beta_{2} \times \text{Gender} + \beta_{3} \times \text{LicAge} +$$$$\beta_{4} \times \text{BonusMalus} + \beta_{5} \times \text{VehUsage} + {\log}(\text{Exposure}),$$
+``` math
+\log(\mu) = \beta_0 + \beta_1 \times \text{DrivAge} + \beta_2 \times \text{Gender} + \beta_3 \times \text{LicAge} +
+```
+``` math
+\beta_4 \times \text{BonusMalus} + \beta_5 \times \text{VehUsage} + \log(\text{Exposure}),
+```
 
 where `DrivAge` denotes the driver’s age, `Gender` is a binary variable
 indicating the driver’s gender, `LicAge` represents the age of the
 driving license, `BonusMalus` captures the driver’s bonus-malus score,
 `VehUsage` reflects the type of vehicle usage, and
-${\log}(\text{Exposure})$ adjusts for the exposure variable. The
-coefficients
-$\beta_{0},\beta_{1},\beta_{2},\beta_{3},\beta_{4},\beta_{5}$ are
-parameters to be estimated through the regression process.
+$`\log(\text{Exposure})`$ adjusts for the exposure variable. The
+coefficients $`\beta_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5`$
+are parameters to be estimated through the regression process.
 
 In addition to the count component, the zero-inflation part of the model
 accounts for the probability of excess zeros via a logistic regression
 model:
 
-$$\text{Logit}(P(\text{zero})) = Z\gamma,$$
+``` math
+\text{Logit}(P(\text{zero})) = Z\gamma,
+```
 
-where $Z$ represents the matrix of covariates for the zero-inflation
-model, and $\gamma$ is the vector of coefficients associated with these
-covariates.
+where $`Z`$ represents the matrix of covariates for the zero-inflation
+model, and $`\gamma`$ is the vector of coefficients associated with
+these covariates.
 
-In this framework, the intercept $\beta_{0}$ and the coefficients
-$\beta_{1},\beta_{2},\beta_{3},\beta_{4},\beta_{5}$ are estimated to
+In this framework, the intercept $`\beta_0`$ and the coefficients
+$`\beta_1, \beta_2, \beta_3, \beta_4, \beta_5`$ are estimated to
 quantify their effects on the expected rate of claims. The logistic
 regression component for zero inflation enhances the model’s capacity to
 capture complex, nonlinear relationships and the presence of excess
@@ -221,15 +232,16 @@ zeros in the data, resulting in a more flexible and accurate model fit.
 >
 > - The responses are independent.
 > - The responses follow a Poisson distribution with parameter
->   $\lambda$.
+>   $`\lambda`$.
 > - There may be
 >   [overdispersion](https://en.wikipedia.org/wiki/Overdispersion)
 >   present in the data.
 
-The estimated $\mu$ parameter, which represents the mean of claims, is
+The estimated $`\mu`$ parameter, which represents the mean of claims, is
 0.28.
 
 ``` r
+
 set.seed(1234) 
 
 theoretic_count <- rpois(nrow(freMPL6), mean(freMPL6$ClaimNbResp))
@@ -262,6 +274,7 @@ distribution are shown in [Figure 1](#fig-plot-hist-claims).
 Code for the following graph
 
 ``` r
+
 ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
   geom_bar(stat = "identity", position = "dodge2", width = 0.3) +
   labs(x = "CLAIMS Number", y = "Frequency", fill = "Legend") +
@@ -281,6 +294,7 @@ ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
 Figure 1: Theoretical and empirical histogram of claims in frequence
 
 ``` r
+
 freg <- formula(ClaimNbResp ~ DrivAgefactor + LicAge
                 + Gender + BonusMalus +  MariStat
                 + VehUsage + offset(Exposure)|
@@ -290,6 +304,7 @@ reg <- zeroinfl(freg, data = freMPL6, dist = "poisson")
 
 summary(reg)
 ```
+
 
     Call:
     zeroinfl(formula = freg, data = freMPL6, dist = "poisson")
@@ -382,6 +397,7 @@ assessments and pricing strategies.
 
   Code to create the table
   ``` r
+
   summary_reg <- summary(reg)
 
   # Create a tidy data frame for the count model coefficients
@@ -401,26 +417,27 @@ assessments and pricing strategies.
                  notation = "none")
   ```
 
-  |                                                                                    | Estimate | Std. Error | z value | Pr(\>\|z\|) | significance |
-  |:-----------------------------------------------------------------------------------|---------:|-----------:|--------:|------------:|:-------------|
-  | (Intercept)                                                                        |    -3.96 |       0.10 |   -39.0 |        0.00 | \*\*\*       |
-  | DrivAgefactor25-40                                                                 |    -0.57 |       0.07 |    -8.0 |        0.00 | \*\*\*       |
-  | DrivAgefactor40-60                                                                 |    -0.25 |       0.08 |    -3.0 |        0.00 | \*\*         |
-  | DrivAgefactor50-70                                                                 |    -0.28 |       0.11 |    -2.6 |        0.01 | \*\*         |
-  | DrivAgefactor70+                                                                   |    -0.22 |       0.12 |    -1.8 |        0.07 | .            |
-  | LicAge                                                                             |     0.00 |       0.00 |    12.6 |        0.00 | \*\*\*       |
-  | GenderMale                                                                         |    -0.08 |       0.03 |    -2.9 |        0.00 | \*\*         |
-  | BonusMalus                                                                         |     0.03 |       0.00 |    49.6 |        0.00 | \*\*\*       |
-  | MariStatOther                                                                      |     0.16 |       0.03 |     4.9 |        0.00 | \*\*\*       |
-  | VehUsagePrivate+trip to office                                                     |     0.20 |       0.03 |     5.9 |        0.00 | \*\*\*       |
-  | VehUsageProfessional                                                               |     0.39 |       0.04 |    10.3 |        0.00 | \*\*\*       |
-  | VehUsageProfessional run                                                           |     0.57 |       0.07 |     8.1 |        0.00 | \*\*\*       |
-  |  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |          |            |         |             |              |
+  |  | Estimate | Std. Error | z value | Pr(\>\|z\|) | significance |
+  |:---|---:|---:|---:|---:|:---|
+  | (Intercept) | -3.96 | 0.10 | -39.0 | 0.00 | \*\*\* |
+  | DrivAgefactor25-40 | -0.57 | 0.07 | -8.0 | 0.00 | \*\*\* |
+  | DrivAgefactor40-60 | -0.25 | 0.08 | -3.0 | 0.00 | \*\* |
+  | DrivAgefactor50-70 | -0.28 | 0.11 | -2.6 | 0.01 | \*\* |
+  | DrivAgefactor70+ | -0.22 | 0.12 | -1.8 | 0.07 | . |
+  | LicAge | 0.00 | 0.00 | 12.6 | 0.00 | \*\*\* |
+  | GenderMale | -0.08 | 0.03 | -2.9 | 0.00 | \*\* |
+  | BonusMalus | 0.03 | 0.00 | 49.6 | 0.00 | \*\*\* |
+  | MariStatOther | 0.16 | 0.03 | 4.9 | 0.00 | \*\*\* |
+  | VehUsagePrivate+trip to office | 0.20 | 0.03 | 5.9 | 0.00 | \*\*\* |
+  | VehUsageProfessional | 0.39 | 0.04 | 10.3 | 0.00 | \*\*\* |
+  | VehUsageProfessional run | 0.57 | 0.07 | 8.1 | 0.00 | \*\*\* |
+  |  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |  |  |  |  |  |
 
   Table 2: Coefficients for the Count model
 
   Code to create the table
   ``` r
+
   estimates <- summary_reg$coefficients$count[-1, ] 
 
   exp_estimates <- exp(estimates[, "Estimate"])
@@ -454,20 +471,20 @@ assessments and pricing strategies.
                  notation = "none")
   ```
 
-  |                                                                                   | count_ratio | CI.2.5 | CI.97.5 | significance |
-  |:----------------------------------------------------------------------------------|------------:|-------:|--------:|:-------------|
-  | DrivAgefactor25-40                                                                |        0.56 |   0.49 |    0.65 | \*\*\*       |
-  | DrivAgefactor40-60                                                                |        0.78 |   0.66 |    0.92 | \*\*         |
-  | DrivAgefactor50-70                                                                |        0.76 |   0.61 |    0.93 | \*\*         |
-  | DrivAgefactor70+                                                                  |        0.80 |   0.64 |    1.02 | .            |
-  | LicAge                                                                            |        1.00 |   1.00 |    1.00 | \*\*\*       |
-  | GenderMale                                                                        |        0.92 |   0.87 |    0.97 | \*\*         |
-  | BonusMalus                                                                        |        1.03 |   1.03 |    1.03 | \*\*\*       |
-  | MariStatOther                                                                     |        1.17 |   1.10 |    1.25 | \*\*\*       |
-  | VehUsagePrivate+trip to office                                                    |        1.22 |   1.14 |    1.30 | \*\*\*       |
-  | VehUsageProfessional                                                              |        1.47 |   1.37 |    1.58 | \*\*\*       |
-  | VehUsageProfessional run                                                          |        1.76 |   1.54 |    2.02 | \*\*\*       |
-  |  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |             |        |         |              |
+  |  | count_ratio | CI.2.5 | CI.97.5 | significance |
+  |:---|---:|---:|---:|:---|
+  | DrivAgefactor25-40 | 0.56 | 0.49 | 0.65 | \*\*\* |
+  | DrivAgefactor40-60 | 0.78 | 0.66 | 0.92 | \*\* |
+  | DrivAgefactor50-70 | 0.76 | 0.61 | 0.93 | \*\* |
+  | DrivAgefactor70+ | 0.80 | 0.64 | 1.02 | . |
+  | LicAge | 1.00 | 1.00 | 1.00 | \*\*\* |
+  | GenderMale | 0.92 | 0.87 | 0.97 | \*\* |
+  | BonusMalus | 1.03 | 1.03 | 1.03 | \*\*\* |
+  | MariStatOther | 1.17 | 1.10 | 1.25 | \*\*\* |
+  | VehUsagePrivate+trip to office | 1.22 | 1.14 | 1.30 | \*\*\* |
+  | VehUsageProfessional | 1.47 | 1.37 | 1.58 | \*\*\* |
+  | VehUsageProfessional run | 1.76 | 1.54 | 2.02 | \*\*\* |
+  |  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |  |  |  |  |
 
   Table 3: Count Ratio and confidence intervals for the Count model
 
@@ -493,6 +510,7 @@ assessments and pricing strategies.
 code to create the table
 
 ``` r
+
 # Create a tidy data frame for the zero-inflation model coefficients
 tidy_zero <- summary_reg$coefficients$zero |>
   as.data.frame() |>
@@ -510,23 +528,24 @@ kable(tidy_zero, format = "html", escape = FALSE) |>
                notation = "none")
 ```
 
-|                                                                                   | Estimate | Std. Error | z value | Pr(\>\|z\|) | significance |
-|:----------------------------------------------------------------------------------|---------:|-----------:|--------:|------------:|:-------------|
-| (Intercept)                                                                       |    33.65 |       2.22 |   15.18 |        0.00 | \*\*\*       |
-| GenderMale                                                                        |     0.09 |       0.10 |    0.86 |        0.39 |              |
-| DrivAgefactor25-40                                                                |   -14.79 |       1.02 |  -14.45 |        0.00 | \*\*\*       |
-| DrivAgefactor40-60                                                                |   -16.10 |       1.03 |  -15.66 |        0.00 | \*\*\*       |
-| DrivAgefactor50-70                                                                |   -16.34 |       1.06 |  -15.45 |        0.00 | \*\*\*       |
-| DrivAgefactor70+                                                                  |   -16.49 |       1.08 |  -15.31 |        0.00 | \*\*\*       |
-| BonusMalus                                                                        |    -0.38 |       0.02 |  -15.27 |        0.00 | \*\*\*       |
-| LicAge                                                                            |     0.00 |       0.00 |    2.86 |        0.00 | \*\*         |
-|  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . \< 0.05 |          |            |         |             |              |
+|  | Estimate | Std. Error | z value | Pr(\>\|z\|) | significance |
+|:---|---:|---:|---:|---:|:---|
+| (Intercept) | 33.65 | 2.22 | 15.18 | 0.00 | \*\*\* |
+| GenderMale | 0.09 | 0.10 | 0.86 | 0.39 |  |
+| DrivAgefactor25-40 | -14.79 | 1.02 | -14.45 | 0.00 | \*\*\* |
+| DrivAgefactor40-60 | -16.10 | 1.03 | -15.66 | 0.00 | \*\*\* |
+| DrivAgefactor50-70 | -16.34 | 1.06 | -15.45 | 0.00 | \*\*\* |
+| DrivAgefactor70+ | -16.49 | 1.08 | -15.31 | 0.00 | \*\*\* |
+| BonusMalus | -0.38 | 0.02 | -15.27 | 0.00 | \*\*\* |
+| LicAge | 0.00 | 0.00 | 2.86 | 0.00 | \*\* |
+|  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . \< 0.05 |  |  |  |  |  |
 
 Table 4: Coefficients for the Zero model
 
 Code to create the table
 
 ``` r
+
 estimates <- summary_reg$coefficients$zero[-1, ]
 
 exp_estimates <- exp(estimates[, "Estimate"])
@@ -560,16 +579,16 @@ kable(reg_count_ratio, format = "html", escape = FALSE) |>
                notation = "none")
 ```
 
-|                                                                                   | count_ratio |  CI.2.5 | CI.97.5 | significance |
-|:----------------------------------------------------------------------------------|------------:|--------:|--------:|:-------------|
-| GenderMale                                                                        |        1.09 | 5.4e+12 | 3.2e+16 |              |
-| DrivAgefactor25-40                                                                |        0.00 | 8.9e-01 | 1.3e+00 | \*\*\*       |
-| DrivAgefactor40-60                                                                |        0.00 | 0.0e+00 | 0.0e+00 | \*\*\*       |
-| DrivAgefactor50-70                                                                |        0.00 | 0.0e+00 | 0.0e+00 | \*\*\*       |
-| DrivAgefactor70+                                                                  |        0.00 | 0.0e+00 | 0.0e+00 | \*\*\*       |
-| BonusMalus                                                                        |        0.69 | 0.0e+00 | 0.0e+00 | \*\*\*       |
-| LicAge                                                                            |        1.00 | 6.5e-01 | 7.2e-01 | \*\*         |
-|  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |             |         |         |              |
+|  | count_ratio | CI.2.5 | CI.97.5 | significance |
+|:---|---:|---:|---:|:---|
+| GenderMale | 1.09 | 5.4e+12 | 3.2e+16 |  |
+| DrivAgefactor25-40 | 0.00 | 8.9e-01 | 1.3e+00 | \*\*\* |
+| DrivAgefactor40-60 | 0.00 | 0.0e+00 | 0.0e+00 | \*\*\* |
+| DrivAgefactor50-70 | 0.00 | 0.0e+00 | 0.0e+00 | \*\*\* |
+| DrivAgefactor70+ | 0.00 | 0.0e+00 | 0.0e+00 | \*\*\* |
+| BonusMalus | 0.69 | 0.0e+00 | 0.0e+00 | \*\*\* |
+| LicAge | 1.00 | 6.5e-01 | 7.2e-01 | \*\* |
+|  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |  |  |  |  |
 
 Table 5: Count-Ratio and Confidence intervals for the Zero model
 
@@ -582,6 +601,7 @@ Table 5: Count-Ratio and Confidence intervals for the Zero model
 
 - Code to create the following graph
   ``` r
+
   estimates <- summary_reg$coefficients$count[-1, ] 
 
   count_ratio <- exp(estimates[, "Estimate"])
@@ -650,6 +670,7 @@ make more informed decisions regarding pricing and policy underwriting.
 Code to create the following graph
 
 ``` r
+
 regZIbm <- zeroinfl(ClaimNbResp ~ 1 | bs(BonusMalus), 
                     offset = log(Exposure), 
                     data = freMPL6, 
@@ -662,6 +683,7 @@ regZIbm <- zeroinfl(ClaimNbResp ~ 1 | bs(BonusMalus),
 Code to create the following graph
 
 ``` r
+
 C <- tibble(BonusMalus = 50:200, Exposure = 1)
 
 pred0 <- regZIbm |> 
@@ -674,6 +696,7 @@ pred0 <- regZIbm |>
 Code to create the following graph
 
 ``` r
+
 C |> 
   mutate(Prediction = pred0) |> 
   ggplot(aes(x = BonusMalus, y = Prediction)) +
@@ -704,6 +727,7 @@ insurance premiums.
 Code to create the following graph
 
 ``` r
+
 regZIbm <- zeroinfl(ClaimNbResp ~ 1 | bs(LicAge), 
                     offset = log(Exposure), 
                     data = freMPL6, 
@@ -731,6 +755,7 @@ Figure 4: License Age impact on Claim Non-Declaration
 Code to create the following graph
 
 ``` r
+
 regZIbm <- zeroinfl(ClaimNbResp ~ 1 | bs(DrivAge), 
                     offset = log(Exposure), 
                     data = freMPL6, 
@@ -748,6 +773,7 @@ pred0 <- predict(regZIbm, newdata = B, type = "zero")
 Code to create the following graph
 
 ``` r
+
 B |>
   mutate(Prediction = pred0) |>
   ggplot(aes(x = DrivAge, y = Prediction)) +

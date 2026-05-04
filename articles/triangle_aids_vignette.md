@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -33,6 +34,7 @@ legend_size = 11
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "tidyverse", 
   "tidyr",
@@ -66,14 +68,14 @@ of AIDS.
 The list of the 6 attributes from the `aids` dataset is reported in
 [Table 1](#tbl-dict-aids).
 
-| Column Name | Description                                                                                           | Notes                                                                                                                                                                                                           |
-|-------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| year        | The year in which the diagnosis was made.                                                             |                                                                                                                                                                                                                 |
-| quarter     | The quarter of the year in which the diagnosis was made.                                              | Values range from 1 to 4, representing Q1 to Q4.                                                                                                                                                                |
-| delay       | The time delay (in months) between diagnosis and reporting.                                           | 0 indicates reporting within one month. Longer delays are grouped in 3-month intervals, with the value representing the midpoint of the interval (e.g., 2 means the report was delayed between 1 and 3 months). |
-| dud         | An indicator of censoring, where categories have incomplete information.                              | The recorded number is a lower bound only.                                                                                                                                                                      |
-| time        | The number of quarters from July 1983 until the end of the quarter in which the cases were diagnosed. |                                                                                                                                                                                                                 |
-| y           | The number of AIDS cases reported.                                                                    |                                                                                                                                                                                                                 |
+| Column Name | Description | Notes |
+|----|----|----|
+| year | The year in which the diagnosis was made. |  |
+| quarter | The quarter of the year in which the diagnosis was made. | Values range from 1 to 4, representing Q1 to Q4. |
+| delay | The time delay (in months) between diagnosis and reporting. | 0 indicates reporting within one month. Longer delays are grouped in 3-month intervals, with the value representing the midpoint of the interval (e.g., 2 means the report was delayed between 1 and 3 months). |
+| dud | An indicator of censoring, where categories have incomplete information. | The recorded number is a lower bound only. |
+| time | The number of quarters from July 1983 until the end of the quarter in which the cases were diagnosed. |  |
+| y | The number of AIDS cases reported. |  |
 
 Table 1: Content of the `aids`
 
@@ -82,6 +84,7 @@ Table 1: Content of the `aids`
 Code for importing the dataset and transforming it into a triangle
 
 ``` r
+
 data("aids")
 
 aids_agg <- aids |>
@@ -182,6 +185,7 @@ right-truncated data.
 
 - Show the code
   ``` r
+
   triangle_cum <- incr2cum(triangle_cl)
   print(triangle_cum)
   ```
@@ -223,6 +227,7 @@ right-truncated data.
 
   Code to create the following graph
   ``` r
+
   ChainLadder::plot(as.triangle(triangle_cum[-1, -n_cols]))
   ```
 
@@ -234,6 +239,7 @@ right-truncated data.
 Code to create the following graph
 
 ``` r
+
 plot(as.triangle(triangle_cum[-1, -n_cols]), lattice=TRUE)
 ```
 
@@ -251,24 +257,26 @@ distribution, under three key conditions.
 ### The Mack Chain-Ladder Model
 
 Following the notation established by Mack in 1999 ([Mack
-1999](#ref-Mack1999)), let $C_{ik}$ denote the cumulative loss amounts
-of origin period (e.g., accident year) $i = 1,\ldots,m$, with losses
-known for development period (e.g., development year)
-$k \leq n + 1 - i.$
+1999](#ref-Mack1999)), let $`C_{ik}`$ denote the cumulative loss amounts
+of origin period (e.g., accident year) $`i=1,\ldots,m`$, with losses
+known for development period (e.g., development year) $`k \le n+1-i.`$
 
-To forecast the amounts $C_{ik}$ for $k > n + 1 - i$, the Mack
+To forecast the amounts $`C_{ik}`$ for $`k > n+1-i`$, the Mack
 chain-ladder model makes the following assumptions:
 
-$$\begin{aligned}
-\text{CL1:} & {\quad E\lbrack F_{ik}|C_{i1},C_{i2},\ldots,C_{ik}\rbrack = f_{k}\quad\text{where}\quad F_{ik} = \frac{C_{i,k + 1}}{C_{ik}}} \\
-\text{CL2:} & {\quad Var\left( \frac{C_{i,k + 1}}{C_{ik}}\left| C_{i1},C_{i2},\ldots,C_{ik} \right) \right. = \frac{\sigma_{k}^{2}}{w_{ik}C_{ik}^{\alpha}}} \\
-\text{CL3:} & {\quad\{ C_{i1},\ldots,C_{in}\}{\mspace{6mu}\text{and}\mspace{6mu}}\{ C_{j1},\ldots,C_{jn}\}{\mspace{6mu}\text{are independent for origin periods}\mspace{6mu}}i \neq j}
-\end{aligned}$$
+``` math
+\begin{aligned}
+  \text{CL1:} & \quad E[ F_{ik}| C_{i1},C_{i2},\ldots,C_{ik} ] = f_k
+  \quad \text{where} \quad F_{ik} = \frac{C_{i,k+1}}{C_{ik}} \\
+  \text{CL2:} & \quad Var\left( \frac{C_{i,k+1}}{C_{ik}} \Bigg| C_{i1},C_{i2}, \ldots,C_{ik} \right) = \frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha} \\
+  \text{CL3:} & \quad \{C_{i1},\ldots,C_{in}\} \text{ and } \{C_{j1},\ldots,C_{jn}\} \text{ are independent for origin periods } i \neq j
+\end{aligned}
+```
 
-where $w_{ik} \in \lbrack 0,1\rbrack$ and $\alpha \in \{ 0,1,2\}$ are
-parameters that adjust the variance structure. If these assumptions
-hold, the Mack chain-ladder model provides an unbiased estimator for
-Incurred But Not Reported (IBNR) claims.
+where $`w_{ik} \in [0,1]`$ and $`\alpha \in \{0,1,2\}`$ are parameters
+that adjust the variance structure. If these assumptions hold, the Mack
+chain-ladder model provides an unbiased estimator for Incurred But Not
+Reported (IBNR) claims.
 
 ### Intuition Behind the Method
 
@@ -282,21 +290,21 @@ losses.
 #### Assumptions Explained:
 
 1.  **CL1: Expected Future Ratio**  
-    This assumption posits that the expected future ratio $F_{ik}$ of
+    This assumption posits that the expected future ratio $`F_{ik}`$ of
     cumulative losses between successive development years is constant,
     given the known losses up to the current development year.
     Essentially, this means that the ratio of cumulative losses from one
     development year to the next is assumed to follow a consistent
-    pattern, captured by a factor $f_{k}$.
+    pattern, captured by a factor $`f_k`$.
 
 2.  **CL2: Variance of Future Ratio**  
     Here, the model specifies that the variance of the future ratio of
     cumulative losses is proportional to
-    $\frac{\sigma_{k}^{2}}{w_{ik}C_{ik}^{\alpha}}$. The term
-    $\sigma_{k}^{2}$ represents the variability, $w_{ik}$ is a weight,
-    and $\alpha$ is a parameter that adjusts for different variance
-    levels. This assumption is crucial for quantifying the uncertainty
-    around the forecasts.
+    $`\frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha}`$. The term $`\sigma_k^2`$
+    represents the variability, $`w_{ik}`$ is a weight, and $`\alpha`$
+    is a parameter that adjusts for different variance levels. This
+    assumption is crucial for quantifying the uncertainty around the
+    forecasts.
 
 3.  **CL3: Independence of Origin Periods**  
     This assumption ensures that cumulative loss amounts from different
@@ -309,10 +317,12 @@ losses.
 The Mack Chain-Ladder model can be viewed as a weighted linear
 regression through the origin for each development period:
 
-$$\text{lm}(y \sim x + 0,\text{weights} = w/x^{2 - \alpha}),$$
+``` math
+\text{lm}(y \sim x + 0, \text{weights} = w/x^{2-\alpha}),
+```
 
-where $y$ is the vector of claims at development period $k + 1$ and $x$
-is the vector of claims at development period $k$.
+where $`y`$ is the vector of claims at development period $`k+1`$ and
+$`x`$ is the vector of claims at development period $`k`$.
 
 The Mack method is implemented in the ChainLadder package via the
 function `MackChainLadder`. This implementation enables actuaries to
@@ -328,6 +338,7 @@ As an example we apply the `MackChainLadder` function to our triangle
 `Damage`:
 
 ``` r
+
 mack <- MackChainLadder(triangle_cum, est.sigma="Mack")
 mack # same as summary(mack) 
 ```
@@ -360,6 +371,7 @@ mack # same as summary(mack)
     CV(IBNR):     0.09
 
 ``` r
+
 # Displaying the Mack model's parameters
 mack$f
 ```
@@ -368,6 +380,7 @@ mack$f
      [9] 1.015739 1.011771 1.008844 1.003304 1.007846 1.020599 1.000000
 
 ``` r
+
 # Viewing the full triangle data from the Mack model
 mack$FullTriangle
 ```

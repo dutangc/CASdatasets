@@ -28,6 +28,7 @@ Analysis of Extreme Values*, Leuven University Press.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(ushustormloss4980)

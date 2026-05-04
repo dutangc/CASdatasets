@@ -32,6 +32,7 @@ Actuarial Journal, 10, 485-518.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 

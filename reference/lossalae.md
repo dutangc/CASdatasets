@@ -82,6 +82,7 @@ medical large claims database*, Belgian Actuarial Bulletin, Vol. 3, No.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(lossalae)

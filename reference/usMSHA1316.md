@@ -108,6 +108,7 @@ of the arxiv version.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(usMSHA1316)

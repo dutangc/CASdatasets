@@ -39,6 +39,7 @@ servers
 Alternatively, you can use
 
 ``` r
+
 install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/pub/", type="source")
 #or 
 install.packages("CASdatasets", repos = "https://dutangc.perso.math.cnrs.fr/RRepository/pub/", type="source")
@@ -50,6 +51,7 @@ library(CASdatasets)
 To get the current development version from github, you may use
 
 ``` r
+
 install.packages("devtools")
 devtools::install_github("dutangc/CASdatasets")
 library(CASdatasets)

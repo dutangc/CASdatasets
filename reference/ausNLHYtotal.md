@@ -168,6 +168,7 @@ and is under the Creative Commons - By licence. Please refer to
 ## Examples
 
 ``` r
+
 # (1) private sector data
 #
 data(ausNLHYCapAdeq)

@@ -28,39 +28,39 @@ following tabular gives the list of variables by file. `freMPL1sub` is a
 subset of `freMPL1` with exposure closed to 1: rownames of `freMPL1sub`
 are extracted rownames of `freMPL1`.
 
-|                   |         |         |         |         |         |         |         |         |         |          |
-|-------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|----------|
-|                   | freMPL1 | freMPL2 | freMPL3 | freMPL4 | freMPL5 | freMPL6 | freMPL7 | freMPL8 | freMPL9 | freMPL10 |
-| Exposure          | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| LicAge            | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| RecordBeg         | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| RecordEnd         | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| VehAge            | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 1        |
-| Gender            | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| MariStat          | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| SocioCateg        | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| VehUsage          | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| DrivAge           | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| HasKmLimit        | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| BonusMalus        | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| VehBody           | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| VehPrice          | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| VehEngine         | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| VehEnergy         | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| VehMaxSpeed       | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| VehClass          | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| ClaimAmount       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| RiskVar           | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| Garage            | 1       | 1       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| ClaimInd          | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1        |
-| DeducType         | 0       | 0       | 1       | 1       | 0       | 0       | 0       | 0       | 0       | 0        |
-| ClaimNbResp       | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
-| ClaimNbNonResp    | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
-| ClaimNbParking    | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
-| ClaimNbFireTheft  | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
-| ClaimNbWindscreen | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
-| OutUseNb          | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
-| RiskArea          | 0       | 0       | 0       | 0       | 1       | 1       | 1       | 1       | 1       | 1        |
+|  |  |  |  |  |  |  |  |  |  |  |
+|----|----|----|----|----|----|----|----|----|----|----|
+|  | freMPL1 | freMPL2 | freMPL3 | freMPL4 | freMPL5 | freMPL6 | freMPL7 | freMPL8 | freMPL9 | freMPL10 |
+| Exposure | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| LicAge | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| RecordBeg | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| RecordEnd | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| VehAge | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |
+| Gender | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| MariStat | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| SocioCateg | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| VehUsage | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| DrivAge | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| HasKmLimit | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| BonusMalus | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| VehBody | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| VehPrice | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| VehEngine | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| VehEnergy | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| VehMaxSpeed | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| VehClass | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ClaimAmount | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| RiskVar | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Garage | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ClaimInd | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| DeducType | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| ClaimNbResp | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ClaimNbNonResp | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ClaimNbParking | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ClaimNbFireTheft | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ClaimNbWindscreen | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| OutUseNb | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| RiskArea | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |
 
 The comprehensive list of the variables (over all datasets) is given
 below, yet no dataset contains all these variables.
@@ -218,6 +218,7 @@ For the French career categories, see
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(freMPL1)

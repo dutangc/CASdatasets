@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -54,6 +55,7 @@ options("digits" = 2)
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "tidyverse", 
   "CASdatasets",
@@ -115,6 +117,7 @@ Table 2: Content of the `freMTPLsev` dataset: CLAIMS
 Code for importing our datasets
 
 ``` r
+
 data("freMTPLfreq")
 data("freMTPLsev")
 
@@ -177,26 +180,31 @@ regression approach. The response variable in our model, denoted as
 `ClaimNb`, represents the count of insurance claims and is assumed to
 follow a Poisson distribution:
 
-$$\text{ClaimNb} \sim \text{Poisson}(\lambda),$$
+``` math
+\text{ClaimNb} \sim \text{Poisson}(\lambda),
+```
 
-where $\lambda$ is the mean rate of claims. The Poisson regression model
-relates $\lambda$ to a set of predictor variables through a logarithmic
-link function. This link function ensures that the predicted rate of
-claims is always positive, as required by the Poisson distribution. More
-precisely, we express the natural logarithm of $\lambda$ as a linear
-combination of the predictors:
+where $`\lambda`$ is the mean rate of claims. The Poisson regression
+model relates $`\lambda`$ to a set of predictor variables through a
+logarithmic link function. This link function ensures that the predicted
+rate of claims is always positive, as required by the Poisson
+distribution. More precisely, we express the natural logarithm of
+$`\lambda`$ as a linear combination of the predictors:
 
-$${\log}{(\lambda)} = \beta_{0} + \beta_{1} \times \text{DriverAge} + \beta_{2} \times \text{Density},$$
+``` math
+\log{(\lambda)} = \beta_0 + \beta_1 \times \text{DriverAge} + \beta_2 \times \text{Density},
+```
 
 where `DriverAge` represents the age of the driver, `Density` indicates
 the population density of the city in which the driver resides, and
-$\beta_{0}$, $\beta_{1}$, and $\beta_{2}$ are the regression
+$`\beta_0`$, $`\beta_1`$, and $`\beta_2`$ are the regression
 coefficients that need to be estimated.
 
 The estimated lambda parameter, which represents the mean of claims, is:
 0.05.
 
 ``` r
+
 set.seed(1234) 
 
 theoretic_count <- rpois(nrow(CONTRACTS.f), mean(CONTRACTS.f$ClaimNb))
@@ -229,6 +237,7 @@ distribution are shown in [Figure 1](#fig-plot-hist-claims).
 Code for the following graph
 
 ``` r
+
 ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
   geom_bar(stat = "identity", position = "dodge2", width = 0.3) +
   labs(x = "Claim Number", y = "Frequency", fill = "Legend") +
@@ -250,6 +259,7 @@ Figure 1: Theoretical and empirical histogram of claims in frequence
 ### Model
 
 ``` r
+
 reg <- glm(
   ClaimNb ~ DriverAge + Density,
   family = poisson,
@@ -258,6 +268,7 @@ reg <- glm(
 
 summary(reg)
 ```
+
 
     Call:
     glm(formula = ClaimNb ~ DriverAge + Density, family = poisson,
@@ -286,8 +297,10 @@ summary(reg)
     Number of Fisher Scoring iterations: 6
 
 ``` r
+
 dispersiontest(reg)
 ```
+
 
         Overdispersion test
 
@@ -329,6 +342,7 @@ number of insurance claims.
 
 - Code to create the table
   ``` r
+
   reg_coef <- tidy(reg)
 
   reg_coef$p.value <- format(reg_coef$p.value, scientific = TRUE, digits = 3)
@@ -346,24 +360,25 @@ number of insurance claims.
     add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
   ```
 
-  | term                                                                  | estimate | std.error | statistic | p.value   | significance |
-  |:----------------------------------------------------------------------|---------:|----------:|----------:|:----------|:-------------|
-  | (Intercept)                                                           |    -2.54 |      0.08 |     -30.2 | 7.79e-200 |              |
-  | DriverAge(22,26\]                                                     |    -0.39 |      0.10 |      -3.9 | 1.10e-04  | \*\*\*       |
-  | DriverAge(26,42\]                                                     |    -0.71 |      0.08 |      -8.7 | 2.64e-18  | \*\*\*       |
-  | DriverAge(42,74\]                                                     |    -0.72 |      0.08 |      -8.9 | 7.56e-19  | \*\*\*       |
-  | DriverAge(74,Inf\]                                                    |    -0.69 |      0.09 |      -7.5 | 5.46e-14  | \*\*\*       |
-  | Density(40,200\]                                                      |     0.17 |      0.04 |       4.6 | 4.92e-06  | \*\*\*       |
-  | Density(200,500\]                                                     |     0.30 |      0.04 |       7.0 | 1.91e-12  | \*\*\*       |
-  | Density(500,4.5e+03\]                                                 |     0.49 |      0.04 |      13.2 | 1.74e-39  | \*\*\*       |
-  | Density(4.5e+03,Inf\]                                                 |     0.70 |      0.06 |      12.0 | 4.65e-33  | \*\*\*       |
-  |  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |          |           |           |           |              |
+  | term | estimate | std.error | statistic | p.value | significance |
+  |:---|---:|---:|---:|:---|:---|
+  | (Intercept) | -2.54 | 0.08 | -30.2 | 7.79e-200 |  |
+  | DriverAge(22,26\] | -0.39 | 0.10 | -3.9 | 1.10e-04 | \*\*\* |
+  | DriverAge(26,42\] | -0.71 | 0.08 | -8.7 | 2.64e-18 | \*\*\* |
+  | DriverAge(42,74\] | -0.72 | 0.08 | -8.9 | 7.56e-19 | \*\*\* |
+  | DriverAge(74,Inf\] | -0.69 | 0.09 | -7.5 | 5.46e-14 | \*\*\* |
+  | Density(40,200\] | 0.17 | 0.04 | 4.6 | 4.92e-06 | \*\*\* |
+  | Density(200,500\] | 0.30 | 0.04 | 7.0 | 1.91e-12 | \*\*\* |
+  | Density(500,4.5e+03\] | 0.49 | 0.04 | 13.2 | 1.74e-39 | \*\*\* |
+  | Density(4.5e+03,Inf\] | 0.70 | 0.06 | 12.0 | 4.65e-33 | \*\*\* |
+  |  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |  |  |  |  |  |
 
   Table 3: Coefficients
 
 Code to create the table
 
 ``` r
+
 reg_count_ratio <- tidy(exp(coef(reg)[-1]))
 
 reg_count_ratio <- reg_count_ratio |>
@@ -381,17 +396,17 @@ kable(reg_count_ratio, format = "html", escape = FALSE) |>
   add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
 ```
 
-| names                                                                 |    x | significance |
-|:----------------------------------------------------------------------|-----:|:-------------|
-| DriverAge(22,26\]                                                     | 0.68 | \*\*\*       |
-| DriverAge(26,42\]                                                     | 0.49 | \*\*\*       |
-| DriverAge(42,74\]                                                     | 0.49 | \*\*\*       |
-| DriverAge(74,Inf\]                                                    | 0.50 | \*\*\*       |
-| Density(40,200\]                                                      | 1.19 | \*\*\*       |
-| Density(200,500\]                                                     | 1.35 | \*\*\*       |
-| Density(500,4.5e+03\]                                                 | 1.64 | \*\*\*       |
-| Density(4.5e+03,Inf\]                                                 | 2.01 | \*\*\*       |
-|  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |      |              |
+| names | x | significance |
+|:---|---:|:---|
+| DriverAge(22,26\] | 0.68 | \*\*\* |
+| DriverAge(26,42\] | 0.49 | \*\*\* |
+| DriverAge(42,74\] | 0.49 | \*\*\* |
+| DriverAge(74,Inf\] | 0.50 | \*\*\* |
+| Density(40,200\] | 1.19 | \*\*\* |
+| Density(200,500\] | 1.35 | \*\*\* |
+| Density(500,4.5e+03\] | 1.64 | \*\*\* |
+| Density(4.5e+03,Inf\] | 2.01 | \*\*\* |
+|  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |  |  |
 
 Table 4: Count Ratio
 
@@ -409,6 +424,7 @@ increases within each category.
 Code to create the table
 
 ``` r
+
 reg_conf_int <- as.data.frame(exp(confint(reg))[-1, ])
 ```
 
@@ -417,6 +433,7 @@ reg_conf_int <- as.data.frame(exp(confint(reg))[-1, ])
 Code to create the table
 
 ``` r
+
 colnames(reg_conf_int) <- c("2.5 %", "97.5 %")
 
 reg_conf_int <- reg_conf_int |>
@@ -434,17 +451,17 @@ kable(reg_conf_int, format = "html", escape = FALSE) |>
   add_footnote(c("Significance levels : *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
 ```
 
-|                                                                        | 2.5 % | 97.5 % | significance |
-|:-----------------------------------------------------------------------|------:|-------:|:-------------|
-| DriverAge(22,26\]                                                      |  0.56 |   0.83 | \*\*\*       |
-| DriverAge(26,42\]                                                      |  0.42 |   0.58 | \*\*\*       |
-| DriverAge(42,74\]                                                      |  0.42 |   0.58 | \*\*\*       |
-| DriverAge(74,Inf\]                                                     |  0.42 |   0.60 | \*\*\*       |
-| Density(40,200\]                                                       |  1.10 |   1.28 | \*\*\*       |
-| Density(200,500\]                                                      |  1.24 |   1.46 | \*\*\*       |
-| Density(500,4.5e+03\]                                                  |  1.52 |   1.76 | \*\*\*       |
-| Density(4.5e+03,Inf\]                                                  |  1.79 |   2.25 | \*\*\*       |
-|  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |       |        |              |
+|  | 2.5 % | 97.5 % | significance |
+|:---|---:|---:|:---|
+| DriverAge(22,26\] | 0.56 | 0.83 | \*\*\* |
+| DriverAge(26,42\] | 0.42 | 0.58 | \*\*\* |
+| DriverAge(42,74\] | 0.42 | 0.58 | \*\*\* |
+| DriverAge(74,Inf\] | 0.42 | 0.60 | \*\*\* |
+| Density(40,200\] | 1.10 | 1.28 | \*\*\* |
+| Density(200,500\] | 1.24 | 1.46 | \*\*\* |
+| Density(500,4.5e+03\] | 1.52 | 1.76 | \*\*\* |
+| Density(4.5e+03,Inf\] | 1.79 | 2.25 | \*\*\* |
+|  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |  |  |  |
 
 Table 5: Confidence intervals
 
@@ -457,6 +474,7 @@ Table 5: Confidence intervals
 
 - Code to create the following graph
   ``` r
+
   count_ratio <- exp(coef(reg)[-1])
   conf_int <- exp(confint(reg))[-1, ]
 
@@ -509,6 +527,7 @@ Table 5: Confidence intervals
 Code to create the following graph
 
 ``` r
+
 data_density <- data_density |> 
   mutate(variable = reorder(variable, coefficient, decreasing = TRUE))
 

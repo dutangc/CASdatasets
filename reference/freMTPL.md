@@ -7,18 +7,19 @@ well as the corresponding claim amounts. `freMTPLfreq` contains the risk
 features and the claim number while `freMTPLsev` contains the claim
 amount and the corresponding policy ID. Some claim amounts of
 `freMTPLsev` are fixed claim amounts based on the French IRSA-IDA claim
-convention, see
-e.g.~<https://www.index-assurance.fr/pratique/sinistre/convention-irsa>.
+convention, see, e.g., [`freIRSA`](freIRSA.md) and
+<https://www.index-assurance.fr/pratique/sinistre/convention-irsa>.
 
 In the two datasets `freMTPL2freq`, `freMTPL2sev`, risk features are
 collected for 677,991 motor third-part liability policies (observed
-mostly on one year). In addition, we have claim numbers by policy as
-well as the corresponding claim amounts. `freMTPL2freq` contains the
-risk features and the claim number while `freMTPL2sev` contains the
-claim amount and the corresponding policy ID. Some claim amounts of
-`freMTPL2sev` are fixed claim amounts based on the French IRSA-IDA claim
-convention, see
-e.g.~<https://www.index-assurance.fr/pratique/sinistre/convention-irsa>.
+mostly on one year). The period is approximately 2011-2013. In addition,
+we have claim numbers by policy as well as the corresponding claim
+amounts. `freMTPL2freq` contains the risk features and the claim number
+while `freMTPL2sev` contains the claim amount and the corresponding
+policy ID. Some claim amounts of `freMTPL2sev` are fixed claim amounts
+based on the French IRSA-IDA claim convention, see, e.g.,
+[`freIRSA`](freIRSA.md) and
+<https://www.index-assurance.fr/pratique/sinistre/convention-irsa>.
 
 ## Usage
 
@@ -181,6 +182,7 @@ Economics*, **94**, 79–93,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(freMTPLfreq)

@@ -48,6 +48,7 @@ applied to correlated run-off triangles*, ASTIN Bulletin 34, no. 2,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(usautotri9504)

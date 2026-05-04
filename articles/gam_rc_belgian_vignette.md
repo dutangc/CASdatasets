@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -51,6 +52,7 @@ options("digits" = 2)
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "tidyverse", 
   "CASdatasets",
@@ -78,26 +80,26 @@ For convenience, the `beMTPL` table will be referred to as `CLAIMS`.
 The list of the 22 variables from the `beMTPL` dataset is reported in
 [Table 1](#tbl-dict-beMTPL).
 
-| Attribute                                | Type      | Description                                                                          |
-|------------------------------------------|-----------|--------------------------------------------------------------------------------------|
-| insurance_contract                       | Numeric   | Unique identifier for the contract                                                   |
-| policy_year                              | Numeric   | Year of study or observation for the insured person                                  |
-| insured_year_birth                       | Numeric   | insured’s year of birth                                                              |
-| exposure                                 | Numeric   | Exposure duration in years                                                           |
-| vehicle_age                              | Numeric   | Age of the vehicle in years                                                          |
-| policy_holder_age                        | Numeric   | Seniority of the insured at the insurance agency                                     |
-| driver_license_age                       | Numeric   | Age of the driver’s licence                                                          |
-| vehicle_brand                            | Character | Brand of the vehicle                                                                 |
-| mileage                                  | Numeric   | Mileage of the vehicle                                                               |
-| vehicle_power                            | Numeric   | Power value of the vehicle                                                           |
-| catalog_value                            | Numeric   | Catalog value of the vehicle                                                         |
-| claim_value                              | Numeric   | Value of the claim                                                                   |
-| number_of_liability_claims               | Numeric   | Number of liability claims                                                           |
-| number_of_bodily_injury_liability_claims | Numeric   | Number of bodily injury liability claims                                             |
-| claim_time                               | Numeric   | Time of the accident                                                                 |
-| claim_responsibility_rate                | Numeric   | Rate of responsibility for the claim (100% full responsibility, 0% no responsibility |
-| driving_training_label                   | Bolean    | Bolean indicating driving training                                                   |
-| signal                                   | Bolean    | 1 = warning, 0 = no warning                                                          |
+| Attribute | Type | Description |
+|----|----|----|
+| insurance_contract | Numeric | Unique identifier for the contract |
+| policy_year | Numeric | Year of study or observation for the insured person |
+| insured_year_birth | Numeric | insured’s year of birth |
+| exposure | Numeric | Exposure duration in years |
+| vehicle_age | Numeric | Age of the vehicle in years |
+| policy_holder_age | Numeric | Seniority of the insured at the insurance agency |
+| driver_license_age | Numeric | Age of the driver’s licence |
+| vehicle_brand | Character | Brand of the vehicle |
+| mileage | Numeric | Mileage of the vehicle |
+| vehicle_power | Numeric | Power value of the vehicle |
+| catalog_value | Numeric | Catalog value of the vehicle |
+| claim_value | Numeric | Value of the claim |
+| number_of_liability_claims | Numeric | Number of liability claims |
+| number_of_bodily_injury_liability_claims | Numeric | Number of bodily injury liability claims |
+| claim_time | Numeric | Time of the accident |
+| claim_responsibility_rate | Numeric | Rate of responsibility for the claim (100% full responsibility, 0% no responsibility |
+| driving_training_label | Bolean | Bolean indicating driving training |
+| signal | Bolean | 1 = warning, 0 = no warning |
 
 Table 1: Content of the `beMTPL` dataset: `CLAIMS`
 
@@ -106,6 +108,7 @@ Table 1: Content of the `beMTPL` dataset: `CLAIMS`
 Code for importing our datasets
 
 ``` r
+
 data(beMTPL16)
 
 CLAIMS <- beMTPL16
@@ -144,23 +147,29 @@ Additive Model (GAM) approach for the response variable `ClaimNB`, which
 represents the count of insurance claims and is assumed to follow a
 Quasi-Poisson distribution:
 
-$$\text{ClaimNB} \sim \text{QuasiPoisson}(\lambda),$$
+``` math
+\text{ClaimNB} \sim \text{QuasiPoisson}(\lambda),
+```
 
-where $\lambda$ is the mean rate of claims. The GAM approach allows for
-flexible, nonlinear relationships between $\lambda$ and the predictor
-variables through the use of smooth functions. Specifically, we express
-the natural logarithm of $\lambda$ as a combination of these smooth
-functions and an additional term accounting for exposure:
+where $`\lambda`$ is the mean rate of claims. The GAM approach allows
+for flexible, nonlinear relationships between $`\lambda`$ and the
+predictor variables through the use of smooth functions. Specifically,
+we express the natural logarithm of $`\lambda`$ as a combination of
+these smooth functions and an additional term accounting for exposure:
 
-$${\log}(\lambda_{i}) = \beta_{0} + f_{1}(\text{insured age}_{i}) + f_{2}(\text{vehicle age}_{i}) + {\log}(\text{exposure}),$$
+``` math
+\begin{equation}
+\log(\lambda_i) = \beta_0 + f_1(\text{insured age}_i) + f_2(\text{vehicle age}_i) + \log(\text{exposure}),
+\end{equation}
+```
 
-where $f_{1}(\text{insured age}_{i})$, $f_{2}(\text{vehicle age}_{i})$
-are smooth functions of the predictor variables.
+where $`f_1(\text{insured age}_i)`$, $`f_2(\text{vehicle age}_i)`$ are
+smooth functions of the predictor variables.
 
 In this model, `DriverAge` represents the age of the insured individual,
 `vehicle_age` denotes the age of the vehicle, and
-${\log}(\text{exposure})$ adjusts for the exposure variable. The
-intercept $\beta_{0}$ and the smooth functions $f_{1}$ and $f_{2}$ are
+$`\log(\text{exposure})`$ adjusts for the exposure variable. The
+intercept $`\beta_0`$ and the smooth functions $`f_1`$ and $`f_2`$ are
 estimated through regression to quantify their impact on the expected
 rate of claims. The smooth functions allow the model to capture complex,
 nonlinear relationships between the predictors and the response
@@ -170,6 +179,7 @@ The estimated lambda parameter, which represents the mean of claims, is
 0.37.
 
 ``` r
+
 set.seed(1234) 
 
 theoretic_count <- rpois(nrow(CLAIMS), mean(CLAIMS$ClaimNB))
@@ -202,6 +212,7 @@ distribution are shown in [Figure 1](#fig-plot-hist-claims).
 Code for the following graph
 
 ``` r
+
 ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
   geom_bar(stat = "identity", position = "dodge2", width = 0.3) +
   labs(x = "Claim Number", y = "Frequency", fill = "Legend") +
@@ -221,6 +232,7 @@ ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
 Figure 1: Theoretical and empirical histogram of claims in frequence
 
 ``` r
+
 reg <- gam(
   ClaimNB ~ -1 + s(insured_age) + s(vehicle_age) + offset(log(exposure)),
   family = quasipoisson,
@@ -229,6 +241,7 @@ reg <- gam(
 
 summary(reg)
 ```
+
 
     Family: quasipoisson
     Link function: log
@@ -266,6 +279,7 @@ a higher expected log count of claims.
 
 - Code to create the following graph
   ``` r
+
   constant_offset <- mean(log(CLAIMS$exposure))
 
 
@@ -310,6 +324,7 @@ a higher expected log count of claims.
 
 - Code to create the following graph
   ``` r
+
   plot(reg, select = 1)
   ```
 
@@ -341,6 +356,7 @@ a higher expected log count of claims.
 Code to create the following graph
 
 ``` r
+
 plot(reg, select = 2)
 ```
 

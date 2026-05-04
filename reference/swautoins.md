@@ -70,6 +70,7 @@ pp. 4t3-421,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(swautoins)

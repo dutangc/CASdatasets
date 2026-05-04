@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -52,6 +53,7 @@ options("digits" = 2)
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "tidyverse", 
   "CASdatasets",
@@ -103,6 +105,7 @@ Table 1: Content of the `CLAIMS` dataset: ausprivauto0405
 Code for importing our datasets
 
 ``` r
+
 data(ausprivauto0405)
 
 
@@ -165,39 +168,43 @@ regression approach. The response variable, `ClaimNb`, represents the
 count of insurance claims and is assumed to follow a Quasi-Poisson
 distribution:
 
-$$\text{ClaimNb} \sim \text{QuasiPoisson}(\lambda),$$
+``` math
+\text{ClaimNb} \sim \text{QuasiPoisson}(\lambda),
+```
 
-where $\lambda$ is the mean rate of claims. Unlike the standard Poisson
-regression, the Quasi-Poisson model is particularly useful when the data
-exhibits overdispersion—meaning the variance of `ClaimNb` is greater
-than the mean. This model adjusts for this overdispersion, ensuring that
-the estimates of variance are accurate, leading to more reliable
-inferences.
+where $`\lambda`$ is the mean rate of claims. Unlike the standard
+Poisson regression, the Quasi-Poisson model is particularly useful when
+the data exhibits overdispersion—meaning the variance of `ClaimNb` is
+greater than the mean. This model adjusts for this overdispersion,
+ensuring that the estimates of variance are accurate, leading to more
+reliable inferences.
 
 ### Model Specification
 
-The Quasi-Poisson regression model relates $\lambda$ to a set of
+The Quasi-Poisson regression model relates $`\lambda`$ to a set of
 predictor variables and an additional term accounting for exposure
 through a logarithmic link function. The logarithmic link function
 ensures that the predicted rate of claims is always positive, as
 required by the Quasi-Poisson distribution. More precisely, the natural
-logarithm of $\lambda$ is expressed as a linear combination of the
+logarithm of $`\lambda`$ is expressed as a linear combination of the
 predictors:
 
-$${\log}(\lambda) = \beta_{0} + \beta_{1} \times \text{DrivAge} + \beta_{2} \times \text{VehAge} + {\log}(\text{Exposure}),$$
+``` math
+\log(\lambda) = \beta_0 + \beta_1 \times \text{DrivAge} + \beta_2 \times \text{VehAge} + \log(\text{Exposure}),
+```
 
 ### Explanation of the Model Components
 
-- **$\beta_{0}$**: This is the intercept term, representing the log of
+- **$`\beta_0`$**: This is the intercept term, representing the log of
   the expected number of claims when all predictors are at their
   reference levels.
-- **$\beta_{1}$**: The coefficient for `DrivAge`, representing the
+- **$`\beta_1`$**: The coefficient for `DrivAge`, representing the
   change in the log expected number of claims for each one-unit increase
   in the driver’s age.
-- **$\beta_{2}$**: The coefficient for `VehAge`, indicating the change
+- **$`\beta_2`$**: The coefficient for `VehAge`, indicating the change
   in the log expected number of claims for each one-unit increase in the
   vehicle’s age.
-- **${\log}(\text{Exposure})$**: An offset term to adjust for varying
+- **$`\log(\text{Exposure})`$**: An offset term to adjust for varying
   levels of exposure across observations. This could represent
   differences in policy duration, the amount of coverage, or other
   factors that influence the level of risk exposure.
@@ -207,11 +214,13 @@ $${\log}(\lambda) = \beta_{0} + \beta_{1} \times \text{DrivAge} + \beta_{2} \tim
 In many real-world datasets, especially in insurance claims data, the
 variance often exceeds the mean, leading to overdispersion. The
 Quasi-Poisson model accounts for this by introducing a dispersion
-parameter $\phi$, which scales the variance:
+parameter $`\phi`$, which scales the variance:
 
-$$\text{Var}(Y) = \phi \cdot \lambda,$$
+``` math
+\text{Var}(Y) = \phi \cdot \lambda,
+```
 
-where $\phi > 1$ indicates the presence of overdispersion. This
+where $`\phi > 1`$ indicates the presence of overdispersion. This
 adjustment makes the model more robust and ensures that standard errors
 and confidence intervals are correctly estimated.
 
@@ -236,7 +245,7 @@ adjusting for the extra variability in the data, this model provides
 more reliable and accurate estimates, which are crucial for effective
 risk management and decision-making in the insurance industry.
 
-The coefficients $\beta_{0}$, $\beta_{1}$, and $\beta_{2}$ are estimated
+The coefficients $`\beta_0`$, $`\beta_1`$, and $`\beta_2`$ are estimated
 through regression to quantify their impact on the expected rate of
 claims. This model not only improves the understanding of the factors
 influencing claim frequencies but also enhances the insurer’s ability to
@@ -246,6 +255,7 @@ The estimated lambda parameter, which represents the mean of claims, is:
 0.12.
 
 ``` r
+
 set.seed(1234) 
 
 theoretic_count <- rpois(nrow(CLAIMS), mean(CLAIMS$ClaimNb))
@@ -278,6 +288,7 @@ distribution are shown in [Figure 1](#fig-plot-hist-claims).
 Code for the following graph
 
 ``` r
+
 ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
   geom_bar(stat = "identity", position = "dodge2", width = 0.3) +
   labs(x = "Claim Number", y = "Frequency", fill = "Legend") +
@@ -297,12 +308,14 @@ ggplot(freq_combined, aes(x = Count, y = Frequency, fill = Source)) +
 Figure 1: Theoretical and empirical histogram of claims in frequence
 
 ``` r
+
 freg <- formula(ClaimNb ~ DrivAge + VehAge + offset(log(Exposure)))
   
 reg <- glm(freg, family = quasipoisson, data = CLAIMS)
 
 summary(reg)
 ```
+
 
     Call:
     glm(formula = freg, family = quasipoisson, data = CLAIMS)
@@ -354,6 +367,7 @@ Most of the coefficients in the model are statistically significant.
 
 - Code to create the table
   ``` r
+
   reg_coef <- tidy(reg)
 
 
@@ -371,24 +385,25 @@ Most of the coefficients in the model are statistically significant.
     add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05, . p.value < 0.1"), notation = "none")
   ```
 
-  | term                                                                                    | estimate | std.error | statistic | p.value | significance |
-  |:----------------------------------------------------------------------------------------|---------:|----------:|----------:|--------:|:-------------|
-  | (Intercept)                                                                             |    -1.66 |      0.09 |    -19.09 |    0.00 | \*\*\*       |
-  | DrivAgeyoung people                                                                     |    -0.03 |      0.09 |     -0.36 |    0.72 |              |
-  | DrivAgeworking people                                                                   |    -0.15 |      0.09 |     -1.76 |    0.08 |              |
-  | DrivAgeolder work. people                                                               |    -0.12 |      0.09 |     -1.36 |    0.17 |              |
-  | DrivAgeold people                                                                       |    -0.33 |      0.09 |     -3.50 |    0.00 | \*\*\*       |
-  | DrivAgeoldest people                                                                    |    -0.29 |      0.11 |     -2.73 |    0.01 | \*\*         |
-  | VehAgeyoung cars                                                                        |    -0.07 |      0.07 |     -1.02 |    0.31 |              |
-  | VehAgeold cars                                                                          |    -0.19 |      0.07 |     -2.78 |    0.01 | \*\*         |
-  | VehAgeoldest cars                                                                       |    -0.28 |      0.07 |     -4.03 |    0.00 | \*\*\*       |
-  |  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p.value \< 0.1 |          |           |           |         |              |
+  | term | estimate | std.error | statistic | p.value | significance |
+  |:---|---:|---:|---:|---:|:---|
+  | (Intercept) | -1.66 | 0.09 | -19.09 | 0.00 | \*\*\* |
+  | DrivAgeyoung people | -0.03 | 0.09 | -0.36 | 0.72 |  |
+  | DrivAgeworking people | -0.15 | 0.09 | -1.76 | 0.08 |  |
+  | DrivAgeolder work. people | -0.12 | 0.09 | -1.36 | 0.17 |  |
+  | DrivAgeold people | -0.33 | 0.09 | -3.50 | 0.00 | \*\*\* |
+  | DrivAgeoldest people | -0.29 | 0.11 | -2.73 | 0.01 | \*\* |
+  | VehAgeyoung cars | -0.07 | 0.07 | -1.02 | 0.31 |  |
+  | VehAgeold cars | -0.19 | 0.07 | -2.78 | 0.01 | \*\* |
+  | VehAgeoldest cars | -0.28 | 0.07 | -4.03 | 0.00 | \*\*\* |
+  |  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p.value \< 0.1 |  |  |  |  |  |
 
   Table 2: Coefficients
 
 Code to create the table
 
 ``` r
+
 reg_count_ratio <- tidy(exp(coef(reg)[-1]))
 
 reg_count_ratio <- reg_count_ratio |>
@@ -406,17 +421,17 @@ kable(reg_count_ratio, format = "html", escape = FALSE) |>
   add_footnote(c("Significance levels: *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
 ```
 
-| names                                                                 |    x | significance |
-|:----------------------------------------------------------------------|-----:|:-------------|
-| DrivAgeyoung people                                                   | 0.97 |              |
-| DrivAgeworking people                                                 | 0.86 |              |
-| DrivAgeolder work. people                                             | 0.89 |              |
-| DrivAgeold people                                                     | 0.72 | \*\*\*       |
-| DrivAgeoldest people                                                  | 0.75 | \*\*         |
-| VehAgeyoung cars                                                      | 0.93 |              |
-| VehAgeold cars                                                        | 0.83 | \*\*         |
-| VehAgeoldest cars                                                     | 0.75 | \*\*\*       |
-|  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |      |              |
+| names | x | significance |
+|:---|---:|:---|
+| DrivAgeyoung people | 0.97 |  |
+| DrivAgeworking people | 0.86 |  |
+| DrivAgeolder work. people | 0.89 |  |
+| DrivAgeold people | 0.72 | \*\*\* |
+| DrivAgeoldest people | 0.75 | \*\* |
+| VehAgeyoung cars | 0.93 |  |
+| VehAgeold cars | 0.83 | \*\* |
+| VehAgeoldest cars | 0.75 | \*\*\* |
+|  Significance levels: \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |  |  |
 
 Table 3: Count Ratio
 
@@ -433,6 +448,7 @@ decrease in the count of making a claim as the vehicle age increases.
 Code to create the table
 
 ``` r
+
 reg_conf_int <- as.data.frame(exp(confint(reg))[-1, ])
 ```
 
@@ -441,6 +457,7 @@ reg_conf_int <- as.data.frame(exp(confint(reg))[-1, ])
 Code to create the table
 
 ``` r
+
 colnames(reg_conf_int) <- c("2.5 %", "97.5 %")
 
 reg_conf_int <- reg_conf_int |>
@@ -458,17 +475,17 @@ kable(reg_conf_int, format = "html", escape = FALSE) |>
   add_footnote(c("Significance levels : *** p < 0.001, ** p < 0.01, * p < 0.05"), notation = "none")
 ```
 
-|                                                                        | 2.5 % | 97.5 % | significance |
-|:-----------------------------------------------------------------------|------:|-------:|:-------------|
-| DrivAgeyoung people                                                    |  0.82 |   1.15 |              |
-| DrivAgeworking people                                                  |  0.72 |   1.02 |              |
-| DrivAgeolder work. people                                              |  0.75 |   1.06 |              |
-| DrivAgeold people                                                      |  0.60 |   0.87 | \*\*\*       |
-| DrivAgeoldest people                                                   |  0.61 |   0.92 | \*\*         |
-| VehAgeyoung cars                                                       |  0.82 |   1.07 |              |
-| VehAgeold cars                                                         |  0.73 |   0.95 | \*\*         |
-| VehAgeoldest cars                                                      |  0.66 |   0.87 | \*\*\*       |
-|  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |       |        |              |
+|  | 2.5 % | 97.5 % | significance |
+|:---|---:|---:|:---|
+| DrivAgeyoung people | 0.82 | 1.15 |  |
+| DrivAgeworking people | 0.72 | 1.02 |  |
+| DrivAgeolder work. people | 0.75 | 1.06 |  |
+| DrivAgeold people | 0.60 | 0.87 | \*\*\* |
+| DrivAgeoldest people | 0.61 | 0.92 | \*\* |
+| VehAgeyoung cars | 0.82 | 1.07 |  |
+| VehAgeold cars | 0.73 | 0.95 | \*\* |
+| VehAgeoldest cars | 0.66 | 0.87 | \*\*\* |
+|  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05 |  |  |  |
 
 Table 4: Confidence intervals
 
@@ -481,6 +498,7 @@ Table 4: Confidence intervals
 
 - Code to create the following graph
   ``` r
+
   count_ratio <- exp(coef(reg)[-1])
   conf_int <- exp(confint(reg))[-1, ]
 
@@ -533,6 +551,7 @@ Table 4: Confidence intervals
 Code to create the following graph
 
 ``` r
+
 data_vehage <- data_vehage |> 
   mutate(variable = reorder(variable, coefficient, decreasing = FALSE))
 

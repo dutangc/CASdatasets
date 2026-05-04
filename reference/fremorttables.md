@@ -171,6 +171,7 @@ Migration and Population Data*, R package,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(frePM6064)

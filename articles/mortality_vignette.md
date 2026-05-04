@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -60,6 +61,7 @@ options("digits" = 2)
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "CASdatasets",
   "tidyverse", 
@@ -179,6 +181,7 @@ result, the mortality models discussed in this chapter are all presented
 on a log scale.
 
 ``` r
+
 france.sm <- smooth.demogdata(france, obs.var = "theoretical")
 
 colors <- colorRampPalette(rainbow(length(france.sm$year)))(length(france.sm$year))
@@ -224,18 +227,20 @@ a clear starting point for more advanced actuarial assessments.
 The model structure proposed by Lee and Carter ([1992](#ref-lee1992)) is
 represented by the following equation:
 
-$${\log}(m_{x,t}) = a_{x} + b_{x}k_{t} + \epsilon_{x,t},\quad\text{(1)}$$
+``` math
+\log(m_{x,t}) = a_x + b_x k_t + \epsilon_{x,t}, \quad \text{(1)}
+```
 
 Where:
 
-- $a_{x}$ represents the age-specific pattern of the log mortality rates
+- $`a_x`$ represents the age-specific pattern of the log mortality rates
   averaged across years.
-- $b_{x}$ is the first principal component, capturing the relative
+- $`b_x`$ is the first principal component, capturing the relative
   change in the log mortality rate at each age.
-- $k_{t}$ denotes the first set of principal component scores for year
-  $t$, measuring the overall level of the log mortality rates.
-- $\epsilon_{x,t}$ is the residual at age $x$ and year $t$, accounting
-  for the model’s error term.
+- $`k_t`$ denotes the first set of principal component scores for year
+  $`t`$, measuring the overall level of the log mortality rates.
+- $`\epsilon_{x,t}`$ is the residual at age $`x`$ and year $`t`$,
+  accounting for the model’s error term.
 
 The model assumes homoskedastic errors and is typically estimated using
 singular value decomposition (SVD), a method that efficiently extracts
@@ -247,40 +252,50 @@ The Lee-Carter (LC) model in Equation (1) is over-parameterized, meaning
 that the model’s structure remains invariant under certain
 transformations:
 
-$$\left. \{ a_{x},b_{x},k_{t}\}\rightarrow\{ a_{x},b_{x}/c,ck_{t}\}, \right.$$
+``` math
+\{a_x, b_x, k_t\} \rightarrow \{a_x, b_x/c, c k_t\},
+```
 
-$$\left. \{ a_{x},b_{x},k_{t}\}\rightarrow\{ a_{x} - cb_{x},b_{x},k_{t} + c\}. \right.$$
+``` math
+\{a_x, b_x, k_t\} \rightarrow \{a_x - c b_x, b_x, k_t + c\}.
+```
 
 To address this issue and ensure model identifiability, Lee and Carter
 (1992) imposed the following constraints:
 
-$$\sum\limits_{t = 1}^{n}k_{t} = 0,$$
+``` math
+\sum_{t=1}^{n} k_t = 0,
+```
 
-$$\sum\limits_{x = x_{1}}^{x_{p}}b_{x} = 1.$$
+``` math
+\sum_{x=x_1}^{x_p} b_x = 1.
+```
 
-These constraints normalize the model, ensuring that $k_{t}$ is centered
-and that the age-specific impact $b_{x}$ is appropriately scaled.
+These constraints normalize the model, ensuring that $`k_t`$ is centered
+and that the age-specific impact $`b_x`$ is appropriately scaled.
 
-#### Adjusting and Forecasting $k_{t}$
+#### Adjusting and Forecasting $`k_t`$
 
 In addition to the above constraints, the Lee-Carter method adjusts
-$k_{t}$ by refitting it to the observed total number of deaths. This
+$`k_t`$ by refitting it to the observed total number of deaths. This
 adjustment process gives more weight to ages with higher mortality
 rates, effectively counterbalancing the impact of the logarithmic
 transformation of the mortality rates.
 
-The adjusted $k_{t}$ is then extrapolated using time series models,
+The adjusted $`k_t`$ is then extrapolated using time series models,
 particularly ARIMA models. Lee and Carter ([1992](#ref-lee1992))
 utilized a random walk with drift (RWD) model for this purpose, which is
 expressed as:
 
-$$k_{t} = k_{t - 1} + d + e_{t},$$
+``` math
+k_t = k_{t-1} + d + e_t,
+```
 
 where:
 
-- $d$ represents the drift parameter, measuring the average annual
+- $`d`$ represents the drift parameter, measuring the average annual
   change in the series.
-- $e_{t}$ is an uncorrelated error term.
+- $`e_t`$ is an uncorrelated error term.
 
 The random walk with drift (RWD) model has proven to provide
 satisfactory results in various applications, as noted by subsequent
@@ -289,6 +304,7 @@ Miller ([2001](#ref-lee2001)); Lazar and Denuit
 ([2005](#ref-lazar2005))).
 
 ``` r
+
 lc.male <- lca(france, series="male")
 plot(lc.male)
 ```
@@ -302,7 +318,7 @@ in pension schemes. The three panels in the plot effectively illustrate
 the main effects and interaction terms that the Lee-Carter model
 captures:
 
-1.  **$a_{x}$ - Main Effects (Age-Specific Average Mortality Pattern)**:
+1.  **$`a_x`$ - Main Effects (Age-Specific Average Mortality Pattern)**:
     This panel displays the general mortality pattern across different
     ages. The characteristic “U-shape” is evident, with higher mortality
     rates during infancy, a decline through early adulthood, and a
@@ -310,7 +326,7 @@ captures:
     general mortality trends observed in many populations, providing a
     foundational understanding of age-specific mortality behavior.
 
-2.  **$b_{x}$ - Age-Specific Sensitivity to the Mortality Index**: This
+2.  **$`b_x`$ - Age-Specific Sensitivity to the Mortality Index**: This
     panel highlights the sensitivity of each age group to changes in the
     overall mortality index \$ k_t \$. Younger age groups exhibit higher
     sensitivity, which gradually decreases with age. This implies that
@@ -318,11 +334,11 @@ captures:
     have a more pronounced impact on younger individuals compared to
     older ones.
 
-3.  **$k_{t}$ - Time Index of Mortality**: The bottom panel traces the
+3.  **$`k_t`$ - Time Index of Mortality**: The bottom panel traces the
     changes in mortality over time, capturing the influence of
     historical events and broader trends. The noticeable “humps” in the
     early 20th century correspond to periods of war and other
-    significant disruptions. The long-term decline in $k_{t}$ reflects
+    significant disruptions. The long-term decline in $`k_t`$ reflects
     overall improvements in mortality rates over the years, indicative
     of advancements in healthcare, living conditions, and public health
     interventions.
@@ -330,7 +346,7 @@ captures:
 These components are essential for forecasting future mortality rates, a
 process facilitated by the `forecast()` function from the `forecast`
 package. The output of the Lee-Carter model, particularly the forecasted
-$k_{t}$, enables actuaries to project future mortality rates, which is
+$`k_t`$, enables actuaries to project future mortality rates, which is
 crucial for financial planning and decision-making in life insurance and
 pension schemes.
 
@@ -341,6 +357,7 @@ manner, actuaries ensure that their forecasts are based on robust
 statistical analysis, thereby supporting informed decision-making.
 
 ``` r
+
 # Perform the forecast
 forecast.lc.male <- forecast(lc.male, h = 20)
 ```
@@ -348,6 +365,7 @@ forecast.lc.male <- forecast(lc.male, h = 20)
 Code for plotting the Lee-Carter components
 
 ``` r
+
 # Plot the forecast components
 plot(forecast.lc.male, plot.type = "component", lwd = 2)
 ```
@@ -359,6 +377,7 @@ Figure 2: Forecast Components for Male Mortality
 Code for plotting the Lee-Carter forecast
 
 ``` r
+
 # Plot the historical mortality data with adjusted line width and color
 plot(france, series = "male", ylim = c(-13, 2), lty = 2, lwd = 1, col = "#440154FF",
      main = "",
@@ -472,6 +491,7 @@ particularly in cases where historical events or anomalies have a
 significant impact on mortality trends.
 
 ``` r
+
 # filtering age <= 100 and years >= 1880
 year_filter <- france$year >= 1880
 filtered_years <- france$year[year_filter]
@@ -492,6 +512,7 @@ log_mortality_fds <- fds(x = filtered_ages, y = log_mortality_rates)
 
 - Code for the following functional HDR boxplot
   ``` r
+
   fboxplot(data = log_mortality_fds,
            na.rm = TRUE,
            plot.type = "functional",   # For a functional boxplot
@@ -539,6 +560,7 @@ log_mortality_fds <- fds(x = filtered_ages, y = log_mortality_rates)
 Code for the following functional HDR boxplot
 
 ``` r
+
 fboxplot(data = log_mortality_fds,
          na.rm = TRUE,
          plot.type = "bivariate",   # For a bivariate boxplot
@@ -571,7 +593,7 @@ error provides a measure of the accuracy of the principal component
 approximation for each year (Hyndman and Ullah
 ([2007](#ref-hyndman2007robust))). Outlying years result in a larger
 integrated squared error than the critical value obtained by assuming
-normality of $\epsilon_{t}(x)$ (see Hyndman and Ullah
+normality of $`\epsilon_t(x)`$ (see Hyndman and Ullah
 ([2007](#ref-hyndman2007robust)) for details). By assigning zero weight
 to outliers, the `HUrob` method can then be used to model and forecast
 mortality rates without the possible influence of outliers.
@@ -608,61 +630,68 @@ Lee-Carter (LC) method in four ways:
   typically more complex than the RWD model.
 
 The log mortality rates are smoothed using penalized regression splines.
-To emphasize that age, $x$, is now considered a continuous variable, we
-write $m_{t}(x)$ to represent mortality rates for age
-$x \in \lbrack x_{1},x_{p}\rbrack$ in year $t$. We then define
-$z_{t}(x) = {\log}m_{t}(x)$ and write:
+To emphasize that age, $`x`$, is now considered a continuous variable,
+we write $`m_t(x)`$ to represent mortality rates for age
+$`x \in [x_1, x_p]`$ in year $`t`$. We then define
+$`z_t(x) = \log m_t(x)`$ and write:
 
-$$z_{t}(x_{i}) = f_{t}(x_{i}) + \sigma_{t}(x_{i})\epsilon_{t,i},\quad i = 1,\ldots,p,\quad t = 1,\ldots,n,\ (2)$$
+``` math
+z_t(x_i) = f_t(x_i) + \sigma_t(x_i) \epsilon_{t,i}, \quad i = 1, \dots, p, \quad t = 1, \dots, n,\ (2)
+```
 
-where $f_{t}(x_{i})$ denotes a smooth function of $x$ as before;
-$\sigma_{t}(x_{i})$ allows the amount of noise to vary with $x_{i}$ in
-year $t$, thus rectifying the assumption of homoskedastic error in the
-LC model; and $\epsilon_{t,i}$ is an independent and identically
+where $`f_t(x_i)`$ denotes a smooth function of $`x`$ as before;
+$`\sigma_t(x_i)`$ allows the amount of noise to vary with $`x_i`$ in
+year $`t`$, thus rectifying the assumption of homoskedastic error in the
+LC model; and $`\epsilon_{t,i}`$ is an independent and identically
 distributed standard normal random variable.
 
-Given continuous age $x$, functional principal components analysis
+Given continuous age $`x`$, functional principal components analysis
 (FPCA) is used in the decomposition. The set of age-specific mortality
 curves is decomposed into orthogonal functional principal components and
 their uncorrelated principal component scores. That is:
 
-$$f_{t}(x) = a(x) + \sum\limits_{j = 1}^{J}b_{j}(x)k_{t,j} + e_{t}(x),$$
+``` math
+f_t(x) = a(x) + \sum_{j=1}^{J} b_j(x) k_{t,j} + e_t(x),
+```
 
-where $a(x)$ is the mean function estimated by
-$\widehat{a}(x) = \frac{1}{n}\sum_{t = 1}^{n}f_{t}(x)$;
-$\{ b_{1}(x),\ldots,b_{J}(x)\}$ is a set of the first $J$ functional
-principal components; $\{ k_{t,1},\ldots,k_{t,J}\}$ is a set of
-uncorrelated principal component scores; $e_{t}(x)$ is the residual
-function with mean zero; and $J < n$ is the number of principal
-components used. Note that we use $a(x)$ rather than $a_{x}$ to
-emphasize that $x$ is treated as a continuous variable.
+where $`a(x)`$ is the mean function estimated by
+$`\hat{a}(x) = \frac{1}{n} \sum_{t=1}^{n} f_t(x)`$;
+$`\{b_1(x), \dots, b_J(x)\}`$ is a set of the first $`J`$ functional
+principal components; $`\{k_{t,1}, \dots, k_{t,J}\}`$ is a set of
+uncorrelated principal component scores; $`e_t(x)`$ is the residual
+function with mean zero; and $`J < n`$ is the number of principal
+components used. Note that we use $`a(x)`$ rather than $`a_x`$ to
+emphasize that $`x`$ is treated as a continuous variable.
 
 Multiple principal components are used because the additional components
 capture non-random patterns that are not explained by the first
 principal component (Booth et al. ([2002](#ref-booth2002)); Renshaw and
 Haberman ([2003](#ref-renshaw2003)); Koissi et al.
 ([2006](#ref-koissi2006))). Hyndman and Ullah
-([2007](#ref-hyndman2007robust)) found $J = 6$ to be larger than the
+([2007](#ref-hyndman2007robust)) found $`J = 6`$ to be larger than the
 number of components actually required to produce white noise residuals,
 and this is the default value. The conditions for the existence and
-uniqueness of $k_{t,j}$ are discussed by Cardot, Ferraty & Sarda (2003).
+uniqueness of $`k_{t,j}`$ are discussed by Cardot, Ferraty & Sarda
+(2003).
 
 Although Lee and Carter ([1992](#ref-lee1992)) did not rule out the
-possibility of a more complex time series model for the $k_{t}$ series,
+possibility of a more complex time series model for the $`k_t`$ series,
 in practice, an RWD model has typically been employed in the LC method.
 For higher-order principal components, which are orthogonal by
 definition to the first component, other time series models arise for
 the principal component scores. For all components, the `HUrob` method
 selects the optimal time series model using standard model-selection
 procedures (e.g., AIC). By conditioning on the observed data
-$I = \{ z_{1}(x),\ldots,z_{n}(x)\}$ and the set of functional principal
-components $B = \{ b_{1}(x),\ldots,b_{J}(x)\}$, the $h$-step-ahead
-forecast of $z_{n + h}(x)$ can be obtained by:
+$`I = \{z_1(x), \dots, z_n(x)\}`$ and the set of functional principal
+components $`B = \{b_1(x), \dots, b_J(x)\}`$, the $`h`$-step-ahead
+forecast of $`z_{n+h}(x)`$ can be obtained by:
 
-$${\widehat{z}}_{n + h|n}(x) = E\lbrack z_{n + h}(x)|I,B\rbrack = \widehat{a}(x) + \sum\limits_{j = 1}^{J}b_{j}(x){\widehat{k}}_{n + h|n,j},$$
+``` math
+\hat{z}_{n+h|n}(x) = E[z_{n+h}(x) | I, B] = \hat{a}(x) + \sum_{j=1}^{J} b_j(x) \hat{k}_{n+h|n,j},
+```
 
-where ${\widehat{k}}_{n + h|n,j}$ denotes the $h$-step-ahead forecast of
-$k_{n + h,j}$ using a univariate time series model, such as the optimal
+where $`\hat{k}_{n+h|n,j}`$ denotes the $`h`$-step-ahead forecast of
+$`k_{n+h,j}`$ using a univariate time series model, such as the optimal
 ARIMA model selected by the automatic algorithm of Hyndman et al.
 ([2008](#ref-hyndman2008)), or an exponential smoothing state space
 model (Hyndman et al. ([2008](#ref-hyndman2008))).
@@ -670,14 +699,16 @@ model (Hyndman et al. ([2008](#ref-hyndman2008))).
 Because of the orthogonality of all components, it is easy to derive the
 forecast variance as:
 
-$${\widehat{v}}_{n + h|n}(x) = \text{var}\lbrack z_{n + h}(x)|I,B\rbrack = \sigma_{a}^{2}(x) + \sum\limits_{j = 1}^{J}b_{j}^{2}(x)u_{n + h|n,j} + v(x) + \sigma_{t}^{2}(x),$$
+``` math
+\hat{v}_{n+h|n}(x) = \text{var}[z_{n+h}(x) | I, B] = \sigma^2_a(x) + \sum_{j=1}^{J} b_j^2(x) u_{n+h|n,j} + v(x) + \sigma^2_t(x),
+```
 
-where $\sigma_{a}^{2}(x)$ is the variance of $\widehat{a}(x)$;
-$u_{n + h|n,j}$ is the variance of $k_{n + h,j}|k_{1,j},\ldots,k_{n,j}$
-(obtained from the time series model); $v(x)$ is the variance of
-$e_{t}(x)$; and $\sigma_{t}(x)$ is defined in Equation (2). This
-expression is used to construct prediction intervals for future
-mortality rates in R.
+where $`\sigma^2_a(x)`$ is the variance of $`\hat{a}(x)`$;
+$`u_{n+h|n,j}`$ is the variance of
+$`k_{n+h,j} | k_{1,j}, \dots, k_{n,j}`$ (obtained from the time series
+model); $`v(x)`$ is the variance of $`e_t(x)`$; and $`\sigma_t(x)`$ is
+defined in Equation (2). This expression is used to construct prediction
+intervals for future mortality rates in R.
 
 #### Key Enhancements Over Traditional Methods
 
@@ -722,6 +753,7 @@ predictions with well-defined prediction intervals.
 &nbsp;
 
 - ``` r
+
   # Apply the HUrob method using reflection-based PCA (RAPCA)
   fdm_france <- fdm(france, series="male", method="rapca")
 
@@ -730,6 +762,7 @@ predictions with well-defined prediction intervals.
 
   Code for the following forecast
   ``` r
+
   # Plot the observed and forecasted mortality rates
   plot(france, series="male",
        main = "",
@@ -764,8 +797,10 @@ predictions with well-defined prediction intervals.
   future mortality trends.
 
 ``` r
+
 models(france.fcast)
 ```
+
 
     -- Coefficient 1 --
     Series: xx[, i]
@@ -888,7 +923,9 @@ the mortality data over time.
   functional principal components to reconstruct future mortality rates
   using the formula:
 
-$${\widehat{z}}_{n + h|n}(x) = \widehat{a}(x) + \sum\limits_{j = 1}^{J}b_{j}(x){\widehat{k}}_{n + h|n,j}$$
+``` math
+\hat{z}_{n+h|n}(x) = \hat{a}(x) + \sum_{j=1}^{J} b_j(x) \hat{k}_{n+h|n,j}
+```
 
 - **Final Output**: This process yields the forecasted mortality rates,
   along with their associated variance and prediction intervals.

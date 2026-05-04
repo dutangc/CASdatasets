@@ -37,6 +37,7 @@ U.S. - U.K. Foreign Exchange Rate (DEXUSUK):
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(forexUSUK)

@@ -338,6 +338,7 @@ NHTSA, *Crash Report Sampling System Analytical User's Manual,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(usMVTA)

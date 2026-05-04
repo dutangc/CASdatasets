@@ -36,6 +36,7 @@ F'ed'eration Francaise des Soci'et'e d'Assurance
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(frecomfire)

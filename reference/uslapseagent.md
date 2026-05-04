@@ -102,6 +102,7 @@ in insurance: a competing risk approach*. European Actuarial Journal, 8
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(uslapseagent)

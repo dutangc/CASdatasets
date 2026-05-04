@@ -37,6 +37,7 @@ data(freaggnumber)
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(freaggnumber)

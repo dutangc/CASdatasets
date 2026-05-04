@@ -122,6 +122,7 @@ Banghee So, Jean-Philippe Boucher and Emiliano A. Valdez (2021),
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(catelematic13)

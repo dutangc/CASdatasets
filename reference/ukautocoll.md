@@ -59,6 +59,7 @@ Virginia.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(ukautocoll)

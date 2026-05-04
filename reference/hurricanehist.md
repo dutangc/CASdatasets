@@ -58,6 +58,7 @@ Climatology 29, 1351 - 1361.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(hurricanehist)

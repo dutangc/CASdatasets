@@ -92,6 +92,7 @@ claim severity via the EM algorithm*, North American Actuarial Journal
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(usmassBI)

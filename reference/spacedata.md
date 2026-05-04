@@ -209,6 +209,7 @@ size matter?*, Acta Astronautica, pages 584-595.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(spacedata)

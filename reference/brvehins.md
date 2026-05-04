@@ -154,6 +154,7 @@ data(brvehins2d)
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 
 # (1) load of data

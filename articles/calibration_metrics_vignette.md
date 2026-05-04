@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -47,6 +48,7 @@ options("digits" = 2)
 ### Required Packages
 
 ``` r
+
 # R package required to run Python code in a Quarto document
 
 required_R_libraries <- c(
@@ -106,6 +108,7 @@ Table 1: Content of the `freMPL1sub` dataset
 Code for importing the dataset
 
 ``` r
+
 data("freMPL1sub")
 
 CONTRACTS <- freMPL1sub
@@ -128,10 +131,12 @@ an event matches the observed frequency of that event.
 
 Mathematically, perfect calibration can be described as:
 
-$${\mathbb{P}}(Y = 1|\widehat{p} = p) = p$$
+``` math
+\mathbb{P}(Y = 1 | \hat{p} = p) = p
+```
 
-This equation implies that for a given predicted probability $p$, the
-actual probability of the event $Y = 1$ should also be $p$. In other
+This equation implies that for a given predicted probability $`p`$, the
+actual probability of the event $`Y = 1`$ should also be $`p`$. In other
 words, if a model predicts a 30% probability of an event, that event
 should occur 30% of the time when the predicted probability is 30%.
 
@@ -235,11 +240,13 @@ following steps:
 
 The Random Forest model can be mathematically represented as:
 
-$${\widehat{y}}_{i} = \frac{1}{T}\sum\limits_{t = 1}^{T}f_{t}(x_{i})$$
+``` math
+\hat{y}_i = \frac{1}{T} \sum_{t=1}^{T} f_t(x_i)
+```
 
-where ${\widehat{y}}_{i}$ is the predicted value for the $i^{th}$
-observation, $T$ is the total number of trees, and $f_{t}(x_{i})$
-represents the prediction of the $t^{th}$ tree.
+where $`\hat{y}_i`$ is the predicted value for the $`i^{th}`$
+observation, $`T`$ is the total number of trees, and $`f_t(x_i)`$
+represents the prediction of the $`t^{th}`$ tree.
 
 One of the key advantages of Random Forest is its ability to handle
 large datasets with high dimensionality and missing data. The random
@@ -269,7 +276,7 @@ GLMs consist of three main components, each playing a critical role in
 how the model relates the predictor variables to the response variable:
 
 1.  **Random Component**: This specifies the probability distribution of
-    the response variable. In GLMs, the response variable $y_{i}$ is not
+    the response variable. In GLMs, the response variable $`y_i`$ is not
     assumed to be normally distributed, as it is in linear regression.
     Instead, the response can follow a variety of distributions from the
     exponential family, such as Poisson, binomial, or gamma. The choice
@@ -280,32 +287,36 @@ how the model relates the predictor variables to the response variable:
     which is a linear combination of the explanatory variables
     (predictors). Formally, it is expressed as:
 
-$$\eta_{i} = x_{i}^{T}\beta$$
+``` math
+\eta_i = x_i^T \beta
+```
 
-where $x_{i}$ is a vector of the explanatory variables for observation
-$i$, and $\beta$ is a vector of coefficients. The linear predictor
-$x_{i}^{T}\beta$ is the part of the model that combines the covariates
-to explain the variation in the response variable. This is similar to
-how a linear regression model operates but in the GLM, the connection
-between the linear predictor and the response is mediated by the link
-function.
+where $`x_i`$ is a vector of the explanatory variables for observation
+$`i`$, and $`\beta`$ is a vector of coefficients. The linear predictor
+$`x_i^T \beta`$ is the part of the model that combines the covariates to
+explain the variation in the response variable. This is similar to how a
+linear regression model operates but in the GLM, the connection between
+the linear predictor and the response is mediated by the link function.
 
-3.  **Link Function**: The link function $g(\cdot)$ provides the bridge
-    between the linear predictor and the mean of the response variable,
-    ${\mathbb{E}}(y_{i}|x_{i})$. It transforms the expected value of the
-    response so that it can be modeled as a linear function of the
-    predictors. The choice of link function depends on the distribution
-    of the response. For example, a log link function is commonly used
-    for count data (e.g., Poisson regression), and a logit link function
-    is often used for binary outcomes (e.g., logistic regression).
+3.  **Link Function**: The link function $`g(\cdot)`$ provides the
+    bridge between the linear predictor and the mean of the response
+    variable, $`\mathbb{E}(y_i|x_i)`$. It transforms the expected value
+    of the response so that it can be modeled as a linear function of
+    the predictors. The choice of link function depends on the
+    distribution of the response. For example, a log link function is
+    commonly used for count data (e.g., Poisson regression), and a logit
+    link function is often used for binary outcomes (e.g., logistic
+    regression).
 
 The GLM model can be expressed as:
 
-$$g({\mathbb{E}}(y_{i}|x_{i})) = x_{i}^{T}\beta$$
+``` math
+g(\mathbb{E}(y_i|x_i)) = x_i^T \beta
+```
 
-where $g(\cdot)$ is the link function, $x_{i}^{T}\beta$ is the linear
-predictor, and ${\mathbb{E}}(y_{i}|x_{i})$ is the expected outcome for
-observation $i$.
+where $`g(\cdot)`$ is the link function, $`x_i^T \beta`$ is the linear
+predictor, and $`\mathbb{E}(y_i|x_i)`$ is the expected outcome for
+observation $`i`$.
 
 ### Extended Calibration Error (ECE)
 
@@ -321,13 +332,15 @@ biases in the predicted probabilities.
     absolute differences between predicted probabilities and observed
     frequencies of events. Formally, it is expressed as:
 
-    $$\text{ECE} = \sum\limits_{b = 1}^{B}\frac{n_{b}}{n}\left| \text{P}_{\text{avg},b} - \text{O}_{\text{avg},b} \right|$$
+    ``` math
+    \text{ECE} = \sum_{b=1}^B \frac{n_b}{n} \left| \text{P}_{\text{avg},b} - \text{O}_{\text{avg},b} \right|
+    ```
 
-    where $B$ is the number of bins, $n_{b}$ is the number of
-    observations in bin $b$, $\text{P}_{\text{avg},b}$ is the average
-    predicted probability in bin $b$, $\text{O}_{\text{avg},b}$ is the
-    observed frequency of events in bin $b$, and $n$ is the total number
-    of observations.
+    where $`B`$ is the number of bins, $`n_b`$ is the number of
+    observations in bin $`b`$, $`\text{P}_{\text{avg},b}`$ is the
+    average predicted probability in bin $`b`$,
+    $`\text{O}_{\text{avg},b}`$ is the observed frequency of events in
+    bin $`b`$, and $`n`$ is the total number of observations.
 
 2.  **Interpretation**: ECE ranged provides from 0 to 1, it is a summary
     of how well predicted probabilities match the actual observed
@@ -345,10 +358,12 @@ probabilities of events, such as claim occurrences.
     difference between predicted probabilities and the actual binary
     outcomes. It can be expressed mathematically as:
 
-    $$\text{Brier Score} = \frac{1}{N}\sum\limits_{i = 1}^{N}(f_{i} - o_{i})^{2}$$
+    ``` math
+    \text{Brier Score} = \frac{1}{N} \sum_{i=1}^N (f_i - o_i)^2
+    ```
 
-    where $N$ is the number of observations, $f_{i}$ is the predicted
-    probability of the event for observation $i$, and $o_{i}$ is the
+    where $`N`$ is the number of observations, $`f_i`$ is the predicted
+    probability of the event for observation $`i`$, and $`o_i`$ is the
     actual outcome (1 if the event occurred, 0 otherwise).
 
 2.  **Interpretation**: The Brier score ranges from 0 to 1 it measures
@@ -375,10 +390,12 @@ outputs.
     making it easier to identify trends and deviations from perfect
     calibration (the 45-degree line).
 
-    $$\text{Locfit}({\widehat{p}}_{b}) = \sum\limits_{j = 1}^{B}w_{ij}y_{j}$$
+    ``` math
+    \text{Locfit}(\hat{p}_b) = \sum_{j=1}^B w_{ij} y_j
+    ```
 
-    where $w_{ij}$ are the weights based on the distances of the
-    observations to the target bin, and $y_{j}$ represents the observed
+    where $`w_{ij}`$ are the weights based on the distances of the
+    observations to the target bin, and $`y_j`$ represents the observed
     outcomes.
 
 3.  **Interpretation**: In the Reliability Diagram, points lying on the
@@ -399,6 +416,7 @@ calibration process.
 Splitting Data into Training and Calibration Sets
 
 ``` r
+
 set.seed(23)
 
 trainIndex <- createDataPartition(CONTRACTS.f$y, p = 0.5, 
@@ -416,6 +434,7 @@ dataCalibration$y <- as.numeric(as.character(dataCalibration$y))
 #### Training the RandomForest Model
 
 ``` r
+
 rf_model <- ranger(y ~.,
                    num.trees = 500,   # Number of trees
                    mtry = 2,          # Number of features to try at each split
@@ -428,6 +447,7 @@ rf_model <- ranger(y ~.,
 #### Training the GLM Model
 
 ``` r
+
 glm_model <- glm(y ~., data = dataTrain, family = binomial)
 ```
 
@@ -439,6 +459,7 @@ glm_model <- glm(y ~., data = dataTrain, family = binomial)
 &nbsp;
 
 - ``` r
+
   #
   # Make predictions for both models
   dataCalibration$rf_pred_prob <- predict(rf_model, dataCalibration)$predictions
@@ -455,6 +476,7 @@ glm_model <- glm(y ~., data = dataTrain, family = binomial)
   The brier score for the glm model is 0.08
 
 ``` r
+
 # Function to calculate ECE
 calculate_ece <- function(predictions, actuals, n_bins = 10) {
   # Create bins
@@ -498,6 +520,7 @@ The ECE for the glm model is 0.01
 
 - Code for the reliability diagram function
   ``` r
+
   # Function to create a reliability diagram with locfit smoothing
 
   create_reliability_diagram <- function(data, pred_col, obs_col, n_bins = 10) {
@@ -542,6 +565,7 @@ The ECE for the glm model is 0.01
   ```
 
   ``` r
+
   p <- create_reliability_diagram(dataCalibration, "rf_pred_prob", "y", n_bins = 10)
   print(p)
   ```
@@ -549,6 +573,7 @@ The ECE for the glm model is 0.01
   ![](calibration_metrics_vignette_files/figure-html/reliability-rf-1.png)
 
 ``` r
+
 p <- create_reliability_diagram(dataCalibration, "glm_pred_prob", "y", n_bins = 15)
 
 print(p)

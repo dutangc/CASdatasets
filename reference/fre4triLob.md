@@ -55,6 +55,7 @@ Unknown private insurers
 ## Examples
 
 ``` r
+
 # (1) load of data
 
 #1st Line of Business

@@ -36,6 +36,7 @@ Factors in the Paid-Incurred Chain Reserving Method*, Variance 71, pp.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(swtri1auto)

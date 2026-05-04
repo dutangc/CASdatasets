@@ -188,6 +188,7 @@ masculines et feminines*, Document interne de l'Institut des Actuaires.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(freP2Pdis10)

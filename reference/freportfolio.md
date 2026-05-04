@@ -194,6 +194,7 @@ statistiques Demographiques et Sociales F1008, INSEE.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(freprojqxINSEE)

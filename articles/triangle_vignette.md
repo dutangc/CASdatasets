@@ -5,6 +5,7 @@
 Session Settings
 
 ``` r
+
 # Graphs----
 face_text='plain'
 face_title='plain'
@@ -31,6 +32,7 @@ legend_size = 11
 Show the code
 
 ``` r
+
 required_libraries <- c(
   "tidyverse", 
   "CASdatasets",
@@ -96,10 +98,10 @@ Table 1: Content of the `fretri1auto9605`
 The list of the 2 triangles in each elements is reported in
 [Table 2](#tbl-dict-triangle).
 
-| Triangle | Description                                                                                           |
-|----------|-------------------------------------------------------------------------------------------------------|
-| paid     | Shows the cumulative amount of claims paid up to each development period.                             |
-| incur    | Represents the estimated total amount for claims that have occurred but are not necessarily paid yet. |
+| Triangle | Description |
+|----|----|
+| paid | Shows the cumulative amount of claims paid up to each development period. |
+| incur | Represents the estimated total amount for claims that have occurred but are not necessarily paid yet. |
 
 Table 2: Content in each triangle
 
@@ -108,6 +110,7 @@ Table 2: Content in each triangle
 Code for importing our dataset
 
 ``` r
+
 data(fretri1auto9605)
 
 Damage <- fretri1auto9605$damage$paid|>
@@ -163,6 +166,7 @@ refer to Gesmann ([2014](#ref-gesmann2014claims)).
 
 - Show the code
   ``` r
+
   print(Damage)
   ```
 
@@ -194,6 +198,7 @@ refer to Gesmann ([2014](#ref-gesmann2014claims)).
 Code to create the following graph
 
 ``` r
+
 ChainLadder::plot(Damage/1000)
 ```
 
@@ -205,6 +210,7 @@ per origin period.
 Code to create the following graph
 
 ``` r
+
 plot(Damage/1000, lattice=TRUE)
 ```
 
@@ -222,24 +228,26 @@ distribution, under three key conditions.
 ### The Mack Chain-Ladder Model
 
 Following the notation established by Mack in 1999 ([Mack
-1999](#ref-Mack1999)), let $C_{ik}$ denote the cumulative loss amounts
-of origin period (e.g., accident year) $i = 1,\ldots,m$, with losses
-known for development period (e.g., development year)
-$k \leq n + 1 - i.$
+1999](#ref-Mack1999)), let $`C_{ik}`$ denote the cumulative loss amounts
+of origin period (e.g., accident year) $`i=1,\ldots,m`$, with losses
+known for development period (e.g., development year) $`k \le n+1-i.`$
 
-To forecast the amounts $C_{ik}$ for $k > n + 1 - i$, the Mack
+To forecast the amounts $`C_{ik}`$ for $`k > n+1-i`$, the Mack
 chain-ladder model makes the following assumptions:
 
-$$\begin{aligned}
-\text{CL1:} & {\quad E\lbrack F_{ik}|C_{i1},C_{i2},\ldots,C_{ik}\rbrack = f_{k}\quad\text{where}\quad F_{ik} = \frac{C_{i,k + 1}}{C_{ik}}} \\
-\text{CL2:} & {\quad Var\left( \frac{C_{i,k + 1}}{C_{ik}}\left| C_{i1},C_{i2},\ldots,C_{ik} \right) \right. = \frac{\sigma_{k}^{2}}{w_{ik}C_{ik}^{\alpha}}} \\
-\text{CL3:} & {\quad\{ C_{i1},\ldots,C_{in}\}{\mspace{6mu}\text{and}\mspace{6mu}}\{ C_{j1},\ldots,C_{jn}\}{\mspace{6mu}\text{are independent for origin periods}\mspace{6mu}}i \neq j}
-\end{aligned}$$
+``` math
+\begin{aligned}
+  \text{CL1:} & \quad E[ F_{ik}| C_{i1},C_{i2},\ldots,C_{ik} ] = f_k
+  \quad \text{where} \quad F_{ik} = \frac{C_{i,k+1}}{C_{ik}} \\
+  \text{CL2:} & \quad Var\left( \frac{C_{i,k+1}}{C_{ik}} \Bigg| C_{i1},C_{i2}, \ldots,C_{ik} \right) = \frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha} \\
+  \text{CL3:} & \quad \{C_{i1},\ldots,C_{in}\} \text{ and } \{C_{j1},\ldots,C_{jn}\} \text{ are independent for origin periods } i \neq j
+\end{aligned}
+```
 
-where $w_{ik} \in \lbrack 0,1\rbrack$ and $\alpha \in \{ 0,1,2\}$ are
-parameters that adjust the variance structure. If these assumptions
-hold, the Mack chain-ladder model provides an unbiased estimator for
-Incurred But Not Reported (IBNR) claims.
+where $`w_{ik} \in [0,1]`$ and $`\alpha \in \{0,1,2\}`$ are parameters
+that adjust the variance structure. If these assumptions hold, the Mack
+chain-ladder model provides an unbiased estimator for Incurred But Not
+Reported (IBNR) claims.
 
 ### Intuition Behind the Method
 
@@ -253,21 +261,21 @@ losses.
 #### Assumptions Explained:
 
 1.  **CL1: Expected Future Ratio**  
-    This assumption posits that the expected future ratio $F_{ik}$ of
+    This assumption posits that the expected future ratio $`F_{ik}`$ of
     cumulative losses between successive development years is constant,
     given the known losses up to the current development year.
     Essentially, this means that the ratio of cumulative losses from one
     development year to the next is assumed to follow a consistent
-    pattern, captured by a factor $f_{k}$.
+    pattern, captured by a factor $`f_k`$.
 
 2.  **CL2: Variance of Future Ratio**  
     Here, the model specifies that the variance of the future ratio of
     cumulative losses is proportional to
-    $\frac{\sigma_{k}^{2}}{w_{ik}C_{ik}^{\alpha}}$. The term
-    $\sigma_{k}^{2}$ represents the variability, $w_{ik}$ is a weight,
-    and $\alpha$ is a parameter that adjusts for different variance
-    levels. This assumption is crucial for quantifying the uncertainty
-    around the forecasts.
+    $`\frac{\sigma_k^2}{w_{ik} C_{ik}^\alpha}`$. The term $`\sigma_k^2`$
+    represents the variability, $`w_{ik}`$ is a weight, and $`\alpha`$
+    is a parameter that adjusts for different variance levels. This
+    assumption is crucial for quantifying the uncertainty around the
+    forecasts.
 
 3.  **CL3: Independence of Origin Periods**  
     This assumption ensures that cumulative loss amounts from different
@@ -280,10 +288,12 @@ losses.
 The Mack Chain-Ladder model can be viewed as a weighted linear
 regression through the origin for each development period:
 
-$$\text{lm}(y \sim x + 0,\text{weights} = w/x^{2 - \alpha}),$$
+``` math
+\text{lm}(y \sim x + 0, \text{weights} = w/x^{2-\alpha}),
+```
 
-where $y$ is the vector of claims at development period $k + 1$ and $x$
-is the vector of claims at development period $k$.
+where $`y`$ is the vector of claims at development period $`k+1`$ and
+$`x`$ is the vector of claims at development period $`k`$.
 
 The Mack method is implemented in the ChainLadder package via the
 function `MackChainLadder`. This implementation enables actuaries to
@@ -299,6 +309,7 @@ As an example we apply the `MackChainLadder` function to our triangle
 `Damage`:
 
 ``` r
+
 mack <- MackChainLadder(Damage, est.sigma="Mack")
 mack # same as summary(mack) 
 ```
@@ -326,6 +337,7 @@ mack # same as summary(mack)
     CV(IBNR):         0.13
 
 ``` r
+
 # Displaying the Mack model's parameters
 mack$f
 ```
@@ -334,6 +346,7 @@ mack$f
      [8] 1.0001324 1.0001864 1.0000000
 
 ``` r
+
 # Viewing the full triangle data from the Mack model
 mack$FullTriangle
 ```
@@ -391,13 +404,14 @@ companies.
 
 &nbsp;
 
-- **Pay Attention**
+- > **Pay Attention**
   >
   > To check that Mack’s assumption are valid, review the residual
   > plots, we should see no trends in either of them.
 
   Code to create the following graph
   ``` r
+
   plot(mack)
   ```
 
@@ -413,6 +427,7 @@ standard errors by origin period by setting the argument `lattice=TRUE`.
 Code to create the following graph
 
 ``` r
+
 plot(mack, lattice=TRUE)
 ```
 

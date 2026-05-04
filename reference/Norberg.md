@@ -29,6 +29,7 @@ experience rating*, Scandinavian Actuarial Journal, 181-221,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(Norberg)

@@ -44,6 +44,7 @@ modeling*, Journal of the American Statistical Association 103,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(sgautoprop9701)

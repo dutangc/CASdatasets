@@ -59,6 +59,7 @@ interruption insurance*, Journal of Risk and Insurance, 1, 95-110,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(frebiloss)

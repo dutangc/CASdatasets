@@ -42,6 +42,7 @@ exercising and non-exercising women*, Appetite, 15, 13-21,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(Davis)

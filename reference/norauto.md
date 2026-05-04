@@ -54,6 +54,7 @@ Downloaded from University of Oslo:
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(norauto)

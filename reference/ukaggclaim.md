@@ -54,6 +54,7 @@ Chapman and Hall, London.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(ukaggclaim)
@@ -80,7 +81,7 @@ sapply(1:5, function(i) summary(ukaggclaim[,i]))
 #>    0.00    9.00   35.50   69.86   96.25  434.00 
 #> 
 #> [[5]]
-#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
 #>    11.0   158.5   213.0   231.1   272.0   850.0       5 
 #> 
 ```

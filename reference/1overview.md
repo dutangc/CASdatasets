@@ -123,6 +123,9 @@ by country or region is given.
 
   - [`frecomfire`](frecomfire.md): French commercial fire losses.
 
+  - [`freDemography`](freDemography.md): datasets of the French
+    demography.
+
   - [`freDisTables`](fredistables.md): French disability tables.
 
   - [`freIRSA`](freIRSA.md): French IRSA convention.

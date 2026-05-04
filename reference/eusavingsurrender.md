@@ -104,6 +104,7 @@ Unknown life insurers from European Union.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(eusavingULnoPS)

@@ -286,9 +286,9 @@ Aljohani HM (2024). “Statistical inference for a novel distribution
 using ranked set sampling with applications.” *Heliyon*, **10**(5).
 
 Lim D, Neufeld A, Sabanis S, Zhang Y (2025). “Langevin dynamics based
-algorithm e-TH $ǎrepsilon$ O POULA for stochastic optimization problems
-with discontinuous stochastic gradient.” *Mathematics of Operations
-Research*, **50**(3), 2333–2374.
+algorithm e-TH $`ǎrepsilon`$ O POULA for stochastic optimization
+problems with discontinuous stochastic gradient.” *Mathematics of
+Operations Research*, **50**(3), 2333–2374.
 
 Miljkovic T, Wang P (2025). “A dimension reduction assisted credit
 scoring method for big data with categorical features.” *Financial

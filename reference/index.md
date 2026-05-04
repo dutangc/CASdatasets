@@ -183,6 +183,9 @@ French datasets
   [`freT2Tdisprob13`](fredistables.md)
   [`freT2Pdisprob13`](fredistables.md) : French Disability Tables and
   Probabilities
+- [`freRegion7526`](freDemography.md)
+  [`freRegionOld7526`](freDemography.md) : Some datasets relative to the
+  French demography
 - [`fretelematic`](fretelematic.md) : A French telematic dataset
 - [`fretplclaimnumber`](fretplclaimnumber.md) : TPL claim number dataset
 - [`fretri1auto9605`](fre4triLob.md) [`fretri2auto9605`](fre4triLob.md)

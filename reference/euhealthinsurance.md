@@ -107,6 +107,7 @@ Unknown non-life insurers from European Union.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(euhealthinsurance)

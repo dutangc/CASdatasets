@@ -94,6 +94,7 @@ covariates.* The Journal of Risk and Insurance.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(asiacomrisk)

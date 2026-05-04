@@ -65,6 +65,7 @@ Unknown
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(eutelematic13)

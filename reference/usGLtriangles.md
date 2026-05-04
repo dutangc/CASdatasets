@@ -73,6 +73,7 @@ business*, CAS forum fall.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(usreGL8700)

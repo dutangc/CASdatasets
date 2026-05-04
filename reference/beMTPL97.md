@@ -136,6 +136,7 @@ mortality*, Actuarial Research Clearing House 1995, Vol. 2,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(beMTPL97)

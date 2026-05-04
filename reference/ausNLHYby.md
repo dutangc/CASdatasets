@@ -222,6 +222,7 @@ and is under the Creative Commons - By licence. Please refer to
 ## Examples
 
 ``` r
+
 # (1) by company data
 #
 data(ausNLHYCapAdeqByComp)

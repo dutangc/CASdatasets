@@ -174,6 +174,7 @@ Northern California earthquake archive :
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(eqlist)

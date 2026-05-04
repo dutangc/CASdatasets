@@ -90,6 +90,7 @@ with dependent mortality*, Actuarial Research Clearing House 1995, Vol.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(canlifins)

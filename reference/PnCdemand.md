@@ -148,6 +148,7 @@ applications in the social sciences*. Cambridge University Press,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(PnCdemand)

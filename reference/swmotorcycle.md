@@ -80,6 +80,7 @@ Generalized Linear Models*, Springer,
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(swmotorcycle)

@@ -177,6 +177,7 @@ For a good variable description, see also
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(credit)

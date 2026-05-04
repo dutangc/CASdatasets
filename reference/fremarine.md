@@ -101,6 +101,7 @@ Unknown private insurer
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(fremarine)

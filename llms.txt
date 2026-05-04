@@ -39,6 +39,7 @@ servers
 Alternatively, you can use
 
 ``` r
+
 install.packages("CASdatasets", repos = "http://dutangc.free.fr/pub/RRepos/pub/", type="source")
 #or 
 install.packages("CASdatasets", repos = "https://dutangc.perso.math.cnrs.fr/RRepository/pub/", type="source")
@@ -50,6 +51,7 @@ library(CASdatasets)
 To get the current development version from github, you may use
 
 ``` r
+
 install.packages("devtools")
 devtools::install_github("dutangc/CASdatasets")
 library(CASdatasets)
@@ -265,6 +267,9 @@ French datasets
   [`freT2Tdisprob13`](fredistables.md)
   [`freT2Pdisprob13`](fredistables.md) : French Disability Tables and
   Probabilities
+- [`freRegion7526`](freDemography.md)
+  [`freRegionOld7526`](freDemography.md) : Some datasets relative to the
+  French demography
 - [`fretelematic`](fretelematic.md) : A French telematic dataset
 - [`fretplclaimnumber`](fretplclaimnumber.md) : TPL claim number dataset
 - [`fretri1auto9605`](fre4triLob.md) [`fretri2auto9605`](fre4triLob.md)

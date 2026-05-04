@@ -467,6 +467,7 @@ See <https://actinfo.hypotheses.org/86> for the third pricing game.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(pg15training)

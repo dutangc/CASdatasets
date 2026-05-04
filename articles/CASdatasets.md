@@ -95,8 +95,8 @@ by country or region is given.
 
 - European Union:
 
-  - [`eutelematic13`](https://dutangc.github.io/CASdatasets/reference/eutelematic13.html):
-    telematic insurance dataset.
+      - [`eutelematic13`](https://dutangc.github.io/CASdatasets/reference/eutelematic13.html): telematic insurance dataset.
+
   - [`eudirectlapse`](https://dutangc.github.io/CASdatasets/reference/eudirectlapse.html):
     non-life insurance lapse dataset.
   - [`euhealthinsurance`](https://dutangc.github.io/CASdatasets/reference/euhealthinsurance.html):
@@ -115,6 +115,8 @@ by country or region is given.
     French claim settlements.
   - [`frecomfire`](https://dutangc.github.io/CASdatasets/reference/frecomfire.html):
     French commercial fire losses.
+  - [`freDemography`](https://dutangc.github.io/CASdatasets/reference/freDemography.html):
+    datasets of the French demography.
   - [`freDisTables`](https://dutangc.github.io/CASdatasets/reference/fredistables.html):
     French disability tables.
   - [`freIRSA`](https://dutangc.github.io/CASdatasets/reference/freIRSA.html):

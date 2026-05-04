@@ -27,6 +27,7 @@ The variables for `linearmodelfactor` are
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(linearmodelfactor)

@@ -438,6 +438,7 @@ CoIL Challenge 2000 and further background information.
 ## Examples
 
 ``` r
+
 # (1) load of data
 #
 data(ICB1)
