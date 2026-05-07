@@ -2,7 +2,7 @@
 
 ## Main info 
 
-Current version for development. release for university year 2025/2026.
+Current released version for university year 2025/2026.
 
 - Bug fix in CITATION file
 - Remove duplicated rows in `freMPL*.rda` files (around 9995 rows for each file)
@@ -33,7 +33,7 @@ Updated **datasets**
 
 ## Main info 
 
-Current released version. release for university year 2023/2024.
+Release for university year 2023/2024.
 
 - **Remove dependency** on `sp` package as the package does not contain any geographical datasets. 
 - All **Geographical datasets** have been put in the extra directory `geodata/` of this repository.

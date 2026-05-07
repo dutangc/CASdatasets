@@ -32,7 +32,7 @@ data(ukautocoll)
 
 The original dataset was provided by Baxter et al. (1980),
 then used in McCullagh and Nelder (1989) and Mildenhall (1999)
-It is also available at \url{http://www.statsci.org/data/general/carinsuk.html}.
+
 
 }
 

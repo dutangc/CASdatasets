@@ -134,7 +134,7 @@ The dataset has been taken from the UCI Repository Of Machine Learning Databases
 
 Formerly available at
 
-\url{https://www.en.statistik.uni-muenchen.de/index.html}
+\url{https://www.stat.lmu.de/en/}
 
  
  

@@ -44,7 +44,7 @@ data(usMSHA1316)
 
 \source{
 
-\url{https://www.soa.org/globalassets/assets/files/edu/2018/2018-12-exam-pa-data-file.zip}
+\url{https://www.soa.org/}
 
  }
 
