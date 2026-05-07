@@ -38,8 +38,7 @@ data(ukaggclaim)
 ## Source
 
 The original dataset was provided by Baxter et al. (1980), then used in
-McCullagh and Nelder (1989). It is also available at
-[http://www.statsci.org/data/general/carinsuk.html](http://www.statsci.org/data/general/carinsuk.md).
+McCullagh and Nelder (1989).
 
 ## References
 
@@ -50,6 +49,9 @@ International Congress of Actuaries, Zurich, Society of Actuaries, pages
 
 McCullagh, P., and Nelder, J. A. (1989). *Generalized linear models*.
 Chapman and Hall, London.
+
+Atkinson, A.C. and Riani, M. (2000), *Robust Diagnostic Regression
+Analysis*, First Edition. New York: Springer, Table A.16
 
 ## Examples
 

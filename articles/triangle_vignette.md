@@ -449,7 +449,7 @@ Chain-Ladder Reserve Estimates.” *ASTIN Bulletin* 23 (2): 213–25.
 
 Mack, T. 1999. “The Standard Error of Chain-Ladder Reserve Estimates:
 Recursive Calculation and Inclusion of a Tail-Factor.” *ASTIN Bulletin*
-29: 361–66.
+29: 361–66. <https://doi.org/10.2143/AST.29.2.504622>.
 
 ## See also
 

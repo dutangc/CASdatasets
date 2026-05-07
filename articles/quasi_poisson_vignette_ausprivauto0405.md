@@ -587,7 +587,8 @@ Figure 3: Count ratio and confidence interval of vehicle Age
 
 ## References
 
-Agresti, Alan. 2013. *Categorical Data Analysis, 3rd Edition*.
+Agresti, Alan. 2013. *Categorical Data Analysis*. 3rd Edition. John
+Wiley & Sons. <https://doi.org/10.1002/0471249688>.
 
 Charpentier, Arthur. 2014. *Computational Actuarial Science with R*. The
 R Series. Chapman; Hall/CRC.

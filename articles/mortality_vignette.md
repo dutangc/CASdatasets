@@ -945,45 +945,48 @@ for Demographic Research (Germany), University of California, Berkeley
 
 Booth, Heather, John Maindonald, and Len Smith. 2002. “Applying
 Lee-Carter Under Conditions of Variable Mortality Decline.” *Population
-Studies* 56 (3): 325–36.
+Studies* 56 (3): 325–36. <https://doi.org/10.1080/00324720215935>.
 
 Hubert, Mia, Peter J Rousseeuw, and Sabine Verboven. 2002. “A Fast
 Method for Robust Principal Components with Applications to
 Chemometrics.” *Chemometrics and Intelligent Laboratory Systems* 60
-(1-2): 101–11.
+(1-2): 101–11. <https://doi.org/10.1016/S0169-7439(01)00188-5>.
 
 Hyndman, Rob J, Anne B Koehler, Ralph D Snyder, and Simone Grose. 2008.
 “Forecasting with Exponential Smoothing: The State Space Approach.”
-*Springer Series in Statistics*.
+*Springer Series in Statistics*, ahead of print.
+<https://doi.org/10.1007/978-3-540-71918-2>.
 
 Hyndman, Rob J, and Md Shahid Ullah. 2007. “Robust Forecasting of
 Mortality and Fertility Rates: A Functional Data Approach.”
 *Computational Statistics & Data Analysis* 51 (10): 4942–56.
+<https://doi.org/10.1016/j.csda.2006.07.028>.
 
-Koissi, Marie-Claire, Arnold F Shapiro, and George Högnäs. 2006. “The
-State of the Art in the Lee–Carter Model.” *Insurance: Mathematics and
-Economics* 38 (1): 2–23.
+Koissi, Marie-Claire, Arnold F Shapiro, and George Högnäs. 2006. *The
+State of the Art in the Lee–Carter Model*.
 
 Lazar, Avner, and Michel Denuit. 2005. “Robust Methods for Actuarial
-Applications.” *Insurance: Mathematics and Economics* 36 (1): 1–21.
+Applications.” Unpublished manuscript.
 
-Lee, Ronald D, and Lawrence R Carter. 1992. “Modeling and Forecasting US
-Mortality.” *Journal of the American Statistical Association* 87 (419):
-659–71.
+Lee, Ronald D., and Lawrence R. Carter. 1992. “Modeling and Forecasting
+u.s. Mortality.” *Journal of the American Statistical Association* 87
+(419): 659–71. <https://doi.org/10.1080/01621459.1992.10475265>.
 
 Lee, Ronald D, and Timothy Miller. 2001. “Evaluating the Performance of
 the Lee-Carter Method for Forecasting Mortality.” *Demography* 38 (4):
-537–49.
+537–49. <https://doi.org/10.1353/dem.2001.0036>.
 
 Ramsay, James O, and Bernard W Silverman. 2005. *Functional Data
-Analysis*. Springer.
+Analysis*. Springer. <https://doi.org/10.1007/b98888>.
 
-Renshaw, Arthur E, and Steven Haberman. 2003. “Lee–Carter Mortality
-Forecasting with Age-Specific Enhancement.” *Insurance: Mathematics and
-Economics* 33 (2): 255–72.
+Renshaw, A. E., and S. Haberman. 2003. “Lee–Carter Mortality Forecasting
+with Age-Specific Enhancement.” *Insurance: Mathematics and Economics*
+33 (2): 255–72.
+https://doi.org/<https://doi.org/10.1016/S0167-6687(03)00138-0>.
 
 Tuljapurkar, Shripad, Nan Li, and Carl Boe. 2000. “A Universal Pattern
 of Mortality Decline in the G7 Countries.” *Nature* 405 (6788): 789–92.
+<https://doi.org/10.1038/35015561>.
 
 ## See also
 

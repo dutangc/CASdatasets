@@ -49,7 +49,7 @@ data(norauto)
 Unknown Norwegian insurer.
 
 Downloaded from University of Oslo:
-<https://www.uio.no/studier/emner/matnat/math/STK4520/h05/undervisningsmateriale/>
+<https://www.uio.no/studier/emner/matnat/math/STK4520/index-eng.html>
 
 ## Examples
 

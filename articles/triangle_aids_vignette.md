@@ -458,6 +458,7 @@ chain ladder method.
 Angelis, D. De, and W. R. Gilks. 1994. “Estimating Acquired Immune
 Deficiency Syndrome Accounting for Reporting Delay.” *Journal of the
 Royal Statistical Society, A* 157: 31–40.
+<https://doi.org/10.2307/2983503>.
 
 Gesmann, Markus. 2014. “Claims Reserving and IBNR.” In *Computational
 Actuarial Science with R*. Chapman; Hall/CRC.
@@ -467,7 +468,7 @@ Chain-Ladder Reserve Estimates.” *ASTIN Bulletin* 23 (2): 213–25.
 
 Mack, T. 1999. “The Standard Error of Chain-Ladder Reserve Estimates:
 Recursive Calculation and Inclusion of a Tail-Factor.” *ASTIN Bulletin*
-29: 361–66.
+29: 361–66. <https://doi.org/10.2143/AST.29.2.504622>.
 
 ## See also
 

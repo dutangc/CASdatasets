@@ -151,7 +151,7 @@ Databases at
 
 Formerly available at
 
-<https://www.en.statistik.uni-muenchen.de/index.html>
+<https://www.stat.lmu.de/en/>
 
 ## References
 

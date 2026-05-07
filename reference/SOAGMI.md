@@ -41,7 +41,7 @@ Schaumburg.
 Cebrian, A.C., Denuit, M. and Lambert, P. (2003). *Analysis of bivariate
 tail dependence using extreme value copulas: An application to the SOA
 medical large claims database*, Belgian Actuarial Bulletin, Vol. 3, No.
-1, <https://dial.uclouvain.be/pr/boreal/object/boreal:17222>.
+1, <https://hdl.handle.net/2078.5/72404>.
 
 ## Examples
 

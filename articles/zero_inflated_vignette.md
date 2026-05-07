@@ -282,19 +282,19 @@ summary(reg)
     Count model coefficients (negbin with log link):
                             Estimate Std. Error z value Pr(>|z|)
     (Intercept)              -2.4734     0.2770   -8.93  < 2e-16 ***
-    Young                     0.1483     0.0528    2.81   0.0049 **
+    Young                     0.1483     0.0528    2.81    0.005 **
     Male                     -0.6596     0.1249   -5.28  1.3e-07 ***
-    DistLimit12000 km         0.0944     0.0824    1.15   0.2519
-    DistLimit16000 km         0.1929     0.0908    2.13   0.0335 *
+    DistLimit12000 km         0.0944     0.0824    1.15    0.252
+    DistLimit16000 km         0.1929     0.0908    2.13    0.034 *
     DistLimit20000 km         0.4508     0.0761    5.92  3.2e-09 ***
     DistLimit25000-30000 km   0.5626     0.0732    7.69  1.5e-14 ***
     DistLimitno limit         0.7454     0.0682   10.94  < 2e-16 ***
-    GeoRegionLow+            -0.1212     0.3054   -0.40   0.6915
-    GeoRegionMedium-         -0.0910     0.2429   -0.37   0.7080
-    GeoRegionMedium+          0.0708     0.2286    0.31   0.7569
-    GeoRegionHigh-           -0.0283     0.2397   -0.12   0.9061
-    GeoRegionHigh+            0.2103     0.2363    0.89   0.3736
-    Log(theta)               10.2957    44.7408    0.23   0.8180
+    GeoRegionLow+            -0.1212     0.3054   -0.40    0.691
+    GeoRegionMedium-         -0.0910     0.2429   -0.37    0.708
+    GeoRegionMedium+          0.0708     0.2286    0.31    0.757
+    GeoRegionHigh-           -0.0283     0.2397   -0.12    0.906
+    GeoRegionHigh+            0.2103     0.2363    0.89    0.374
+    Log(theta)               10.2957    88.5665    0.12    0.907
 
     Zero-inflation model coefficients (binomial with logit link):
                             Estimate Std. Error z value Pr(>|z|)
@@ -302,19 +302,19 @@ summary(reg)
     Young                      1.685      0.903    1.87   0.0620 .
     Male                      -2.187      0.750   -2.92   0.0035 **
     DistLimit12000 km         -1.260      1.746   -0.72   0.4705
-    DistLimit16000 km        -17.754   2533.434   -0.01   0.9944
+    DistLimit16000 km        -17.754   2533.350   -0.01   0.9944
     DistLimit20000 km         -0.031      0.881   -0.04   0.9719
     DistLimit25000-30000 km   -0.738      0.920   -0.80   0.4224
     DistLimitno limit         -0.706      0.774   -0.91   0.3617
-    GeoRegionLow+              0.315      1.742    0.18   0.8564
-    GeoRegionMedium-         -12.684    175.815   -0.07   0.9425
+    GeoRegionLow+              0.315      1.742    0.18   0.8565
+    GeoRegionMedium-         -12.684    175.812   -0.07   0.9425
     GeoRegionMedium+          -0.521      1.314   -0.40   0.6919
     GeoRegionHigh-            -3.876      3.356   -1.15   0.2481
     GeoRegionHigh+            -2.660      1.738   -1.53   0.1259
     ---
     Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-    Theta = 29604.426
+    Theta = 29603.975
     Number of iterations in BFGS optimization: 111
     Log-likelihood: -1.83e+04 on 27 Df
 
@@ -398,7 +398,7 @@ strongly influence the probability of zero claims.
   | GeoRegionMedium+ | 0.07 | 0.23 | 0.31 | 0.76 |  |
   | GeoRegionHigh- | -0.03 | 0.24 | -0.12 | 0.91 |  |
   | GeoRegionHigh+ | 0.21 | 0.24 | 0.89 | 0.37 |  |
-  | Log(theta) | 10.30 | 44.74 | 0.23 | 0.82 |  |
+  | Log(theta) | 10.30 | 88.57 | 0.12 | 0.91 |  |
   |  Significance levels : \*\*\* p \< 0.001, \*\* p \< 0.01, \* p \< 0.05, . p \< 0.1 |  |  |  |  |  |
 
   Table 2: Coefficients for the Count model
@@ -496,12 +496,12 @@ kable(tidy_zero, format = "html", escape = FALSE) |>
 | Young | 1.68 | 0.90 | 1.87 | 0.06 |  |
 | Male | -2.19 | 0.75 | -2.92 | 0.00 | \*\* |
 | DistLimit12000 km | -1.26 | 1.75 | -0.72 | 0.47 |  |
-| DistLimit16000 km | -17.75 | 2533.43 | -0.01 | 0.99 |  |
+| DistLimit16000 km | -17.75 | 2533.35 | -0.01 | 0.99 |  |
 | DistLimit20000 km | -0.03 | 0.88 | -0.04 | 0.97 |  |
 | DistLimit25000-30000 km | -0.74 | 0.92 | -0.80 | 0.42 |  |
 | DistLimitno limit | -0.71 | 0.77 | -0.91 | 0.36 |  |
 | GeoRegionLow+ | 0.32 | 1.74 | 0.18 | 0.86 |  |
-| GeoRegionMedium- | -12.68 | 175.82 | -0.07 | 0.94 |  |
+| GeoRegionMedium- | -12.68 | 175.81 | -0.07 | 0.94 |  |
 | GeoRegionMedium+ | -0.52 | 1.31 | -0.40 | 0.69 |  |
 | GeoRegionHigh- | -3.88 | 3.36 | -1.15 | 0.25 |  |
 | GeoRegionHigh+ | -2.66 | 1.74 | -1.53 | 0.13 |  |
@@ -673,7 +673,8 @@ Figure 3: Odds ratio and confidence interval of the zero model
 
 ## References
 
-Agresti, Alan. 2013. *Categorical Data Analysis, 3rd Edition*.
+Agresti, Alan. 2013. *Categorical Data Analysis*. 3rd Edition. John
+Wiley & Sons. <https://doi.org/10.1002/0471249688>.
 
 Charpentier, Arthur. 2014. *Computational Actuarial Science with R*. The
 R Series. Chapman; Hall/CRC.

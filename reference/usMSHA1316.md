@@ -95,7 +95,7 @@ data(usMSHA1316)
 
 ## Source
 
-<https://www.soa.org/globalassets/assets/files/edu/2018/2018-12-exam-pa-data-file.zip>
+<https://www.soa.org/>
 
 ## References
 

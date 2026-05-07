@@ -17,7 +17,7 @@ pp. 203203–203223. DOI:
 
 \[3\] M. V. Wüthrich and M. Merz. *Statistical foundations of actuarial
 learning and its applications*. Springer Nature, 2023. DOI:
-[10.1007/978-3-031-12409-9.pdf](https://doi.org/10.1007/978-3-031-12409-9.pdf).
+[10.1007/978-3-031-12409-9.pdf](https://doi.org/10.1007/978-3-031-12409-9).
 
 ## Claim severity modeling
 
