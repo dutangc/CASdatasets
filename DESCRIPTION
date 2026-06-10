@@ -8,7 +8,7 @@ Authors@R: c(person("Christophe", "Dutang", role = c("aut", "cre"), email = "dut
              person("Julien", "Siharath", role = c("ctb")))
 Description: A collection of insurance datasets, originally 
   for the book 'Computational Actuarial Science with R' 
-  <https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788> 
+  <doi:10.1201/b17230> 
   edited by Arthur Charpentier. Now, the package contains a 
   large variety of insurance datasets. Vignettes provide 
   typical use-cases in actuarial science.
