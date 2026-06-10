@@ -38,4 +38,5 @@ press.
       publisher = {CRC press},
       url = {https://www.routledge.com/Computational-Actuarial-Science-with-R/Charpentier/p/book/9781138033788},
       year = {2014},
+      doi = {10.1201/b17230},
     }
